@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:network_calling/injectable/injectable_configuration.dart';
 import 'package:network_calling/l10n/l10n.dart';
+import 'package:network_calling/presentation/public_api/cubits/public_api/cubit.dart';
 import 'package:network_calling/presentation/public_api/public_api_screen.dart';
 
 class App extends StatelessWidget {
@@ -16,7 +19,11 @@ class App extends StatelessWidget {
       ),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      home: const PublicApiListScreen(),
+      home: BlocProvider(
+        create: (context) =>
+            PublicApiCubit(getApiUseCase: getIt()..getAllApi()),
+        child: const PublicApiListScreen(),
+      ),
     );
   }
 }

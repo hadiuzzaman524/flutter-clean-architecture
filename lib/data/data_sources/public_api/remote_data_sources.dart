@@ -1,5 +1,7 @@
+import 'package:injectable/injectable.dart';
 import 'package:network_calling/domain/entities/public_api/public_api_entity.dart';
 
+@singleton
 class PublicApiRemoteDataSource {
   Future<PublicApiEntity> getAllApi() async {
     const result = '''
