@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:network_calling/counter/counter.dart';
 import 'package:network_calling/l10n/l10n.dart';
+import 'package:network_calling/presentation/public_api/public_api_screen.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -16,7 +16,7 @@ class App extends StatelessWidget {
       ),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      home: const CounterPage(),
+      home: const PublicApiListScreen(),
     );
   }
 }
