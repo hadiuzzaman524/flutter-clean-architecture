@@ -4,3 +4,4 @@ import 'package:network_calling/bootstrap.dart';
 void main() {
   bootstrap(() => const App());
 }
+//https://api.publicapis.org/entries
