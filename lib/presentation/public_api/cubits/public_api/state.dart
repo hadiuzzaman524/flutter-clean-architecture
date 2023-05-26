@@ -9,8 +9,8 @@ class ApiFetchLoading extends PublicApiState {
 }
 
 class ApiFetchLoaded extends PublicApiState {
-  ApiFetchLoaded({required this.publicApiEntity});
-  final PublicApiEntity publicApiEntity;
+  ApiFetchLoaded({required this.entry});
+  final List<Entry> entry;
 }
 
 class ApiFetchError extends PublicApiState {
