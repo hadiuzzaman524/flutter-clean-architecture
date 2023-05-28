@@ -20,8 +20,7 @@ class App extends StatelessWidget {
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       home: BlocProvider(
-        create: (context) =>
-            PublicApiCubit(getApiUseCase: getIt()..getAllApi()),
+        create: (context) => PublicApiCubit(getApiUseCase: getIt()),
         child: const PublicApiListScreen(),
       ),
     );

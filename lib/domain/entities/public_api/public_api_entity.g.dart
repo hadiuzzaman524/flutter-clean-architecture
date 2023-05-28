@@ -21,13 +21,13 @@ Map<String, dynamic> _$$_PublicApiEntityToJson(_$_PublicApiEntity instance) =>
     };
 
 _$_Entry _$$_EntryFromJson(Map<String, dynamic> json) => _$_Entry(
-      api: json['api'] as String,
-      description: json['description'] as String,
-      auth: json['auth'] as String,
-      https: json['https'] as bool,
-      cors: json['cors'] as String,
-      link: json['link'] as String,
-      category: json['category'] as String,
+      api: json['api'] as String?,
+      description: json['description'] as String?,
+      auth: json['auth'] as String?,
+      https: json['https'] as bool?,
+      cors: json['cors'] as String?,
+      link: json['link'] as String?,
+      category: json['category'] as String?,
     );
 
 Map<String, dynamic> _$$_EntryToJson(_$_Entry instance) => <String, dynamic>{

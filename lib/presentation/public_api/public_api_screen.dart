@@ -8,6 +8,7 @@ class PublicApiListScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    context.read<PublicApiCubit>().getAllApi();
     return Scaffold(
       appBar: AppBar(
         title: const Text('All APIs'),
@@ -28,8 +29,8 @@ class PublicApiListScreen extends StatelessWidget {
           if (state is ApiFetchLoaded) {
             return ListView.builder(
               itemBuilder: (ctx, index) => ListTile(
-                title: Text(state.entry[index].api),
-                subtitle: Text(state.entry[index].description),
+                title: Text(state.entry[index].api ?? "Test"),
+                subtitle: Text(state.entry[index].description ?? "test"),
               ),
               itemCount: state.entry.length,
             );

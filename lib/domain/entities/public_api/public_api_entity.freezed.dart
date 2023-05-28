@@ -182,13 +182,13 @@ Entry _$EntryFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Entry {
-  String get api => throw _privateConstructorUsedError;
-  String get description => throw _privateConstructorUsedError;
-  String get auth => throw _privateConstructorUsedError;
-  bool get https => throw _privateConstructorUsedError;
-  String get cors => throw _privateConstructorUsedError;
-  String get link => throw _privateConstructorUsedError;
-  String get category => throw _privateConstructorUsedError;
+  String? get api => throw _privateConstructorUsedError;
+  String? get description => throw _privateConstructorUsedError;
+  String? get auth => throw _privateConstructorUsedError;
+  bool? get https => throw _privateConstructorUsedError;
+  String? get cors => throw _privateConstructorUsedError;
+  String? get link => throw _privateConstructorUsedError;
+  String? get category => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -201,13 +201,13 @@ abstract class $EntryCopyWith<$Res> {
       _$EntryCopyWithImpl<$Res, Entry>;
   @useResult
   $Res call(
-      {String api,
-      String description,
-      String auth,
-      bool https,
-      String cors,
-      String link,
-      String category});
+      {String? api,
+      String? description,
+      String? auth,
+      bool? https,
+      String? cors,
+      String? link,
+      String? category});
 }
 
 /// @nodoc
@@ -223,43 +223,43 @@ class _$EntryCopyWithImpl<$Res, $Val extends Entry>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? api = null,
-    Object? description = null,
-    Object? auth = null,
-    Object? https = null,
-    Object? cors = null,
-    Object? link = null,
-    Object? category = null,
+    Object? api = freezed,
+    Object? description = freezed,
+    Object? auth = freezed,
+    Object? https = freezed,
+    Object? cors = freezed,
+    Object? link = freezed,
+    Object? category = freezed,
   }) {
     return _then(_value.copyWith(
-      api: null == api
+      api: freezed == api
           ? _value.api
           : api // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: null == description
+              as String?,
+      description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String,
-      auth: null == auth
+              as String?,
+      auth: freezed == auth
           ? _value.auth
           : auth // ignore: cast_nullable_to_non_nullable
-              as String,
-      https: null == https
+              as String?,
+      https: freezed == https
           ? _value.https
           : https // ignore: cast_nullable_to_non_nullable
-              as bool,
-      cors: null == cors
+              as bool?,
+      cors: freezed == cors
           ? _value.cors
           : cors // ignore: cast_nullable_to_non_nullable
-              as String,
-      link: null == link
+              as String?,
+      link: freezed == link
           ? _value.link
           : link // ignore: cast_nullable_to_non_nullable
-              as String,
-      category: null == category
+              as String?,
+      category: freezed == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 }
@@ -271,13 +271,13 @@ abstract class _$$_EntryCopyWith<$Res> implements $EntryCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String api,
-      String description,
-      String auth,
-      bool https,
-      String cors,
-      String link,
-      String category});
+      {String? api,
+      String? description,
+      String? auth,
+      bool? https,
+      String? cors,
+      String? link,
+      String? category});
 }
 
 /// @nodoc
@@ -289,43 +289,43 @@ class __$$_EntryCopyWithImpl<$Res> extends _$EntryCopyWithImpl<$Res, _$_Entry>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? api = null,
-    Object? description = null,
-    Object? auth = null,
-    Object? https = null,
-    Object? cors = null,
-    Object? link = null,
-    Object? category = null,
+    Object? api = freezed,
+    Object? description = freezed,
+    Object? auth = freezed,
+    Object? https = freezed,
+    Object? cors = freezed,
+    Object? link = freezed,
+    Object? category = freezed,
   }) {
     return _then(_$_Entry(
-      api: null == api
+      api: freezed == api
           ? _value.api
           : api // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: null == description
+              as String?,
+      description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String,
-      auth: null == auth
+              as String?,
+      auth: freezed == auth
           ? _value.auth
           : auth // ignore: cast_nullable_to_non_nullable
-              as String,
-      https: null == https
+              as String?,
+      https: freezed == https
           ? _value.https
           : https // ignore: cast_nullable_to_non_nullable
-              as bool,
-      cors: null == cors
+              as bool?,
+      cors: freezed == cors
           ? _value.cors
           : cors // ignore: cast_nullable_to_non_nullable
-              as String,
-      link: null == link
+              as String?,
+      link: freezed == link
           ? _value.link
           : link // ignore: cast_nullable_to_non_nullable
-              as String,
-      category: null == category
+              as String?,
+      category: freezed == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -346,19 +346,19 @@ class _$_Entry implements _Entry {
       _$$_EntryFromJson(json);
 
   @override
-  final String api;
+  final String? api;
   @override
-  final String description;
+  final String? description;
   @override
-  final String auth;
+  final String? auth;
   @override
-  final bool https;
+  final bool? https;
   @override
-  final String cors;
+  final String? cors;
   @override
-  final String link;
+  final String? link;
   @override
-  final String category;
+  final String? category;
 
   @override
   String toString() {
@@ -402,30 +402,30 @@ class _$_Entry implements _Entry {
 
 abstract class _Entry implements Entry {
   const factory _Entry(
-      {required final String api,
-      required final String description,
-      required final String auth,
-      required final bool https,
-      required final String cors,
-      required final String link,
-      required final String category}) = _$_Entry;
+      {required final String? api,
+      required final String? description,
+      required final String? auth,
+      required final bool? https,
+      required final String? cors,
+      required final String? link,
+      required final String? category}) = _$_Entry;
 
   factory _Entry.fromJson(Map<String, dynamic> json) = _$_Entry.fromJson;
 
   @override
-  String get api;
+  String? get api;
   @override
-  String get description;
+  String? get description;
   @override
-  String get auth;
+  String? get auth;
   @override
-  bool get https;
+  bool? get https;
   @override
-  String get cors;
+  String? get cors;
   @override
-  String get link;
+  String? get link;
   @override
-  String get category;
+  String? get category;
   @override
   @JsonKey(ignore: true)
   _$$_EntryCopyWith<_$_Entry> get copyWith =>

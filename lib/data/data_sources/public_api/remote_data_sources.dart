@@ -1,10 +1,11 @@
+import 'package:http/http.dart' as http;
 import 'package:injectable/injectable.dart';
 import 'package:network_calling/domain/entities/public_api/public_api_entity.dart';
 
 @singleton
 class PublicApiRemoteDataSource {
   Future<PublicApiEntity> getAllApi() async {
-    const result = '''
+/*    const result = '''
     {
   "count": 4,
   "entries": [
@@ -46,10 +47,15 @@ class PublicApiRemoteDataSource {
     }
   ]
 }
-    ''';
+    ''';*/
     // ignore: inference_failure_on_instance_creation
-    await Future.delayed(const Duration(seconds: 3));
-    final publicApiEntity = publicApiEntityFromJson(result);
+    final http.Response result =
+        await http.get(Uri.parse("https://api.publicapis.org/entries"));
+    //   debugPrint(result.body);
+    print(result.statusCode);
+
+    final publicApiEntity = publicApiEntityFromJson(result.body);
+
     return publicApiEntity;
   }
 }
