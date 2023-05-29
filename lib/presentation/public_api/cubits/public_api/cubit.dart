@@ -16,7 +16,7 @@ class PublicApiCubit extends Cubit<PublicApiState> {
     try {
       final result = await getApiUseCase.getAllApi();
       final entity = result.entries;
-      emit(ApiFetchLoaded(entry: entity));
+      emit(ApiFetchLoaded(entry: entity!));
       debugPrint('Api fetch loaded');
     } catch (e) {
       debugPrint('Api fetch error');

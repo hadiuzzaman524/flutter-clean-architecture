@@ -1,44 +1,66 @@
-// To parse this JSON data, do
-//
-//     final publicApiEntity = publicApiEntityFromJson(jsonString);
+class PublicApiEntity {
+  int? count;
+  List<Entries>? entries;
 
-import 'dart:convert';
+  PublicApiEntity({this.count, this.entries});
 
-import 'package:freezed_annotation/freezed_annotation.dart';
+  PublicApiEntity.fromJson(Map<String, dynamic> json) {
+    count = json['count'] as int;
+    if (json['entries'] != null) {
+      entries = <Entries>[];
+      json['entries'].forEach((v) {
+        entries!.add(new Entries.fromJson(v as Map<String, dynamic>));
+      });
+    }
+  }
 
-part 'public_api_entity.freezed.dart';
-part 'public_api_entity.g.dart';
-
-PublicApiEntity publicApiEntityFromJson(String str) {
-  // print(json.decode(str) as Map<String, dynamic>);
-  return PublicApiEntity.fromJson(json.decode(str) as Map<String, dynamic>);
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['count'] = this.count;
+    if (this.entries != null) {
+      data['entries'] = this.entries!.map((v) => v.toJson()).toList();
+    }
+    return data;
+  }
 }
 
-String publicApiEntityToJson(PublicApiEntity data) =>
-    json.encode(data.toJson());
+class Entries {
+  String? aPI;
+  String? description;
+  String? auth;
+  bool? hTTPS;
+  String? cors;
+  String? link;
+  String? category;
 
-@freezed
-class PublicApiEntity with _$PublicApiEntity {
-  const factory PublicApiEntity({
-    required int count,
-    required List<Entry> entries,
-  }) = _PublicApiEntity;
+  Entries(
+      {this.aPI,
+      this.description,
+      this.auth,
+      this.hTTPS,
+      this.cors,
+      this.link,
+      this.category});
 
-  factory PublicApiEntity.fromJson(Map<String, dynamic> json) =>
-      _$PublicApiEntityFromJson(json);
-}
+  Entries.fromJson(Map<String, dynamic> json) {
+    aPI = json['API'] as String;
+    description = json['Description'] as String;
+    auth = json['Auth'] as String;
+    hTTPS = json['HTTPS'] as bool;
+    cors = json['Cors'] as String;
+    link = json['Link'] as String;
+    category = json['Category'] as String;
+  }
 
-@freezed
-class Entry with _$Entry {
-  const factory Entry({
-    required String? api,
-    required String? description,
-    required String? auth,
-    required bool? https,
-    required String? cors,
-    required String? link,
-    required String? category,
-  }) = _Entry;
-
-  factory Entry.fromJson(Map<String, dynamic> json) => _$EntryFromJson(json);
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['API'] = this.aPI;
+    data['Description'] = this.description;
+    data['Auth'] = this.auth;
+    data['HTTPS'] = this.hTTPS;
+    data['Cors'] = this.cors;
+    data['Link'] = this.link;
+    data['Category'] = this.category;
+    return data;
+  }
 }

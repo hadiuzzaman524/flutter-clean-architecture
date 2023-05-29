@@ -10,7 +10,7 @@ class ApiFetchLoading extends PublicApiState {
 
 class ApiFetchLoaded extends PublicApiState {
   ApiFetchLoaded({required this.entry});
-  final List<Entry> entry;
+  final List<Entries> entry;
 }
 
 class ApiFetchError extends PublicApiState {
