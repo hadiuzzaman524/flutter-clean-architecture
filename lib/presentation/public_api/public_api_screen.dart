@@ -29,10 +29,11 @@ class PublicApiListScreen extends StatelessWidget {
           if (state is ApiFetchLoaded) {
             return ListView.builder(
               itemBuilder: (ctx, index) => ListTile(
-                title: Text(state.entry[index].aPI ?? "Test"),
-                subtitle: Text(state.entry[index].description ?? "test"),
+                title: Text(state.publicApiModel.apiList[index].api),
+                subtitle:
+                    Text(state.publicApiModel.apiList[index].description ?? ""),
               ),
-              itemCount: state.entry.length,
+              itemCount: state.publicApiModel.apiList.length,
             );
           }
           return Container();

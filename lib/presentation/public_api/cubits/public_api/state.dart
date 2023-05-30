@@ -1,4 +1,4 @@
-import 'package:network_calling/domain/entities/public_api/public_api_entity.dart';
+import 'package:network_calling/domain/entities/public_api/public_api_model.dart';
 
 class PublicApiState {
   PublicApiState();
@@ -9,8 +9,8 @@ class ApiFetchLoading extends PublicApiState {
 }
 
 class ApiFetchLoaded extends PublicApiState {
-  ApiFetchLoaded({required this.entry});
-  final List<Entries> entry;
+  ApiFetchLoaded({required this.publicApiModel});
+  final PublicApiModel publicApiModel;
 }
 
 class ApiFetchError extends PublicApiState {
