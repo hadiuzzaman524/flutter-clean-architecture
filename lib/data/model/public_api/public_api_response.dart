@@ -42,7 +42,7 @@ class Entry with _$Entry {
     String? auth,
     bool? https,
     String? cors,
-    String? link,
+    @JsonKey(name: "Link") @Default("Empty") String link,
     String? category,
   }) = _Entry;
 

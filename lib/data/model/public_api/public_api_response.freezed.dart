@@ -192,7 +192,8 @@ mixin _$Entry {
   String? get auth => throw _privateConstructorUsedError;
   bool? get https => throw _privateConstructorUsedError;
   String? get cors => throw _privateConstructorUsedError;
-  String? get link => throw _privateConstructorUsedError;
+  @JsonKey(name: "Link")
+  String get link => throw _privateConstructorUsedError;
   String? get category => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -211,7 +212,7 @@ abstract class $EntryCopyWith<$Res> {
       String? auth,
       bool? https,
       String? cors,
-      String? link,
+      @JsonKey(name: "Link") String link,
       String? category});
 }
 
@@ -233,7 +234,7 @@ class _$EntryCopyWithImpl<$Res, $Val extends Entry>
     Object? auth = freezed,
     Object? https = freezed,
     Object? cors = freezed,
-    Object? link = freezed,
+    Object? link = null,
     Object? category = freezed,
   }) {
     return _then(_value.copyWith(
@@ -257,10 +258,10 @@ class _$EntryCopyWithImpl<$Res, $Val extends Entry>
           ? _value.cors
           : cors // ignore: cast_nullable_to_non_nullable
               as String?,
-      link: freezed == link
+      link: null == link
           ? _value.link
           : link // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       category: freezed == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
@@ -281,7 +282,7 @@ abstract class _$$_EntryCopyWith<$Res> implements $EntryCopyWith<$Res> {
       String? auth,
       bool? https,
       String? cors,
-      String? link,
+      @JsonKey(name: "Link") String link,
       String? category});
 }
 
@@ -299,7 +300,7 @@ class __$$_EntryCopyWithImpl<$Res> extends _$EntryCopyWithImpl<$Res, _$_Entry>
     Object? auth = freezed,
     Object? https = freezed,
     Object? cors = freezed,
-    Object? link = freezed,
+    Object? link = null,
     Object? category = freezed,
   }) {
     return _then(_$_Entry(
@@ -323,10 +324,10 @@ class __$$_EntryCopyWithImpl<$Res> extends _$EntryCopyWithImpl<$Res, _$_Entry>
           ? _value.cors
           : cors // ignore: cast_nullable_to_non_nullable
               as String?,
-      link: freezed == link
+      link: null == link
           ? _value.link
           : link // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       category: freezed == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
@@ -344,7 +345,7 @@ class _$_Entry implements _Entry {
       this.auth,
       this.https,
       this.cors,
-      this.link,
+      @JsonKey(name: "Link") this.link = "Empty",
       this.category});
 
   factory _$_Entry.fromJson(Map<String, dynamic> json) =>
@@ -364,7 +365,8 @@ class _$_Entry implements _Entry {
   @override
   final String? cors;
   @override
-  final String? link;
+  @JsonKey(name: "Link")
+  final String link;
   @override
   final String? category;
 
@@ -415,7 +417,7 @@ abstract class _Entry implements Entry {
       final String? auth,
       final bool? https,
       final String? cors,
-      final String? link,
+      @JsonKey(name: "Link") final String link,
       final String? category}) = _$_Entry;
 
   factory _Entry.fromJson(Map<String, dynamic> json) = _$_Entry.fromJson;
@@ -433,7 +435,8 @@ abstract class _Entry implements Entry {
   @override
   String? get cors;
   @override
-  String? get link;
+  @JsonKey(name: "Link")
+  String get link;
   @override
   String? get category;
   @override

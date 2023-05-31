@@ -27,13 +27,21 @@ class PublicApiListScreen extends StatelessWidget {
             );
           }
           if (state is ApiFetchLoaded) {
-            return ListView.builder(
+            return ListView.separated(
               itemBuilder: (ctx, index) => ListTile(
                 title: Text(state.publicApiModel.apiList[index].api),
-                subtitle:
-                    Text(state.publicApiModel.apiList[index].description ?? ""),
+                subtitle: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(state.publicApiModel.apiList[index].description),
+                    Text(state.publicApiModel.apiList[index].link ?? "null"),
+                  ],
+                ),
               ),
               itemCount: state.publicApiModel.apiList.length,
+              separatorBuilder: (BuildContext context, int index) {
+                return const Divider();
+              },
             );
           }
           return Container();

@@ -26,7 +26,7 @@ _$_Entry _$$_EntryFromJson(Map<String, dynamic> json) => _$_Entry(
       auth: json['auth'] as String?,
       https: json['https'] as bool?,
       cors: json['cors'] as String?,
-      link: json['link'] as String?,
+      link: json['Link'] as String? ?? "Empty",
       category: json['category'] as String?,
     );
 
@@ -36,6 +36,6 @@ Map<String, dynamic> _$$_EntryToJson(_$_Entry instance) => <String, dynamic>{
       'auth': instance.auth,
       'https': instance.https,
       'cors': instance.cors,
-      'link': instance.link,
+      'Link': instance.link,
       'category': instance.category,
     };
