@@ -185,14 +185,16 @@ Entry _$EntryFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Entry {
 // ignore: invalid_annotation_target
-  @JsonKey(name: "API")
-  String get api => throw _privateConstructorUsedError;
-  @JsonKey(name: "Description")
+  @JsonKey(name: 'API')
+  String get api =>
+      throw _privateConstructorUsedError; // ignore: invalid_annotation_target
+  @JsonKey(name: 'Description')
   String get description => throw _privateConstructorUsedError;
   String? get auth => throw _privateConstructorUsedError;
   bool? get https => throw _privateConstructorUsedError;
-  String? get cors => throw _privateConstructorUsedError;
-  @JsonKey(name: "Link")
+  String? get cors =>
+      throw _privateConstructorUsedError; // ignore: invalid_annotation_target
+  @JsonKey(name: 'Link')
   String get link => throw _privateConstructorUsedError;
   String? get category => throw _privateConstructorUsedError;
 
@@ -207,12 +209,12 @@ abstract class $EntryCopyWith<$Res> {
       _$EntryCopyWithImpl<$Res, Entry>;
   @useResult
   $Res call(
-      {@JsonKey(name: "API") String api,
-      @JsonKey(name: "Description") String description,
+      {@JsonKey(name: 'API') String api,
+      @JsonKey(name: 'Description') String description,
       String? auth,
       bool? https,
       String? cors,
-      @JsonKey(name: "Link") String link,
+      @JsonKey(name: 'Link') String link,
       String? category});
 }
 
@@ -277,12 +279,12 @@ abstract class _$$_EntryCopyWith<$Res> implements $EntryCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "API") String api,
-      @JsonKey(name: "Description") String description,
+      {@JsonKey(name: 'API') String api,
+      @JsonKey(name: 'Description') String description,
       String? auth,
       bool? https,
       String? cors,
-      @JsonKey(name: "Link") String link,
+      @JsonKey(name: 'Link') String link,
       String? category});
 }
 
@@ -340,12 +342,12 @@ class __$$_EntryCopyWithImpl<$Res> extends _$EntryCopyWithImpl<$Res, _$_Entry>
 @JsonSerializable()
 class _$_Entry implements _Entry {
   const _$_Entry(
-      {@JsonKey(name: "API") required this.api,
-      @JsonKey(name: "Description") this.description = "defaultValue",
+      {@JsonKey(name: 'API') required this.api,
+      @JsonKey(name: 'Description') this.description = 'Empty',
       this.auth,
       this.https,
       this.cors,
-      @JsonKey(name: "Link") this.link = "Empty",
+      @JsonKey(name: 'Link') this.link = 'Empty',
       this.category});
 
   factory _$_Entry.fromJson(Map<String, dynamic> json) =>
@@ -353,10 +355,11 @@ class _$_Entry implements _Entry {
 
 // ignore: invalid_annotation_target
   @override
-  @JsonKey(name: "API")
+  @JsonKey(name: 'API')
   final String api;
+// ignore: invalid_annotation_target
   @override
-  @JsonKey(name: "Description")
+  @JsonKey(name: 'Description')
   final String description;
   @override
   final String? auth;
@@ -364,8 +367,9 @@ class _$_Entry implements _Entry {
   final bool? https;
   @override
   final String? cors;
+// ignore: invalid_annotation_target
   @override
-  @JsonKey(name: "Link")
+  @JsonKey(name: 'Link')
   final String link;
   @override
   final String? category;
@@ -412,21 +416,21 @@ class _$_Entry implements _Entry {
 
 abstract class _Entry implements Entry {
   const factory _Entry(
-      {@JsonKey(name: "API") required final String api,
-      @JsonKey(name: "Description") final String description,
+      {@JsonKey(name: 'API') required final String api,
+      @JsonKey(name: 'Description') final String description,
       final String? auth,
       final bool? https,
       final String? cors,
-      @JsonKey(name: "Link") final String link,
+      @JsonKey(name: 'Link') final String link,
       final String? category}) = _$_Entry;
 
   factory _Entry.fromJson(Map<String, dynamic> json) = _$_Entry.fromJson;
 
   @override // ignore: invalid_annotation_target
-  @JsonKey(name: "API")
+  @JsonKey(name: 'API')
   String get api;
-  @override
-  @JsonKey(name: "Description")
+  @override // ignore: invalid_annotation_target
+  @JsonKey(name: 'Description')
   String get description;
   @override
   String? get auth;
@@ -434,8 +438,8 @@ abstract class _Entry implements Entry {
   bool? get https;
   @override
   String? get cors;
-  @override
-  @JsonKey(name: "Link")
+  @override // ignore: invalid_annotation_target
+  @JsonKey(name: 'Link')
   String get link;
   @override
   String? get category;

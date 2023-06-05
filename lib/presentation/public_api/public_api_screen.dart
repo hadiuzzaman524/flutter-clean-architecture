@@ -16,35 +16,31 @@ class PublicApiListScreen extends StatelessWidget {
       ),
       body: BlocBuilder<PublicApiCubit, PublicApiState>(
         builder: (context, state) {
-          if (state is ApiFetchLoading) {
-            return const Center(
+          return state.when(
+            Container.new,
+            apiFetchLoading: () => const Center(
               child: CircularProgressIndicator(),
-            );
-          }
-          if (state is ApiFetchError) {
-            return Center(
-              child: Text(state.errorMessage),
-            );
-          }
-          if (state is ApiFetchLoaded) {
-            return ListView.separated(
+            ),
+            apiFetchedLoaded: (publicApiModel) => ListView.separated(
               itemBuilder: (ctx, index) => ListTile(
-                title: Text(state.publicApiModel.apiList[index].api),
+                title: Text(publicApiModel.apiList[index].api),
                 subtitle: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(state.publicApiModel.apiList[index].description),
-                    Text(state.publicApiModel.apiList[index].link ?? "null"),
+                    Text(publicApiModel.apiList[index].description),
+                    Text(publicApiModel.apiList[index].link),
                   ],
                 ),
               ),
-              itemCount: state.publicApiModel.apiList.length,
+              itemCount: publicApiModel.apiList.length,
               separatorBuilder: (BuildContext context, int index) {
                 return const Divider();
               },
-            );
-          }
-          return Container();
+            ),
+            apiFetchedError: (errorMsg) => Center(
+              child: Text(errorMsg),
+            ),
+          );
         },
       ),
     );
