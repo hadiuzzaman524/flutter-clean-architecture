@@ -12,7 +12,7 @@
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
-import '../configuration/dio_client.dart' as _i3;
+import '../configuration/dio_services.dart' as _i3;
 import '../data/data_sources/public_api/remote_data_sources.dart' as _i4;
 import '../data/repository/public_api/public_api_repository_impl.dart' as _i6;
 import '../domain/repository/public_api/public_api_repository.dart' as _i5;

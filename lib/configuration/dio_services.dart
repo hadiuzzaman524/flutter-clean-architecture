@@ -4,6 +4,7 @@ import 'package:injectable/injectable.dart';
 @lazySingleton
 class DioService {
   DioService() {
+    /// add basic configuration for dio instance
     _dio = Dio(
       BaseOptions(
         baseUrl: 'https://api.publicapis.org',
