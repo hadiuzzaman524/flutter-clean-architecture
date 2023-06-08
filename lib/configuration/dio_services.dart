@@ -11,7 +11,7 @@ class DioService {
         connectTimeout: const Duration(seconds: 30),
         receiveTimeout: const Duration(seconds: 30),
       ),
-    );
+    )..interceptors.add(LogInterceptor());
   }
 
   /// create dio instance for global use
