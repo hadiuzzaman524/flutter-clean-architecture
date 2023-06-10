@@ -7,7 +7,7 @@ import 'package:network_calling/domain/repository/public_api/public_api_reposito
 class PublicApiImpl implements PublicApiRepository {
   PublicApiImpl({required this.publicApiRemoteDataSource});
 
-  final PublicApiRemoteDataSource publicApiRemoteDataSource;
+  final RemoteDataSources publicApiRemoteDataSource;
 
   @override
   Future<PublicApiModel> getAllApi() async {

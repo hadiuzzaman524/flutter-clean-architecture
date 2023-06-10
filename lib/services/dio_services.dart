@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
+import 'package:network_calling/services/interceptors/auth_interceptors.dart';
 
 @lazySingleton
 class DioService {
@@ -11,7 +12,7 @@ class DioService {
         connectTimeout: const Duration(seconds: 30),
         receiveTimeout: const Duration(seconds: 30),
       ),
-    )..interceptors.add(LogInterceptor());
+    )..interceptors.addAll([LogInterceptor(), AuthInterceptor()]);
   }
 
   /// create dio instance for global use

@@ -1,21 +1,21 @@
-import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
-import 'package:network_calling/configuration/dio_services.dart';
-import 'package:network_calling/data/model/public_api/public_api_response.dart';
 import 'package:network_calling/domain/entities/public_api/public_api_model.dart';
 import 'package:network_calling/injectable/injectable_configuration.dart';
+import 'package:network_calling/services/api_services.dart';
+import 'package:network_calling/services/dio_services.dart';
 
 @singleton
-class PublicApiRemoteDataSource {
-  Future<PublicApiModel> getAllApi() async {
+class RemoteDataSources {
+  RemoteDataSources() {
     final dioServices = getIt<DioService>();
+    apiServices = ApiServices(dioServices.dio);
+  }
 
-    final response = await dioServices.dio.get('/entries');
-    debugPrint(response.statusCode.toString());
+  late ApiServices apiServices;
 
-    final publicApiResponse =
-        PublicApiResponse.fromJson(response.data as Map<String, dynamic>);
+  Future<PublicApiModel> getAllApi() async {
+    final response = await apiServices.getAllApi();
 
-    return publicApiResponse.toPublicApiModel();
+    return response.toPublicApiModel();
   }
 }
