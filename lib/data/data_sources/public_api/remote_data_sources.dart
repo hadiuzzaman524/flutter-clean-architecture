@@ -1,7 +1,7 @@
 import 'package:injectable/injectable.dart';
+import 'package:network_calling/data/api/api_services.dart';
 import 'package:network_calling/domain/entities/public_api/public_api_model.dart';
 import 'package:network_calling/injectable/injectable_configuration.dart';
-import 'package:network_calling/services/api_services.dart';
 import 'package:network_calling/services/dio_services.dart';
 
 @singleton

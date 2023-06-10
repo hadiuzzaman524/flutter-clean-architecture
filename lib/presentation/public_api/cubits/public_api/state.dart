@@ -17,17 +17,3 @@ abstract class PublicApiState with _$PublicApiState {
     required String errorMsg,
   }) = _ApiFetchedError;
 }
-
-/*class ApiFetchLoading extends PublicApiState {
-  ApiFetchLoading();
-}
-
-class ApiFetchLoaded extends PublicApiState {
-  ApiFetchLoaded({required this.publicApiModel});
-  final PublicApiModel publicApiModel;
-}
-
-class ApiFetchError extends PublicApiState {
-  ApiFetchError({required this.errorMessage});
-  final String errorMessage;
-}*/

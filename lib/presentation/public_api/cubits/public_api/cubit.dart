@@ -7,7 +7,7 @@ import 'state.dart';
 
 @injectable
 class PublicApiCubit extends Cubit<PublicApiState> {
-  PublicApiCubit({required this.getApiUseCase}) : super(PublicApiState());
+  PublicApiCubit({required this.getApiUseCase}) : super(const PublicApiState());
   final GetApiUseCase getApiUseCase;
 
   Future<void> getAllApi() async {
