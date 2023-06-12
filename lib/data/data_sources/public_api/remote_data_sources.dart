@@ -14,8 +14,12 @@ class RemoteDataSources {
   late ApiServices apiServices;
 
   Future<PublicApiModel> getAllApi() async {
-    final response = await apiServices.getAllApi();
+    try {
+      final response = await apiServices.getAllApi();
 
-    return response.toPublicApiModel();
+      return response.toPublicApiModel();
+    } catch (e) {
+      throw Exception(e.toString());
+    }
   }
 }
