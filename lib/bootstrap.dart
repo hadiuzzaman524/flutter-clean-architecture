@@ -3,6 +3,7 @@ import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter/widgets.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:network_calling/injectable/injectable_configuration.dart';
 
 class AppBlocObserver extends BlocObserver {
@@ -28,7 +29,9 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
 
   Bloc.observer = const AppBlocObserver();
   configureDependencies();
-
+  WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();
+  await Hive.openBox('myAppData');
   // Add cross-flavor configuration here
 
   runApp(await builder());

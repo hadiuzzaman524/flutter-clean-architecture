@@ -3,4 +3,4 @@ targets:
     builders:
       freezed:
         options:
-          field_rename: pascal
+          field_rename: snake
