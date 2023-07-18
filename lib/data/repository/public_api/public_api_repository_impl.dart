@@ -10,7 +10,7 @@ class PublicApiImpl implements PublicApiRepository {
   final RemoteDataSources publicApiRemoteDataSource;
 
   @override
-  Future<PublicApiModel> getAllApi() async {
+  Future<List<PublicApiModel>> getAllApi() async {
     return publicApiRemoteDataSource.getAllApi();
   }
 }

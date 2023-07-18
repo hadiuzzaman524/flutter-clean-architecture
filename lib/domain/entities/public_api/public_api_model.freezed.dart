@@ -16,7 +16,9 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$PublicApiModel {
-  List<Entry> get apiList => throw _privateConstructorUsedError;
+  String get apiName => throw _privateConstructorUsedError;
+  String get description => throw _privateConstructorUsedError;
+  String get link => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $PublicApiModelCopyWith<PublicApiModel> get copyWith =>
@@ -29,7 +31,7 @@ abstract class $PublicApiModelCopyWith<$Res> {
           PublicApiModel value, $Res Function(PublicApiModel) then) =
       _$PublicApiModelCopyWithImpl<$Res, PublicApiModel>;
   @useResult
-  $Res call({List<Entry> apiList});
+  $Res call({String apiName, String description, String link});
 }
 
 /// @nodoc
@@ -45,13 +47,23 @@ class _$PublicApiModelCopyWithImpl<$Res, $Val extends PublicApiModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? apiList = null,
+    Object? apiName = null,
+    Object? description = null,
+    Object? link = null,
   }) {
     return _then(_value.copyWith(
-      apiList: null == apiList
-          ? _value.apiList
-          : apiList // ignore: cast_nullable_to_non_nullable
-              as List<Entry>,
+      apiName: null == apiName
+          ? _value.apiName
+          : apiName // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
+      link: null == link
+          ? _value.link
+          : link // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -64,7 +76,7 @@ abstract class _$$_PublicApiModelCopyWith<$Res>
       __$$_PublicApiModelCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<Entry> apiList});
+  $Res call({String apiName, String description, String link});
 }
 
 /// @nodoc
@@ -78,13 +90,23 @@ class __$$_PublicApiModelCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? apiList = null,
+    Object? apiName = null,
+    Object? description = null,
+    Object? link = null,
   }) {
     return _then(_$_PublicApiModel(
-      apiList: null == apiList
-          ? _value._apiList
-          : apiList // ignore: cast_nullable_to_non_nullable
-              as List<Entry>,
+      apiName: null == apiName
+          ? _value.apiName
+          : apiName // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
+      link: null == link
+          ? _value.link
+          : link // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -92,19 +114,19 @@ class __$$_PublicApiModelCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_PublicApiModel implements _PublicApiModel {
-  _$_PublicApiModel({required final List<Entry> apiList}) : _apiList = apiList;
+  _$_PublicApiModel(
+      {required this.apiName, required this.description, required this.link});
 
-  final List<Entry> _apiList;
   @override
-  List<Entry> get apiList {
-    if (_apiList is EqualUnmodifiableListView) return _apiList;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_apiList);
-  }
+  final String apiName;
+  @override
+  final String description;
+  @override
+  final String link;
 
   @override
   String toString() {
-    return 'PublicApiModel(apiList: $apiList)';
+    return 'PublicApiModel(apiName: $apiName, description: $description, link: $link)';
   }
 
   @override
@@ -112,12 +134,14 @@ class _$_PublicApiModel implements _PublicApiModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_PublicApiModel &&
-            const DeepCollectionEquality().equals(other._apiList, _apiList));
+            (identical(other.apiName, apiName) || other.apiName == apiName) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.link, link) || other.link == link));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_apiList));
+  int get hashCode => Object.hash(runtimeType, apiName, description, link);
 
   @JsonKey(ignore: true)
   @override
@@ -127,11 +151,17 @@ class _$_PublicApiModel implements _PublicApiModel {
 }
 
 abstract class _PublicApiModel implements PublicApiModel {
-  factory _PublicApiModel({required final List<Entry> apiList}) =
-      _$_PublicApiModel;
+  factory _PublicApiModel(
+      {required final String apiName,
+      required final String description,
+      required final String link}) = _$_PublicApiModel;
 
   @override
-  List<Entry> get apiList;
+  String get apiName;
+  @override
+  String get description;
+  @override
+  String get link;
   @override
   @JsonKey(ignore: true)
   _$$_PublicApiModelCopyWith<_$_PublicApiModel> get copyWith =>

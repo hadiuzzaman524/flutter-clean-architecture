@@ -20,7 +20,8 @@ mixin _$PublicApiState {
   TResult when<TResult extends Object?>(
     TResult Function() $default, {
     required TResult Function() apiFetchLoading,
-    required TResult Function(PublicApiModel publicApiModel) apiFetchedLoaded,
+    required TResult Function(List<PublicApiModel> publicApiModelList)
+        apiFetchedLoaded,
     required TResult Function(String errorMsg) apiFetchedError,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,7 +29,8 @@ mixin _$PublicApiState {
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function()? $default, {
     TResult? Function()? apiFetchLoading,
-    TResult? Function(PublicApiModel publicApiModel)? apiFetchedLoaded,
+    TResult? Function(List<PublicApiModel> publicApiModelList)?
+        apiFetchedLoaded,
     TResult? Function(String errorMsg)? apiFetchedError,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,7 +38,7 @@ mixin _$PublicApiState {
   TResult maybeWhen<TResult extends Object?>(
     TResult Function()? $default, {
     TResult Function()? apiFetchLoading,
-    TResult Function(PublicApiModel publicApiModel)? apiFetchedLoaded,
+    TResult Function(List<PublicApiModel> publicApiModelList)? apiFetchedLoaded,
     TResult Function(String errorMsg)? apiFetchedError,
     required TResult orElse(),
   }) =>
@@ -126,7 +128,8 @@ class _$_PublicApiState implements _PublicApiState {
   TResult when<TResult extends Object?>(
     TResult Function() $default, {
     required TResult Function() apiFetchLoading,
-    required TResult Function(PublicApiModel publicApiModel) apiFetchedLoaded,
+    required TResult Function(List<PublicApiModel> publicApiModelList)
+        apiFetchedLoaded,
     required TResult Function(String errorMsg) apiFetchedError,
   }) {
     return $default();
@@ -137,7 +140,8 @@ class _$_PublicApiState implements _PublicApiState {
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function()? $default, {
     TResult? Function()? apiFetchLoading,
-    TResult? Function(PublicApiModel publicApiModel)? apiFetchedLoaded,
+    TResult? Function(List<PublicApiModel> publicApiModelList)?
+        apiFetchedLoaded,
     TResult? Function(String errorMsg)? apiFetchedError,
   }) {
     return $default?.call();
@@ -148,7 +152,7 @@ class _$_PublicApiState implements _PublicApiState {
   TResult maybeWhen<TResult extends Object?>(
     TResult Function()? $default, {
     TResult Function()? apiFetchLoading,
-    TResult Function(PublicApiModel publicApiModel)? apiFetchedLoaded,
+    TResult Function(List<PublicApiModel> publicApiModelList)? apiFetchedLoaded,
     TResult Function(String errorMsg)? apiFetchedError,
     required TResult orElse(),
   }) {
@@ -240,7 +244,8 @@ class _$_ApiFetchLoading implements _ApiFetchLoading {
   TResult when<TResult extends Object?>(
     TResult Function() $default, {
     required TResult Function() apiFetchLoading,
-    required TResult Function(PublicApiModel publicApiModel) apiFetchedLoaded,
+    required TResult Function(List<PublicApiModel> publicApiModelList)
+        apiFetchedLoaded,
     required TResult Function(String errorMsg) apiFetchedError,
   }) {
     return apiFetchLoading();
@@ -251,7 +256,8 @@ class _$_ApiFetchLoading implements _ApiFetchLoading {
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function()? $default, {
     TResult? Function()? apiFetchLoading,
-    TResult? Function(PublicApiModel publicApiModel)? apiFetchedLoaded,
+    TResult? Function(List<PublicApiModel> publicApiModelList)?
+        apiFetchedLoaded,
     TResult? Function(String errorMsg)? apiFetchedError,
   }) {
     return apiFetchLoading?.call();
@@ -262,7 +268,7 @@ class _$_ApiFetchLoading implements _ApiFetchLoading {
   TResult maybeWhen<TResult extends Object?>(
     TResult Function()? $default, {
     TResult Function()? apiFetchLoading,
-    TResult Function(PublicApiModel publicApiModel)? apiFetchedLoaded,
+    TResult Function(List<PublicApiModel> publicApiModelList)? apiFetchedLoaded,
     TResult Function(String errorMsg)? apiFetchedError,
     required TResult orElse(),
   }) {
@@ -320,9 +326,7 @@ abstract class _$$_ApiFetchedLoadedCopyWith<$Res> {
           _$_ApiFetchedLoaded value, $Res Function(_$_ApiFetchedLoaded) then) =
       __$$_ApiFetchedLoadedCopyWithImpl<$Res>;
   @useResult
-  $Res call({PublicApiModel publicApiModel});
-
-  $PublicApiModelCopyWith<$Res> get publicApiModel;
+  $Res call({List<PublicApiModel> publicApiModelList});
 }
 
 /// @nodoc
@@ -336,36 +340,36 @@ class __$$_ApiFetchedLoadedCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? publicApiModel = null,
+    Object? publicApiModelList = null,
   }) {
     return _then(_$_ApiFetchedLoaded(
-      publicApiModel: null == publicApiModel
-          ? _value.publicApiModel
-          : publicApiModel // ignore: cast_nullable_to_non_nullable
-              as PublicApiModel,
+      publicApiModelList: null == publicApiModelList
+          ? _value._publicApiModelList
+          : publicApiModelList // ignore: cast_nullable_to_non_nullable
+              as List<PublicApiModel>,
     ));
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $PublicApiModelCopyWith<$Res> get publicApiModel {
-    return $PublicApiModelCopyWith<$Res>(_value.publicApiModel, (value) {
-      return _then(_value.copyWith(publicApiModel: value));
-    });
   }
 }
 
 /// @nodoc
 
 class _$_ApiFetchedLoaded implements _ApiFetchedLoaded {
-  const _$_ApiFetchedLoaded({required this.publicApiModel});
+  const _$_ApiFetchedLoaded(
+      {required final List<PublicApiModel> publicApiModelList})
+      : _publicApiModelList = publicApiModelList;
 
+  final List<PublicApiModel> _publicApiModelList;
   @override
-  final PublicApiModel publicApiModel;
+  List<PublicApiModel> get publicApiModelList {
+    if (_publicApiModelList is EqualUnmodifiableListView)
+      return _publicApiModelList;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_publicApiModelList);
+  }
 
   @override
   String toString() {
-    return 'PublicApiState.apiFetchedLoaded(publicApiModel: $publicApiModel)';
+    return 'PublicApiState.apiFetchedLoaded(publicApiModelList: $publicApiModelList)';
   }
 
   @override
@@ -373,12 +377,13 @@ class _$_ApiFetchedLoaded implements _ApiFetchedLoaded {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ApiFetchedLoaded &&
-            (identical(other.publicApiModel, publicApiModel) ||
-                other.publicApiModel == publicApiModel));
+            const DeepCollectionEquality()
+                .equals(other._publicApiModelList, _publicApiModelList));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, publicApiModel);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_publicApiModelList));
 
   @JsonKey(ignore: true)
   @override
@@ -391,10 +396,11 @@ class _$_ApiFetchedLoaded implements _ApiFetchedLoaded {
   TResult when<TResult extends Object?>(
     TResult Function() $default, {
     required TResult Function() apiFetchLoading,
-    required TResult Function(PublicApiModel publicApiModel) apiFetchedLoaded,
+    required TResult Function(List<PublicApiModel> publicApiModelList)
+        apiFetchedLoaded,
     required TResult Function(String errorMsg) apiFetchedError,
   }) {
-    return apiFetchedLoaded(publicApiModel);
+    return apiFetchedLoaded(publicApiModelList);
   }
 
   @override
@@ -402,10 +408,11 @@ class _$_ApiFetchedLoaded implements _ApiFetchedLoaded {
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function()? $default, {
     TResult? Function()? apiFetchLoading,
-    TResult? Function(PublicApiModel publicApiModel)? apiFetchedLoaded,
+    TResult? Function(List<PublicApiModel> publicApiModelList)?
+        apiFetchedLoaded,
     TResult? Function(String errorMsg)? apiFetchedError,
   }) {
-    return apiFetchedLoaded?.call(publicApiModel);
+    return apiFetchedLoaded?.call(publicApiModelList);
   }
 
   @override
@@ -413,12 +420,12 @@ class _$_ApiFetchedLoaded implements _ApiFetchedLoaded {
   TResult maybeWhen<TResult extends Object?>(
     TResult Function()? $default, {
     TResult Function()? apiFetchLoading,
-    TResult Function(PublicApiModel publicApiModel)? apiFetchedLoaded,
+    TResult Function(List<PublicApiModel> publicApiModelList)? apiFetchedLoaded,
     TResult Function(String errorMsg)? apiFetchedError,
     required TResult orElse(),
   }) {
     if (apiFetchedLoaded != null) {
-      return apiFetchedLoaded(publicApiModel);
+      return apiFetchedLoaded(publicApiModelList);
     }
     return orElse();
   }
@@ -463,9 +470,10 @@ class _$_ApiFetchedLoaded implements _ApiFetchedLoaded {
 
 abstract class _ApiFetchedLoaded implements PublicApiState {
   const factory _ApiFetchedLoaded(
-      {required final PublicApiModel publicApiModel}) = _$_ApiFetchedLoaded;
+          {required final List<PublicApiModel> publicApiModelList}) =
+      _$_ApiFetchedLoaded;
 
-  PublicApiModel get publicApiModel;
+  List<PublicApiModel> get publicApiModelList;
   @JsonKey(ignore: true)
   _$$_ApiFetchedLoadedCopyWith<_$_ApiFetchedLoaded> get copyWith =>
       throw _privateConstructorUsedError;
@@ -538,7 +546,8 @@ class _$_ApiFetchedError implements _ApiFetchedError {
   TResult when<TResult extends Object?>(
     TResult Function() $default, {
     required TResult Function() apiFetchLoading,
-    required TResult Function(PublicApiModel publicApiModel) apiFetchedLoaded,
+    required TResult Function(List<PublicApiModel> publicApiModelList)
+        apiFetchedLoaded,
     required TResult Function(String errorMsg) apiFetchedError,
   }) {
     return apiFetchedError(errorMsg);
@@ -549,7 +558,8 @@ class _$_ApiFetchedError implements _ApiFetchedError {
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function()? $default, {
     TResult? Function()? apiFetchLoading,
-    TResult? Function(PublicApiModel publicApiModel)? apiFetchedLoaded,
+    TResult? Function(List<PublicApiModel> publicApiModelList)?
+        apiFetchedLoaded,
     TResult? Function(String errorMsg)? apiFetchedError,
   }) {
     return apiFetchedError?.call(errorMsg);
@@ -560,7 +570,7 @@ class _$_ApiFetchedError implements _ApiFetchedError {
   TResult maybeWhen<TResult extends Object?>(
     TResult Function()? $default, {
     TResult Function()? apiFetchLoading,
-    TResult Function(PublicApiModel publicApiModel)? apiFetchedLoaded,
+    TResult Function(List<PublicApiModel> publicApiModelList)? apiFetchedLoaded,
     TResult Function(String errorMsg)? apiFetchedError,
     required TResult orElse(),
   }) {

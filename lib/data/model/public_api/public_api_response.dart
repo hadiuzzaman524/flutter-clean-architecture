@@ -28,8 +28,12 @@ class PublicApiResponse with _$PublicApiResponse {
   factory PublicApiResponse.fromJson(Map<String, dynamic> json) =>
       _$PublicApiResponseFromJson(json);
 
-  PublicApiModel toPublicApiModel() {
-    return PublicApiModel(apiList: entries);
+  PublicApiModel toPublicApiModel(Entry entry) {
+    return PublicApiModel(
+      apiName: entry.api,
+      link: entry.link,
+      description: entry.description,
+    );
   }
 }
 

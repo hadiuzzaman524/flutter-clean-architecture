@@ -10,7 +10,7 @@ abstract class PublicApiState with _$PublicApiState {
   const factory PublicApiState.apiFetchLoading() = _ApiFetchLoading;
 
   const factory PublicApiState.apiFetchedLoaded({
-    required PublicApiModel publicApiModel,
+    required List<PublicApiModel> publicApiModelList,
   }) = _ApiFetchedLoaded;
 
   const factory PublicApiState.apiFetchedError({

@@ -23,16 +23,16 @@ class PublicApiListScreen extends StatelessWidget {
             ),
             apiFetchedLoaded: (publicApiModel) => ListView.separated(
               itemBuilder: (ctx, index) => ListTile(
-                title: Text(publicApiModel.apiList[index].api),
+                title: Text(publicApiModel[index].apiName),
                 subtitle: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(publicApiModel.apiList[index].description),
-                    Text(publicApiModel.apiList[index].link),
+                    Text(publicApiModel[index].description),
+                    Text(publicApiModel[index].link),
                   ],
                 ),
               ),
-              itemCount: publicApiModel.apiList.length,
+              itemCount: publicApiModel.length,
               separatorBuilder: (BuildContext context, int index) {
                 return const Divider();
               },

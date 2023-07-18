@@ -8,7 +8,7 @@ class GetApiUseCase {
 
   final PublicApiRepository publicApiRepository;
 
-  Future<PublicApiModel> getAllApi() async {
+  Future<List<PublicApiModel>> getAllApi() async {
     return publicApiRepository.getAllApi();
   }
 }
