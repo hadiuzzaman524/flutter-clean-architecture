@@ -1,12 +1,12 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'public_api_model.freezed.dart';
+part 'api_entity.freezed.dart';
 
 @freezed
-class PublicApiModel with _$PublicApiModel {
-  factory PublicApiModel({
+class ApiEntity with _$ApiEntity {
+  factory ApiEntity({
     required String apiName,
     required String description,
     required String link,
-  }) = _PublicApiModel;
+  }) = _ApiEntity;
 }

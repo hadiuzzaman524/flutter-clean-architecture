@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:network_calling/domain/entities/public_api/public_api_model.dart';
+import 'package:network_calling/domain/entities/api/api_entity.dart';
 
 part 'state.freezed.dart';
 
@@ -10,7 +10,7 @@ abstract class PublicApiState with _$PublicApiState {
   const factory PublicApiState.apiFetchLoading() = _ApiFetchLoading;
 
   const factory PublicApiState.apiFetchedLoaded({
-    required List<PublicApiModel> publicApiModelList,
+    required List<ApiEntity> publicApiModelList,
   }) = _ApiFetchedLoaded;
 
   const factory PublicApiState.apiFetchedError({

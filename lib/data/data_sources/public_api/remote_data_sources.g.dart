@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'api_services.dart';
+part of 'remote_data_sources.dart';
 
 // **************************************************************************
 // RetrofitGenerator
@@ -8,8 +8,8 @@ part of 'api_services.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers
 
-class _ApiServices implements ApiServices {
-  _ApiServices(
+class _RemoteDataSources implements RemoteDataSources {
+  _RemoteDataSources(
     this._dio, {
     this.baseUrl,
   });

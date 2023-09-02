@@ -1,14 +1,14 @@
 import 'package:injectable/injectable.dart';
-import 'package:network_calling/domain/entities/public_api/public_api_model.dart';
-import 'package:network_calling/domain/repository/public_api/public_api_repository.dart';
+import 'package:network_calling/domain/entities/api/api_entity.dart';
+import 'package:network_calling/domain/services/public_api/public_api_services.dart';
+import 'package:network_calling/domain/usecases/use_case.dart';
 
 @injectable
-class GetApiUseCase {
-  GetApiUseCase({required this.publicApiRepository});
+class GetApiUseCase implements UseCase<List<ApiEntity>, void> {
+  GetApiUseCase(this._apiServices);
 
-  final PublicApiRepository publicApiRepository;
+  final PublicApiServices _apiServices;
 
-  Future<List<PublicApiModel>> getAllApi() async {
-    return publicApiRepository.getAllApi();
-  }
+  @override
+  Future<List<ApiEntity>> run({void param}) => _apiServices.getAllApi();
 }

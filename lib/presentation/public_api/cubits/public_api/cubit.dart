@@ -14,7 +14,7 @@ class PublicApiCubit extends Cubit<PublicApiState> {
     emit(const PublicApiState.apiFetchLoading());
     debugPrint('Api fetch loading');
     try {
-      final result = await getApiUseCase.getAllApi();
+      final result = await getApiUseCase.run();
 
       emit(PublicApiState.apiFetchedLoaded(publicApiModelList: result));
       debugPrint('Api fetch loaded');

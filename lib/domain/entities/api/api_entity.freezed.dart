@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'public_api_model.dart';
+part of 'api_entity.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,29 +15,28 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$PublicApiModel {
+mixin _$ApiEntity {
   String get apiName => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
   String get link => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $PublicApiModelCopyWith<PublicApiModel> get copyWith =>
+  $ApiEntityCopyWith<ApiEntity> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $PublicApiModelCopyWith<$Res> {
-  factory $PublicApiModelCopyWith(
-          PublicApiModel value, $Res Function(PublicApiModel) then) =
-      _$PublicApiModelCopyWithImpl<$Res, PublicApiModel>;
+abstract class $ApiEntityCopyWith<$Res> {
+  factory $ApiEntityCopyWith(ApiEntity value, $Res Function(ApiEntity) then) =
+      _$ApiEntityCopyWithImpl<$Res, ApiEntity>;
   @useResult
   $Res call({String apiName, String description, String link});
 }
 
 /// @nodoc
-class _$PublicApiModelCopyWithImpl<$Res, $Val extends PublicApiModel>
-    implements $PublicApiModelCopyWith<$Res> {
-  _$PublicApiModelCopyWithImpl(this._value, this._then);
+class _$ApiEntityCopyWithImpl<$Res, $Val extends ApiEntity>
+    implements $ApiEntityCopyWith<$Res> {
+  _$ApiEntityCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -69,22 +68,21 @@ class _$PublicApiModelCopyWithImpl<$Res, $Val extends PublicApiModel>
 }
 
 /// @nodoc
-abstract class _$$_PublicApiModelCopyWith<$Res>
-    implements $PublicApiModelCopyWith<$Res> {
-  factory _$$_PublicApiModelCopyWith(
-          _$_PublicApiModel value, $Res Function(_$_PublicApiModel) then) =
-      __$$_PublicApiModelCopyWithImpl<$Res>;
+abstract class _$$_ApiEntityCopyWith<$Res> implements $ApiEntityCopyWith<$Res> {
+  factory _$$_ApiEntityCopyWith(
+          _$_ApiEntity value, $Res Function(_$_ApiEntity) then) =
+      __$$_ApiEntityCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String apiName, String description, String link});
 }
 
 /// @nodoc
-class __$$_PublicApiModelCopyWithImpl<$Res>
-    extends _$PublicApiModelCopyWithImpl<$Res, _$_PublicApiModel>
-    implements _$$_PublicApiModelCopyWith<$Res> {
-  __$$_PublicApiModelCopyWithImpl(
-      _$_PublicApiModel _value, $Res Function(_$_PublicApiModel) _then)
+class __$$_ApiEntityCopyWithImpl<$Res>
+    extends _$ApiEntityCopyWithImpl<$Res, _$_ApiEntity>
+    implements _$$_ApiEntityCopyWith<$Res> {
+  __$$_ApiEntityCopyWithImpl(
+      _$_ApiEntity _value, $Res Function(_$_ApiEntity) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -94,7 +92,7 @@ class __$$_PublicApiModelCopyWithImpl<$Res>
     Object? description = null,
     Object? link = null,
   }) {
-    return _then(_$_PublicApiModel(
+    return _then(_$_ApiEntity(
       apiName: null == apiName
           ? _value.apiName
           : apiName // ignore: cast_nullable_to_non_nullable
@@ -113,8 +111,8 @@ class __$$_PublicApiModelCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_PublicApiModel implements _PublicApiModel {
-  _$_PublicApiModel(
+class _$_ApiEntity implements _ApiEntity {
+  _$_ApiEntity(
       {required this.apiName, required this.description, required this.link});
 
   @override
@@ -126,14 +124,14 @@ class _$_PublicApiModel implements _PublicApiModel {
 
   @override
   String toString() {
-    return 'PublicApiModel(apiName: $apiName, description: $description, link: $link)';
+    return 'ApiEntity(apiName: $apiName, description: $description, link: $link)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PublicApiModel &&
+            other is _$_ApiEntity &&
             (identical(other.apiName, apiName) || other.apiName == apiName) &&
             (identical(other.description, description) ||
                 other.description == description) &&
@@ -146,15 +144,15 @@ class _$_PublicApiModel implements _PublicApiModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PublicApiModelCopyWith<_$_PublicApiModel> get copyWith =>
-      __$$_PublicApiModelCopyWithImpl<_$_PublicApiModel>(this, _$identity);
+  _$$_ApiEntityCopyWith<_$_ApiEntity> get copyWith =>
+      __$$_ApiEntityCopyWithImpl<_$_ApiEntity>(this, _$identity);
 }
 
-abstract class _PublicApiModel implements PublicApiModel {
-  factory _PublicApiModel(
+abstract class _ApiEntity implements ApiEntity {
+  factory _ApiEntity(
       {required final String apiName,
       required final String description,
-      required final String link}) = _$_PublicApiModel;
+      required final String link}) = _$_ApiEntity;
 
   @override
   String get apiName;
@@ -164,6 +162,6 @@ abstract class _PublicApiModel implements PublicApiModel {
   String get link;
   @override
   @JsonKey(ignore: true)
-  _$$_PublicApiModelCopyWith<_$_PublicApiModel> get copyWith =>
+  _$$_ApiEntityCopyWith<_$_ApiEntity> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -5,7 +5,6 @@
 import 'dart:convert';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:network_calling/domain/entities/public_api/public_api_model.dart';
 
 part 'public_api_response.freezed.dart';
 part 'public_api_response.g.dart';
@@ -27,14 +26,6 @@ class PublicApiResponse with _$PublicApiResponse {
 
   factory PublicApiResponse.fromJson(Map<String, dynamic> json) =>
       _$PublicApiResponseFromJson(json);
-
-  PublicApiModel toPublicApiModel(Entry entry) {
-    return PublicApiModel(
-      apiName: entry.api,
-      link: entry.link,
-      description: entry.description,
-    );
-  }
 }
 
 @freezed

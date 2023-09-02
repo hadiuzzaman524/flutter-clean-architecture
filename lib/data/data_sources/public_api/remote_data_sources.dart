@@ -1,24 +1,13 @@
-import 'package:injectable/injectable.dart';
-import 'package:network_calling/data/api/api_services.dart';
-import 'package:network_calling/domain/entities/public_api/public_api_model.dart';
-import 'package:network_calling/injectable/injectable_configuration.dart';
-import 'package:network_calling/services/dio_services.dart';
+import 'package:dio/dio.dart';
+import 'package:network_calling/data/response_objects/public_api/public_api_response.dart';
+import 'package:retrofit/http.dart';
 
-@singleton
-class RemoteDataSources {
-  RemoteDataSources() {
-    final dioServices = getIt<DioService>();
-    apiServices = ApiServices(dioServices.dio);
-  }
+part 'remote_data_sources.g.dart';
 
-  late ApiServices apiServices;
+@RestApi()
+abstract class RemoteDataSources {
+  factory RemoteDataSources(Dio dio) = _RemoteDataSources;
 
-  Future<List<PublicApiModel>> getAllApi() async {
-    try {
-      final response = await apiServices.getAllApi();
-      return response.entries.map(response.toPublicApiModel).toList();
-    } catch (e) {
-      throw Exception(e.toString());
-    }
-  }
+  @GET('/entries')
+  Future<PublicApiResponse> getAllApi();
 }
