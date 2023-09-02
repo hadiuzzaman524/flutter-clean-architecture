@@ -1,29 +1,34 @@
-name: network_calling
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
 
-concurrency:
-  group: $-$
-  cancel-in-progress: true
+name: Dart
 
 on:
   push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
 
 jobs:
-  semantic-pull-request:
-    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/semantic_pull_request.yml@v1
-
   build:
-    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/flutter_package.yml@v1
-    with:
-      flutter_channel: stable
+    runs-on: ubuntu-latest
 
-  spell-check:
-    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/spell_check.yml@v1
-    with:
-      includes: |
-        **/*.md
-      modified_files_only: false
+    steps:
+      - uses: actions/checkout@v3
+      - uses: subosito/flutter-action@v2
+      with:
+        channel: 'stable'
+
+      - name: Check Flutter Version
+      - run: flutter --version
+
+      - name: Analyze Code
+        run: flutter analyze
+
+      - name: Install Dependencies
+        run: flutter pub get
+
+      - name: Build Android AAB
+        run: flutter build appbundle
+
+      - name: Build iOS app
+        run: flutter ios --release --no-codesign
