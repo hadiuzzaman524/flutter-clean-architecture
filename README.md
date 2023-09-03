@@ -178,8 +178,47 @@ class ApiReMapper {
 }
 ```
 ## Presentation Layer
+The presentation layer is a critical component within the software architecture that focuses on the user interface (UI) and how data is presented to the user. It's responsible for rendering information, handling user interactions, and providing a visually appealing and user-friendly experience.
 
-## Getting Started 🚀
+**User Interface (UI):** The presentation layer defines and manages the user interface components, including screens, widgets, buttons, forms, and other visual elements. It determines how data is displayed to the user and how the user interacts with the application.
+
+**Responsibilities:**
+
+**UI Rendering:** The presentation layer is responsible for creating and rendering the user interface. It defines the layout, design, and appearance of the application's screens and widgets.
+
+**User Input Handling:** It manages user interactions such as clicks, taps, gestures, keyboard input, and form submissions. It responds to user actions and triggers appropriate actions in the application.
+
+**Data Presentation:** The presentation layer retrieves data from the domain or data layer and presents it in a format that is understandable and visually appealing to the user. This may involve formatting, transforming, and displaying data in various ways.
+
+**Navigation:** It handles screen transitions, navigation routes, and the flow of the user journey within the application. It ensures that users can move between different parts of the app seamlessly.
+
+### Presentation & Domain Layer Communication
+
+In a Flutter application following clean architecture principles, you typically want to establish communication between the presentation layer (usually containing widgets, views, or screens) and the domain layer (containing business logic and use cases). To do this, you can use various design patterns and principles. One common approach is to use the BLoC pattern with Cubit for managing state in the presentation layer and UseCases in the domain layer. Here's how you can structure and communicate between these layers:
+
+```dart
+@injectable
+class PublicApiCubit extends Cubit<PublicApiState> {
+  PublicApiCubit({required this.getApiUseCase}) : super(const PublicApiState());
+  final GetApiUseCase getApiUseCase;
+
+  Future<void> getAllApi() async {
+    emit(const PublicApiState.apiFetchLoading());
+    debugPrint('Api fetch loading');
+    try {
+      final result = await getApiUseCase.run();
+
+      emit(PublicApiState.apiFetchedLoaded(publicApiModelList: result));
+      debugPrint('Api fetch loaded');
+    } catch (e) {
+      debugPrint('Api fetch error');
+      emit(PublicApiState.apiFetchedError(errorMsg: e.toString()));
+    }
+  }
+}
+
+```
+## How to run this project? 
 
 This project contains 3 flavors:
 
