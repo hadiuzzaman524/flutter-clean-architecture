@@ -45,7 +45,7 @@ Clean Architecture was designed before the introduction of Flutter, and the diag
   <img src="https://github.com/hadiuzzaman524/clean-architecture-flutter/assets/52348628/b17c7259-b0d8-43e7-ab66-c24396be47a8" width="600">
 </p>
 
-### Domain Layer
+## Domain Layer
 The domain layer, also known as the core or business logic layer, is a crucial component within the Clean Architecture pattern. It serves as the heart of your application, encapsulating the business rules, use cases, and domain-specific logic. The domain layer has 3 main parts:
 
 **1. Entity**
@@ -91,6 +91,93 @@ abstract class PublicApiServices {
 }
 
 ```
+
+## Data Layer
+The data layer is one of the key components in a software architecture. It is responsible for managing data-related operations, including data storage, retrieval, and communication with external data sources and the domain layer. The data layer also has several parts: 
+
+**1. Data Source**
+
+Data sources are the origins of data for your application. These can be databases, APIs, local storage, or any other external systems that provide or store data. Data sources are responsible for handling the actual retrieval and storage of data. They abstract the underlying mechanisms required to interact with these external systems.
+
+```dart
+@RestApi()
+abstract class RemoteDataSources {
+  factory RemoteDataSources(Dio dio) = _RemoteDataSources;
+
+  @GET('/entries')
+  Future<PublicApiResponse> getAllApi();
+}
+
+```
+
+**2. Repository**
+
+In the data layer, a repository acts as an intermediary between the domain layer and the data sources. It defines a set of methods that the domain layer can use to access and manipulate data. Repositories abstract the complexities of interacting with different data sources. They provide a unified interface for the domain layer to work with data, shielding it from the specifics of how data is fetched or stored.
+
+```dart
+@Injectable(as: PublicApiServices)
+class PublicApiImpl implements PublicApiServices {
+  PublicApiImpl(this._dioService, this._apiReMapper) {
+    _remoteDataSource = RemoteDataSources(_dioService.dio);
+  }
+
+  late RemoteDataSources _remoteDataSource;
+  final ApiReMapper _apiReMapper;
+  final DioService _dioService;
+
+  @override
+  Future<List<ApiEntity>> getAllApi() async {
+    final response = await _remoteDataSource.getAllApi();
+    final entityList = _apiReMapper.toPublicApiList(response);
+    return entityList;
+  }
+}
+```
+
+**3. Response Objects**
+
+Response objects are data structures used to represent the data returned from data sources, such as API responses or database query results. These objects capture the raw data as received from external systems. They serve as an intermediate step before transforming the data into a format suitable for the domain layer.
+
+```dart
+@freezed
+class PublicApiResponse with _$PublicApiResponse {
+  const factory PublicApiResponse({
+    required int count,
+    required List<Entry> entries,
+  }) = _PublicApiEntity;
+
+  const PublicApiResponse._();
+
+  factory PublicApiResponse.fromJson(Map<String, dynamic> json) =>
+      _$PublicApiResponseFromJson(json);
+}
+....
+```
+
+**4. Re-Mapper**
+
+A remapper, also known as a data mapper or data converter, is a component responsible for converting or mapping data from one format (e.g., response objects) to another format (e.g., domain entities). Remappers transform raw data into a format that aligns with the domain layer's requirements. They handle data parsing, validation, and mapping between data source-specific structures and domain entities.
+
+```dart
+@lazySingleton
+class ApiReMapper {
+  List<ApiEntity> toPublicApiList(PublicApiResponse publicApiResponse) {
+    final apiList = <ApiEntity>[];
+
+    for (final element in publicApiResponse.entries) {
+      apiList.add(
+        ApiEntity(
+          apiName: element.api,
+          description: element.description,
+          link: element.link,
+        ),
+      );
+    }
+    return apiList;
+  }
+}
+```
+## Presentation Layer
 
 ## Getting Started 🚀
 
