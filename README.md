@@ -45,6 +45,52 @@ Clean Architecture was designed before the introduction of Flutter, and the diag
   <img src="https://github.com/hadiuzzaman524/clean-architecture-flutter/assets/52348628/b17c7259-b0d8-43e7-ab66-c24396be47a8" width="600">
 </p>
 
+### Domain Layer
+The domain layer, also known as the core or business logic layer, is a crucial component within the Clean Architecture pattern. It serves as the heart of your application, encapsulating the business rules, use cases, and domain-specific logic. The domain layer has 3 main parts:
+
+**1. Entity**
+
+Entities are objects that represent fundamental concepts within your application's domain. They typically have attributes (data) and methods (functions) that encapsulate the business logic related to those entities. Entities model the real-world objects or key data structures in your application. They are a central part of the domain layer and often serve as the primary data structures that your business rules and use cases operate on.
+```dart
+@freezed
+class ApiEntity with _$ApiEntity {
+  factory ApiEntity({
+    required String apiName,
+    required String description,
+    required String link,
+  }) = _ApiEntity;
+}
+```
+
+**2. UseCase**
+
+Use cases are high-level, application-specific operations or functionalities that your application can perform. They encapsulate the business logic and rules required to execute these operations. Use cases define how the application responds to various user actions or system events. They act as intermediaries between the presentation layer (UI) and the domain layer, orchestrating the necessary domain logic to fulfill a specific task.
+```dart
+abstract class UseCase<Type, Param> {
+  Future<Type> run({Param param});
+}
+```
+
+```dart
+@injectable
+class GetApiUseCase implements UseCase<List<ApiEntity>, void> {
+  GetApiUseCase(this._apiServices);
+  final PublicApiServices _apiServices;
+  
+  @override
+  Future<List<ApiEntity>> run({void param}) => _apiServices.getAllApi();
+}
+```
+
+**3. Repository or Services**
+
+Repositories are interfaces or abstractions that define the contract for data access and storage operations. They specify the methods for retrieving, saving, and managing domain entities. Repositories decouple the domain layer from the data layer (e.g., databases, APIs). They allow the domain layer to interact with data sources without needing to know the specific implementation details of data retrieval or storage.
+```dart
+abstract class PublicApiServices {
+  Future<List<ApiEntity>> getAllApi();
+}
+
+```
 
 ## Getting Started 🚀
 
