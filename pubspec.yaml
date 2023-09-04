@@ -23,7 +23,7 @@ dependencies:
   injectable: ^2.1.1
   intl: ^0.18.0
   json_serializable: ^6.7.0
-  logger: ^1.4.0
+  logger: ^2.0.2
   retrofit: ^4.0.1
 
 dev_dependencies:
