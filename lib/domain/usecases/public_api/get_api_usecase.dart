@@ -6,7 +6,6 @@ import 'package:network_calling/domain/usecases/use_case.dart';
 @injectable
 class GetApiUseCase implements UseCase<List<ApiEntity>, void> {
   GetApiUseCase(this._apiServices);
-
   final PublicApiServices _apiServices;
 
   @override
