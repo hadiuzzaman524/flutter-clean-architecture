@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:network_calling/data/response_objects/public_api/public_api_response.dart';
 
-import '../../../helper/json_reader.dart';
+import '../../../common/json_reader.dart';
 
 void main() {
   late PublicApiResponse testResponseObject;
@@ -26,7 +26,7 @@ void main() {
         ],
       );
       dummyJsonData =
-          json.decode(readJson('helper/dummy_data/dummy_api_response.json'))
+          json.decode(readJson('common/dummy_data/dummy_api_response.json'))
               as Map<String, dynamic>;
     },
   );
@@ -34,8 +34,6 @@ void main() {
     test(
       'Should return valid model from json',
       () async {
-        ///arrange
-        ///jsonMap
         final result = PublicApiResponse.fromJson(dummyJsonData);
         expect(result, isA<PublicApiResponse>());
       },
