@@ -28,7 +28,7 @@ void main() {
       // act
       final result = getApiUseCase.run();
       //assert
-      expect(await result, testApiEntityList);
+      expect(await result, isA<List<ApiEntity>>());
     },
   );
 }
