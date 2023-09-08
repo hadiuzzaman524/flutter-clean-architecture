@@ -6,16 +6,16 @@ class LoggerInterceptor extends Interceptor {
     // Customize the printer
     printer: PrettyPrinter(
       methodCount: 0,
-      printTime: false,
     ),
   );
 
   @override
-  void onError(DioError err, ErrorInterceptorHandler handler) {
+  void onError(DioException err, ErrorInterceptorHandler handler) {
     final options = err.requestOptions;
     final requestPath = '${options.baseUrl}${options.path}';
-    logger.e('${options.method} request => $requestPath'); // Debug log
-    logger.d('Error: ${err.error}, Message: ${err.message}'); // Error log
+    logger
+      ..e('${options.method} request => $requestPath') // Debug log
+      ..d('Error: ${err.error}, Message: ${err.message}'); // Error log
     return super.onError(err, handler);
   }
 
@@ -27,9 +27,11 @@ class LoggerInterceptor extends Interceptor {
   }
 
   @override
+  // ignore: strict_raw_type
   void onResponse(Response response, ResponseInterceptorHandler handler) {
     logger.d(
-        'StatusCode: ${response.statusCode}, Data: ${response.data}'); // Debug log
+      'StatusCode: ${response.statusCode}, Data: ${response.data}',
+    ); // Debug log
     return super.onResponse(response, handler);
   }
 }

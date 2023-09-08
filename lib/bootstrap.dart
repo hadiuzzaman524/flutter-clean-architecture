@@ -31,8 +31,8 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
   configureDependencies();
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
+  // ignore: inference_failure_on_function_invocation
   await Hive.openBox('myAppData');
-  // Add cross-flavor configuration here
 
   runApp(await builder());
 }
