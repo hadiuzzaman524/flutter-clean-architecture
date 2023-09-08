@@ -16,23 +16,28 @@ class PublicApiScreenBody extends StatelessWidget {
             key: Key('loading-key'),
             child: CircularProgressIndicator(),
           ),
-          apiFetchedLoaded: (publicApiModel) => ListView.separated(
-            itemBuilder: (ctx, index) => ListTile(
-              title: Text(publicApiModel[index].apiName),
-              subtitle: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(publicApiModel[index].description),
-                  Text(publicApiModel[index].link),
-                ],
+          apiFetchedLoaded: (publicApiModel) => Material(
+            child: ListView.separated(
+              key: const Key('api-loaded-list'),
+              itemBuilder: (ctx, index) => ListTile(
+                key: Key('$index'),
+                title: Text(publicApiModel[index].apiName),
+                subtitle: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(publicApiModel[index].description),
+                    Text(publicApiModel[index].link),
+                  ],
+                ),
               ),
+              itemCount: publicApiModel.length,
+              separatorBuilder: (BuildContext context, int index) {
+                return const Divider();
+              },
             ),
-            itemCount: publicApiModel.length,
-            separatorBuilder: (BuildContext context, int index) {
-              return const Divider();
-            },
           ),
           apiFetchedError: (errorMsg) => Center(
+            key: const Key('error-key'),
             child: Text(errorMsg),
           ),
         );
