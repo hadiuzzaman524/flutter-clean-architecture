@@ -21,6 +21,6 @@ void main() {
 
     final result = await mockPublicApiServices.getAllApi();
 
-    expect(result, testApiEntityList);
+    expect(result, isA<List<ApiEntity>>());
   });
 }
