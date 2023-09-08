@@ -33,14 +33,13 @@ class Entry with _$Entry {
   const factory Entry({
     // ignore: invalid_annotation_target
     @JsonKey(name: 'API') required String api,
-    // ignore: invalid_annotation_target
     @JsonKey(name: 'Description') @Default('Empty') String description,
-    String? auth,
-    bool? https,
-    String? cors,
+    @JsonKey(name: 'Auth') String? auth,
+    @JsonKey(name: 'HTTPS') bool? https,
+    @JsonKey(name: 'Cors') String? cors,
     // ignore: invalid_annotation_target
     @JsonKey(name: 'Link') @Default('Empty') String link,
-    String? category,
+    @JsonKey(name: 'Category') String? category,
   }) = _Entry;
 
   factory Entry.fromJson(Map<String, dynamic> json) => _$EntryFromJson(json);

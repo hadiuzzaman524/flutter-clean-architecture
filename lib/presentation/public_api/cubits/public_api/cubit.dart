@@ -2,8 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 import 'package:network_calling/domain/usecases/public_api/get_api_usecase.dart';
-
-import 'state.dart';
+import 'package:network_calling/presentation/public_api/cubits/public_api/state.dart';
 
 @injectable
 class PublicApiCubit extends Cubit<PublicApiState> {
