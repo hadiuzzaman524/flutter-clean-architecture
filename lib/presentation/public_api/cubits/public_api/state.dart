@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:network_calling/domain/common/response_error.dart';
 import 'package:network_calling/domain/entities/api/api_entity.dart';
 
 part 'state.freezed.dart';
@@ -14,6 +15,6 @@ abstract class PublicApiState with _$PublicApiState {
   }) = _ApiFetchedLoaded;
 
   const factory PublicApiState.apiFetchedError({
-    required String errorMsg,
+    required ResponseError responseError,
   }) = _ApiFetchedError;
 }

@@ -14,7 +14,12 @@ class PublicApiListScreen extends StatelessWidget {
         title: const Text('All APIs'),
         centerTitle: true,
       ),
-      body: const PublicApiScreenBody(),
+      body: RefreshIndicator(
+        onRefresh: () async {
+          await context.read<PublicApiCubit>().getAllApi();
+        },
+        child: const PublicApiScreenBody(),
+      ),
     );
   }
 }
