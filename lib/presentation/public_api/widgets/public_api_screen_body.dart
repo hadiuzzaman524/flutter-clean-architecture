@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:network_calling/domain/common/app_localization.dart';
 import 'package:network_calling/presentation/public_api/cubits/public_api/cubit.dart';
 import 'package:network_calling/presentation/public_api/cubits/public_api/state.dart';
+import 'package:network_calling/presentation/widgets/error_widget.dart';
 
 class PublicApiScreenBody extends StatelessWidget {
   const PublicApiScreenBody({super.key});
@@ -39,9 +39,12 @@ class PublicApiScreenBody extends StatelessWidget {
           ),
           apiFetchedError: (responseError) => Center(
             key: const Key('error-key'),
-
-            /// convert error to text by context function
-            child: Text(context.errorLocalization.responseError(responseError)),
+            child: AppErrorWidget(
+              noInternetConnection: responseError.isNoInternet,
+              onRefreshPage: () {
+                context.read<PublicApiCubit>().getAllApi();
+              },
+            ),
           ),
         );
       },

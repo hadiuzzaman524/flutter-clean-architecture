@@ -7,14 +7,16 @@ import 'package:network_calling/presentation/public_api/cubits/public_api/state.
 
 @injectable
 class PublicApiCubit extends Cubit<PublicApiState> {
-  PublicApiCubit({required this.getApiUseCase}) : super(const PublicApiState());
-  final GetApiUseCase getApiUseCase;
+  PublicApiCubit({required GetApiUseCase getApiUseCase})
+      : _getApiUseCase = getApiUseCase,
+        super(const PublicApiState());
+  final GetApiUseCase _getApiUseCase;
 
   Future<void> getAllApi() async {
     emit(const PublicApiState.apiFetchLoading());
     debugPrint('Api fetch loading');
     try {
-      final result = await getApiUseCase.run();
+      final result = await _getApiUseCase.run();
 
       emit(PublicApiState.apiFetchedLoaded(publicApiModelList: result));
       debugPrint('Api fetch loaded');
