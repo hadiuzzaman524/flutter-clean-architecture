@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:network_calling/domain/common/response_error.dart';
 import 'package:network_calling/domain/entities/api/api_entity.dart';
 import 'package:network_calling/presentation/public_api/cubits/public_api/cubit.dart';
 import 'package:network_calling/presentation/public_api/cubits/public_api/state.dart';
@@ -60,7 +61,9 @@ void main() {
     'should return error text when state is failure',
     (widgetTester) async {
       when(() => publicApiCubit.state).thenReturn(
-        const PublicApiState.apiFetchedError(errorMsg: 'Error'),
+        const PublicApiState.apiFetchedError(
+          responseError: ResponseError.unknown(),
+        ),
       );
 
       await widgetTester.pumpWidget(

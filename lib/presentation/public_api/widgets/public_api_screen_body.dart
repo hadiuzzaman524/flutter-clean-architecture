@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:network_calling/domain/common/app_localization.dart';
 import 'package:network_calling/presentation/public_api/cubits/public_api/cubit.dart';
 import 'package:network_calling/presentation/public_api/cubits/public_api/state.dart';
 
@@ -36,9 +37,11 @@ class PublicApiScreenBody extends StatelessWidget {
               },
             ),
           ),
-          apiFetchedError: (errorMsg) => Center(
+          apiFetchedError: (responseError) => Center(
             key: const Key('error-key'),
-            child: Text(errorMsg),
+
+            /// convert error to text by context function
+            child: Text(context.errorLocalization.responseError(responseError)),
           ),
         );
       },
