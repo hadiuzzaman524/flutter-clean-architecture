@@ -51,8 +51,8 @@ The four circles illustrated in the diagram are schematic. There is no rule that
 Clean Architecture was designed before the introduction of Flutter, and the diagram shared earlier is a broad approach applicable to software development in general, rather than being specific to any one platform. However, we can create our own Clean Architecture diagram customized specifically for Flutter's needs and characteristics.
 
 <p float="center">
-  <img src="https://github.com/hadiuzzaman524/clean-architecture-flutter/assets/52348628/b17c7259-b0d8-43e7-ab66-c24396be47a8" width="600">
-</p>
+  <img src="https://github.com/hadiuzzaman524/flutter-clean-architecture/assets/52348628/f62ab872-e1e5-4e88-9438-cf055274f6e3" width="600">
+
 
 ## Domain Layer
 The domain layer, also known as the core or business logic layer, is a crucial component within the Clean Architecture pattern. It serves as the heart of your application, encapsulating the business rules, use cases, and domain-specific logic. The domain layer has 3 main parts:
