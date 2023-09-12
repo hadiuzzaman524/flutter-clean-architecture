@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:network_calling/l10n/l10n.dart';
 import 'package:network_calling/resources/app_colors.dart';
 import 'package:network_calling/resources/app_text.dart';
 
@@ -15,6 +16,7 @@ class AppErrorWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -27,14 +29,14 @@ class AppErrorWidget extends StatelessWidget {
           ),
           const SizedBox(height: 15),
           if (noInternetConnection)
-            AppText.largeBold('No Internet Connection')
+            AppText.largeBold(l10n.noInternetTitleText)
           else
-            AppText.largeBold("Something's wrong"),
+            AppText.largeBold(l10n.somethingsWrongText),
           const SizedBox(height: 12),
           if (noInternetConnection)
-            AppText.small('Check your connection, then refresh the page.')
+            AppText.small(l10n.noInternetDetails)
           else
-            AppText.large("We're having issue to loading this page"),
+            AppText.large(l10n.someThingsWrongDetails),
           const SizedBox(height: 24),
           Material(
             child: InkWell(
@@ -44,10 +46,9 @@ class AppErrorWidget extends StatelessWidget {
                     const EdgeInsets.symmetric(horizontal: 25, vertical: 6),
                 decoration: BoxDecoration(
                   color: context.colors.primaryColor,
-                  border: Border.all(color: Colors.blue, width: 1),
                   borderRadius: BorderRadius.circular(20),
                 ),
-                child: AppText.normal('Refresh'),
+                child: AppText.normal(l10n.refreshText),
               ),
             ),
           ),
