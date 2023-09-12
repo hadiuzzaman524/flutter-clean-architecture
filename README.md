@@ -213,14 +213,11 @@ class PublicApiCubit extends Cubit<PublicApiState> {
 
   Future<void> getAllApi() async {
     emit(const PublicApiState.apiFetchLoading());
-    debugPrint('Api fetch loading');
     try {
       final result = await getApiUseCase.run();
 
       emit(PublicApiState.apiFetchedLoaded(publicApiModelList: result));
-      debugPrint('Api fetch loaded');
     } catch (e) {
-      debugPrint('Api fetch error');
       emit(PublicApiState.apiFetchedError(errorMsg: e.toString()));
     }
   }
