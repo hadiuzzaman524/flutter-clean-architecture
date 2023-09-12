@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:network_calling/presentation/public_api/cubits/public_api/cubit.dart';
 import 'package:network_calling/presentation/public_api/cubits/public_api/state.dart';
+import 'package:network_calling/presentation/public_api/widgets/api_info_card.dart';
 import 'package:network_calling/presentation/widgets/error_widget.dart';
 
 class PublicApiScreenBody extends StatelessWidget {
@@ -18,23 +19,24 @@ class PublicApiScreenBody extends StatelessWidget {
             child: CircularProgressIndicator(),
           ),
           apiFetchedLoaded: (publicApiModel) => Material(
-            child: ListView.separated(
-              key: const Key('api-loaded-list'),
-              itemBuilder: (ctx, index) => ListTile(
-                key: Key('$index'),
-                title: Text(publicApiModel[index].apiName),
-                subtitle: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(publicApiModel[index].description),
-                    Text(publicApiModel[index].link),
-                  ],
+            child: Column(
+              children: [
+                const SizedBox(height: 16),
+                Expanded(
+                  child: ListView.separated(
+                    key: const Key('api-loaded-list'),
+                    itemBuilder: (ctx, index) => ApiInfoCard(
+                      apiName: publicApiModel[index].apiName,
+                      description: publicApiModel[index].description,
+                      url: publicApiModel[index].link,
+                    ),
+                    itemCount: publicApiModel.length,
+                    separatorBuilder: (BuildContext context, int index) {
+                      return const Divider();
+                    },
+                  ),
                 ),
-              ),
-              itemCount: publicApiModel.length,
-              separatorBuilder: (BuildContext context, int index) {
-                return const Divider();
-              },
+              ],
             ),
           ),
           apiFetchedError: (responseError) => Center(

@@ -1,7 +1,9 @@
 {
     "@@locale": "es",
-    "counterAppBarTitle": "Contador",
-    "@counterAppBarTitle": {
-        "description": "Texto mostrado en la AppBar de la página del contador"
-    }
+    "appName": "API LIST",
+    "noInternetTitleText": "No Internet",
+    "noInternetDetails": "Check your connection, then refresh the page.",
+    "somethingsWrongText": "Something's Wrong",
+    "someThingsWrongDetails": "We're having issue to loading this page",
+    "refreshText": "Refresh"
 }

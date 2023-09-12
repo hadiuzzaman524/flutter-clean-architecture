@@ -1,7 +1,9 @@
 {
     "@@locale": "en",
-    "counterAppBarTitle": "Counter",
-    "@counterAppBarTitle": {
-        "description": "Text shown in the AppBar of the Counter Page"
-    }
+    "appName": "API LIST",
+    "noInternetTitleText": "No Internet",
+    "noInternetDetails": "Check your connection, then refresh the page.",
+    "somethingsWrongText": "Something's Wrong",
+    "someThingsWrongDetails": "We're having issue to loading this page",
+    "refreshText": "Refresh"
 }
