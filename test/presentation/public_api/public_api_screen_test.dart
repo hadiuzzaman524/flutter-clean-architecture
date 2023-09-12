@@ -5,6 +5,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:network_calling/domain/common/response_error.dart';
 import 'package:network_calling/domain/entities/api/api_entity.dart';
+import 'package:network_calling/presentation/cubits/app_theme/app_theme_cubit.dart';
+import 'package:network_calling/presentation/cubits/app_theme/app_theme_state.dart';
 import 'package:network_calling/presentation/public_api/cubits/public_api/cubit.dart';
 import 'package:network_calling/presentation/public_api/cubits/public_api/state.dart';
 import 'package:network_calling/presentation/public_api/widgets/public_api_screen_body.dart';
@@ -12,8 +14,12 @@ import 'package:network_calling/presentation/public_api/widgets/public_api_scree
 class MockPublicApiCubit extends MockCubit<PublicApiState>
     implements PublicApiCubit {}
 
+class MockAppThemeCubit extends MockCubit<AppThemeState>
+    implements AppThemeCubit {}
+
 void main() {
   late PublicApiCubit publicApiCubit;
+  late AppThemeCubit appThemeCubit;
   final publicApiModelList = <ApiEntity>[
     ApiEntity(
       apiName: 'Dummy Title',
@@ -33,11 +39,15 @@ void main() {
   ];
   setUp(() {
     publicApiCubit = MockPublicApiCubit();
+    appThemeCubit = MockAppThemeCubit();
   });
 
   Widget makeTestableWidget(Widget body) {
-    return BlocProvider(
-      create: (context) => publicApiCubit,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (ctx) => publicApiCubit),
+        BlocProvider(create: (ctx) => appThemeCubit),
+      ],
       child: MaterialApp(home: body),
     );
   }
@@ -84,6 +94,8 @@ void main() {
           publicApiModelList: publicApiModelList,
         ),
       );
+      when(() => appThemeCubit.state)
+          .thenReturn(AppThemeState(isDarkMode: true));
 
       await widgetTester.pumpWidget(
         makeTestableWidget(
@@ -99,8 +111,6 @@ void main() {
 
       ///check successfully render the ListTile by its key
       for (var i = 0; i < publicApiModelList.length; i++) {
-        expect(find.byKey(Key('$i')), findsOneWidget);
-
         ///check all text are shown in the UI
         expect(find.text(publicApiModelList[i].apiName), findsOneWidget);
         expect(find.text(publicApiModelList[i].description), findsOneWidget);

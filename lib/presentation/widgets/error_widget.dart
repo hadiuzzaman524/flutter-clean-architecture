@@ -60,22 +60,25 @@ class AppErrorWidget extends StatelessWidget {
               ),
             ),
           const SizedBox(height: 24),
-          InkWell(
-            onTap: onRefreshPage,
-            child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 6),
-              decoration: BoxDecoration(
-                color: Colors.white70,
-                border: Border.all(color: Colors.blue, width: 1),
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: const Text(
-                'Refresh',
-                style: TextStyle(
-                  fontSize: 14,
-                  color: Colors.blue,
+          Material(
+            child: InkWell(
+              onTap: onRefreshPage,
+              child: Container(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 25, vertical: 6),
+                decoration: BoxDecoration(
+                  color: Colors.white70,
+                  border: Border.all(color: Colors.blue, width: 1),
+                  borderRadius: BorderRadius.circular(20),
                 ),
-                textAlign: TextAlign.right,
+                child: const Text(
+                  'Refresh',
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: Colors.blue,
+                  ),
+                  textAlign: TextAlign.right,
+                ),
               ),
             ),
           ),

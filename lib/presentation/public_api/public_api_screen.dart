@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:network_calling/presentation/public_api/cubits/public_api/cubit.dart';
 import 'package:network_calling/presentation/public_api/widgets/public_api_screen_body.dart';
+import 'package:network_calling/presentation/public_api/widgets/theme_changing_button.dart';
 
 class PublicApiListScreen extends StatelessWidget {
   const PublicApiListScreen({super.key});
@@ -13,6 +14,7 @@ class PublicApiListScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('All APIs'),
         centerTitle: true,
+        actions: const [ThemeChangingButton()],
       ),
       body: RefreshIndicator(
         onRefresh: () async {
