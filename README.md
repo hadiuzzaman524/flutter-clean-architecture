@@ -107,8 +107,11 @@ Data sources are the origins of data for your application. These can be database
 
 ```dart
 @RestApi()
+@lazySingleton
 abstract class RemoteDataSources {
-  factory RemoteDataSources(Dio dio) = _RemoteDataSources;
+  @factoryMethod
+  factory RemoteDataSources(@Named('unauthenticated') Dio dio) =
+      _RemoteDataSources;
 
   @GET('/entries')
   Future<PublicApiResponse> getAllApi();
@@ -123,13 +126,10 @@ In the data layer, a repository acts as an intermediary between the domain layer
 ```dart
 @Injectable(as: PublicApiServices)
 class PublicApiImpl implements PublicApiServices {
-  PublicApiImpl(this._dioService, this._apiReMapper) {
-    _remoteDataSource = RemoteDataSources(_dioService.dio);
-  }
+  PublicApiImpl(this._apiReMapper, this._remoteDataSource);
 
-  late RemoteDataSources _remoteDataSource;
+  final RemoteDataSources _remoteDataSource;
   final ApiReMapper _apiReMapper;
-  final DioService _dioService;
 
   @override
   Future<List<ApiEntity>> getAllApi() async {
