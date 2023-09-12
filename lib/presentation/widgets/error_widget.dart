@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:network_calling/resources/app_colors.dart';
+import 'package:network_calling/resources/app_text.dart';
 
 class AppErrorWidget extends StatelessWidget {
   const AppErrorWidget({
@@ -23,42 +25,16 @@ class AppErrorWidget extends StatelessWidget {
             width: 165,
             fit: BoxFit.cover,
           ),
-          const SizedBox(
-            height: 15,
-          ),
+          const SizedBox(height: 15),
           if (noInternetConnection)
-            const Text(
-              'No Internet Connection',
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-              ),
-            )
+            AppText.largeBold('No Internet Connection')
           else
-            const Text(
-              "Something's wrong",
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          const SizedBox(
-            height: 12,
-          ),
+            AppText.largeBold("Something's wrong"),
+          const SizedBox(height: 12),
           if (noInternetConnection)
-            const Text(
-              'Check your connection, then refresh the page.',
-              style: TextStyle(
-                fontSize: 14,
-              ),
-            )
+            AppText.small('Check your connection, then refresh the page.')
           else
-            const Text(
-              "We're having issue to loading this page",
-              style: TextStyle(
-                fontSize: 14,
-              ),
-            ),
+            AppText.large("We're having issue to loading this page"),
           const SizedBox(height: 24),
           Material(
             child: InkWell(
@@ -67,18 +43,11 @@ class AppErrorWidget extends StatelessWidget {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 25, vertical: 6),
                 decoration: BoxDecoration(
-                  color: Colors.white70,
+                  color: context.colors.primaryColor,
                   border: Border.all(color: Colors.blue, width: 1),
                   borderRadius: BorderRadius.circular(20),
                 ),
-                child: const Text(
-                  'Refresh',
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.blue,
-                  ),
-                  textAlign: TextAlign.right,
-                ),
+                child: AppText.normal('Refresh'),
               ),
             ),
           ),
