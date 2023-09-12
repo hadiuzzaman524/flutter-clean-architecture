@@ -1,10 +1,12 @@
 # Flutter Clean Architecture
 <p float="left">
-     <img src="https://github.com/hadiuzzaman524/flutter-clean-architecture/assets/52348628/599ede29-dd14-4841-9323-639d23efb99a" width="170">
-  <img src="https://github.com/hadiuzzaman524/flutter-clean-architecture/assets/52348628/a70f71cd-28a1-49e5-b53f-65967c3a28a0" width="170">
-     <img src="https://github.com/hadiuzzaman524/flutter-clean-architecture/assets/52348628/1a09c8a8-2d62-4e4a-a446-bb460550379f" width="170">
-   <img src="https://github.com/hadiuzzaman524/flutter-clean-architecture/assets/52348628/2ffc21ea-063d-4ea6-895f-527868a24bc1" width="170">
+     <img src="https://github.com/hadiuzzaman524/flutter-clean-architecture/assets/52348628/d728b6a2-d99c-4f93-beaa-f54ba51cde40" width="170">
+     <img src="https://github.com/hadiuzzaman524/flutter-clean-architecture/assets/52348628/f3893d44-5fda-43fd-af94-672442416c34" width="170">
+     <img src="https://github.com/hadiuzzaman524/flutter-clean-architecture/assets/52348628/aed56d75-7357-401f-9834-8d11ae2a69a4" width="170">
+    <img src="https://github.com/hadiuzzaman524/flutter-clean-architecture/assets/52348628/c7ba3e8f-6c56-4340-824e-b09f01da82f1" width="170">
 </p>
+
+
 
 ## What is clean architecture?
 <a href="https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html"> Clean Architecture </a>, conceptualized by Robert C. Martin, offers a structured approach to organizing applications by breaking them down into modules, each serving a distinct purpose. Its core principle revolves around dividing an application into three primary layers:
@@ -17,8 +19,9 @@
 
 Clean Architecture's central tenet is preserving these well-defined layers to enhance application maintainability, scalability, and testability, while also enabling smoother code evolution.
 <p float="left">
-  <img src="https://github.com/hadiuzzaman524/clean-architecture-flutter/assets/52348628/57d8b605-beb7-4f5d-9c6b-843ab922d2be" width="600">
+  <img src="https://github.com/hadiuzzaman524/flutter-clean-architecture/assets/52348628/6b19d471-5ec9-4ae3-b285-ae57c7af9de8" width="600">
 </p>
+
 
 
 The concentric circles within the image represent the different areas within the software. The closer to the center, the higher level the software becomes. Notice how the horizontal arrows only point inwards, this is because the sole principle behind Clean Architecture is known as the Dependency Rule.
@@ -210,14 +213,11 @@ class PublicApiCubit extends Cubit<PublicApiState> {
 
   Future<void> getAllApi() async {
     emit(const PublicApiState.apiFetchLoading());
-    debugPrint('Api fetch loading');
     try {
       final result = await getApiUseCase.run();
 
       emit(PublicApiState.apiFetchedLoaded(publicApiModelList: result));
-      debugPrint('Api fetch loaded');
     } catch (e) {
-      debugPrint('Api fetch error');
       emit(PublicApiState.apiFetchedError(errorMsg: e.toString()));
     }
   }
