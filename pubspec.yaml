@@ -34,7 +34,7 @@ dev_dependencies:
   injectable_generator: ^2.1.5
   mockito: ^5.4.2
   mocktail: ^0.3.0
-  retrofit_generator: ^7.0.1
+  retrofit_generator: ^8.0.4
   very_good_analysis: ^5.0.0
 
 
