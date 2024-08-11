@@ -26,6 +26,9 @@ dependencies:
   logger: ^2.0.2
   retrofit: ^4.0.1
 
+dependency_overrides:
+  intl: ^0.18.0
+
 dev_dependencies:
   bloc_test: ^9.1.4
   build_runner: ^2.4.4

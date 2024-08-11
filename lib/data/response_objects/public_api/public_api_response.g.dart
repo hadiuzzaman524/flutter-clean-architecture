@@ -6,21 +6,23 @@ part of 'public_api_response.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_PublicApiEntity _$$_PublicApiEntityFromJson(Map<String, dynamic> json) =>
-    _$_PublicApiEntity(
-      count: json['count'] as int,
+_$PublicApiEntityImpl _$$PublicApiEntityImplFromJson(
+        Map<String, dynamic> json) =>
+    _$PublicApiEntityImpl(
+      count: (json['count'] as num).toInt(),
       entries: (json['entries'] as List<dynamic>)
           .map((e) => Entry.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
-Map<String, dynamic> _$$_PublicApiEntityToJson(_$_PublicApiEntity instance) =>
+Map<String, dynamic> _$$PublicApiEntityImplToJson(
+        _$PublicApiEntityImpl instance) =>
     <String, dynamic>{
       'count': instance.count,
       'entries': instance.entries,
     };
 
-_$_Entry _$$_EntryFromJson(Map<String, dynamic> json) => _$_Entry(
+_$EntryImpl _$$EntryImplFromJson(Map<String, dynamic> json) => _$EntryImpl(
       api: json['API'] as String,
       description: json['Description'] as String? ?? 'Empty',
       auth: json['Auth'] as String?,
@@ -30,7 +32,8 @@ _$_Entry _$$_EntryFromJson(Map<String, dynamic> json) => _$_Entry(
       category: json['Category'] as String?,
     );
 
-Map<String, dynamic> _$$_EntryToJson(_$_Entry instance) => <String, dynamic>{
+Map<String, dynamic> _$$EntryImplToJson(_$EntryImpl instance) =>
+    <String, dynamic>{
       'API': instance.api,
       'Description': instance.description,
       'Auth': instance.auth,

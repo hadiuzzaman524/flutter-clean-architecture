@@ -12,7 +12,7 @@ part of 'api_entity.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$ApiEntity {
@@ -68,21 +68,22 @@ class _$ApiEntityCopyWithImpl<$Res, $Val extends ApiEntity>
 }
 
 /// @nodoc
-abstract class _$$_ApiEntityCopyWith<$Res> implements $ApiEntityCopyWith<$Res> {
-  factory _$$_ApiEntityCopyWith(
-          _$_ApiEntity value, $Res Function(_$_ApiEntity) then) =
-      __$$_ApiEntityCopyWithImpl<$Res>;
+abstract class _$$ApiEntityImplCopyWith<$Res>
+    implements $ApiEntityCopyWith<$Res> {
+  factory _$$ApiEntityImplCopyWith(
+          _$ApiEntityImpl value, $Res Function(_$ApiEntityImpl) then) =
+      __$$ApiEntityImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String apiName, String description, String link});
 }
 
 /// @nodoc
-class __$$_ApiEntityCopyWithImpl<$Res>
-    extends _$ApiEntityCopyWithImpl<$Res, _$_ApiEntity>
-    implements _$$_ApiEntityCopyWith<$Res> {
-  __$$_ApiEntityCopyWithImpl(
-      _$_ApiEntity _value, $Res Function(_$_ApiEntity) _then)
+class __$$ApiEntityImplCopyWithImpl<$Res>
+    extends _$ApiEntityCopyWithImpl<$Res, _$ApiEntityImpl>
+    implements _$$ApiEntityImplCopyWith<$Res> {
+  __$$ApiEntityImplCopyWithImpl(
+      _$ApiEntityImpl _value, $Res Function(_$ApiEntityImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -92,7 +93,7 @@ class __$$_ApiEntityCopyWithImpl<$Res>
     Object? description = null,
     Object? link = null,
   }) {
-    return _then(_$_ApiEntity(
+    return _then(_$ApiEntityImpl(
       apiName: null == apiName
           ? _value.apiName
           : apiName // ignore: cast_nullable_to_non_nullable
@@ -111,8 +112,8 @@ class __$$_ApiEntityCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ApiEntity implements _ApiEntity {
-  _$_ApiEntity(
+class _$ApiEntityImpl implements _ApiEntity {
+  _$ApiEntityImpl(
       {required this.apiName, required this.description, required this.link});
 
   @override
@@ -128,10 +129,10 @@ class _$_ApiEntity implements _ApiEntity {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ApiEntity &&
+            other is _$ApiEntityImpl &&
             (identical(other.apiName, apiName) || other.apiName == apiName) &&
             (identical(other.description, description) ||
                 other.description == description) &&
@@ -144,15 +145,15 @@ class _$_ApiEntity implements _ApiEntity {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ApiEntityCopyWith<_$_ApiEntity> get copyWith =>
-      __$$_ApiEntityCopyWithImpl<_$_ApiEntity>(this, _$identity);
+  _$$ApiEntityImplCopyWith<_$ApiEntityImpl> get copyWith =>
+      __$$ApiEntityImplCopyWithImpl<_$ApiEntityImpl>(this, _$identity);
 }
 
 abstract class _ApiEntity implements ApiEntity {
   factory _ApiEntity(
       {required final String apiName,
       required final String description,
-      required final String link}) = _$_ApiEntity;
+      required final String link}) = _$ApiEntityImpl;
 
   @override
   String get apiName;
@@ -162,6 +163,6 @@ abstract class _ApiEntity implements ApiEntity {
   String get link;
   @override
   @JsonKey(ignore: true)
-  _$$_ApiEntityCopyWith<_$_ApiEntity> get copyWith =>
+  _$$ApiEntityImplCopyWith<_$ApiEntityImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

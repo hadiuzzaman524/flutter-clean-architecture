@@ -12,7 +12,7 @@ part of 'public_api_response.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 PublicApiResponse _$PublicApiResponseFromJson(Map<String, dynamic> json) {
   return _PublicApiEntity.fromJson(json);
@@ -68,22 +68,22 @@ class _$PublicApiResponseCopyWithImpl<$Res, $Val extends PublicApiResponse>
 }
 
 /// @nodoc
-abstract class _$$_PublicApiEntityCopyWith<$Res>
+abstract class _$$PublicApiEntityImplCopyWith<$Res>
     implements $PublicApiResponseCopyWith<$Res> {
-  factory _$$_PublicApiEntityCopyWith(
-          _$_PublicApiEntity value, $Res Function(_$_PublicApiEntity) then) =
-      __$$_PublicApiEntityCopyWithImpl<$Res>;
+  factory _$$PublicApiEntityImplCopyWith(_$PublicApiEntityImpl value,
+          $Res Function(_$PublicApiEntityImpl) then) =
+      __$$PublicApiEntityImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int count, List<Entry> entries});
 }
 
 /// @nodoc
-class __$$_PublicApiEntityCopyWithImpl<$Res>
-    extends _$PublicApiResponseCopyWithImpl<$Res, _$_PublicApiEntity>
-    implements _$$_PublicApiEntityCopyWith<$Res> {
-  __$$_PublicApiEntityCopyWithImpl(
-      _$_PublicApiEntity _value, $Res Function(_$_PublicApiEntity) _then)
+class __$$PublicApiEntityImplCopyWithImpl<$Res>
+    extends _$PublicApiResponseCopyWithImpl<$Res, _$PublicApiEntityImpl>
+    implements _$$PublicApiEntityImplCopyWith<$Res> {
+  __$$PublicApiEntityImplCopyWithImpl(
+      _$PublicApiEntityImpl _value, $Res Function(_$PublicApiEntityImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -92,7 +92,7 @@ class __$$_PublicApiEntityCopyWithImpl<$Res>
     Object? count = null,
     Object? entries = null,
   }) {
-    return _then(_$_PublicApiEntity(
+    return _then(_$PublicApiEntityImpl(
       count: null == count
           ? _value.count
           : count // ignore: cast_nullable_to_non_nullable
@@ -107,14 +107,14 @@ class __$$_PublicApiEntityCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_PublicApiEntity extends _PublicApiEntity {
-  const _$_PublicApiEntity(
+class _$PublicApiEntityImpl extends _PublicApiEntity {
+  const _$PublicApiEntityImpl(
       {required this.count, required final List<Entry> entries})
       : _entries = entries,
         super._();
 
-  factory _$_PublicApiEntity.fromJson(Map<String, dynamic> json) =>
-      _$$_PublicApiEntityFromJson(json);
+  factory _$PublicApiEntityImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PublicApiEntityImplFromJson(json);
 
   @override
   final int count;
@@ -132,10 +132,10 @@ class _$_PublicApiEntity extends _PublicApiEntity {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PublicApiEntity &&
+            other is _$PublicApiEntityImpl &&
             (identical(other.count, count) || other.count == count) &&
             const DeepCollectionEquality().equals(other._entries, _entries));
   }
@@ -148,12 +148,13 @@ class _$_PublicApiEntity extends _PublicApiEntity {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PublicApiEntityCopyWith<_$_PublicApiEntity> get copyWith =>
-      __$$_PublicApiEntityCopyWithImpl<_$_PublicApiEntity>(this, _$identity);
+  _$$PublicApiEntityImplCopyWith<_$PublicApiEntityImpl> get copyWith =>
+      __$$PublicApiEntityImplCopyWithImpl<_$PublicApiEntityImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PublicApiEntityToJson(
+    return _$$PublicApiEntityImplToJson(
       this,
     );
   }
@@ -162,11 +163,11 @@ class _$_PublicApiEntity extends _PublicApiEntity {
 abstract class _PublicApiEntity extends PublicApiResponse {
   const factory _PublicApiEntity(
       {required final int count,
-      required final List<Entry> entries}) = _$_PublicApiEntity;
+      required final List<Entry> entries}) = _$PublicApiEntityImpl;
   const _PublicApiEntity._() : super._();
 
   factory _PublicApiEntity.fromJson(Map<String, dynamic> json) =
-      _$_PublicApiEntity.fromJson;
+      _$PublicApiEntityImpl.fromJson;
 
   @override
   int get count;
@@ -174,7 +175,7 @@ abstract class _PublicApiEntity extends PublicApiResponse {
   List<Entry> get entries;
   @override
   @JsonKey(ignore: true)
-  _$$_PublicApiEntityCopyWith<_$_PublicApiEntity> get copyWith =>
+  _$$PublicApiEntityImplCopyWith<_$PublicApiEntityImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -276,9 +277,10 @@ class _$EntryCopyWithImpl<$Res, $Val extends Entry>
 }
 
 /// @nodoc
-abstract class _$$_EntryCopyWith<$Res> implements $EntryCopyWith<$Res> {
-  factory _$$_EntryCopyWith(_$_Entry value, $Res Function(_$_Entry) then) =
-      __$$_EntryCopyWithImpl<$Res>;
+abstract class _$$EntryImplCopyWith<$Res> implements $EntryCopyWith<$Res> {
+  factory _$$EntryImplCopyWith(
+          _$EntryImpl value, $Res Function(_$EntryImpl) then) =
+      __$$EntryImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -292,9 +294,11 @@ abstract class _$$_EntryCopyWith<$Res> implements $EntryCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_EntryCopyWithImpl<$Res> extends _$EntryCopyWithImpl<$Res, _$_Entry>
-    implements _$$_EntryCopyWith<$Res> {
-  __$$_EntryCopyWithImpl(_$_Entry _value, $Res Function(_$_Entry) _then)
+class __$$EntryImplCopyWithImpl<$Res>
+    extends _$EntryCopyWithImpl<$Res, _$EntryImpl>
+    implements _$$EntryImplCopyWith<$Res> {
+  __$$EntryImplCopyWithImpl(
+      _$EntryImpl _value, $Res Function(_$EntryImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -308,7 +312,7 @@ class __$$_EntryCopyWithImpl<$Res> extends _$EntryCopyWithImpl<$Res, _$_Entry>
     Object? link = null,
     Object? category = freezed,
   }) {
-    return _then(_$_Entry(
+    return _then(_$EntryImpl(
       api: null == api
           ? _value.api
           : api // ignore: cast_nullable_to_non_nullable
@@ -343,8 +347,8 @@ class __$$_EntryCopyWithImpl<$Res> extends _$EntryCopyWithImpl<$Res, _$_Entry>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Entry implements _Entry {
-  const _$_Entry(
+class _$EntryImpl implements _Entry {
+  const _$EntryImpl(
       {@JsonKey(name: 'API') required this.api,
       @JsonKey(name: 'Description') this.description = 'Empty',
       @JsonKey(name: 'Auth') this.auth,
@@ -353,8 +357,8 @@ class _$_Entry implements _Entry {
       @JsonKey(name: 'Link') this.link = 'Empty',
       @JsonKey(name: 'Category') this.category});
 
-  factory _$_Entry.fromJson(Map<String, dynamic> json) =>
-      _$$_EntryFromJson(json);
+  factory _$EntryImpl.fromJson(Map<String, dynamic> json) =>
+      _$$EntryImplFromJson(json);
 
 // ignore: invalid_annotation_target
   @override
@@ -386,10 +390,10 @@ class _$_Entry implements _Entry {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Entry &&
+            other is _$EntryImpl &&
             (identical(other.api, api) || other.api == api) &&
             (identical(other.description, description) ||
                 other.description == description) &&
@@ -409,12 +413,12 @@ class _$_Entry implements _Entry {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_EntryCopyWith<_$_Entry> get copyWith =>
-      __$$_EntryCopyWithImpl<_$_Entry>(this, _$identity);
+  _$$EntryImplCopyWith<_$EntryImpl> get copyWith =>
+      __$$EntryImplCopyWithImpl<_$EntryImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_EntryToJson(
+    return _$$EntryImplToJson(
       this,
     );
   }
@@ -428,9 +432,9 @@ abstract class _Entry implements Entry {
       @JsonKey(name: 'HTTPS') final bool? https,
       @JsonKey(name: 'Cors') final String? cors,
       @JsonKey(name: 'Link') final String link,
-      @JsonKey(name: 'Category') final String? category}) = _$_Entry;
+      @JsonKey(name: 'Category') final String? category}) = _$EntryImpl;
 
-  factory _Entry.fromJson(Map<String, dynamic> json) = _$_Entry.fromJson;
+  factory _Entry.fromJson(Map<String, dynamic> json) = _$EntryImpl.fromJson;
 
   @override // ignore: invalid_annotation_target
   @JsonKey(name: 'API')
@@ -455,6 +459,6 @@ abstract class _Entry implements Entry {
   String? get category;
   @override
   @JsonKey(ignore: true)
-  _$$_EntryCopyWith<_$_Entry> get copyWith =>
+  _$$EntryImplCopyWith<_$EntryImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
