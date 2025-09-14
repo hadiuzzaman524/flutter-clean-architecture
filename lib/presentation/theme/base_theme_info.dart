@@ -7,5 +7,5 @@ abstract class BaseThemeInfo {
 
   BaseColorTheme get baseColorTheme;
 
-  ThemeData getAppTheme(BuildContext context);
+  ThemeData getAppTheme();
 }

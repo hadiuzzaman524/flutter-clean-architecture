@@ -7,7 +7,7 @@ import 'package:tsl_flutter_template/presentation/theme/text/portrait_text_style
 
 class EnLightTheme extends BaseThemeInfo {
   @override
-  ThemeData getAppTheme(BuildContext context) {
+  ThemeData getAppTheme() {
     final theme = baseColorTheme.getTheme();
     final appTextStyle = baseTextTheme.appTextStyle;
 

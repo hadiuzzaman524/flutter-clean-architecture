@@ -14,7 +14,7 @@ class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: EnLightTheme().getAppTheme(context),
+      theme: EnLightTheme().getAppTheme(),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       home: const HomeScreen(),
