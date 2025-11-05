@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 @immutable
 class AppColors extends ThemeExtension<AppColors> {
-
   const AppColors({
     required this.primary,
     required this.onPrimary,

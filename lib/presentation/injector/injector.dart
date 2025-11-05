@@ -10,5 +10,4 @@ final GetIt injector = GetIt.instance;
   preferRelativeImports: true,
   asExtension: true,
 )
-void configureDependencies() =>
-    injector.init();
+void configureDependencies() => injector.init();

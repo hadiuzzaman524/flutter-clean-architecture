@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class AppTextTheme extends ThemeExtension<AppTextTheme> {
-
   const AppTextTheme({
     required this.displayLarge,
     required this.displayMedium,

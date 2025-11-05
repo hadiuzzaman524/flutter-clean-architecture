@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:tsl_flutter_template/presentation/theme/base/base_color_theme.dart';
 import 'package:tsl_flutter_template/presentation/theme/base/base_text_theme.dart';
@@ -8,7 +7,6 @@ import 'package:tsl_flutter_template/presentation/theme/text/landscape_text_styl
 import 'package:tsl_flutter_template/presentation/theme/text/portrait_text_style.dart';
 
 class EnLightMode extends BaseThemeInfo {
-
   factory EnLightMode() => _lightMode;
   EnLightMode._initial();
 
@@ -17,8 +15,9 @@ class EnLightMode extends BaseThemeInfo {
   @override
   ThemeData getAppTheme({required Orientation orientation}) {
     final theme = getBaseColorTheme(orientation: orientation).getTheme();
-    final appTextStyle =
-        getBaseTextTheme(orientation: orientation).appTextStyle;
+    final appTextStyle = getBaseTextTheme(
+      orientation: orientation,
+    ).appTextStyle;
 
     return theme.copyWith(
       textTheme: appTextStyle.getTextTheme(),
@@ -35,8 +34,9 @@ class EnLightMode extends BaseThemeInfo {
 
   @override
   BaseTextTheme getBaseTextTheme({required Orientation orientation}) {
-    final textColor =
-        getBaseColorTheme(orientation: orientation).getAppColors.onSurface;
+    final textColor = getBaseColorTheme(
+      orientation: orientation,
+    ).getAppColors.onSurface;
 
     return orientation == Orientation.portrait
         ? PortraitTextStyle(textColor: textColor)

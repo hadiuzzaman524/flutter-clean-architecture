@@ -3,7 +3,6 @@ import 'package:tsl_flutter_template/presentation/theme/base/app_text_theme.dart
 import 'package:tsl_flutter_template/presentation/theme/base/base_text_theme.dart';
 
 class PortraitTextStyle extends BaseTextTheme {
-
   PortraitTextStyle({required this.textColor});
   final Color textColor;
 

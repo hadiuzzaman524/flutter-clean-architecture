@@ -14,7 +14,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$UserState {
 
- List<UserEntity> get userList;
+ List<UserEntity> get userList; BaseStatus<UserState> get status;
 /// Create a copy of UserState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -25,16 +25,16 @@ $UserStateCopyWith<UserState> get copyWith => _$UserStateCopyWithImpl<UserState>
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UserState&&const DeepCollectionEquality().equals(other.userList, userList));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UserState&&const DeepCollectionEquality().equals(other.userList, userList)&&(identical(other.status, status) || other.status == status));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(userList));
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(userList),status);
 
 @override
 String toString() {
-  return 'UserState(userList: $userList)';
+  return 'UserState(userList: $userList, status: $status)';
 }
 
 
@@ -45,11 +45,11 @@ abstract mixin class $UserStateCopyWith<$Res>  {
   factory $UserStateCopyWith(UserState value, $Res Function(UserState) _then) = _$UserStateCopyWithImpl;
 @useResult
 $Res call({
- List<UserEntity> userList
+ List<UserEntity> userList, BaseStatus<UserState> status
 });
 
 
-
+$BaseStatusCopyWith<UserState, $Res> get status;
 
 }
 /// @nodoc
@@ -62,13 +62,23 @@ class _$UserStateCopyWithImpl<$Res>
 
 /// Create a copy of UserState
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? userList = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? userList = null,Object? status = null,}) {
   return _then(_self.copyWith(
 userList: null == userList ? _self.userList : userList // ignore: cast_nullable_to_non_nullable
-as List<UserEntity>,
+as List<UserEntity>,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
+as BaseStatus<UserState>,
   ));
 }
-
+/// Create a copy of UserState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$BaseStatusCopyWith<UserState, $Res> get status {
+  
+  return $BaseStatusCopyWith<UserState, $Res>(_self.status, (value) {
+    return _then(_self.copyWith(status: value));
+  });
+}
 }
 
 
@@ -147,10 +157,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<UserEntity> userList)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<UserEntity> userList,  BaseStatus<UserState> status)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _UserState() when $default != null:
-return $default(_that.userList);case _:
+return $default(_that.userList,_that.status);case _:
   return orElse();
 
 }
@@ -168,10 +178,10 @@ return $default(_that.userList);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<UserEntity> userList)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<UserEntity> userList,  BaseStatus<UserState> status)  $default,) {final _that = this;
 switch (_that) {
 case _UserState():
-return $default(_that.userList);}
+return $default(_that.userList,_that.status);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -185,10 +195,10 @@ return $default(_that.userList);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<UserEntity> userList)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<UserEntity> userList,  BaseStatus<UserState> status)?  $default,) {final _that = this;
 switch (_that) {
 case _UserState() when $default != null:
-return $default(_that.userList);case _:
+return $default(_that.userList,_that.status);case _:
   return null;
 
 }
@@ -200,7 +210,7 @@ return $default(_that.userList);case _:
 
 
 class _UserState implements UserState {
-  const _UserState({final  List<UserEntity> userList = const []}): _userList = userList;
+  const _UserState({final  List<UserEntity> userList = const [], this.status = const BaseStatus<UserState>.initial()}): _userList = userList;
   
 
  final  List<UserEntity> _userList;
@@ -210,6 +220,7 @@ class _UserState implements UserState {
   return EqualUnmodifiableListView(_userList);
 }
 
+@override@JsonKey() final  BaseStatus<UserState> status;
 
 /// Create a copy of UserState
 /// with the given fields replaced by the non-null parameter values.
@@ -221,16 +232,16 @@ _$UserStateCopyWith<_UserState> get copyWith => __$UserStateCopyWithImpl<_UserSt
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UserState&&const DeepCollectionEquality().equals(other._userList, _userList));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UserState&&const DeepCollectionEquality().equals(other._userList, _userList)&&(identical(other.status, status) || other.status == status));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_userList));
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_userList),status);
 
 @override
 String toString() {
-  return 'UserState(userList: $userList)';
+  return 'UserState(userList: $userList, status: $status)';
 }
 
 
@@ -241,11 +252,11 @@ abstract mixin class _$UserStateCopyWith<$Res> implements $UserStateCopyWith<$Re
   factory _$UserStateCopyWith(_UserState value, $Res Function(_UserState) _then) = __$UserStateCopyWithImpl;
 @override @useResult
 $Res call({
- List<UserEntity> userList
+ List<UserEntity> userList, BaseStatus<UserState> status
 });
 
 
-
+@override $BaseStatusCopyWith<UserState, $Res> get status;
 
 }
 /// @nodoc
@@ -258,14 +269,24 @@ class __$UserStateCopyWithImpl<$Res>
 
 /// Create a copy of UserState
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? userList = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? userList = null,Object? status = null,}) {
   return _then(_UserState(
 userList: null == userList ? _self._userList : userList // ignore: cast_nullable_to_non_nullable
-as List<UserEntity>,
+as List<UserEntity>,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
+as BaseStatus<UserState>,
   ));
 }
 
-
+/// Create a copy of UserState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$BaseStatusCopyWith<UserState, $Res> get status {
+  
+  return $BaseStatusCopyWith<UserState, $Res>(_self.status, (value) {
+    return _then(_self.copyWith(status: value));
+  });
+}
 }
 
 // dart format on

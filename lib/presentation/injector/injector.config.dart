@@ -27,13 +27,13 @@ extension GetItInjectableX on _i174.GetIt {
     _i526.EnvironmentFilter? environmentFilter,
   }) {
     final gh = _i526.GetItHelper(this, environment, environmentFilter);
-    final envModule = _$EnvModule();
+    final networkModule = _$NetworkModule();
     gh.singleton<_i361.Dio>(
-      () => envModule.unAuthenticatedDio,
+      () => networkModule.unAuthenticatedDio,
       instanceName: 'unauthenticated',
     );
     gh.singleton<_i361.Dio>(
-      () => envModule.authenticatedDio,
+      () => networkModule.authenticatedDio,
       instanceName: 'authenticated',
     );
     gh.singleton<_i875.UserRemoteDataSource>(
@@ -54,4 +54,4 @@ extension GetItInjectableX on _i174.GetIt {
   }
 }
 
-class _$EnvModule extends _i946.EnvModule {}
+class _$NetworkModule extends _i946.NetworkModule {}
