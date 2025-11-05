@@ -3,6 +3,7 @@ import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter/widgets.dart';
+import 'package:tsl_flutter_template/presentation/injector/injector.dart';
 
 class AppBlocObserver extends BlocObserver {
   const AppBlocObserver();
@@ -24,6 +25,7 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
   FlutterError.onError = (details) {
     log(details.exceptionAsString(), stackTrace: details.stack);
   };
+  configureDependencies();
 
   Bloc.observer = const AppBlocObserver();
 

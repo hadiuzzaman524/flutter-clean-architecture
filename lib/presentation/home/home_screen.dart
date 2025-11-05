@@ -1,6 +1,10 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tsl_flutter_template/l10n/l10n.dart';
+import 'package:tsl_flutter_template/presentation/home/cubits/user_cubit.dart';
+import 'package:tsl_flutter_template/presentation/home/widgets/user_list.dart';
+import 'package:tsl_flutter_template/presentation/injector/injector.dart';
 import 'package:tsl_flutter_template/presentation/theme/text/app_text.dart';
 
 @RoutePage()
@@ -9,13 +13,15 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final l10n = context.l10n;
 
     return Scaffold(
       appBar: AppBar(
         title: const Text('Flutter Template'),
       ),
-      body: Center(child: AppText.titleLarge(l10n.welcome)),
+      body: BlocProvider<UserCubit>(
+        create: (ctx) => injector()..getUserList(),
+        child: const UserList(),
+      ),
     );
   }
 }
