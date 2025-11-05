@@ -10,7 +10,8 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i2;
-import 'package:tsl_flutter_template/presentation/home/home_screen.dart' as _i1;
+import 'package:tsl_flutter_template/presentation/screen/home/home_screen.dart'
+    as _i1;
 
 /// generated route for
 /// [_i1.HomeScreen]

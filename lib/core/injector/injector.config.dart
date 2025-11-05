@@ -17,7 +17,7 @@ import '../../data/data_source/user/user_remote_data_source.dart' as _i875;
 import '../../data/repository_impl/user/user_repository_impl.dart' as _i339;
 import '../../domain/repository/user/user_repository.dart' as _i183;
 import '../../domain/use_cases/user/get_user_list_use_case.dart' as _i596;
-import '../home/cubits/user_cubit.dart' as _i959;
+import '../../presentation/screen/home/cubits/user_cubit.dart' as _i164;
 import 'module.dart' as _i946;
 
 extension GetItInjectableX on _i174.GetIt {
@@ -47,8 +47,8 @@ extension GetItInjectableX on _i174.GetIt {
     gh.singleton<_i596.GetUserListUseCase>(
       () => _i596.GetUserListUseCase(gh<_i183.UserRepository>()),
     );
-    gh.factory<_i959.UserCubit>(
-      () => _i959.UserCubit(gh<_i596.GetUserListUseCase>()),
+    gh.factory<_i164.UserCubit>(
+      () => _i164.UserCubit(gh<_i596.GetUserListUseCase>()),
     );
     return this;
   }
