@@ -7,6 +7,7 @@ environment:
   sdk: ^3.8.0
 
 dependencies:
+  auto_route: ^10.2.0
   bloc: ^9.0.0
   flutter:
     sdk: flutter
@@ -14,11 +15,14 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   freezed_annotation: ^3.1.0
+  get_it: ^8.3.0
   google_fonts: ^6.3.2
   injectable: ^2.5.1
+  injectable_generator: ^2.8.1
   intl: ^0.20.2
 
 dev_dependencies:
+  auto_route_generator: ^10.2.5
   bloc_test: ^10.0.0
   build_runner: ^2.7.1
   flutter_test:
