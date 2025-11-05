@@ -1,7 +1,12 @@
-include: package:very_good_analysis/analysis_options.yaml
+include: package:flutter_lints/flutter.yaml
+
 analyzer:
   exclude:
     - lib/l10n/gen/*
+    - '**/*.g.dart'        # Exclude generated .g.dart files
+    - '**/*.freezed.dart'  # Exclude generated .freezed.dart files
+    - '**/*.inject.dart'   # If using injectable, exclude those too
+
 linter:
   rules:
-    public_member_api_docs: false
+    public_member_api_docs: false  # Disable the rule about documentation for public members

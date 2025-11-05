@@ -17,7 +17,7 @@ class DarkColorTheme extends BaseColorTheme {
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         backgroundColor: colorScheme.surface,
         selectedItemColor: appColors.primary,
-        unselectedItemColor: appColors.onSurface.withOpacity(0.6),
+        unselectedItemColor: appColors.onSurface.withValues(alpha: 0.6),
         selectedLabelStyle: const TextStyle(fontWeight: FontWeight.w600),
         unselectedLabelStyle: const TextStyle(fontWeight: FontWeight.w400),
         type: BottomNavigationBarType.fixed,
@@ -50,30 +50,42 @@ class DarkColorTheme extends BaseColorTheme {
 
   // === Brand Colors ===
   Color get primary => const Color(0xFF5C3AFF);
+
   Color get onPrimary => Colors.white;
+
   Color get secondary => const Color(0xFFA89BFF);
+
   Color get onSecondary => const Color(0xFF1A1A1A);
 
   // === Background & Surfaces ===
   Color get background => const Color(0xFF0E0E0F);
+
   Color get onBackground => const Color(0xFFEAEAEA);
+
   Color get surface => const Color(0xFF1A1A1A);
+
   Color get onSurface => const Color(0xFFE6E6E6);
 
   // === Status Colors ===
   Color get error => const Color(0xFFFF6B6B);
+
   Color get onError => const Color(0xFF1A1A1A);
+
   Color get success => const Color(0xFF00E676);
+
   Color get warning => const Color(0xFFFFB74D);
+
   Color get info => const Color(0xFF64B5F6);
 
   // === Neutrals ===
   Color get border => const Color(0xFF2E2E2E);
+
   Color get shadow => const Color(0x99000000); // 60% opacity
   Color get disabled => const Color(0xFF5A5A5A);
 
   // === Supporting Colors ===
   Color get scaffoldBackgroundColor => background;
+
   Color get textPrimary => onSurface;
 
   // === Surface Variants ===
