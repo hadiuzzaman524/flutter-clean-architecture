@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tsl_flutter_template/presentation/theme/extension/theme_extension.dart';
+import 'package:tsl_flutter_template/presentation/theme/text/app_text.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -8,16 +8,9 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Home'),
+        title: const Text('Flutter Template'),
       ),
-      body: Center(
-        child: Text(
-          'This is Hadi',
-          style: context.textStyle.displayD3.copyWith(
-            color: context.colors.primaryColor,
-          ),
-        ),
-      ),
+      body: Center(child: AppText.titleLarge('Hello World')),
     );
   }
 }

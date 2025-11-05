@@ -2,50 +2,50 @@ import 'package:flutter/material.dart';
 import 'package:tsl_flutter_template/presentation/theme/base/app_text_theme.dart';
 import 'package:tsl_flutter_template/presentation/theme/base/base_text_theme.dart';
 
-class PortraitTextStyle extends BaseTextTheme {
+class LandscapeTextStyle extends BaseTextTheme {
 
-  PortraitTextStyle({required this.textColor});
+  LandscapeTextStyle({required this.textColor});
   final Color textColor;
 
   // Display
   TextStyle get displayLarge => TextStyle(
     fontWeight: FontWeight.w600,
-    fontSize: 32,
+    fontSize: 28, // slightly smaller than portrait
     letterSpacing: 0,
     color: textColor,
   );
 
   TextStyle get displayLargeBold => TextStyle(
     fontWeight: FontWeight.w700,
-    fontSize: 32,
+    fontSize: 28,
     letterSpacing: 0,
     color: textColor,
   );
 
   TextStyle get displayMedium => TextStyle(
     fontWeight: FontWeight.w600,
-    fontSize: 28,
+    fontSize: 24,
     letterSpacing: 0,
     color: textColor,
   );
 
   TextStyle get displayMediumBold => TextStyle(
     fontWeight: FontWeight.w700,
-    fontSize: 28,
+    fontSize: 24,
     letterSpacing: 0,
     color: textColor,
   );
 
   TextStyle get displaySmall => TextStyle(
     fontWeight: FontWeight.w600,
-    fontSize: 24,
+    fontSize: 20,
     letterSpacing: 0.25,
     color: textColor,
   );
 
   TextStyle get displaySmallBold => TextStyle(
     fontWeight: FontWeight.w700,
-    fontSize: 24,
+    fontSize: 20,
     letterSpacing: 0.25,
     color: textColor,
   );
@@ -53,42 +53,42 @@ class PortraitTextStyle extends BaseTextTheme {
   // Headlines / Titles
   TextStyle get headlineLarge => TextStyle(
     fontWeight: FontWeight.w700,
-    fontSize: 18,
+    fontSize: 16,
     letterSpacing: 0,
     color: textColor,
   );
 
   TextStyle get headlineLargeBold => TextStyle(
     fontWeight: FontWeight.w700,
-    fontSize: 18,
+    fontSize: 16,
     letterSpacing: 0,
     color: textColor,
   );
 
   TextStyle get headlineMedium => TextStyle(
     fontWeight: FontWeight.w500,
-    fontSize: 16,
+    fontSize: 14,
     letterSpacing: 0,
     color: textColor,
   );
 
   TextStyle get headlineMediumBold => TextStyle(
     fontWeight: FontWeight.w700,
-    fontSize: 16,
+    fontSize: 14,
     letterSpacing: 0,
     color: textColor,
   );
 
   TextStyle get headlineSmall => TextStyle(
     fontWeight: FontWeight.w600,
-    fontSize: 14,
+    fontSize: 12,
     letterSpacing: 0.2,
     color: textColor,
   );
 
   TextStyle get headlineSmallBold => TextStyle(
     fontWeight: FontWeight.w700,
-    fontSize: 14,
+    fontSize: 12,
     letterSpacing: 0.2,
     color: textColor,
   );
@@ -96,84 +96,84 @@ class PortraitTextStyle extends BaseTextTheme {
   // Titles / Subtitles
   TextStyle get titleLarge => TextStyle(
     fontWeight: FontWeight.w700,
-    fontSize: 16,
+    fontSize: 14,
     letterSpacing: 0,
     color: textColor,
   );
 
   TextStyle get titleLargeBold => TextStyle(
     fontWeight: FontWeight.w800,
-    fontSize: 16,
+    fontSize: 14,
     letterSpacing: 0,
     color: textColor,
   );
 
   TextStyle get titleMedium => TextStyle(
     fontWeight: FontWeight.w500,
-    fontSize: 15,
+    fontSize: 13,
     letterSpacing: 0,
     color: textColor,
   );
 
   TextStyle get titleMediumBold => TextStyle(
     fontWeight: FontWeight.w600,
-    fontSize: 15,
+    fontSize: 13,
     letterSpacing: 0,
     color: textColor,
   );
 
   TextStyle get titleSmall => TextStyle(
     fontWeight: FontWeight.w700,
-    fontSize: 13,
+    fontSize: 12,
     letterSpacing: 0,
     color: textColor,
   );
 
   TextStyle get titleSmallBold => TextStyle(
     fontWeight: FontWeight.w800,
-    fontSize: 13,
+    fontSize: 12,
     letterSpacing: 0,
     color: textColor,
   );
 
   TextStyle get labelLarge => TextStyle(
     fontWeight: FontWeight.w700,
-    fontSize: 14,
+    fontSize: 12,
     letterSpacing: 0,
     color: textColor,
   );
 
   TextStyle get labelLargeBold => TextStyle(
     fontWeight: FontWeight.w800,
-    fontSize: 14,
+    fontSize: 12,
     letterSpacing: 0,
     color: textColor,
   );
 
   TextStyle get labelMedium => TextStyle(
     fontWeight: FontWeight.w700,
-    fontSize: 13,
+    fontSize: 11,
     letterSpacing: 0,
     color: textColor,
   );
 
   TextStyle get labelMediumBold => TextStyle(
     fontWeight: FontWeight.w800,
-    fontSize: 13,
+    fontSize: 11,
     letterSpacing: 0,
     color: textColor,
   );
 
   TextStyle get labelSmall => TextStyle(
     fontWeight: FontWeight.w600,
-    fontSize: 12,
+    fontSize: 10,
     letterSpacing: 0,
     color: textColor,
   );
 
   TextStyle get labelSmallBold => TextStyle(
     fontWeight: FontWeight.w700,
-    fontSize: 12,
+    fontSize: 10,
     letterSpacing: 0,
     color: textColor,
   );
@@ -181,42 +181,42 @@ class PortraitTextStyle extends BaseTextTheme {
   // Body / Paragraph
   TextStyle get bodyLarge => TextStyle(
     fontWeight: FontWeight.w400,
-    fontSize: 14,
+    fontSize: 12,
     letterSpacing: 0.25,
     color: textColor,
   );
 
   TextStyle get bodyLargeBold => TextStyle(
     fontWeight: FontWeight.w600,
-    fontSize: 14,
+    fontSize: 12,
     letterSpacing: 0.25,
     color: textColor,
   );
 
   TextStyle get bodyMedium => TextStyle(
     fontWeight: FontWeight.w400,
-    fontSize: 13,
+    fontSize: 11,
     letterSpacing: 0.25,
     color: textColor,
   );
 
   TextStyle get bodyMediumBold => TextStyle(
     fontWeight: FontWeight.w600,
-    fontSize: 13,
+    fontSize: 11,
     letterSpacing: 0.25,
     color: textColor,
   );
 
   TextStyle get bodySmall => TextStyle(
     fontWeight: FontWeight.w400,
-    fontSize: 12,
+    fontSize: 10,
     letterSpacing: 0.2,
     color: textColor,
   );
 
   TextStyle get bodySmallBold => TextStyle(
     fontWeight: FontWeight.w600,
-    fontSize: 12,
+    fontSize: 10,
     letterSpacing: 0.2,
     color: textColor,
   );
