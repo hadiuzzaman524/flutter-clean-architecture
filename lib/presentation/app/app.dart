@@ -7,6 +7,7 @@ import 'package:tsl_flutter_template/presentation/theme/cubit/app_theme_cubit.da
 import 'package:tsl_flutter_template/presentation/theme/cubit/app_theme_state.dart';
 import 'package:tsl_flutter_template/presentation/theme/dark/en_dark_mode.dart';
 import 'package:tsl_flutter_template/presentation/theme/light/en_light_mode.dart';
+import 'package:tsl_flutter_template/presentation/theme/system/system_mode.dart';
 
 class App extends StatefulWidget {
   const App({super.key});
@@ -21,6 +22,7 @@ class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
     final availableThemes = [
+      ThemeEntity(SystemMode(), 'System'),
       ThemeEntity(EnLightMode(), 'Light Mode'),
       ThemeEntity(EnDarkMode(), 'Dark Mode'),
     ];
