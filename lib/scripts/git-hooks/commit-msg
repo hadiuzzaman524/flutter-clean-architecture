@@ -1,0 +1,29 @@
+#!/bin/bash
+
+RED='\033[0;31m'
+YELLOW='\033[1;33m'
+NC='\033[0m'
+
+COMMIT_MSG=$(cat "$1")
+
+if [[ $COMMIT_MSG =~ ^Merge ]]; then
+    exit 0
+fi
+
+if ! [[ $COMMIT_MSG =~ ^(feat|fix|refactor|chore|docs|style|test|perf|ci|build|revert):\ .{3,} ]]; then
+
+      echo -e "${RED}❌ Invalid commit message${NC}"
+      echo -e "${YELLOW}Your commit message must follow the Conventional Commits format:${NC}"
+      echo -e "${YELLOW}Format: <type>: <short description>${NC}"
+      echo -e "${YELLOW}Where <type> can be one of: feat, fix, refactor, chore, docs, style, test, perf, ci, build, revert${NC}"
+      echo -e "${YELLOW}Examples:${NC}"
+      echo -e "${YELLOW}  feat: add new scanning feature${NC}"
+      echo -e "${YELLOW}  fix: resolve crash during image extraction${NC}"
+      echo -e "${YELLOW}  refactor: clean up scanner controller logic${NC}"
+      echo -e "${YELLOW}  chore: update dependencies and cleanup scripts${NC}"
+      echo -e "${YELLOW}Make sure your commit message is at least 3 characters after the type:${NC}"
+
+    exit 1
+fi
+
+exit 0

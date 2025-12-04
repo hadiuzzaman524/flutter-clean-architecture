@@ -18,9 +18,7 @@ class UserList extends StatelessWidget {
       builder: (ctx, state) {
         final userList = state.userList;
         return switch (state.status) {
-          Loading() => const Center(
-            child: CircularProgressIndicator(),
-          ),
+          Loading() => const Center(child: CircularProgressIndicator()),
           Success() => ListView.separated(
             itemBuilder: (ctx, index) {
               return ListTile(
@@ -44,14 +42,16 @@ class UserList extends StatelessWidget {
                 ),
               );
             },
-            separatorBuilder: (ctx, index) => Divider(
-              color: context.colors.border,
-            ),
+            separatorBuilder: (ctx, index) =>
+                Divider(color: context.colors.border),
             itemCount: userList.length,
           ),
           Failure(:final ResponseError responseError) => Center(
             child: Padding(
-              padding: const EdgeInsets.all(AppConstant.padding),
+              padding: EdgeInsets.symmetric(
+                horizontal: AppConstant.horizontalGap8,
+                vertical: AppConstant.verticalGap8,
+              ),
               child: AppText.bodyLarge(
                 context.errorLocalization.responseError(responseError),
                 textAlign: TextAlign.center,

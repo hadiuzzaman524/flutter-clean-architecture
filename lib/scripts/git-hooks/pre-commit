@@ -1,0 +1,27 @@
+#!/bin/bash
+
+RED='\033[0;31m'
+YELLOW='\033[1;33m'
+NC='\033[0m'
+
+BRANCH_NAME=$(git symbolic-ref --short HEAD 2>/dev/null)
+
+if [[ "$BRANCH_NAME" != "main" && "$BRANCH_NAME" != "develop" && "$BRANCH_NAME" != "master" ]]; then
+    if ! [[ $BRANCH_NAME =~ ^(feat|fix|refactor|chore)/ ]]; then
+        echo -e "${RED}❌ Invalid branch name: $BRANCH_NAME${NC}"
+        echo -e "${YELLOW}Branch names for feature work should start with one of the allowed prefixes:${NC}"
+        echo -e "${YELLOW}  feat/     - for new features${NC}"
+        echo -e "${YELLOW}  fix/      - for bug fixes${NC}"
+        echo -e "${YELLOW}  refactor/ - for code refactoring${NC}"
+        echo -e "${YELLOW}  chore/    - for maintenance or minor tasks${NC}"
+        echo -e "${YELLOW}Example branch names:${NC}"
+        echo -e "${YELLOW}  feat/add-login-screen${NC}"
+        echo -e "${YELLOW}  fix/crash-on-scan${NC}"
+        echo -e "${YELLOW}  refactor/scanner-controller${NC}"
+        echo -e "${YELLOW}  chore/update-dependencies${NC}"
+        exit 1
+    fi
+fi
+
+
+exit 0
