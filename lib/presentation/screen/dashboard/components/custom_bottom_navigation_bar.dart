@@ -2,7 +2,6 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:tsl_flutter_template/gen/assets.gen.dart';
-import 'package:tsl_flutter_template/l10n/l10n.dart';
 import 'package:tsl_flutter_template/presentation/screen/dashboard/components/bottom_nav_item.dart';
 
 class CustomBottomNavigationBar extends StatefulWidget {

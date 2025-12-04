@@ -1,5 +1,6 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
+import 'package:tsl_flutter_template/presentation/screen/settings/settings_landscape_view.dart';
 import 'package:tsl_flutter_template/presentation/screen/settings/settings_portrait_view.dart';
 
 import '../../widgets/widgets.dart';
@@ -16,5 +17,9 @@ class SettingsScreen extends Screen {
   @override
   Widget buildMobilePortraitView(BuildContext context) {
     return SettingsPortraitView();
+  }
+  @override
+  Widget buildMobileLandscapeView(BuildContext context) {
+    return SettingsLandscapeView();
   }
 }
