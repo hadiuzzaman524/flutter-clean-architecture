@@ -1,6 +1,6 @@
 part of 'widgets.dart';
 
-enum AppTextFieldType { none, email, password, phone, number }
+enum AppTextFieldType { none, email, password, phone, number, search }
 
 class AppTextField extends StatefulWidget {
   const AppTextField({
@@ -81,6 +81,14 @@ class AppTextField extends StatefulWidget {
 }
 
 class _AppTextFieldState extends State<AppTextField> {
+  bool _obscureText = true;
+
+  @override
+  void initState() {
+    super.initState();
+    _obscureText = widget.textFieldType == AppTextFieldType.password;
+  }
+
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -92,8 +100,10 @@ class _AppTextFieldState extends State<AppTextField> {
           widget.titleStyle ??
           Theme.of(
             context,
-          ).textTheme.bodyMedium?.copyWith(color: context.colors.onSurface),
-      obscureText: widget.isObscure,
+          ).textTheme.bodyMedium?.copyWith(color: context.colors.onBackground),
+      obscureText: widget.textFieldType == AppTextFieldType.password
+          ? _obscureText
+          : widget.isObscure,
       autofocus: widget.autoFocus,
       maxLines: widget.maxLines,
       minLines: widget.minLines,
@@ -111,11 +121,11 @@ class _AppTextFieldState extends State<AppTextField> {
         labelText: widget.label,
         labelStyle: Theme.of(
           context,
-        ).textTheme.bodyMedium?.copyWith(color: context.colors.onSurface),
+        ).textTheme.bodyMedium?.copyWith(color: context.colors.disabled),
         isDense: true,
-        contentPadding: const EdgeInsets.symmetric(
-          horizontal: 16,
-          vertical: 16,
+        contentPadding: EdgeInsets.symmetric(
+          horizontal: AppConstant.horizontalGap16,
+          vertical: AppConstant.verticalGap16,
         ),
         border: InputBorder.none,
         enabledBorder: inputBorder(),
@@ -123,25 +133,30 @@ class _AppTextFieldState extends State<AppTextField> {
         focusedBorder: inputBorder(isActive: true),
         errorBorder: inputBorder(isError: true),
         focusedErrorBorder: inputBorder(isActive: true, isError: true),
-
         prefixIcon: widget.prefixIcon != null
             ? _applyPrefixIconStyling(widget.prefixIcon!)
-            : null,
-
+            : _buildLeadingIcon(),
+        prefixIconConstraints: const BoxConstraints(
+          maxHeight: 48,
+          maxWidth: 48,
+        ),
         suffixIconConstraints:
             (widget.textFieldType == AppTextFieldType.password ||
                 widget.suffixIcon != null)
             ? const BoxConstraints(maxHeight: 48, maxWidth: 48)
             : const BoxConstraints(maxHeight: 48, maxWidth: 16),
-
         suffixIcon: Padding(
-          padding: const EdgeInsets.only(left: 4, right: 20),
+          padding: EdgeInsets.only(
+            left: AppConstant.horizontalGap4,
+            right: AppConstant.horizontalGap16,
+          ),
           child: GestureDetector(
-            onTap: widget.suffixClick,
+            onTap: widget.textFieldType == AppTextFieldType.password
+                ? _togglePasswordVisibility
+                : widget.suffixClick,
             child: _buildSuffixIcon(),
           ),
         ),
-
         counterText: widget.showCounter
             ? '${widget.controller?.text.length ?? 0}/${widget.maxLength ?? 200}'
             : null,
@@ -155,12 +170,38 @@ class _AppTextFieldState extends State<AppTextField> {
           ? TextInputType.phone
           : widget.textFieldType == AppTextFieldType.number
           ? TextInputType.number
+          : widget.textFieldType == AppTextFieldType.password
+          ? TextInputType.text
           : TextInputType.text,
       inputFormatters: widget.inputFormatters,
       validator:
           widget.validator ??
           (value) {
             if (!widget.willValidate) return null;
+
+            // Email validation
+            if (widget.textFieldType == AppTextFieldType.email) {
+              if (value == null || value.isEmpty) {
+                return 'Email is required';
+              }
+              final emailRegex = RegExp(
+                r'^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$',
+              );
+              if (!emailRegex.hasMatch(value)) {
+                return 'Please enter a valid email address';
+              }
+            }
+
+            // Password validation (optional - customize as needed)
+            if (widget.textFieldType == AppTextFieldType.password) {
+              if (value == null || value.isEmpty) {
+                return 'Password is required';
+              }
+              if (value.length < 6) {
+                return 'Password must be at least 6 characters';
+              }
+            }
+
             return null;
           },
       onChanged: widget.onChanged,
@@ -168,34 +209,109 @@ class _AppTextFieldState extends State<AppTextField> {
     );
   }
 
+  Widget? _buildLeadingIcon() {
+    return switch (widget.textFieldType) {
+      AppTextFieldType.email => Row(
+        children: [
+          Gap(AppConstant.horizontalGap16),
+          _buildDefaultIcon(Icons.email_outlined),
+        ],
+      ),
+      AppTextFieldType.password => Row(
+        children: [
+          Gap(AppConstant.horizontalGap16),
+          _buildDefaultIcon(Icons.lock_outlined),
+        ],
+      ),
+      AppTextFieldType.search => Row(
+        children: [
+          Gap(AppConstant.horizontalGap16),
+          _buildDefaultIcon(Icons.search_rounded),
+        ],
+      ),
+      AppTextFieldType.phone => Row(
+        children: [
+          Gap(AppConstant.horizontalGap16),
+          _buildDefaultIcon(Icons.phone_outlined),
+        ],
+      ),
+      AppTextFieldType.number => Row(
+        children: [
+          Gap(AppConstant.horizontalGap16),
+          _buildDefaultIcon(Icons.numbers_outlined),
+        ],
+      ),
+      AppTextFieldType.none => null,
+    };
+  }
+
+  Widget _buildDefaultIcon(IconData icon) {
+    return SizedBox(
+      width: AppConstant.iconSize,
+      height: AppConstant.iconSize,
+      child: Center(
+        child: Icon(
+          icon,
+          size: 20,
+          color: widget.prefixIconColor ?? context.colors.onSurface,
+        ),
+      ),
+    );
+  }
+
   Widget _buildSuffixIcon() {
+    if (widget.textFieldType == AppTextFieldType.password) {
+      return SizedBox(
+        width: widget.suffixIconSize ?? AppConstant.iconSize,
+        height: widget.suffixIconSize ?? AppConstant.iconSize,
+        child: Center(
+          child: Icon(
+            _obscureText
+                ? Icons.visibility_outlined
+                : Icons.visibility_off_outlined,
+            color: widget.suffixIconColor ?? context.colors.onSurface,
+            size: widget.suffixIconSize ?? 20,
+          ),
+        ),
+      );
+    }
     if (widget.suffixIcon != null) {
       return _applySuffixIconStyling(widget.suffixIcon!);
     }
-
-    // if (widget.textFieldType == AppTextFieldType.password) {
-    //   return SvgPicture.asset(
-    //     widget.isObscure ? SvgAssets.eyeClose : SvgAssets.eyeOpen,
-    //     colorFilter: ColorFilter.mode(
-    //       context.appColorScheme.content200,
-    //       BlendMode.srcIn,
-    //     ),
-    //     fit: BoxFit.scaleDown,
-    //   );
-    // }
 
     return const SizedBox.shrink();
   }
 
   Widget _applyPrefixIconStyling(Widget icon) {
+    return Row(
+      children: [
+        Gap(AppConstant.horizontalGap16),
+        SizedBox(
+          width: widget.prefixIconSize ?? AppConstant.iconSize,
+          height: widget.prefixIconSize ?? AppConstant.iconSize,
+          child: Center(
+            child: IconTheme(
+              data: IconThemeData(
+                color: widget.prefixIconColor ?? context.colors.onSurface,
+                size: widget.prefixIconSize ?? AppConstant.iconSize,
+              ),
+              child: icon,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _applySuffixIconStyling(Widget icon) {
     return SizedBox(
-      width: widget.prefixIconSize ?? 24,
-      height: widget.prefixIconSize ?? 24,
+      width: widget.suffixIconSize ?? AppConstant.iconSize,
+      height: widget.suffixIconSize ?? AppConstant.iconSize,
       child: Center(
         child: IconTheme(
           data: IconThemeData(
-            color: widget.prefixIconColor ?? context.colors.onSurface,
-            size: widget.prefixIconSize ?? 24,
+            color: widget.suffixIconColor ?? context.colors.onSurface,
+            size: widget.suffixIconSize ?? AppConstant.iconSize,
           ),
           child: icon,
         ),
@@ -203,20 +319,10 @@ class _AppTextFieldState extends State<AppTextField> {
     );
   }
 
-  Widget _applySuffixIconStyling(Widget icon) {
-    return SizedBox(
-      width: widget.suffixIconSize ?? 24,
-      height: widget.suffixIconSize ?? 24,
-      child: Center(
-        child: IconTheme(
-          data: IconThemeData(
-            color: widget.suffixIconColor ?? context.colors.onSurface,
-            size: widget.suffixIconSize ?? 24,
-          ),
-          child: icon,
-        ),
-      ),
-    );
+  void _togglePasswordVisibility() {
+    setState(() {
+      _obscureText = !_obscureText;
+    });
   }
 
   InputBorder inputBorder({

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tsl_flutter_template/core/constants/app_constant.dart';
 import 'package:tsl_flutter_template/presentation/theme/base/app_text_theme.dart';
 import 'package:tsl_flutter_template/presentation/theme/base/base_text_theme.dart';
 
@@ -37,14 +38,14 @@ class PortraitTextStyle extends BaseTextTheme {
 
   TextStyle get displaySmall => TextStyle(
     fontWeight: FontWeight.w600,
-    fontSize: 24,
+    fontSize: AppConstant.iconSize,
     letterSpacing: 0.25,
     color: textColor,
   );
 
   TextStyle get displaySmallBold => TextStyle(
     fontWeight: FontWeight.w700,
-    fontSize: 24,
+    fontSize: AppConstant.iconSize,
     letterSpacing: 0.25,
     color: textColor,
   );

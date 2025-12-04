@@ -5,7 +5,7 @@ packages:
     dependency: transitive
     description:
       name: _fe_analyzer_shared
-      sha256: da0d9209ca76bde579f2da330aeb9df62b6319c834fa7baae052021b0462401f
+      sha256: da0d9209ca76bde579f2da330aeb9df62b6319c834fa7baae052021b046AppConstant.iconSize01f
       url: "https://pub.dev"
     source: hosted
     version: "85.0.0"
@@ -13,7 +13,7 @@ packages:
     dependency: transitive
     description:
       name: analyzer
-      sha256: "974859dc0ff5f37bc4313244b3218c791810d03ab3470a579580279ba971a48d"
+      sha256: "974859dc0ff5f37bc4313AppConstant.iconSize4b3218c791810d03ab3470a579580279ba971a48d"
       url: "https://pub.dev"
     source: hosted
     version: "7.7.1"
@@ -53,7 +53,7 @@ packages:
     dependency: "direct main"
     description:
       name: auto_route
-      sha256: "6d3ccc11b520b6eff0ab5a2c3d1c43c46d1486249cc746c4bb14486d876e8b43"
+      sha256: "6d3ccc11b520b6eff0ab5a2c3d1c43c46d1486AppConstant.iconSize9cc746c4bb14486d876e8b43"
       url: "https://pub.dev"
     source: hosted
     version: "10.3.0"
@@ -93,7 +93,7 @@ packages:
     dependency: transitive
     description:
       name: boolean_selector
-      sha256: "8aab1771e1243a5063b8b0ff68042d67334e3feab9e95b9490f9a6ebf73b42ea"
+      sha256: "8aab1771e1AppConstant.iconSize3a5063b8b0ff68042d67334e3feab9e95b9490f9a6ebf73b42ea"
       url: "https://pub.dev"
     source: hosted
     version: "2.1.2"
@@ -109,7 +109,7 @@ packages:
     dependency: transitive
     description:
       name: build_config
-      sha256: "4f64382b97504dc2fcdf487d5aae33418e08b4703fc21249e4db6d804a4d0187"
+      sha256: "4f64382b97504dc2fcdf487d5aae33418e08b4703fc21AppConstant.iconSize9e4db6d804a4d0187"
       url: "https://pub.dev"
     source: hosted
     version: "1.2.0"
@@ -133,7 +133,7 @@ packages:
     dependency: "direct dev"
     description:
       name: build_runner
-      sha256: b24597fceb695969d47025c958f3837f9f0122e237c6a22cb082a5ac66c3ca30
+      sha256: bAppConstant.iconSize597fceb695969d47025c958f3837f9f0122e237c6a22cb082a5ac66c3ca30
       url: "https://pub.dev"
     source: hosted
     version: "2.7.1"
@@ -173,7 +173,7 @@ packages:
     dependency: transitive
     description:
       name: checked_yaml
-      sha256: "959525d3162f249993882720d52b7e0c833978df229be20702b33d48d91de70f"
+      sha256: "959525d3162fAppConstant.iconSize9993882720d52b7e0c833978df229be20702b33d48d91de70f"
       url: "https://pub.dev"
     source: hosted
     version: "2.0.4"
@@ -189,7 +189,7 @@ packages:
     dependency: transitive
     description:
       name: clock
-      sha256: fddb70d9b5277016c77a80201021d40a2247104d9f4aa7bab7157b7e3f05b84b
+      sha256: fddb70d9b5277016c77a80201021d40a2AppConstant.iconSize7104d9f4aa7bab7157b7e3f05b84b
       url: "https://pub.dev"
     source: hosted
     version: "1.1.2"
@@ -197,7 +197,7 @@ packages:
     dependency: transitive
     description:
       name: code_builder
-      sha256: "11654819532ba94c34de52ff5feb52bd81cba1de00ef2ed622fd50295f9d4243"
+      sha256: "11654819532ba94c34de52ff5feb52bd81cba1de00ef2ed622fd50295f9d4AppConstant.iconSize3"
       url: "https://pub.dev"
     source: hosted
     version: "4.11.0"
@@ -213,7 +213,7 @@ packages:
     dependency: transitive
     description:
       name: color
-      sha256: ddcdf1b3badd7008233f5acffaf20ca9f5dc2cd0172b75f68f24526a5f5725cb
+      sha256: ddcdf1b3badd7008233f5acffaf20ca9f5dc2cd0172b75f68fAppConstant.iconSize526a5f5725cb
       url: "https://pub.dev"
     source: hosted
     version: "3.0.0"
@@ -222,7 +222,7 @@ packages:
     description:
       path: "."
       ref: "v0.0.5"
-      resolved-ref: "24b4163f9d32874c402ea6db9bf5103289a25244"
+      resolved-ref: "AppConstant.iconSizeb4163f9d32874c402ea6db9bf5103289a25AppConstant.iconSize4"
       url: "git@vcs.technonext.com:TechnoNext/mobile-apps/flutter-packages/common_sdk.git"
     source: git
     version: "0.0.4"
@@ -270,7 +270,7 @@ packages:
     dependency: transitive
     description:
       name: dart_style
-      sha256: "8a0e5fba27e8ee025d2ffb4ee820b4e6e2cf5e4246a6b1a477eb66866947e0bb"
+      sha256: "8a0e5fba27e8ee025d2ffb4ee820b4e6e2cf5e4AppConstant.iconSize6a6b1a477eb66866947e0bb"
       url: "https://pub.dev"
     source: hosted
     version: "3.1.1"
@@ -278,7 +278,7 @@ packages:
     dependency: transitive
     description:
       name: dartx
-      sha256: "8b25435617027257d43e6508b5fe061012880ddfdaa75a71d607c3de2a13d244"
+      sha256: "8b25435617027257d43e6508b5fe061012880ddfdaa75a71d607c3de2a13dAppConstant.iconSize4"
       url: "https://pub.dev"
     source: hosted
     version: "1.2.0"
@@ -294,7 +294,7 @@ packages:
     dependency: transitive
     description:
       name: diff_match_patch
-      sha256: "2efc9e6e8f449d0abe15be240e2c2a3bcd977c8d126cfd70598aee60af35c0a4"
+      sha256: "2efc9e6e8f449d0abe15beAppConstant.iconSize0e2c2a3bcd977c8d126cfd70598aee60af35c0a4"
       url: "https://pub.dev"
     source: hosted
     version: "0.4.1"
@@ -310,7 +310,7 @@ packages:
     dependency: transitive
     description:
       name: dio_web_adapter
-      sha256: "7586e476d70caecaf1686d21eee7247ea43ef5c345eab9e0cc3583ff13378d78"
+      sha256: "7586e476d70caecaf1686d21eee7AppConstant.iconSize7ea43ef5c345eab9e0cc3583ff13378d78"
       url: "https://pub.dev"
     source: hosted
     version: "2.1.1"
@@ -318,7 +318,7 @@ packages:
     dependency: transitive
     description:
       name: fake_async
-      sha256: "5368f224a74523e8d2e7399ea1638b37aecfca824a3cc4dfdf77bf1fa905ac44"
+      sha256: "5368f2AppConstant.iconSizea74523e8d2e7399ea1638b37aecfca8AppConstant.iconSizea3cc4dfdf77bf1fa905ac44"
       url: "https://pub.dev"
     source: hosted
     version: "1.3.3"
@@ -442,7 +442,7 @@ packages:
     dependency: transitive
     description:
       name: frontend_server_client
-      sha256: f64a0333a82f30b0cca061bc3d143813a486dc086b574bfb233b7c1372427694
+      sha256: f64a0333a82f30b0cca061bc3d143813a486dc086b574bfb233b7c137AppConstant.iconSize27694
       url: "https://pub.dev"
     source: hosted
     version: "4.0.0"
@@ -466,7 +466,7 @@ packages:
     dependency: transitive
     description:
       name: glob
-      sha256: c3f1ee72c96f8f78935e18aa8cecced9ab132419e8625dc187e1c2408efc20de
+      sha256: c3f1ee72c96f8f78935e18aa8cecced9ab13AppConstant.iconSize19e8625dc187e1cAppConstant.iconSize08efc20de
       url: "https://pub.dev"
     source: hosted
     version: "2.1.3"
@@ -474,7 +474,7 @@ packages:
     dependency: "direct main"
     description:
       name: google_fonts
-      sha256: ba03d03bcaa2f6cb7bd920e3b5027181db75ab524f8891c8bc3aa603885b8055
+      sha256: ba03d03bcaa2f6cb7bd920e3b5027181db75ab5AppConstant.iconSizef8891c8bc3aa603885b8055
       url: "https://pub.dev"
     source: hosted
     version: "6.3.3"
@@ -578,7 +578,7 @@ packages:
     dependency: transitive
     description:
       name: isar_community
-      sha256: d92315e1862448f236489c2b2b1f9a7ad5ba2405f42d87216234be4fb2e1dd2d
+      sha256: d92315e186AppConstant.iconSize48f236489c2b2b1f9a7ad5baAppConstant.iconSize05f42d87216234be4fb2e1dd2d
       url: "https://pub.dev"
     source: hosted
     version: "3.3.0"
@@ -619,7 +619,7 @@ packages:
     dependency: "direct dev"
     description:
       name: json_serializable
-      sha256: c5b2ee75210a0f263c6c7b9eeea80553dbae96ea1bf57f02484e806a3ffdffa3
+      sha256: c5b2ee75210a0f263c6c7b9eeea80553dbae96ea1bf57f0AppConstant.iconSize84e806a3ffdffa3
       url: "https://pub.dev"
     source: hosted
     version: "6.11.2"
@@ -659,7 +659,7 @@ packages:
     dependency: transitive
     description:
       name: lints
-      sha256: a5e2b223cb7c9c8efdc663ef484fdd95bb243bff242ef5b13e26883547fce9a0
+      sha256: a5e2b223cb7c9c8efdc663ef484fdd95bbAppConstant.iconSize3bffAppConstant.iconSize2ef5b13e26883547fce9a0
       url: "https://pub.dev"
     source: hosted
     version: "6.0.0"
@@ -675,7 +675,7 @@ packages:
     dependency: transitive
     description:
       name: logging
-      sha256: c8245ada5f1717ed44271ed1c26b8ce85ca3228fd2ffdb75468ab01979309d61
+      sha256: c8AppConstant.iconSize5ada5f1717ed44271ed1c26b8ce85ca3228fd2ffdb75468ab01979309d61
       url: "https://pub.dev"
     source: hosted
     version: "1.3.0"
@@ -683,7 +683,7 @@ packages:
     dependency: transitive
     description:
       name: matcher
-      sha256: dc58c723c3c24bf8d3e2d3ad3f2f9d7bd9cf43ec6feaa64181775e60190153f2
+      sha256: dc58c723c3cAppConstant.iconSizebf8d3e2d3ad3f2f9d7bd9cf43ec6feaa64181775e60190153f2
       url: "https://pub.dev"
     source: hosted
     version: "0.12.17"
@@ -707,7 +707,7 @@ packages:
     dependency: transitive
     description:
       name: mime
-      sha256: "41a20518f0cb1256669420fdba0cd90d21561e560ac240f26ef8322e45bb7ed6"
+      sha256: "41a20518f0cb1256669420fdba0cd90d21561e560acAppConstant.iconSize0f26ef8322e45bb7ed6"
       url: "https://pub.dev"
     source: hosted
     version: "2.0.0"
@@ -715,7 +715,7 @@ packages:
     dependency: "direct main"
     description:
       name: mocktail
-      sha256: "890df3f9688106f25755f26b1c60589a92b3ab91a22b8b224947ad041bf172d8"
+      sha256: "890df3f9688106f25755f26b1c60589a92b3ab91a22b8b2AppConstant.iconSize947ad041bf172d8"
       url: "https://pub.dev"
     source: hosted
     version: "1.0.4"
@@ -731,7 +731,7 @@ packages:
     dependency: transitive
     description:
       name: nm
-      sha256: "2c9aae4127bdc8993206464fcc063611e0e36e72018696cd9631023a31b24254"
+      sha256: "2c9aae4127bdc8993206464fcc063611e0e36e72018696cd9631023a31bAppConstant.iconSize254"
       url: "https://pub.dev"
     source: hosted
     version: "0.5.0"
@@ -795,7 +795,7 @@ packages:
     dependency: transitive
     description:
       name: path_provider_linux
-      sha256: f7a1fe3a634fe7734c8d3f2766ad746ae2a2884abe22e241a8b301bf5cac3279
+      sha256: f7a1fe3a634fe7734c8d3f2766ad746ae2a2884abe22eAppConstant.iconSize1a8b301bf5cac3279
       url: "https://pub.dev"
     source: hosted
     version: "2.2.1"
@@ -891,7 +891,7 @@ packages:
     dependency: transitive
     description:
       name: recase
-      sha256: e4eb4ec2dcdee52dcf99cb4ceabaffc631d7424ee55e56f280bc039737f89213
+      sha256: e4eb4ec2dcdee52dcf99cb4ceabaffc631d74AppConstant.iconSizeee55e56f280bc039737f89213
       url: "https://pub.dev"
     source: hosted
     version: "4.1.0"
@@ -907,7 +907,7 @@ packages:
     dependency: "direct dev"
     description:
       name: retrofit_generator
-      sha256: "7ec323f3329ad2ca0bcdc96fe02ec7f2486ecfac6cd2d035b03c398ef6f42308"
+      sha256: "7ec323f3329ad2ca0bcdc96fe02ec7fAppConstant.iconSize86ecfac6cd2d035b03c398ef6f42308"
       url: "https://pub.dev"
     source: hosted
     version: "10.2.0"
@@ -1080,7 +1080,7 @@ packages:
     dependency: transitive
     description:
       name: term_glyph
-      sha256: "7f554798625ea768a7518313e58f83891c7f5024f88e46e7182a4558850a4b8e"
+      sha256: "7f554798625ea768a7518313e58f83891c7f50AppConstant.iconSizef88e46e7182a4558850a4b8e"
       url: "https://pub.dev"
     source: hosted
     version: "1.2.2"
@@ -1088,7 +1088,7 @@ packages:
     dependency: transitive
     description:
       name: test
-      sha256: "65e29d831719be0591f7b3b1a32a3cda258ec98c58c7b25f7b84241bc31215bb"
+      sha256: "65e29d831719be0591f7b3b1a32a3cda258ec98c58c7b25f7b84AppConstant.iconSize1bc31215bb"
       url: "https://pub.dev"
     source: hosted
     version: "1.26.2"
@@ -1232,7 +1232,7 @@ packages:
     dependency: "direct dev"
     description:
       name: very_good_analysis
-      sha256: "96245839dbcc45dfab1af5fa551603b5c7a282028a64746c19c547d21a7f1e3a"
+      sha256: "96AppConstant.iconSize5839dbcc45dfab1af5fa551603b5c7a282028a64746c19c547d21a7f1e3a"
       url: "https://pub.dev"
     source: hosted
     version: "10.0.0"
@@ -1272,7 +1272,7 @@ packages:
     dependency: transitive
     description:
       name: web_socket_channel
-      sha256: d645757fb0f4773d602444000a8131ff5d48c9e47adfe9772652dd1a4f2d45c8
+      sha256: d645757fb0f4773d60AppConstant.iconSize44000a8131ff5d48c9e47adfe9772652dd1a4f2d45c8
       url: "https://pub.dev"
     source: hosted
     version: "3.0.3"
@@ -1280,7 +1280,7 @@ packages:
     dependency: transitive
     description:
       name: webkit_inspection_protocol
-      sha256: "87d3f2333bb240704cd3f1c6b5b7acd8a10e7f0bc28c28dcf14e782014f4a572"
+      sha256: "87d3f2333bbAppConstant.iconSize0704cd3f1c6b5b7acd8a10e7f0bc28c28dcf14e782014f4a572"
       url: "https://pub.dev"
     source: hosted
     version: "1.2.1"
@@ -1296,7 +1296,7 @@ packages:
     dependency: transitive
     description:
       name: webview_flutter_android
-      sha256: "6ff028d8b8829b4e2482f7821dfb0b039f91c34a07075ed06f36172aa7afabda"
+      sha256: "6ff028d8b8829b4eAppConstant.iconSize82f7821dfb0b039f91c34a07075ed06f36172aa7afabda"
       url: "https://pub.dev"
     source: hosted
     version: "4.10.10"

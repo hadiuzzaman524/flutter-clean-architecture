@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tsl_flutter_template/core/constants/app_constant.dart';
 import 'package:tsl_flutter_template/presentation/theme/base/app_text_theme.dart';
 import 'package:tsl_flutter_template/presentation/theme/base/base_text_theme.dart';
 
@@ -23,14 +24,14 @@ class LandscapeTextStyle extends BaseTextTheme {
 
   TextStyle get displayMedium => TextStyle(
     fontWeight: FontWeight.w600,
-    fontSize: 24,
+    fontSize: AppConstant.iconSize,
     letterSpacing: 0,
     color: textColor,
   );
 
   TextStyle get displayMediumBold => TextStyle(
     fontWeight: FontWeight.w700,
-    fontSize: 24,
+    fontSize: AppConstant.iconSize,
     letterSpacing: 0,
     color: textColor,
   );

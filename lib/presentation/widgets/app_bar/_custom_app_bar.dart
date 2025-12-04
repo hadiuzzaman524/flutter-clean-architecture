@@ -57,7 +57,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             ],
           ),
           if (title != null)
-            AppText.displaySmall(title!, color: context.colors.onPrimary),
+            AppText.displaySmall(title!, color: context.colors.primary),
           const Spacer(),
           Row(
             mainAxisSize: MainAxisSize.min,

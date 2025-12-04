@@ -1,4 +1,4 @@
-part of "widgets.dart";
+part of 'widgets.dart';
 
 class InputDateTimePicker extends StatefulWidget {
   const InputDateTimePicker({
@@ -155,9 +155,9 @@ class _InputDateTimePickerState extends State<InputDateTimePicker> {
         fillColor: widget.fillColor,
         filled: widget.fillColor == null ? false : true,
         isDense: true,
-        contentPadding: const EdgeInsets.symmetric(
-          horizontal: 16,
-          vertical: 16,
+        contentPadding: EdgeInsets.symmetric(
+          horizontal: AppConstant.horizontalGap16,
+          vertical: AppConstant.verticalGap16,
         ),
         border: InputBorder.none,
         enabledBorder: inputBorder(),
@@ -170,7 +170,10 @@ class _InputDateTimePickerState extends State<InputDateTimePicker> {
           maxWidth: 48,
         ),
         suffixIcon: Padding(
-          padding: const EdgeInsets.only(left: 4, right: 20),
+          padding: EdgeInsets.only(
+            left: AppConstant.horizontalGap4,
+            right: AppConstant.horizontalGap16,
+          ),
           child: GestureDetector(
             onTap: widget.suffixClick ?? _selectDate,
             child: _buildSuffixIconWithFallback(),
@@ -188,7 +191,7 @@ class _InputDateTimePickerState extends State<InputDateTimePicker> {
 
     return Icon(
       Icons.calendar_month,
-      size: widget.suffixIconSize ?? 24.w,
+      size: widget.suffixIconSize ?? AppConstant.iconSize,
       color: widget.enabled
           ? widget.suffixIconColor ?? context.colors.onSurface
           : context.colors.onSurface,
@@ -197,8 +200,8 @@ class _InputDateTimePickerState extends State<InputDateTimePicker> {
 
   Widget _applySuffixIconStyling(Widget icon) {
     return SizedBox(
-      width: widget.suffixIconSize ?? 24.w,
-      height: widget.suffixIconSize ?? 24.w,
+      width: widget.suffixIconSize ?? AppConstant.iconSize,
+      height: widget.suffixIconSize ?? AppConstant.iconSize,
       child: Center(child: icon),
     );
   }

@@ -12,7 +12,9 @@ class DashboardScreen extends Screen {
   @override
   Widget buildMobilePortraitView(BuildContext context) {
     return DashboardPortrait();
-  } @override
+  }
+
+  @override
   Widget buildMobileLandscapeView(BuildContext context) {
     return DashboardLandscape();
   }

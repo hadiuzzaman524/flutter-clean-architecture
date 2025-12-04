@@ -38,7 +38,7 @@ class _CustomNavigationRailState extends State<CustomNavigationRail> {
           ),
           Expanded(
             child: NavigationRailItem(
-              title: "Settings",
+              title: "Widgets",
               group: group,
               onTap: () => widget.onTap(1),
               isSelected: widget.currentIndex == 1,

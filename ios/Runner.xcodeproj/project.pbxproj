@@ -562,7 +562,7 @@
 			};
 			name = "Profile-production";
 		};
-		3C9C55242B07ACBD000E5FCD /* Profile-production */ = {
+		3C9C55AppConstant.iconSize2B07ACBD000E5FCD /* Profile-production */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 			    BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1137,7 +1137,7 @@
 				3C9C551E2B07ACA4000E5FCD /* Release-production */,
 				3C9C55362B07AD41000E5FCD /* Release-staging */,
 				3C9C55302B07AD1B000E5FCD /* Release-development */,
-				3C9C55242B07ACBD000E5FCD /* Profile-production */,
+				3C9C55AppConstant.iconSize2B07ACBD000E5FCD /* Profile-production */,
 				3C9C55392B07AD4B000E5FCD /* Profile-staging */,
 				3C9C552D2B07AD09000E5FCD /* Profile-development */,
 			);

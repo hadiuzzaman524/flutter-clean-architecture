@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:logger/logger.dart';
 import 'package:tsl_flutter_template/core/constants/app_constant.dart';
@@ -48,11 +47,12 @@ class InternetOverlay extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Icon(Icons.warning_amber_rounded, size: 28.r),
-                              Gap(AppConstant.horizontalGap12),
-                              AppText.labelLarge(
-                                "No Internet Connection !",
+                              Icon(
+                                Icons.warning_amber_rounded,
+                                size: AppConstant.horizontalGap20,
                               ),
+                              Gap(AppConstant.horizontalGap12),
+                              AppText.labelLarge("No Internet Connection !"),
                             ],
                           ),
                         ),

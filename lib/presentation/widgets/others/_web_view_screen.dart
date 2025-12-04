@@ -1,4 +1,4 @@
-part of "widgets.dart";
+part of 'widgets.dart';
 
 @RoutePage()
 class WebViewScreen extends StatefulWidget {

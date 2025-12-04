@@ -40,7 +40,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
             ),
             Expanded(
               child: BottomNavItem(
-                title: "Settings",
+                title: "Widgets",
                 group: group,
                 onTap: () => widget.onTap(1),
                 isSelected: widget.currentIndex == 1,

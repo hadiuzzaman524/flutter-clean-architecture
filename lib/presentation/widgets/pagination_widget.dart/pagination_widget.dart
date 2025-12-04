@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tsl_flutter_template/core/constants/app_constant.dart';
 import 'package:tsl_flutter_template/presentation/theme/base/theme_extension.dart';
 
 class PaginationWidget<Data> extends StatefulWidget {
@@ -74,9 +75,12 @@ class _PaginationWidgetState<Data> extends State<PaginationWidget<Data>> {
         padding: widget.padding,
         itemBuilder: (context, index) {
           if (index == widget.dataList.length) {
-            return const Center(
+            return Center(
               child: Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: EdgeInsets.symmetric(
+                  horizontal: AppConstant.horizontalGap8,
+                  vertical: AppConstant.verticalGap8,
+                ),
                 child: CircularProgressIndicator.adaptive(),
               ),
             );

@@ -15,8 +15,8 @@ class $AssetsImagesGen {
   /// File path: assets/images/explore-icon.svg
   String get exploreIcon => 'assets/images/explore-icon.svg';
 
-  /// File path: assets/images/settings-icon.svg
-  String get settingsIcon => 'assets/images/settings-icon.svg';
+  /// File path: assets/images/widget_screen-icon.svg
+  String get settingsIcon => 'assets/images/widget_screen-icon.svg';
 
   /// List of all assets
   List<String> get values => [exploreIcon, settingsIcon];

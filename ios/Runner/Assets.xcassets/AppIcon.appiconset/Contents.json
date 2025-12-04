@@ -215,7 +215,7 @@
       "idiom" : "watch",
       "role" : "notificationCenter",
       "scale" : "2x",
-      "size" : "24x24",
+      "size" : "AppConstant.iconSizexAppConstant.iconSize",
       "subtype" : "38mm"
     },
     {

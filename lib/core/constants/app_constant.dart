@@ -27,6 +27,6 @@ class AppConstant {
   static double get verticalSectionGap => 8.w;
 
   /// icons
-  static double get iconSize => 16.sp;
+  static double get iconSize => 24.sp;
   static double get iconPadding4 => 4.r;
 }

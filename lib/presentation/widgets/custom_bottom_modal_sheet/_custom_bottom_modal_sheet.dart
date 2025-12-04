@@ -26,7 +26,6 @@ class CustomBottomModalSheet {
           topRight: Radius.circular(borderRadius ?? 0),
         ),
       ),
-      barrierColor: context.colors.secondary,
       builder: (context) {
         return PopScope(
           canPop: isDismissible,

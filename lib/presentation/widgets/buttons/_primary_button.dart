@@ -27,6 +27,7 @@ class PrimaryButton extends StatefulWidget {
     this.gradient,
     this.padding,
     this.child,
+    this.titleColor,
   });
 
   final String? title;
@@ -38,6 +39,7 @@ class PrimaryButton extends StatefulWidget {
   final Size? size;
   final double elevation;
   final Color? loadingColor;
+  final Color? titleColor;
   final TextStyle? titleStyle;
   final double? borderRadius;
   final Color? backgroundColor;
@@ -122,7 +124,12 @@ class _PrimaryButtonState extends State<PrimaryButton> {
                       padding: EdgeInsets.symmetric(
                         horizontal: AppConstant.horizontalGap16,
                       ),
-                      child: AppText.bodyMedium(widget.title ?? ''),
+                      child: AppText.bodyMedium(
+                        widget.title ?? '',
+                        style: TextStyle(
+                          color: widget.titleColor ?? context.colors.onPrimary,
+                        ),
+                      ),
                     ),
         ),
       ),
