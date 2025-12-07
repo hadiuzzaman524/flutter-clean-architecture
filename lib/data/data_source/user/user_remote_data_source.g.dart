@@ -45,7 +45,7 @@ class _UserRemoteDataSource implements UserRemoteDataSource {
           )
           .toList();
     } on Object catch (e, s) {
-      errorLogger?.logError(e, s, _options);
+      errorLogger?.logError(e, s, _options, _result);
       rethrow;
     }
     return _value;

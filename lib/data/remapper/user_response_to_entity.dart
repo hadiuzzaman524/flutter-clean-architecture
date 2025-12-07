@@ -1,4 +1,4 @@
-import 'package:tsl_flutter_template/data/response_model/base/base_response.dart';
+import 'package:tsl_flutter_template/data/models/response_model/base/base_response.dart';
 import 'package:tsl_flutter_template/domain/entity/base/base_entity.dart';
 
 extension UserResponseMapper on List<UserResponseModel> {

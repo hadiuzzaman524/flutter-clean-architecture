@@ -8,7 +8,7 @@ environment:
 
 dependencies:
   auto_route: ^10.2.0
-  bloc: ^9.0.0
+  bloc: ^9.1.0
   flutter:
     sdk: flutter
   flutter_bloc: ^9.1.1
@@ -16,7 +16,7 @@ dependencies:
     sdk: flutter
   freezed_annotation: ^3.1.0
   get_it: ^8.3.0
-  google_fonts: ^6.3.2
+  google_fonts: ^6.3.3
   injectable: ^2.5.1
   injectable_generator: ^2.8.1
   intl: ^0.20.2
@@ -25,9 +25,27 @@ dependencies:
   logger: ^2.6.2
   mocktail: ^1.0.4
   dio: ^5.9.0
-  retrofit: ^4.9.0
+  retrofit: ^4.9.1
+  gap: ^3.0.1
+  auto_size_text: ^3.0.0
+  flutter_svg: ^2.2.3
   flutter_lints: ^6.0.0
   shared_preferences: ^2.5.3
+  flutter_screenutil: ^5.9.3
+  connectivity_plus: ^7.0.0
+  flutter_gen: ^5.12.0
+  webview_flutter: ^4.13.0
+  url_launcher: ^6.3.2
+
+  # Support package
+  common_sdk:
+    git:
+      url: git@vcs.technonext.com:TechnoNext/mobile-apps/flutter-packages/common_sdk.git
+      ref: v0.0.5
+  isar_e2m:
+    git:
+      url: git@vcs.technonext.com:TechnoNext/mobile-apps/flutter-packages/isar_e2m.git
+      ref: v0.0.5
 
 dev_dependencies:
   auto_route_generator: ^10.2.5
@@ -36,9 +54,13 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   json_serializable: ^6.11.1
-  retrofit_generator: ^10.1.2
-  very_good_analysis: ^9.0.0
+  retrofit_generator: ^10.2.0
+  flutter_gen_runner: ^5.12.0
+  very_good_analysis: ^10.0.0
 
 flutter:
   generate: true
   uses-material-design: true
+
+  assets:
+    - assets/images/
