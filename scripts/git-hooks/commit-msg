@@ -10,7 +10,7 @@ if [[ $COMMIT_MSG =~ ^Merge ]]; then
     exit 0
 fi
 
-if ! [[ $COMMIT_MSG =~ ^(feat|fix|refactor|chore|docs|style|test|perf|ci|build|revert):\ .{3,} ]]; then
+if ! [[ $COMMIT_MSG =~ ^(feat|fix|refactor|chore|docs|style|test|perf|ci|build|revert!wip):\ .{3,} ]]; then
 
       echo -e "${RED}❌ Invalid commit message${NC}"
       echo -e "${YELLOW}Your commit message must follow the Conventional Commits format:${NC}"
