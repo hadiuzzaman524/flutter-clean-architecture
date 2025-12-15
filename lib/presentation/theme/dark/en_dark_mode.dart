@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:tsl_flutter_template/presentation/theme/base/base_color_theme.dart';
 import 'package:tsl_flutter_template/presentation/theme/base/base_text_theme.dart';
 import 'package:tsl_flutter_template/presentation/theme/base/base_theme_info.dart';
@@ -16,15 +17,15 @@ class EnDarkMode extends BaseThemeInfo {
   @override
   ThemeData getAppTheme({required Orientation orientation}) {
     final theme = getBaseColorTheme(orientation: orientation).getTheme();
-    final appTextStyle = getBaseTextTheme(
-      orientation: orientation,
-    ).appTextStyle;
+    final baseTextTheme = getBaseTextTheme(orientation: orientation);
 
     return theme.copyWith(
-      textTheme: appTextStyle.getTextTheme(),
+      textTheme: GoogleFonts.notoSansSaurashtraTextTheme(
+        baseTextTheme.appTextStyle.getTextTheme(),
+      ),
       extensions: [
         ...theme.extensions.values.cast<ThemeExtension>(),
-        appTextStyle,
+        baseTextTheme.appTextStyle,
       ],
     );
   }

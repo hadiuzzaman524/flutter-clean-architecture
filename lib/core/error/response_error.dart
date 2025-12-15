@@ -66,12 +66,13 @@ sealed class ResponseError with _$ResponseError implements Exception {
             return const ResponseError.cancel();
           case DioExceptionType.unknown:
             return const ResponseError.unknown();
-
-          // ignore: no_default_cases
           default:
             return _parseResponseError(object);
         }
+      } else if (object is String) {
+        return ResponseError.errorWithMessage(object);
       }
+
       return const ResponseError.unExcepted();
     } catch (e) {
       return const ResponseError.unExcepted();

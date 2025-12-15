@@ -22,9 +22,6 @@ class LightColorTheme extends BaseColorTheme {
         unselectedLabelStyle: const TextStyle(fontWeight: FontWeight.w400),
         type: BottomNavigationBarType.fixed,
       ),
-      textTheme: GoogleFonts.plusJakartaSansTextTheme(
-        ThemeData(brightness: Brightness.light).textTheme,
-      ),
     );
   }
 
