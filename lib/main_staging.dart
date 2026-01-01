@@ -1,6 +1,3 @@
-import 'package:tsl_flutter_template/bootstrap.dart';
-import 'package:tsl_flutter_template/presentation/app/app.dart';
+import 'package:tsl_flutter_template/core/env/staging/staging_config.dart';
 
-void main() {
-  bootstrap(() => const App());
-}
+void main() => StagingConfig();

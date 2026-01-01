@@ -1,6 +1,4 @@
-import 'package:tsl_flutter_template/bootstrap.dart';
-import 'package:tsl_flutter_template/presentation/app/app.dart';
 
-void main() {
-  bootstrap(() => const App());
-}
+import 'package:tsl_flutter_template/core/env/production/production_config.dart';
+
+void main() => ProductionConfig();

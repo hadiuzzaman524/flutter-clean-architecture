@@ -20,6 +20,10 @@ import '../../domain/use_cases/user/get_user_list_use_case.dart' as _i596;
 import '../../presentation/screen/home/cubits/user_cubit.dart' as _i164;
 import 'module.dart' as _i946;
 
+const String _staging = 'staging';
+const String _development = 'development';
+const String _production = 'production';
+
 extension GetItInjectableX on _i174.GetIt {
   // initializes the registration of main-scope dependencies inside of GetIt
   _i174.GetIt init({
@@ -28,13 +32,25 @@ extension GetItInjectableX on _i174.GetIt {
   }) {
     final gh = _i526.GetItHelper(this, environment, environmentFilter);
     final networkModule = _$NetworkModule();
+    gh.factory<String>(() => networkModule.baseURL);
     gh.singleton<_i361.Dio>(
-      () => networkModule.unAuthenticatedDio,
+      () => networkModule.unAuthenticatedStgDio,
       instanceName: 'unauthenticated',
+      registerFor: {_staging},
     );
     gh.singleton<_i361.Dio>(
       () => networkModule.authenticatedDio,
       instanceName: 'authenticated',
+    );
+    gh.singleton<_i361.Dio>(
+      () => networkModule.unAuthenticatedDevDio,
+      instanceName: 'unauthenticated',
+      registerFor: {_development},
+    );
+    gh.singleton<_i361.Dio>(
+      () => networkModule.unAuthenticatedProdDio,
+      instanceName: 'unauthenticated',
+      registerFor: {_production},
     );
     gh.singleton<_i875.UserRemoteDataSource>(
       () => _i875.UserRemoteDataSource.new(
