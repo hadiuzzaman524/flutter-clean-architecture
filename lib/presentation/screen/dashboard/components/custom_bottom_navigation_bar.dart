@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:tsl_flutter_template/gen/assets.gen.dart';
 import 'package:tsl_flutter_template/presentation/screen/dashboard/components/bottom_nav_item.dart';
+import 'package:tsl_flutter_template/presentation/theme/base/theme_extension.dart';
 
 class CustomBottomNavigationBar extends StatefulWidget {
   const CustomBottomNavigationBar({
@@ -24,33 +25,36 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Row(
-          children: [
-            Expanded(
-              child: BottomNavItem(
-                title: "Home",
-                group: group,
-                onTap: () => widget.onTap(0),
-                isSelected: widget.currentIndex == 0,
-                image: Assets.images.exploreIcon,
+    return ColoredBox(
+      color: context.colors.surface,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Row(
+            children: [
+              Expanded(
+                child: BottomNavItem(
+                  title: "Home",
+                  group: group,
+                  onTap: () => widget.onTap(0),
+                  isSelected: widget.currentIndex == 0,
+                  image: Assets.images.exploreIcon,
+                ),
               ),
-            ),
-            Expanded(
-              child: BottomNavItem(
-                title: "Widgets",
-                group: group,
-                onTap: () => widget.onTap(1),
-                isSelected: widget.currentIndex == 1,
-                image: Assets.images.settingsIcon,
+              Expanded(
+                child: BottomNavItem(
+                  title: "Widgets",
+                  group: group,
+                  onTap: () => widget.onTap(1),
+                  isSelected: widget.currentIndex == 1,
+                  image: Assets.images.settingsIcon,
+                ),
               ),
-            ),
-          ],
-        ),
-        Gap(MediaQuery.paddingOf(context).bottom),
-      ],
+            ],
+          ),
+          Gap(MediaQuery.paddingOf(context).bottom),
+        ],
+      ),
     );
   }
 }

@@ -2,6 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:tsl_flutter_template/gen/assets.gen.dart';
+import 'package:tsl_flutter_template/presentation/theme/base/theme_extension.dart';
 import 'navigation_rail_item.dart';
 
 class CustomNavigationRail extends StatefulWidget {
@@ -23,7 +24,8 @@ class _CustomNavigationRailState extends State<CustomNavigationRail> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return ColoredBox(
+      color: context.colors.surface,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
