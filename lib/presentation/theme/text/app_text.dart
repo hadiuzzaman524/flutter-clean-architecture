@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:tsl_flutter_template/presentation/theme/base/theme_extension.dart';
 
@@ -42,6 +43,38 @@ enum AppTextStyle {
 }
 
 class AppText extends StatelessWidget {
+  // Rich text factory constructor
+  factory AppText.rich(
+    InlineSpan textSpan, {
+    AppTextStyle appTextStyle = AppTextStyle.bodyMedium,
+    TextOverflow? overflow,
+    Color? color,
+    TextAlign? textAlign,
+    int? maxLines,
+    TextStyle? style,
+    FontWeight? fontWeight,
+    TextWidthBasis? textWidthBasis,
+    TextHeightBehavior? textHeightBehavior,
+    StrutStyle? strutStyle,
+    Locale? locale,
+    bool? softWrap,
+  }) => AppText._(
+    null,
+    textSpan: textSpan,
+    textAlign: textAlign,
+    color: color,
+    maxLines: maxLines,
+    overflow: overflow,
+    appTextStyle: appTextStyle,
+    style: style,
+    fontWeight: fontWeight,
+    textWidthBasis: textWidthBasis,
+    textHeightBehavior: textHeightBehavior,
+    strutStyle: strutStyle,
+    locale: locale,
+    softWrap: softWrap,
+  );
+
   factory AppText.bodyLarge(
     String text, {
     TextOverflow? overflow,
@@ -68,6 +101,7 @@ class AppText extends StatelessWidget {
     TextAlign? textAlign,
     int? maxLines,
     TextStyle? style,
+    FontWeight? fontWeight,
   }) => AppText._(
     text,
     textAlign: textAlign,
@@ -76,6 +110,7 @@ class AppText extends StatelessWidget {
     overflow: overflow,
     appTextStyle: AppTextStyle.displayLarge,
     style: style,
+    fontWeight: fontWeight,
   );
 
   factory AppText.displayLargeBold(
@@ -85,6 +120,7 @@ class AppText extends StatelessWidget {
     TextAlign? textAlign,
     int? maxLines,
     TextStyle? style,
+    FontWeight? fontWeight,
   }) => AppText._(
     text,
     textAlign: textAlign,
@@ -93,6 +129,7 @@ class AppText extends StatelessWidget {
     overflow: overflow,
     appTextStyle: AppTextStyle.displayLargeBold,
     style: style,
+    fontWeight: fontWeight,
   );
 
   factory AppText.displayMedium(
@@ -102,6 +139,7 @@ class AppText extends StatelessWidget {
     TextAlign? textAlign,
     int? maxLines,
     TextStyle? style,
+    FontWeight? fontWeight,
   }) => AppText._(
     text,
     textAlign: textAlign,
@@ -110,6 +148,7 @@ class AppText extends StatelessWidget {
     overflow: overflow,
     appTextStyle: AppTextStyle.displayMedium,
     style: style,
+    fontWeight: fontWeight,
   );
 
   factory AppText.displayMediumBold(
@@ -119,6 +158,7 @@ class AppText extends StatelessWidget {
     TextAlign? textAlign,
     int? maxLines,
     TextStyle? style,
+    FontWeight? fontWeight,
   }) => AppText._(
     text,
     textAlign: textAlign,
@@ -127,6 +167,7 @@ class AppText extends StatelessWidget {
     overflow: overflow,
     appTextStyle: AppTextStyle.displayMediumBold,
     style: style,
+    fontWeight: fontWeight,
   );
 
   factory AppText.displaySmall(
@@ -136,6 +177,7 @@ class AppText extends StatelessWidget {
     TextAlign? textAlign,
     int? maxLines,
     TextStyle? style,
+    FontWeight? fontWeight,
   }) => AppText._(
     text,
     textAlign: textAlign,
@@ -144,6 +186,7 @@ class AppText extends StatelessWidget {
     overflow: overflow,
     appTextStyle: AppTextStyle.displaySmall,
     style: style,
+    fontWeight: fontWeight,
   );
 
   factory AppText.displaySmallBold(
@@ -153,6 +196,7 @@ class AppText extends StatelessWidget {
     TextAlign? textAlign,
     int? maxLines,
     TextStyle? style,
+    FontWeight? fontWeight,
   }) => AppText._(
     text,
     textAlign: textAlign,
@@ -161,6 +205,7 @@ class AppText extends StatelessWidget {
     overflow: overflow,
     appTextStyle: AppTextStyle.displaySmallBold,
     style: style,
+    fontWeight: fontWeight,
   );
 
   // Headlines / Titles
@@ -171,6 +216,7 @@ class AppText extends StatelessWidget {
     TextAlign? textAlign,
     int? maxLines,
     TextStyle? style,
+    FontWeight? fontWeight,
   }) => AppText._(
     text,
     textAlign: textAlign,
@@ -179,6 +225,7 @@ class AppText extends StatelessWidget {
     overflow: overflow,
     appTextStyle: AppTextStyle.headlineLarge,
     style: style,
+    fontWeight: fontWeight,
   );
 
   factory AppText.headlineLargeBold(
@@ -188,6 +235,7 @@ class AppText extends StatelessWidget {
     TextAlign? textAlign,
     int? maxLines,
     TextStyle? style,
+    FontWeight? fontWeight,
   }) => AppText._(
     text,
     textAlign: textAlign,
@@ -196,6 +244,7 @@ class AppText extends StatelessWidget {
     overflow: overflow,
     appTextStyle: AppTextStyle.headlineLargeBold,
     style: style,
+    fontWeight: fontWeight,
   );
 
   factory AppText.headlineMedium(
@@ -224,6 +273,7 @@ class AppText extends StatelessWidget {
     TextAlign? textAlign,
     int? maxLines,
     TextStyle? style,
+    FontWeight? fontWeight,
   }) => AppText._(
     text,
     textAlign: textAlign,
@@ -232,6 +282,7 @@ class AppText extends StatelessWidget {
     overflow: overflow,
     appTextStyle: AppTextStyle.headlineMediumBold,
     style: style,
+    fontWeight: fontWeight,
   );
 
   factory AppText.headlineSmall(
@@ -241,6 +292,7 @@ class AppText extends StatelessWidget {
     TextAlign? textAlign,
     int? maxLines,
     TextStyle? style,
+    FontWeight? fontWeight,
   }) => AppText._(
     text,
     textAlign: textAlign,
@@ -249,6 +301,7 @@ class AppText extends StatelessWidget {
     overflow: overflow,
     appTextStyle: AppTextStyle.headlineSmall,
     style: style,
+    fontWeight: fontWeight,
   );
 
   factory AppText.headlineSmallBold(
@@ -258,6 +311,7 @@ class AppText extends StatelessWidget {
     TextAlign? textAlign,
     int? maxLines,
     TextStyle? style,
+    FontWeight? fontWeight,
   }) => AppText._(
     text,
     textAlign: textAlign,
@@ -266,6 +320,7 @@ class AppText extends StatelessWidget {
     overflow: overflow,
     appTextStyle: AppTextStyle.headlineSmallBold,
     style: style,
+    fontWeight: fontWeight,
   );
 
   // Titles / Labels
@@ -276,6 +331,7 @@ class AppText extends StatelessWidget {
     TextAlign? textAlign,
     int? maxLines,
     TextStyle? style,
+    FontWeight? fontWeight,
   }) => AppText._(
     text,
     textAlign: textAlign,
@@ -284,6 +340,7 @@ class AppText extends StatelessWidget {
     overflow: overflow,
     appTextStyle: AppTextStyle.titleLarge,
     style: style,
+    fontWeight: fontWeight,
   );
 
   factory AppText.titleLargeBold(
@@ -293,6 +350,7 @@ class AppText extends StatelessWidget {
     TextAlign? textAlign,
     int? maxLines,
     TextStyle? style,
+    FontWeight? fontWeight,
   }) => AppText._(
     text,
     textAlign: textAlign,
@@ -301,6 +359,7 @@ class AppText extends StatelessWidget {
     overflow: overflow,
     appTextStyle: AppTextStyle.titleLargeBold,
     style: style,
+    fontWeight: fontWeight,
   );
 
   factory AppText.titleMedium(
@@ -329,6 +388,7 @@ class AppText extends StatelessWidget {
     TextAlign? textAlign,
     int? maxLines,
     TextStyle? style,
+    FontWeight? fontWeight,
   }) => AppText._(
     text,
     textAlign: textAlign,
@@ -337,6 +397,7 @@ class AppText extends StatelessWidget {
     overflow: overflow,
     appTextStyle: AppTextStyle.titleMediumBold,
     style: style,
+    fontWeight: fontWeight,
   );
 
   factory AppText.titleSmall(
@@ -346,6 +407,7 @@ class AppText extends StatelessWidget {
     TextAlign? textAlign,
     int? maxLines,
     TextStyle? style,
+    FontWeight? fontWeight,
   }) => AppText._(
     text,
     textAlign: textAlign,
@@ -354,6 +416,7 @@ class AppText extends StatelessWidget {
     overflow: overflow,
     appTextStyle: AppTextStyle.titleSmall,
     style: style,
+    fontWeight: fontWeight,
   );
 
   factory AppText.titleSmallBold(
@@ -363,6 +426,7 @@ class AppText extends StatelessWidget {
     TextAlign? textAlign,
     int? maxLines,
     TextStyle? style,
+    FontWeight? fontWeight,
   }) => AppText._(
     text,
     textAlign: textAlign,
@@ -371,6 +435,7 @@ class AppText extends StatelessWidget {
     overflow: overflow,
     appTextStyle: AppTextStyle.titleSmallBold,
     style: style,
+    fontWeight: fontWeight,
   );
 
   factory AppText.labelLarge(
@@ -380,6 +445,7 @@ class AppText extends StatelessWidget {
     TextAlign? textAlign,
     int? maxLines,
     TextStyle? style,
+    FontWeight? fontWeight,
   }) => AppText._(
     text,
     textAlign: textAlign,
@@ -388,6 +454,7 @@ class AppText extends StatelessWidget {
     overflow: overflow,
     appTextStyle: AppTextStyle.labelLarge,
     style: style,
+    fontWeight: fontWeight,
   );
 
   factory AppText.labelLargeBold(
@@ -397,6 +464,7 @@ class AppText extends StatelessWidget {
     TextAlign? textAlign,
     int? maxLines,
     TextStyle? style,
+    FontWeight? fontWeight,
   }) => AppText._(
     text,
     textAlign: textAlign,
@@ -405,6 +473,7 @@ class AppText extends StatelessWidget {
     overflow: overflow,
     appTextStyle: AppTextStyle.labelLargeBold,
     style: style,
+    fontWeight: fontWeight,
   );
 
   factory AppText.labelMedium(
@@ -414,6 +483,7 @@ class AppText extends StatelessWidget {
     TextAlign? textAlign,
     int? maxLines,
     TextStyle? style,
+    FontWeight? fontWeight,
   }) => AppText._(
     text,
     textAlign: textAlign,
@@ -422,6 +492,7 @@ class AppText extends StatelessWidget {
     overflow: overflow,
     appTextStyle: AppTextStyle.labelMedium,
     style: style,
+    fontWeight: fontWeight,
   );
 
   factory AppText.labelMediumBold(
@@ -431,6 +502,7 @@ class AppText extends StatelessWidget {
     TextAlign? textAlign,
     int? maxLines,
     TextStyle? style,
+    FontWeight? fontWeight,
   }) => AppText._(
     text,
     textAlign: textAlign,
@@ -439,6 +511,7 @@ class AppText extends StatelessWidget {
     overflow: overflow,
     appTextStyle: AppTextStyle.labelMediumBold,
     style: style,
+    fontWeight: fontWeight,
   );
 
   factory AppText.labelSmall(
@@ -448,6 +521,7 @@ class AppText extends StatelessWidget {
     TextAlign? textAlign,
     int? maxLines,
     TextStyle? style,
+    FontWeight? fontWeight,
   }) => AppText._(
     text,
     textAlign: textAlign,
@@ -456,6 +530,7 @@ class AppText extends StatelessWidget {
     overflow: overflow,
     appTextStyle: AppTextStyle.labelSmall,
     style: style,
+    fontWeight: fontWeight,
   );
 
   factory AppText.labelSmallBold(
@@ -465,6 +540,7 @@ class AppText extends StatelessWidget {
     TextAlign? textAlign,
     int? maxLines,
     TextStyle? style,
+    FontWeight? fontWeight,
   }) => AppText._(
     text,
     textAlign: textAlign,
@@ -473,6 +549,7 @@ class AppText extends StatelessWidget {
     overflow: overflow,
     appTextStyle: AppTextStyle.labelSmallBold,
     style: style,
+    fontWeight: fontWeight,
   );
 
   // Body
@@ -483,6 +560,7 @@ class AppText extends StatelessWidget {
     TextAlign? textAlign,
     int? maxLines,
     TextStyle? style,
+    FontWeight? fontWeight,
   }) => AppText._(
     text,
     textAlign: textAlign,
@@ -491,6 +569,7 @@ class AppText extends StatelessWidget {
     overflow: overflow,
     appTextStyle: AppTextStyle.bodyLargeBold,
     style: style,
+    fontWeight: fontWeight,
   );
 
   factory AppText.bodyMedium(
@@ -500,6 +579,7 @@ class AppText extends StatelessWidget {
     TextAlign? textAlign,
     int? maxLines,
     TextStyle? style,
+    FontWeight? fontWeight,
   }) => AppText._(
     text,
     textAlign: textAlign,
@@ -508,6 +588,7 @@ class AppText extends StatelessWidget {
     overflow: overflow,
     appTextStyle: AppTextStyle.bodyMedium,
     style: style,
+    fontWeight: fontWeight,
   );
 
   factory AppText.bodyMediumBold(
@@ -517,6 +598,7 @@ class AppText extends StatelessWidget {
     TextAlign? textAlign,
     int? maxLines,
     TextStyle? style,
+    FontWeight? fontWeight,
   }) => AppText._(
     text,
     textAlign: textAlign,
@@ -525,6 +607,7 @@ class AppText extends StatelessWidget {
     overflow: overflow,
     appTextStyle: AppTextStyle.bodyMediumBold,
     style: style,
+    fontWeight: fontWeight,
   );
 
   factory AppText.bodySmall(
@@ -534,6 +617,7 @@ class AppText extends StatelessWidget {
     TextAlign? textAlign,
     int? maxLines,
     TextStyle? style,
+    FontWeight? fontWeight,
   }) => AppText._(
     text,
     textAlign: textAlign,
@@ -542,6 +626,7 @@ class AppText extends StatelessWidget {
     overflow: overflow,
     appTextStyle: AppTextStyle.bodySmall,
     style: style,
+    fontWeight: fontWeight,
   );
 
   factory AppText.bodySmallBold(
@@ -551,6 +636,7 @@ class AppText extends StatelessWidget {
     TextAlign? textAlign,
     int? maxLines,
     TextStyle? style,
+    FontWeight? fontWeight,
   }) => AppText._(
     text,
     textAlign: textAlign,
@@ -559,6 +645,7 @@ class AppText extends StatelessWidget {
     overflow: overflow,
     appTextStyle: AppTextStyle.bodySmallBold,
     style: style,
+    fontWeight: fontWeight,
   );
 
   const AppText._(
@@ -570,9 +657,16 @@ class AppText extends StatelessWidget {
     this.maxLines,
     this.style,
     this.fontWeight,
+    this.textSpan,
+    this.textWidthBasis,
+    this.textHeightBehavior,
+    this.strutStyle,
+    this.locale,
+    this.softWrap,
   });
 
-  final String text;
+  final String? text;
+  final InlineSpan? textSpan;
   final AppTextStyle appTextStyle;
   final TextOverflow? overflow;
   final int? maxLines;
@@ -580,6 +674,11 @@ class AppText extends StatelessWidget {
   final Color? color;
   final TextStyle? style;
   final FontWeight? fontWeight;
+  final TextWidthBasis? textWidthBasis;
+  final TextHeightBehavior? textHeightBehavior;
+  final StrutStyle? strutStyle;
+  final Locale? locale;
+  final bool? softWrap;
 
   TextStyle? getTextStyle(BuildContext context) {
     final textTheme = context.appThemeData.textTheme;
@@ -705,12 +804,104 @@ class AppText extends StatelessWidget {
           textStyle;
     }
 
+    // If textSpan is provided, use Text.rich
+    if (textSpan != null) {
+      return Text.rich(
+        textSpan!,
+        style: finalStyle,
+        overflow: overflow,
+        maxLines: maxLines,
+        textAlign: textAlign,
+        textWidthBasis: textWidthBasis,
+        textHeightBehavior: textHeightBehavior,
+        strutStyle: strutStyle,
+        locale: locale,
+        softWrap: softWrap,
+      );
+    }
+
+    // Otherwise use regular Text
     return Text(
-      text,
+      text ?? '',
       style: finalStyle,
       overflow: overflow,
       maxLines: maxLines,
       textAlign: textAlign,
+      textWidthBasis: textWidthBasis,
+      textHeightBehavior: textHeightBehavior,
+      strutStyle: strutStyle,
+      locale: locale,
+      softWrap: softWrap,
     );
+  }
+}
+
+// Helper extension to create styled TextSpans with AppTextStyle
+extension AppTextSpanExtension on BuildContext {
+  TextStyle? getAppTextStyle(AppTextStyle appTextStyle) {
+    final textTheme = appThemeData.textTheme;
+
+    switch (appTextStyle) {
+      case AppTextStyle.displayLarge:
+        return textTheme.displayLarge;
+      case AppTextStyle.displayLargeBold:
+        return textTheme.displayLarge?.copyWith(fontWeight: FontWeight.w700);
+      case AppTextStyle.displayMedium:
+        return textTheme.displayMedium;
+      case AppTextStyle.displayMediumBold:
+        return textTheme.displayMedium?.copyWith(fontWeight: FontWeight.w700);
+      case AppTextStyle.displaySmall:
+        return textTheme.displaySmall;
+      case AppTextStyle.displaySmallBold:
+        return textTheme.displaySmall?.copyWith(fontWeight: FontWeight.w700);
+      case AppTextStyle.headlineLarge:
+        return textTheme.headlineLarge;
+      case AppTextStyle.headlineLargeBold:
+        return textTheme.headlineLarge?.copyWith(fontWeight: FontWeight.w700);
+      case AppTextStyle.headlineMedium:
+        return textTheme.headlineMedium;
+      case AppTextStyle.headlineMediumBold:
+        return textTheme.headlineMedium?.copyWith(fontWeight: FontWeight.w700);
+      case AppTextStyle.headlineSmall:
+        return textTheme.headlineSmall;
+      case AppTextStyle.headlineSmallBold:
+        return textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.w700);
+      case AppTextStyle.titleLarge:
+        return textTheme.titleLarge;
+      case AppTextStyle.titleLargeBold:
+        return textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w700);
+      case AppTextStyle.titleMedium:
+        return textTheme.titleMedium;
+      case AppTextStyle.titleMediumBold:
+        return textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700);
+      case AppTextStyle.titleSmall:
+        return textTheme.titleSmall;
+      case AppTextStyle.titleSmallBold:
+        return textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w700);
+      case AppTextStyle.labelLarge:
+        return textTheme.labelLarge;
+      case AppTextStyle.labelLargeBold:
+        return textTheme.labelLarge?.copyWith(fontWeight: FontWeight.w700);
+      case AppTextStyle.labelMedium:
+        return textTheme.labelMedium;
+      case AppTextStyle.labelMediumBold:
+        return textTheme.labelMedium?.copyWith(fontWeight: FontWeight.w700);
+      case AppTextStyle.labelSmall:
+        return textTheme.labelSmall;
+      case AppTextStyle.labelSmallBold:
+        return textTheme.labelSmall?.copyWith(fontWeight: FontWeight.w700);
+      case AppTextStyle.bodyLarge:
+        return textTheme.bodyLarge;
+      case AppTextStyle.bodyLargeBold:
+        return textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w700);
+      case AppTextStyle.bodyMedium:
+        return textTheme.bodyMedium;
+      case AppTextStyle.bodyMediumBold:
+        return textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w700);
+      case AppTextStyle.bodySmall:
+        return textTheme.bodySmall;
+      case AppTextStyle.bodySmallBold:
+        return textTheme.bodySmall?.copyWith(fontWeight: FontWeight.w700);
+    }
   }
 }
