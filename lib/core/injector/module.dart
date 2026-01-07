@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:tsl_flutter_template/core/env/env.dart';
+import 'package:tsl_flutter_template/data/data_source/base/backend_error_interceptor.dart';
 import 'package:tsl_flutter_template/domain/enum/dio_client_type.dart';
 
 @module
@@ -12,6 +13,7 @@ abstract class NetworkModule {
     dio.options.connectTimeout = const Duration(seconds: 12);
     dio.options.receiveTimeout = const Duration(seconds: 12);
     dio.options.contentType = 'application/json';
+    dio.interceptors.add(BackendErrorInterceptor());
     return dio;
   }
 

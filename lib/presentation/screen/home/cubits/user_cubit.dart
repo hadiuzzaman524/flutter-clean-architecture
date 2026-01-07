@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:logger/logger.dart';
 import 'package:tsl_flutter_template/core/error/response_error.dart';
@@ -23,9 +24,11 @@ class UserCubit extends Cubit<UserState> {
           status: const BaseStatus<UserState>.success(),
         ),
       );
-    } on Object catch (e) {
+    } on DioException catch (e) {
       logger.e(e);
-      emit(state.copyWith(status: BaseStatus.failure(ResponseError.from(e))));
+      emit(
+        state.copyWith(status: BaseStatus.failure(e.error as ResponseError)),
+      );
     }
   }
 }
