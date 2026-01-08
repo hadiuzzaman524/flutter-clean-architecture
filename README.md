@@ -40,7 +40,8 @@ All commits should follow the Conventional Commit format:
 type: Short description (at least 3 characters)
 ```
 
-Allowed types: `feat`, `fix`, `refactor`, `chore`, `docs`, `style`, `test`, `perf`, `ci`, `build`, `wip`,
+Allowed types: `feat`, `fix`, `refactor`, `chore`, `docs`, `style`, `test`, `perf`, `ci`, `build`,
+`wip`,
 `revert`
 
 Example:
@@ -66,5 +67,14 @@ To add new text for localization, run the provided script:
 ```dart
 context.l10n.text
 ```
+
+## 4. Create a New Feature (Clean Architecture)
+
+```bash
+./create_feature.sh feature_name
+```
+
+This command automatically generates all required files for a new feature, following Clean
+Architecture principles, including the **domain**, **data**, and **presentation** layers.
 
 ---

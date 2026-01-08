@@ -2,19 +2,17 @@
 set -e
 
 FEATURE_NAME=$1
-ENTITY_NAME=$2
 
-if [ -z "$FEATURE_NAME" ] || [ -z "$ENTITY_NAME" ]; then
-  echo "❌ Usage: ./create_feature.sh <feature_name> <EntityName>"
-  echo "Example: ./create_feature.sh testfeature TestFeature"
+if [ -z "$FEATURE_NAME" ]; then
+  echo "❌ Usage: ./create_feature.sh <feature_name>"
+  echo "Example: ./create_feature.sh test_feature"
   exit 1
 fi
 
-# ---------------------------
-# Naming
-# ---------------------------
+# Convert feature name to snake case (all lowercase, underscores)
 FEATURE_SNAKE=$(echo "$FEATURE_NAME" | tr '[:upper:]' '[:lower:]')
-ENTITY_CAMEL=$ENTITY_NAME
+ENTITY_CAMEL=$(echo "$FEATURE_NAME" | sed -r 's/(^|_)([a-zA-Z])/\U\2/g')
+
 
 # ---------------------------
 # Paths
