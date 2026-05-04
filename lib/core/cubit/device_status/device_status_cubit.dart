@@ -1,6 +1,6 @@
 import 'dart:async';
+import 'dart:io';
 
-import 'package:common_sdk/common_sdk.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -44,7 +44,12 @@ class DeviceStatusCubit extends Cubit<DeviceStatusState> {
     final wifiNetwork = result.contains(ConnectivityResult.wifi);
     final ethernet = result.contains(ConnectivityResult.ethernet);
     if (!mobileNetwork && !wifiNetwork && !ethernet) return false;
-    return await InternetUtils.isInternetConnected();
+    try {
+      final response = await InternetAddress.lookup('google.com');
+      return response.isNotEmpty && response.first.rawAddress.isNotEmpty;
+    } on SocketException {
+      return false;
+    }
   }
 
   @override

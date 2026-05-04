@@ -37,15 +37,6 @@ dependencies:
   webview_flutter: ^4.13.0
   url_launcher: ^6.3.2
 
-  # Support package
-  common_sdk:
-    git:
-      url: git@vcs.technonext.com:TechnoNext/mobile-apps/flutter-packages/common_sdk.git
-      ref: v0.0.5
-  isar_e2m:
-    git:
-      url: git@vcs.technonext.com:TechnoNext/mobile-apps/flutter-packages/isar_e2m.git
-      ref: v0.0.5
 
 dev_dependencies:
   auto_route_generator: ^10.2.5
