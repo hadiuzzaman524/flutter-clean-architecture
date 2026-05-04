@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:tsl_flutter_template/core/helper/app_snack_bar_helper.dart';
 import 'package:tsl_flutter_template/presentation/theme/base/theme_extension.dart';
 import 'package:tsl_flutter_template/presentation/theme/text/app_text.dart';
 import 'package:tsl_flutter_template/presentation/widgets/app_bar/widgets.dart';
@@ -8,7 +9,6 @@ import 'package:tsl_flutter_template/presentation/widgets/custom_bottom_modal_sh
 import 'package:tsl_flutter_template/presentation/widgets/dialog/dialog.dart';
 import 'package:tsl_flutter_template/presentation/widgets/input_widget/widgets.dart';
 import 'package:tsl_flutter_template/presentation/widgets/others/widgets.dart';
-import 'package:tsl_flutter_template/presentation/widgets/snack_bars/_success_snack_bar.dart';
 
 class WidgetsPortraitView extends StatefulWidget {
   const WidgetsPortraitView({super.key});
@@ -70,9 +70,10 @@ class _WidgetsPortraitViewState extends State<WidgetsPortraitView> {
                   );
 
                   if (shouldUpdate) {
-                    // Handle update action
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SuccessSnackBar(message: "Update initiated"),
+                    // // Handle update action
+                    AppSnackBarHelper.show(
+                      context,
+                      message: "Update initiated",
                     );
                   }
                 },
@@ -121,32 +122,30 @@ class _WidgetsPortraitViewState extends State<WidgetsPortraitView> {
               Gap(8),
               CustomCheckbox(title: Text("Check Box")),
               Gap(8),
-              Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  RadioListTile<String>(
-                    value: "male",
-                    groupValue: selectedValue,
-                    onChanged: (value) {
-                      setState(() => selectedValue = value!);
-                    },
-                    title: AppText.titleMedium("Male"),
-                    activeColor: context.colors.primary,
-                    contentPadding: EdgeInsets.zero,
-                    visualDensity: VisualDensity.compact,
-                  ),
-                  RadioListTile<String>(
-                    value: "female",
-                    groupValue: selectedValue,
-                    onChanged: (value) {
-                      setState(() => selectedValue = value!);
-                    },
-                    title: AppText.titleMedium("Female"),
-                    activeColor: context.colors.primary,
-                    contentPadding: EdgeInsets.zero,
-                    visualDensity: VisualDensity.compact,
-                  ),
-                ],
+              RadioGroup<String>(
+                groupValue: selectedValue,
+                onChanged: (value) {
+                  setState(() => selectedValue = value!);
+                },
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    RadioListTile<String>(
+                      value: "male",
+                      title: AppText.titleMedium("Male"),
+                      activeColor: context.colors.primary,
+                      contentPadding: EdgeInsets.zero,
+                      visualDensity: VisualDensity.compact,
+                    ),
+                    RadioListTile<String>(
+                      value: "female",
+                      title: AppText.titleMedium("Female"),
+                      activeColor: context.colors.primary,
+                      contentPadding: EdgeInsets.zero,
+                      visualDensity: VisualDensity.compact,
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
