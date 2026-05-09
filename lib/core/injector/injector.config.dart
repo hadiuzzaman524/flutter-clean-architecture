@@ -1,5 +1,5 @@
-// dart format width=80
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// dart format width=80
 
 // **************************************************************************
 // InjectableConfigGenerator
@@ -53,7 +53,7 @@ extension GetItInjectableX on _i174.GetIt {
       registerFor: {_production},
     );
     gh.singleton<_i875.UserRemoteDataSource>(
-      () => _i875.UserRemoteDataSource.new(
+      () => _i875.UserRemoteDataSource(
         gh<_i361.Dio>(instanceName: 'unauthenticated'),
       ),
     );
