@@ -32,4 +32,26 @@ class AuthRepositoryImpl extends AuthRepository {
     final timestamp = DateTime.now().millisecondsSinceEpoch;
     return 'mock_access_token_${timestamp}_${random.nextInt(999999)}';
   }
+
+  @override
+  Future<void> signup({required SignupEntity inputModel}) async {
+    await Future.delayed(const Duration(seconds: 1));
+
+    /// VALIDATION
+    if (inputModel.name.trim().isEmpty) {
+      throw Exception('Name is required');
+    }
+
+    if (inputModel.email.trim().isEmpty) {
+      throw Exception('Email is required');
+    }
+
+    if (!inputModel.email.contains('@')) {
+      throw Exception('Invalid email format');
+    }
+
+    if (inputModel.pin.length < 4 || inputModel.pin.length > 6) {
+      throw Exception('PIN must be 4 to 6 characters');
+    }
+  }
 }

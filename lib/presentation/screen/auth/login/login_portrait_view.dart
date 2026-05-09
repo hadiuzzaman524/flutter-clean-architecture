@@ -1,15 +1,19 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gap/gap.dart';
+import 'package:tsl_flutter_template/core/constants/app_constant.dart';
 import 'package:tsl_flutter_template/core/error/error_localization.dart';
 import 'package:tsl_flutter_template/core/state_status/base_status.dart';
 import 'package:tsl_flutter_template/domain/entity/base/base_entity.dart';
 import 'package:tsl_flutter_template/l10n/l10n.dart';
 import 'package:tsl_flutter_template/presentation/route/app_router.gr.dart';
-import 'package:tsl_flutter_template/presentation/screen/login/cubit/login_cubit.dart';
 import 'package:tsl_flutter_template/presentation/theme/base/theme_extension.dart';
+import 'package:tsl_flutter_template/presentation/theme/text/app_text.dart';
 import 'package:tsl_flutter_template/presentation/widgets/buttons/_primary_button.dart';
 import 'package:tsl_flutter_template/presentation/widgets/input_widget/widgets.dart';
+
+import 'cubit/login_cubit.dart';
 
 class LogInPortraitView extends StatefulWidget {
   const LogInPortraitView({super.key});
@@ -104,14 +108,14 @@ class _LogInPortraitViewState extends State<LogInPortraitView> {
                                 size: 42,
                                 color: theme.primary,
                               ),
-                              const SizedBox(height: 10),
-                              Text(
+                              Gap(AppConstant.verticalGap12),
+                              AppText.headlineSmall(
                                 "SIGN IN",
                                 style: context.textStyle.headlineMedium
                                     .copyWith(fontWeight: FontWeight.bold),
                               ),
-                              const SizedBox(height: 6),
-                              Text(
+                              Gap(AppConstant.verticalGap12),
+                              AppText.headlineSmall(
                                 "Welcome back, please login to continue",
                                 style: context.textStyle.bodyMedium.copyWith(
                                   color: theme.onSurface,
@@ -122,35 +126,35 @@ class _LogInPortraitViewState extends State<LogInPortraitView> {
                           ),
                         ),
 
-                        const SizedBox(height: 24),
+                        Gap(AppConstant.verticalGap12),
 
                         /// EMAIL
-                        Text(
+                        AppText.labelLarge(
                           context.l10n.email,
                           style: context.textStyle.labelMedium,
                         ),
-                        const SizedBox(height: 6),
+                        Gap(AppConstant.verticalGap12),
                         AppTextField(
                           controller: emailController,
                           hint: "example@email.com",
                           textFieldType: AppTextFieldType.email,
                         ),
 
-                        const SizedBox(height: 16),
+                        Gap(AppConstant.verticalGap12),
 
                         /// PIN
-                        Text(
+                        AppText.labelLarge(
                           context.l10n.pin,
                           style: context.textStyle.labelMedium,
                         ),
-                        const SizedBox(height: 6),
+                        Gap(AppConstant.verticalGap12),
                         AppTextField(
                           controller: pinController,
                           hint: "••••",
                           textFieldType: AppTextFieldType.number,
                         ),
 
-                        const SizedBox(height: 24),
+                        Gap(AppConstant.verticalGap12),
 
                         /// BUTTON
                         SizedBox(
@@ -165,11 +169,12 @@ class _LogInPortraitViewState extends State<LogInPortraitView> {
                           ),
                         ),
 
-                        const SizedBox(height: 12),
+                        Gap(AppConstant.verticalGap12),
                         SizedBox(
                           width: double.infinity,
                           child: PrimaryButton(
-                            onPressed: _onLogin,
+                            onPressed: () =>
+                                context.pushRoute(const SignupRoute()),
                             title: "Register / Sign Up",
                             backgroundColor: theme.secondary,
                             borderColor: theme.primary,
@@ -177,7 +182,7 @@ class _LogInPortraitViewState extends State<LogInPortraitView> {
                             loadingColor: theme.onPrimary,
                           ),
                         ),
-                        const SizedBox(height: 12),
+                        Gap(AppConstant.verticalGap12),
                       ],
                     ),
                   ),

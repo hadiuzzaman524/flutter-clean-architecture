@@ -11,7 +11,6 @@ part of 'base_entity.dart';
 
 // dart format off
 T _$identity<T>(T value) => value;
-
 /// @nodoc
 mixin _$LoginEntity {
 
@@ -22,8 +21,6 @@ mixin _$LoginEntity {
 @pragma('vm:prefer-inline')
 $LoginEntityCopyWith<LoginEntity> get copyWith => _$LoginEntityCopyWithImpl<LoginEntity>(this as LoginEntity, _$identity);
 
-  /// Serializes this LoginEntity to a JSON map.
-  Map<String, dynamic> toJson();
 
 
 @override
@@ -31,7 +28,7 @@ bool operator ==(Object other) {
   return identical(this, other) || (other.runtimeType == runtimeType&&other is LoginEntity&&(identical(other.email, email) || other.email == email)&&(identical(other.pin, pin) || other.pin == pin));
 }
 
-@JsonKey(includeFromJson: false, includeToJson: false)
+
 @override
 int get hashCode => Object.hash(runtimeType,email,pin);
 
@@ -207,11 +204,11 @@ return $default(_that.email,_that.pin);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
+
 
 class _LoginEntity implements LoginEntity {
   const _LoginEntity({required this.email, required this.pin});
-  factory _LoginEntity.fromJson(Map<String, dynamic> json) => _$LoginEntityFromJson(json);
+  
 
 @override final  String email;
 @override final  String pin;
@@ -222,17 +219,14 @@ class _LoginEntity implements LoginEntity {
 @pragma('vm:prefer-inline')
 _$LoginEntityCopyWith<_LoginEntity> get copyWith => __$LoginEntityCopyWithImpl<_LoginEntity>(this, _$identity);
 
-@override
-Map<String, dynamic> toJson() {
-  return _$LoginEntityToJson(this, );
-}
+
 
 @override
 bool operator ==(Object other) {
   return identical(this, other) || (other.runtimeType == runtimeType&&other is _LoginEntity&&(identical(other.email, email) || other.email == email)&&(identical(other.pin, pin) || other.pin == pin));
 }
 
-@JsonKey(includeFromJson: false, includeToJson: false)
+
 @override
 int get hashCode => Object.hash(runtimeType,email,pin);
 
@@ -269,6 +263,269 @@ class __$LoginEntityCopyWithImpl<$Res>
 @override @pragma('vm:prefer-inline') $Res call({Object? email = null,Object? pin = null,}) {
   return _then(_LoginEntity(
 email: null == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
+as String,pin: null == pin ? _self.pin : pin // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+/// @nodoc
+mixin _$SignupEntity {
+
+ String get email; String get name; String get pin;
+/// Create a copy of SignupEntity
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$SignupEntityCopyWith<SignupEntity> get copyWith => _$SignupEntityCopyWithImpl<SignupEntity>(this as SignupEntity, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SignupEntity&&(identical(other.email, email) || other.email == email)&&(identical(other.name, name) || other.name == name)&&(identical(other.pin, pin) || other.pin == pin));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,email,name,pin);
+
+@override
+String toString() {
+  return 'SignupEntity(email: $email, name: $name, pin: $pin)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $SignupEntityCopyWith<$Res>  {
+  factory $SignupEntityCopyWith(SignupEntity value, $Res Function(SignupEntity) _then) = _$SignupEntityCopyWithImpl;
+@useResult
+$Res call({
+ String email, String name, String pin
+});
+
+
+
+
+}
+/// @nodoc
+class _$SignupEntityCopyWithImpl<$Res>
+    implements $SignupEntityCopyWith<$Res> {
+  _$SignupEntityCopyWithImpl(this._self, this._then);
+
+  final SignupEntity _self;
+  final $Res Function(SignupEntity) _then;
+
+/// Create a copy of SignupEntity
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? email = null,Object? name = null,Object? pin = null,}) {
+  return _then(_self.copyWith(
+email: null == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
+as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,pin: null == pin ? _self.pin : pin // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+}
+
+
+/// Adds pattern-matching-related methods to [SignupEntity].
+extension SignupEntityPatterns on SignupEntity {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _SignupEntity value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _SignupEntity() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _SignupEntity value)  $default,){
+final _that = this;
+switch (_that) {
+case _SignupEntity():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _SignupEntity value)?  $default,){
+final _that = this;
+switch (_that) {
+case _SignupEntity() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String email,  String name,  String pin)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _SignupEntity() when $default != null:
+return $default(_that.email,_that.name,_that.pin);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String email,  String name,  String pin)  $default,) {final _that = this;
+switch (_that) {
+case _SignupEntity():
+return $default(_that.email,_that.name,_that.pin);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String email,  String name,  String pin)?  $default,) {final _that = this;
+switch (_that) {
+case _SignupEntity() when $default != null:
+return $default(_that.email,_that.name,_that.pin);case _:
+  return null;
+
+}
+}
+
+}
+
+/// @nodoc
+
+
+class _SignupEntity implements SignupEntity {
+  const _SignupEntity({required this.email, required this.name, required this.pin});
+  
+
+@override final  String email;
+@override final  String name;
+@override final  String pin;
+
+/// Create a copy of SignupEntity
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$SignupEntityCopyWith<_SignupEntity> get copyWith => __$SignupEntityCopyWithImpl<_SignupEntity>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SignupEntity&&(identical(other.email, email) || other.email == email)&&(identical(other.name, name) || other.name == name)&&(identical(other.pin, pin) || other.pin == pin));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,email,name,pin);
+
+@override
+String toString() {
+  return 'SignupEntity(email: $email, name: $name, pin: $pin)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$SignupEntityCopyWith<$Res> implements $SignupEntityCopyWith<$Res> {
+  factory _$SignupEntityCopyWith(_SignupEntity value, $Res Function(_SignupEntity) _then) = __$SignupEntityCopyWithImpl;
+@override @useResult
+$Res call({
+ String email, String name, String pin
+});
+
+
+
+
+}
+/// @nodoc
+class __$SignupEntityCopyWithImpl<$Res>
+    implements _$SignupEntityCopyWith<$Res> {
+  __$SignupEntityCopyWithImpl(this._self, this._then);
+
+  final _SignupEntity _self;
+  final $Res Function(_SignupEntity) _then;
+
+/// Create a copy of SignupEntity
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? email = null,Object? name = null,Object? pin = null,}) {
+  return _then(_SignupEntity(
+email: null == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
+as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,pin: null == pin ? _self.pin : pin // ignore: cast_nullable_to_non_nullable
 as String,
   ));
