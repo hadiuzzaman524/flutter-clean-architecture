@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:injectable/injectable.dart';
 import 'package:tsl_flutter_template/core/helper/secure_storage_helper.dart';
 import 'package:tsl_flutter_template/domain/entity/base/base_entity.dart';
@@ -18,7 +16,7 @@ class AuthRepositoryImpl extends AuthRepository {
     }
 
     if (inputModel.email == 'test@gmail.com' && inputModel.pin == '1234') {
-      final token = _generateToken();
+      final token = SecureStorageHelper.generateToken();
 
       await SecureStorageHelper.setAccessToken(token);
       return;
@@ -27,17 +25,10 @@ class AuthRepositoryImpl extends AuthRepository {
     throw Exception('Invalid credentials');
   }
 
-  String _generateToken() {
-    final random = Random.secure();
-    final timestamp = DateTime.now().millisecondsSinceEpoch;
-    return 'mock_access_token_${timestamp}_${random.nextInt(999999)}';
-  }
-
   @override
   Future<void> signup({required SignupEntity inputModel}) async {
     await Future.delayed(const Duration(seconds: 1));
 
-    /// VALIDATION
     if (inputModel.name.trim().isEmpty) {
       throw Exception('Name is required');
     }

@@ -32,11 +32,11 @@ class _CustomNavigationRailState extends State<CustomNavigationRail> {
       decoration: BoxDecoration(
         color: theme.surface,
         border: Border(
-          right: BorderSide(color: theme.border.withOpacity(0.5)),
+          right: BorderSide(color: theme.border.withAlpha(128)),
         ),
         boxShadow: [
           BoxShadow(
-            color: theme.shadow.withOpacity(0.05),
+            color: theme.shadow.withAlpha(13),
             blurRadius: 10,
             offset: const Offset(2, 0),
           ),

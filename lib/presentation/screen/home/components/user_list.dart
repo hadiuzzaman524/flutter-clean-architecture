@@ -31,10 +31,10 @@ class UserList extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: theme.surface,
                     borderRadius: BorderRadius.circular(AppConstant.borderRadius16),
-                    border: Border.all(color: theme.border.withOpacity(0.5)),
+                    border: Border.all(color: theme.border.withAlpha(128)),
                     boxShadow: [
                       BoxShadow(
-                        color: theme.shadow.withOpacity(0.03),
+                        color: theme.shadow.withAlpha(8),
                         blurRadius: 10,
                         offset: const Offset(0, 4),
                       ),
@@ -46,7 +46,7 @@ class UserList extends StatelessWidget {
                         height: 60,
                         width: 60,
                         decoration: BoxDecoration(
-                          color: theme.primary.withOpacity(0.1),
+                          color: theme.primary.withAlpha(26),
                           shape: BoxShape.circle,
                         ),
                         child: Icon(
@@ -69,12 +69,12 @@ class UserList extends StatelessWidget {
                             Gap(AppConstant.verticalGap4),
                             Row(
                               children: [
-                                Icon(Icons.email_outlined, size: 14, color: theme.onSurface.withOpacity(0.5)),
+                                Icon(Icons.email_outlined, size: 14, color: theme.onSurface.withAlpha(128)),
                                 Gap(AppConstant.horizontalGap4),
                                 Expanded(
                                   child: AppText.bodySmall(
                                     user.email,
-                                    color: theme.onSurface.withOpacity(0.6),
+                                    color: theme.onSurface.withAlpha(153),
                                   ),
                                 ),
                               ],
@@ -82,12 +82,12 @@ class UserList extends StatelessWidget {
                             Gap(AppConstant.verticalGap4),
                             Row(
                               children: [
-                                Icon(Icons.location_on_outlined, size: 14, color: theme.onSurface.withOpacity(0.5)),
+                                Icon(Icons.location_on_outlined, size: 14, color: theme.onSurface.withAlpha(128)),
                                 Gap(AppConstant.horizontalGap4),
                                 Expanded(
                                   child: AppText.bodySmall(
                                     "${user.city}, ${user.address}",
-                                    color: theme.onSurface.withOpacity(0.6),
+                                    color: theme.onSurface.withAlpha(153),
                                   ),
                                 ),
                               ],
@@ -98,7 +98,7 @@ class UserList extends StatelessWidget {
                       Icon(
                         Icons.arrow_forward_ios_rounded,
                         size: 16,
-                        color: theme.onSurface.withOpacity(0.3),
+                        color: theme.onSurface.withAlpha(77),
                       ),
                     ],
                   ),
@@ -111,7 +111,7 @@ class UserList extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(Icons.error_outline_rounded, size: 64, color: theme.error.withOpacity(0.5)),
+                  Icon(Icons.error_outline_rounded, size: 64, color: theme.error.withAlpha(128)),
                   Gap(AppConstant.verticalGap16),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: AppConstant.horizontalGap20),

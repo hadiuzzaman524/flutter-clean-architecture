@@ -65,8 +65,8 @@ class _SignupPortraitViewState extends State<SignupPortraitView> {
                 shape: BoxShape.circle,
                 gradient: RadialGradient(
                   colors: [
-                    theme.secondary.withOpacity(0.1),
-                    theme.secondary.withOpacity(0),
+                    theme.secondary.withAlpha(26),
+                    theme.secondary.withAlpha(0),
                   ],
                 ),
               ),
@@ -100,7 +100,7 @@ class _SignupPortraitViewState extends State<SignupPortraitView> {
                         Container(
                           padding: EdgeInsets.all(AppConstant.horizontalGap20),
                           decoration: BoxDecoration(
-                            color: theme.primary.withOpacity(0.1),
+                            color: theme.primary.withAlpha(26),
                             shape: BoxShape.circle,
                           ),
                           child: Icon(
@@ -121,7 +121,7 @@ class _SignupPortraitViewState extends State<SignupPortraitView> {
                         AppText.bodyMedium(
                           "Fill in your details to get started",
                           style: context.textStyle.bodyMedium.copyWith(
-                            color: theme.onSurface.withOpacity(0.6),
+                            color: theme.onSurface.withAlpha(153),
                           ),
                         ),
                         Gap(AppConstant.verticalGap20 * 1.5),
@@ -132,10 +132,10 @@ class _SignupPortraitViewState extends State<SignupPortraitView> {
                           decoration: BoxDecoration(
                             color: theme.surface,
                             borderRadius: BorderRadius.circular(AppConstant.borderRadius20),
-                            border: Border.all(color: theme.border.withOpacity(0.5)),
+                            border: Border.all(color: theme.border.withAlpha(128)),
                             boxShadow: [
                               BoxShadow(
-                                color: theme.shadow.withOpacity(0.05),
+                                color: theme.shadow.withAlpha(13),
                                 blurRadius: 20,
                                 offset: const Offset(0, 10),
                               ),
@@ -206,7 +206,7 @@ class _SignupPortraitViewState extends State<SignupPortraitView> {
                           children: [
                             AppText.bodyMedium(
                               "Already have an account?",
-                              color: theme.onSurface.withOpacity(0.7),
+                              color: theme.onSurface.withAlpha(179),
                             ),
                             TextButton(
                               onPressed: () => context.replaceRoute(const LogInRoute()),

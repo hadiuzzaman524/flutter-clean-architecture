@@ -48,10 +48,9 @@ class HomeLandscapeView extends StatelessWidget {
       ),
       body: Row(
         children: [
-          // Left Side Panel (Optional - can be used for filters/stats in landscape)
           Container(
             width: 200,
-            color: theme.surface.withOpacity(0.5),
+            color: theme.surface.withAlpha(128),
             child: Column(
               children: [
                 Gap(AppConstant.verticalGap20),
@@ -61,7 +60,7 @@ class HomeLandscapeView extends StatelessWidget {
               ],
             ),
           ),
-          VerticalDivider(width: 1, color: theme.border.withOpacity(0.5)),
+          VerticalDivider(width: 1, color: theme.border.withAlpha(128)),
           const Expanded(child: UserList()),
         ],
       ),

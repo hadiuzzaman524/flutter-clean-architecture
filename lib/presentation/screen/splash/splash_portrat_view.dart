@@ -88,7 +88,7 @@ class _SplashPortraitViewState extends State<SplashPortraitView>
               top: -50,
               left: -50,
               child: _CircularDecorative(
-                color: Colors.white.withOpacity(0.05),
+                color: Colors.white.withAlpha(13),
                 size: 200,
               ),
             ),
@@ -96,7 +96,7 @@ class _SplashPortraitViewState extends State<SplashPortraitView>
               bottom: -100,
               right: -100,
               child: _CircularDecorative(
-                color: Colors.white.withOpacity(0.05),
+                color: Colors.white.withAlpha(13),
                 size: 300,
               ),
             ),
@@ -112,15 +112,15 @@ class _SplashPortraitViewState extends State<SplashPortraitView>
                       height: 120,
                       width: 120,
                       decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.15),
+                        color: Colors.white.withAlpha(38),
                         shape: BoxShape.circle,
                         border: Border.all(
-                          color: Colors.white.withOpacity(0.2),
+                          color: Colors.white.withAlpha(51),
                           width: 2,
                         ),
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.black.withOpacity(0.1),
+                            color: Colors.black.withAlpha(26),
                             blurRadius: 20,
                             offset: const Offset(0, 10),
                           ),
@@ -140,7 +140,7 @@ class _SplashPortraitViewState extends State<SplashPortraitView>
                     Gap(AppConstant.verticalGap8),
                     AppText.bodyMedium(
                       "Elevating your mobile experience",
-                      color: Colors.white.withOpacity(0.8),
+                      color: Colors.white.withAlpha(204),
                     ),
                     Gap(AppConstant.verticalGap20 * 3),
                     SizedBox(
@@ -149,7 +149,7 @@ class _SplashPortraitViewState extends State<SplashPortraitView>
                       child: CircularProgressIndicator(
                         strokeWidth: 3,
                         valueColor: AlwaysStoppedAnimation<Color>(
-                          Colors.white.withOpacity(0.9),
+                          Colors.white.withAlpha(230),
                         ),
                       ),
                     ),
@@ -164,7 +164,7 @@ class _SplashPortraitViewState extends State<SplashPortraitView>
                 opacity: _fadeAnimation,
                 child: AppText.labelMedium(
                   "Version 1.0.0",
-                  color: Colors.white.withOpacity(0.5),
+                  color: Colors.white.withAlpha(128),
                 ),
               ),
             ),

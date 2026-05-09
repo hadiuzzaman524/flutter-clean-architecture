@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class SecureStorageHelper {
@@ -11,6 +13,12 @@ class SecureStorageHelper {
 
   static Future<void> setAccessToken(String token) async {
     await _storage.write(key: _accessTokenKey, value: token);
+  }
+
+  static String generateToken() {
+    final random = Random.secure();
+    final timestamp = DateTime.now().millisecondsSinceEpoch;
+    return 'mock_access_token_${timestamp}_${random.nextInt(999999)}';
   }
 
   static Future<String?> getAccessToken() async {

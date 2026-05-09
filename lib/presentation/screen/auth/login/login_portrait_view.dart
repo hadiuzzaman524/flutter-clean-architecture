@@ -71,8 +71,8 @@ class _LogInPortraitViewState extends State<LogInPortraitView> {
                 shape: BoxShape.circle,
                 gradient: RadialGradient(
                   colors: [
-                    theme.primary.withOpacity(0.15),
-                    theme.primary.withOpacity(0),
+                    theme.primary.withAlpha(38),
+                    theme.primary.withAlpha(0),
                   ],
                 ),
               ),
@@ -107,7 +107,7 @@ class _LogInPortraitViewState extends State<LogInPortraitView> {
                         Container(
                           padding: EdgeInsets.all(AppConstant.horizontalGap20),
                           decoration: BoxDecoration(
-                            color: theme.primary.withOpacity(0.1),
+                            color: theme.primary.withAlpha(26),
                             shape: BoxShape.circle,
                           ),
                           child: Icon(
@@ -128,7 +128,7 @@ class _LogInPortraitViewState extends State<LogInPortraitView> {
                         AppText.bodyMedium(
                           "Login to your account to continue",
                           style: context.textStyle.bodyMedium.copyWith(
-                            color: theme.onSurface.withOpacity(0.6),
+                            color: theme.onSurface.withAlpha(153),
                           ),
                         ),
                         Gap(AppConstant.verticalGap20 * 1.5),
@@ -139,10 +139,10 @@ class _LogInPortraitViewState extends State<LogInPortraitView> {
                           decoration: BoxDecoration(
                             color: theme.surface,
                             borderRadius: BorderRadius.circular(AppConstant.borderRadius20),
-                            border: Border.all(color: theme.border.withOpacity(0.5)),
+                            border: Border.all(color: theme.border.withAlpha(128)),
                             boxShadow: [
                               BoxShadow(
-                                color: theme.shadow.withOpacity(0.05),
+                                color: theme.shadow.withAlpha(13),
                                 blurRadius: 20,
                                 offset: const Offset(0, 10),
                               ),
@@ -194,7 +194,7 @@ class _LogInPortraitViewState extends State<LogInPortraitView> {
                           children: [
                             AppText.bodyMedium(
                               "Don't have an account?",
-                              color: theme.onSurface.withOpacity(0.7),
+                              color: theme.onSurface.withAlpha(179),
                             ),
                             TextButton(
                               onPressed: () => context.pushRoute(const SignupRoute()),

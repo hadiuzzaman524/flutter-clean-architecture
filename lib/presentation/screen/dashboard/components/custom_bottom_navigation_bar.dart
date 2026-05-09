@@ -33,7 +33,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
         color: theme.surface,
         boxShadow: [
           BoxShadow(
-            color: theme.shadow.withOpacity(0.08),
+            color: theme.shadow.withAlpha(20),
             blurRadius: 20,
             offset: const Offset(0, -5),
           ),
