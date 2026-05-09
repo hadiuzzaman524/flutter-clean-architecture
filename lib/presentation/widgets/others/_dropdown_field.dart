@@ -43,7 +43,7 @@ class _DropdownFieldState<T> extends State<DropdownField<T>> {
   }
 
   InputBorder getBorder(Color color) => OutlineInputBorder(
-    borderRadius: BorderRadius.circular(widget.borderRadius ?? 8.w),
+    borderRadius: BorderRadius.circular(widget.borderRadius ?? AppConstant.borderRadius8),
     borderSide: BorderSide(color: color, width: 1.w),
   );
 
@@ -67,38 +67,36 @@ class _DropdownFieldState<T> extends State<DropdownField<T>> {
               ),
             ],
           ),
-          child: SizedBox(
-            child: DropdownButtonFormField<T>(
-              initialValue: selectedValue,
-              decoration: InputDecoration(
-                contentPadding: EdgeInsets.symmetric(
-                  horizontal: AppConstant.horizontalGap16,
-                ),
-                border: getBorder(widget.borderColor ?? context.colors.primary),
-                enabledBorder: getBorder(
-                  widget.borderColor ?? context.colors.onPrimary,
-                ),
-                focusedBorder: getBorder(
-                  widget.focusedBorderColor ?? context.colors.primary,
-                ),
-                filled: true,
-                fillColor: context.colors.onPrimary,
-                hintText: widget.hintText,
+          child: DropdownButtonFormField<T>(
+            initialValue: selectedValue,
+            decoration: InputDecoration(
+              contentPadding: EdgeInsets.symmetric(
+                horizontal: AppConstant.horizontalGap16,
               ),
-              items: widget.items
-                  .map(
-                    (e) => DropdownMenuItem<T>(
-                      value: e,
-                      child: AutoSizeText(widget.buildTitle(e)),
-                    ),
-                  )
-                  .toList(),
-              onChanged: (val) {
-                setState(() => selectedValue = val);
-                widget.onChanged?.call(val);
-              },
-              validator: widget.validator,
+              border: getBorder(widget.borderColor ?? context.colors.primary),
+              enabledBorder: getBorder(
+                widget.borderColor ?? context.colors.onPrimary,
+              ),
+              focusedBorder: getBorder(
+                widget.focusedBorderColor ?? context.colors.primary,
+              ),
+              filled: true,
+              fillColor: context.colors.onPrimary,
+              hintText: widget.hintText,
             ),
+            items: widget.items
+                .map(
+                  (e) => DropdownMenuItem<T>(
+                    value: e,
+                    child: AutoSizeText(widget.buildTitle(e)),
+                  ),
+                )
+                .toList(),
+            onChanged: (val) {
+              setState(() => selectedValue = val);
+              widget.onChanged?.call(val);
+            },
+            validator: widget.validator,
           ),
         ),
       ],

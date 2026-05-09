@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
+import 'package:tsl_flutter_template/core/constants/app_constant.dart';
 import 'package:tsl_flutter_template/domain/entity/base/base_entity.dart';
 import 'package:tsl_flutter_template/presentation/route/app_router.gr.dart';
 import 'package:tsl_flutter_template/presentation/theme/base/theme_extension.dart';
@@ -56,7 +57,7 @@ class _SignupPortraitViewState extends State<SignupPortraitView> {
             if (state.signupStatus.isFailure) {
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
-                  content: Text("Signup failed"),
+                  content: const Text("Signup failed"),
                   backgroundColor: theme.error,
                 ),
               );
@@ -68,14 +69,14 @@ class _SignupPortraitViewState extends State<SignupPortraitView> {
           },
           child: Center(
             child: SingleChildScrollView(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding: EdgeInsets.symmetric(horizontal: AppConstant.horizontalGap20),
               child: ConstrainedBox(
                 constraints: const BoxConstraints(maxWidth: 420),
                 child: Container(
-                  padding: const EdgeInsets.all(24),
+                  padding: EdgeInsets.all(AppConstant.horizontalGap20 + 4), // Equivalent to 24
                   decoration: BoxDecoration(
                     color: theme.surface,
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(AppConstant.borderRadius20),
                     boxShadow: [
                       BoxShadow(
                         color: theme.shadow.withOpacity(0.1),
@@ -98,13 +99,13 @@ class _SignupPortraitViewState extends State<SignupPortraitView> {
                                 size: 50,
                                 color: theme.primary,
                               ),
-                              const Gap(12),
+                              Gap(AppConstant.verticalGap12),
                               AppText.headlineSmall(
                                 "Create Account",
                                 style: context.textStyle.headlineMedium
                                     .copyWith(fontWeight: FontWeight.bold),
                               ),
-                              const Gap(8),
+                              Gap(AppConstant.verticalGap8),
                               Text(
                                 "Sign up to get started",
                                 textAlign: TextAlign.center,
@@ -116,40 +117,40 @@ class _SignupPortraitViewState extends State<SignupPortraitView> {
                           ),
                         ),
 
-                        const Gap(24),
+                        Gap(AppConstant.verticalGap20 + 4), // Equivalent to 24
 
                         /// NAME
                         Text("Name", style: context.textStyle.labelMedium),
-                        const Gap(8),
+                        Gap(AppConstant.verticalGap8),
                         AppTextField(
                           controller: nameController,
                           hint: "Your full name",
                           textFieldType: AppTextFieldType.none,
                         ),
 
-                        const Gap(16),
+                        Gap(AppConstant.verticalGap16),
 
                         /// EMAIL
                         Text("Email", style: context.textStyle.labelMedium),
-                        const Gap(8),
+                        Gap(AppConstant.verticalGap8),
                         AppTextField(
                           controller: emailController,
                           hint: "example@email.com",
                           textFieldType: AppTextFieldType.email,
                         ),
 
-                        const Gap(16),
+                        Gap(AppConstant.verticalGap16),
 
                         /// PIN
                         Text("PIN", style: context.textStyle.labelMedium),
-                        const Gap(8),
+                        Gap(AppConstant.verticalGap8),
                         AppTextField(
                           controller: pinController,
                           hint: "4-6 digit PIN",
                           textFieldType: AppTextFieldType.number,
                         ),
 
-                        const Gap(24),
+                        Gap(AppConstant.verticalGap20 + 4), // Equivalent to 24
 
                         /// SIGNUP BUTTON
                         SizedBox(
@@ -164,7 +165,7 @@ class _SignupPortraitViewState extends State<SignupPortraitView> {
                           ),
                         ),
 
-                        const Gap(16),
+                        Gap(AppConstant.verticalGap16),
 
                         /// LOGIN NAVIGATION
                         Center(

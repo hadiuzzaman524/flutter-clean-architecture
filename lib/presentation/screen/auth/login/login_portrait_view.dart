@@ -77,14 +77,14 @@ class _LogInPortraitViewState extends State<LogInPortraitView> {
           },
           child: Center(
             child: SingleChildScrollView(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding: EdgeInsets.symmetric(horizontal: AppConstant.horizontalGap20),
               child: ConstrainedBox(
                 constraints: const BoxConstraints(maxWidth: 420),
                 child: Container(
-                  padding: const EdgeInsets.all(20),
+                  padding: EdgeInsets.all(AppConstant.horizontalGap20),
                   decoration: BoxDecoration(
                     color: theme.surface,
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(AppConstant.borderRadius20),
                     boxShadow: [
                       BoxShadow(
                         color: theme.shadow.withAlpha(20),

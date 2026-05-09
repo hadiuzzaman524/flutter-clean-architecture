@@ -42,7 +42,7 @@ class BottomNavItem extends StatelessWidget {
                 BlendMode.srcIn,
               ),
             ),
-            Gap(4.h),
+            Gap(AppConstant.verticalGap4),
             AppText.bodySmall(
               title,
               color: isSelected

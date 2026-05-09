@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gap/gap.dart';
 import 'package:tsl_flutter_template/core/constants/app_constant.dart';
 import 'package:tsl_flutter_template/core/error/error_localization.dart';
 import 'package:tsl_flutter_template/core/error/response_error.dart';
@@ -20,6 +21,9 @@ class UserList extends StatelessWidget {
         return switch (state.status) {
           Loading() => const Center(child: CircularProgressIndicator()),
           Success() => ListView.separated(
+            padding: EdgeInsets.symmetric(
+              vertical: AppConstant.verticalGap12,
+            ),
             itemBuilder: (ctx, index) {
               return ListTile(
                 leading: CircleAvatar(
@@ -32,25 +36,27 @@ class UserList extends StatelessWidget {
                 ),
                 title: AppText.titleLarge(userList[index].name),
                 subtitle: Column(
-                  spacing: 4,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    Gap(AppConstant.verticalGap4),
                     AppText.titleSmall(userList[index].email),
+                    Gap(AppConstant.verticalGap4),
                     AppText.titleSmall(userList[index].address),
+                    Gap(AppConstant.verticalGap4),
                     AppText.titleSmall(userList[index].city),
                   ],
                 ),
               );
             },
             separatorBuilder: (ctx, index) =>
-                Divider(color: context.colors.border),
+                Divider(color: context.colors.border, height: AppConstant.verticalGap16),
             itemCount: userList.length,
           ),
           Failure(:final ResponseError responseError) => Center(
             child: Padding(
               padding: EdgeInsets.symmetric(
-                horizontal: AppConstant.horizontalGap8,
-                vertical: AppConstant.verticalGap8,
+                horizontal: AppConstant.horizontalGap16,
+                vertical: AppConstant.verticalGap16,
               ),
               child: AppText.bodyLarge(
                 context.errorLocalization.responseError(responseError),
