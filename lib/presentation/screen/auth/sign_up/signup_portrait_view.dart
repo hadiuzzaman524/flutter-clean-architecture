@@ -54,7 +54,6 @@ class _SignupPortraitViewState extends State<SignupPortraitView> {
       backgroundColor: theme.background,
       body: Stack(
         children: [
-          // Background Decorative Element
           Positioned(
             bottom: -50,
             left: -50,
@@ -91,7 +90,9 @@ class _SignupPortraitViewState extends State<SignupPortraitView> {
               },
               child: Center(
                 child: SingleChildScrollView(
-                  padding: EdgeInsets.symmetric(horizontal: AppConstant.horizontalGap20),
+                  padding: EdgeInsets.symmetric(
+                    horizontal: AppConstant.horizontalGap20,
+                  ),
                   child: ConstrainedBox(
                     constraints: const BoxConstraints(maxWidth: 420),
                     child: Column(
@@ -128,11 +129,17 @@ class _SignupPortraitViewState extends State<SignupPortraitView> {
 
                         // Signup Card
                         Container(
-                          padding: EdgeInsets.all(AppConstant.horizontalGap20 + 4),
+                          padding: EdgeInsets.all(
+                            AppConstant.horizontalGap20 + 4,
+                          ),
                           decoration: BoxDecoration(
-                            color: theme.surface,
-                            borderRadius: BorderRadius.circular(AppConstant.borderRadius20),
-                            border: Border.all(color: theme.border.withAlpha(128)),
+                            color: theme.disabled,
+                            borderRadius: BorderRadius.circular(
+                              AppConstant.borderRadius20,
+                            ),
+                            border: Border.all(
+                              color: theme.border.withAlpha(128),
+                            ),
                             boxShadow: [
                               BoxShadow(
                                 color: theme.shadow.withAlpha(13),
@@ -146,10 +153,11 @@ class _SignupPortraitViewState extends State<SignupPortraitView> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                /// NAME
                                 AppText.labelLarge(
                                   "Full Name",
-                                  style: context.textStyle.labelLarge.copyWith(fontWeight: FontWeight.w600),
+                                  style: context.textStyle.labelLarge.copyWith(
+                                    fontWeight: FontWeight.w600,
+                                  ),
                                 ),
                                 Gap(AppConstant.verticalGap8),
                                 AppTextField(
@@ -157,32 +165,35 @@ class _SignupPortraitViewState extends State<SignupPortraitView> {
                                   hint: "Enter your full name",
                                   textFieldType: AppTextFieldType.none,
                                   prefixIcon: const Icon(Icons.person_outline),
+                                  fillColor: context.colors.surface,
                                 ),
                                 Gap(AppConstant.verticalGap16),
-
-                                /// EMAIL
                                 AppText.labelLarge(
                                   "Email Address",
-                                  style: context.textStyle.labelLarge.copyWith(fontWeight: FontWeight.w600),
+                                  style: context.textStyle.labelLarge.copyWith(
+                                    fontWeight: FontWeight.w600,
+                                  ),
                                 ),
                                 Gap(AppConstant.verticalGap8),
                                 AppTextField(
                                   controller: emailController,
                                   hint: "Enter your email",
                                   textFieldType: AppTextFieldType.email,
+                                  fillColor: context.colors.surface,
                                 ),
                                 Gap(AppConstant.verticalGap16),
-
-                                /// PIN
                                 AppText.labelLarge(
                                   "PIN (4-6 digits)",
-                                  style: context.textStyle.labelLarge.copyWith(fontWeight: FontWeight.w600),
+                                  style: context.textStyle.labelLarge.copyWith(
+                                    fontWeight: FontWeight.w600,
+                                  ),
                                 ),
                                 Gap(AppConstant.verticalGap8),
                                 AppTextField(
                                   controller: pinController,
                                   hint: "Enter your PIN",
                                   textFieldType: AppTextFieldType.number,
+                                  fillColor: context.colors.surface,
                                 ),
                                 Gap(AppConstant.verticalGap20 * 1.5),
 
@@ -209,7 +220,8 @@ class _SignupPortraitViewState extends State<SignupPortraitView> {
                               color: theme.onSurface.withAlpha(179),
                             ),
                             TextButton(
-                              onPressed: () => context.replaceRoute(const LogInRoute()),
+                              onPressed: () =>
+                                  context.replaceRoute(const LogInRoute()),
                               child: AppText.bodyLarge(
                                 "Login",
                                 style: TextStyle(

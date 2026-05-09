@@ -60,7 +60,6 @@ class _LogInPortraitViewState extends State<LogInPortraitView> {
       backgroundColor: theme.background,
       body: Stack(
         children: [
-          // Background Gradient Element
           Positioned(
             top: -100,
             right: -100,
@@ -85,7 +84,9 @@ class _LogInPortraitViewState extends State<LogInPortraitView> {
                   final error = (state.loginStatus as Failure).responseError;
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
-                      content: Text(context.errorLocalization.responseError(error)),
+                      content: Text(
+                        context.errorLocalization.responseError(error),
+                      ),
                       backgroundColor: theme.error,
                       behavior: SnackBarBehavior.floating,
                     ),
@@ -97,13 +98,14 @@ class _LogInPortraitViewState extends State<LogInPortraitView> {
               },
               child: Center(
                 child: SingleChildScrollView(
-                  padding: EdgeInsets.symmetric(horizontal: AppConstant.horizontalGap20),
+                  padding: EdgeInsets.symmetric(
+                    horizontal: AppConstant.horizontalGap20,
+                  ),
                   child: ConstrainedBox(
                     constraints: const BoxConstraints(maxWidth: 420),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        // Logo/Icon section
                         Container(
                           padding: EdgeInsets.all(AppConstant.horizontalGap20),
                           decoration: BoxDecoration(
@@ -132,14 +134,20 @@ class _LogInPortraitViewState extends State<LogInPortraitView> {
                           ),
                         ),
                         Gap(AppConstant.verticalGap20 * 1.5),
-                        
+
                         // Login Card
                         Container(
-                          padding: EdgeInsets.all(AppConstant.horizontalGap20 + 4),
+                          padding: EdgeInsets.all(
+                            AppConstant.horizontalGap20 + 4,
+                          ),
                           decoration: BoxDecoration(
-                            color: theme.surface,
-                            borderRadius: BorderRadius.circular(AppConstant.borderRadius20),
-                            border: Border.all(color: theme.border.withAlpha(128)),
+                            color: theme.disabled,
+                            borderRadius: BorderRadius.circular(
+                              AppConstant.borderRadius20,
+                            ),
+                            border: Border.all(
+                              color: theme.border.withAlpha(128),
+                            ),
                             boxShadow: [
                               BoxShadow(
                                 color: theme.shadow.withAlpha(13),
@@ -155,24 +163,30 @@ class _LogInPortraitViewState extends State<LogInPortraitView> {
                               children: [
                                 AppText.labelLarge(
                                   context.l10n.email,
-                                  style: context.textStyle.labelLarge.copyWith(fontWeight: FontWeight.w600),
+                                  style: context.textStyle.labelLarge.copyWith(
+                                    fontWeight: FontWeight.w600,
+                                  ),
                                 ),
                                 Gap(AppConstant.verticalGap8),
                                 AppTextField(
                                   controller: emailController,
                                   hint: "Enter your email",
                                   textFieldType: AppTextFieldType.email,
+                                  fillColor: context.colors.surface,
                                 ),
                                 Gap(AppConstant.verticalGap20),
                                 AppText.labelLarge(
                                   context.l10n.pin,
-                                  style: context.textStyle.labelLarge.copyWith(fontWeight: FontWeight.w600),
+                                  style: context.textStyle.labelLarge.copyWith(
+                                    fontWeight: FontWeight.w600,
+                                  ),
                                 ),
                                 Gap(AppConstant.verticalGap8),
                                 AppTextField(
                                   controller: pinController,
                                   hint: "Enter your PIN",
                                   textFieldType: AppTextFieldType.number,
+                                  fillColor: context.colors.surface,
                                 ),
                                 Gap(AppConstant.verticalGap20 * 1.5),
                                 SizedBox(
@@ -187,8 +201,6 @@ class _LogInPortraitViewState extends State<LogInPortraitView> {
                           ),
                         ),
                         Gap(AppConstant.verticalGap20),
-                        
-                        // Signup Toggle
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -197,7 +209,8 @@ class _LogInPortraitViewState extends State<LogInPortraitView> {
                               color: theme.onSurface.withAlpha(179),
                             ),
                             TextButton(
-                              onPressed: () => context.pushRoute(const SignupRoute()),
+                              onPressed: () =>
+                                  context.pushRoute(const SignupRoute()),
                               child: AppText.bodyLarge(
                                 "Sign Up",
                                 style: TextStyle(

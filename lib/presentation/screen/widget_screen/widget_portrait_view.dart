@@ -31,22 +31,25 @@ class _WidgetsPortraitViewState extends State<WidgetsPortraitView> {
           padding: EdgeInsets.all(AppConstant.horizontalGap12),
           child: Column(
             children: [
-              const AppTextField(
+              AppTextField(
                 hint: "Add Email",
                 label: "Email",
                 textFieldType: AppTextFieldType.email,
+                fillColor: context.colors.surface,
               ),
               Gap(AppConstant.verticalGap8),
-              const AppTextField(
+               AppTextField(
                 hint: "Add Password",
                 label: "Password",
                 textFieldType: AppTextFieldType.password,
+                fillColor: context.colors.surface,
               ),
               Gap(AppConstant.verticalGap8),
-              const AppTextField(
+               AppTextField(
                 hint: "Search",
                 label: "Search",
                 textFieldType: AppTextFieldType.search,
+                fillColor: context.colors.surface,
               ),
               Gap(AppConstant.verticalGap8),
               AppTextField(
@@ -110,7 +113,9 @@ class _WidgetsPortraitViewState extends State<WidgetsPortraitView> {
                       height: 250,
                       decoration: BoxDecoration(
                         color: Colors.white,
-                        borderRadius: BorderRadius.circular(AppConstant.borderRadius20),
+                        borderRadius: BorderRadius.circular(
+                          AppConstant.borderRadius20,
+                        ),
                       ),
                       child: const Center(
                         child: Text("Hello from Bottom Sheet!"),
