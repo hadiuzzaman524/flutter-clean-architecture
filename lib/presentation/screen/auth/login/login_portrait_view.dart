@@ -57,132 +57,157 @@ class _LogInPortraitViewState extends State<LogInPortraitView> {
     final theme = context.colors;
 
     return Scaffold(
-      body: SafeArea(
-        child: BlocListener<LoginCubit, LoginState>(
-          listener: (context, state) {
-            if (state.loginStatus.isFailure) {
-              final error = (state.loginStatus as Failure).responseError;
-
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: Text(context.errorLocalization.responseError(error)),
-                  backgroundColor: theme.error,
+      backgroundColor: theme.background,
+      body: Stack(
+        children: [
+          // Background Gradient Element
+          Positioned(
+            top: -100,
+            right: -100,
+            child: Container(
+              height: 300,
+              width: 300,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                gradient: RadialGradient(
+                  colors: [
+                    theme.primary.withOpacity(0.15),
+                    theme.primary.withOpacity(0),
+                  ],
                 ),
-              );
-            }
-
-            if (state.loginStatus.isSuccess) {
-              context.router.replace(const HomeRoute());
-            }
-          },
-          child: Center(
-            child: SingleChildScrollView(
-              padding: EdgeInsets.symmetric(horizontal: AppConstant.horizontalGap20),
-              child: ConstrainedBox(
-                constraints: const BoxConstraints(maxWidth: 420),
-                child: Container(
-                  padding: EdgeInsets.all(AppConstant.horizontalGap20),
-                  decoration: BoxDecoration(
-                    color: theme.surface,
-                    borderRadius: BorderRadius.circular(AppConstant.borderRadius20),
-                    boxShadow: [
-                      BoxShadow(
-                        color: theme.shadow.withAlpha(20),
-                        blurRadius: 18,
-                        offset: const Offset(0, 8),
-                      ),
-                    ],
-                  ),
-                  child: Form(
-                    key: _formKey,
+              ),
+            ),
+          ),
+          SafeArea(
+            child: BlocListener<LoginCubit, LoginState>(
+              listener: (context, state) {
+                if (state.loginStatus.isFailure) {
+                  final error = (state.loginStatus as Failure).responseError;
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(context.errorLocalization.responseError(error)),
+                      backgroundColor: theme.error,
+                      behavior: SnackBarBehavior.floating,
+                    ),
+                  );
+                }
+                if (state.loginStatus.isSuccess) {
+                  context.router.replace(const HomeRoute());
+                }
+              },
+              child: Center(
+                child: SingleChildScrollView(
+                  padding: EdgeInsets.symmetric(horizontal: AppConstant.horizontalGap20),
+                  child: ConstrainedBox(
+                    constraints: const BoxConstraints(maxWidth: 420),
                     child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        /// HEADER
-                        Center(
-                          child: Column(
-                            children: [
-                              Icon(
-                                Icons.lock_rounded,
-                                size: 42,
-                                color: theme.primary,
-                              ),
-                              Gap(AppConstant.verticalGap12),
-                              AppText.headlineSmall(
-                                "SIGN IN",
-                                style: context.textStyle.headlineMedium
-                                    .copyWith(fontWeight: FontWeight.bold),
-                              ),
-                              Gap(AppConstant.verticalGap12),
-                              AppText.headlineSmall(
-                                "Welcome back, please login to continue",
-                                style: context.textStyle.bodyMedium.copyWith(
-                                  color: theme.onSurface,
-                                ),
-                                textAlign: TextAlign.center,
+                        // Logo/Icon section
+                        Container(
+                          padding: EdgeInsets.all(AppConstant.horizontalGap20),
+                          decoration: BoxDecoration(
+                            color: theme.primary.withOpacity(0.1),
+                            shape: BoxShape.circle,
+                          ),
+                          child: Icon(
+                            Icons.lock_person_rounded,
+                            size: 64,
+                            color: theme.primary,
+                          ),
+                        ),
+                        Gap(AppConstant.verticalGap20),
+                        AppText.displayMedium(
+                          "Welcome Back",
+                          style: context.textStyle.displaySmall.copyWith(
+                            fontWeight: FontWeight.bold,
+                            color: theme.onBackground,
+                          ),
+                        ),
+                        Gap(AppConstant.verticalGap8),
+                        AppText.bodyMedium(
+                          "Login to your account to continue",
+                          style: context.textStyle.bodyMedium.copyWith(
+                            color: theme.onSurface.withOpacity(0.6),
+                          ),
+                        ),
+                        Gap(AppConstant.verticalGap20 * 1.5),
+                        
+                        // Login Card
+                        Container(
+                          padding: EdgeInsets.all(AppConstant.horizontalGap20 + 4),
+                          decoration: BoxDecoration(
+                            color: theme.surface,
+                            borderRadius: BorderRadius.circular(AppConstant.borderRadius20),
+                            border: Border.all(color: theme.border.withOpacity(0.5)),
+                            boxShadow: [
+                              BoxShadow(
+                                color: theme.shadow.withOpacity(0.05),
+                                blurRadius: 20,
+                                offset: const Offset(0, 10),
                               ),
                             ],
                           ),
-                        ),
-
-                        Gap(AppConstant.verticalGap12),
-
-                        /// EMAIL
-                        AppText.labelLarge(
-                          context.l10n.email,
-                          style: context.textStyle.labelMedium,
-                        ),
-                        Gap(AppConstant.verticalGap12),
-                        AppTextField(
-                          controller: emailController,
-                          hint: "example@email.com",
-                          textFieldType: AppTextFieldType.email,
-                        ),
-
-                        Gap(AppConstant.verticalGap12),
-
-                        /// PIN
-                        AppText.labelLarge(
-                          context.l10n.pin,
-                          style: context.textStyle.labelMedium,
-                        ),
-                        Gap(AppConstant.verticalGap12),
-                        AppTextField(
-                          controller: pinController,
-                          hint: "••••",
-                          textFieldType: AppTextFieldType.number,
-                        ),
-
-                        Gap(AppConstant.verticalGap12),
-
-                        /// BUTTON
-                        SizedBox(
-                          width: double.infinity,
-                          child: PrimaryButton(
-                            onPressed: _onLogin,
-                            title: context.l10n.login,
-                            backgroundColor: theme.primary,
-                            borderColor: theme.primary,
-                            titleColor: theme.onPrimary,
-                            loadingColor: theme.onPrimary,
+                          child: Form(
+                            key: _formKey,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                AppText.labelLarge(
+                                  context.l10n.email,
+                                  style: context.textStyle.labelLarge.copyWith(fontWeight: FontWeight.w600),
+                                ),
+                                Gap(AppConstant.verticalGap8),
+                                AppTextField(
+                                  controller: emailController,
+                                  hint: "Enter your email",
+                                  textFieldType: AppTextFieldType.email,
+                                ),
+                                Gap(AppConstant.verticalGap20),
+                                AppText.labelLarge(
+                                  context.l10n.pin,
+                                  style: context.textStyle.labelLarge.copyWith(fontWeight: FontWeight.w600),
+                                ),
+                                Gap(AppConstant.verticalGap8),
+                                AppTextField(
+                                  controller: pinController,
+                                  hint: "Enter your PIN",
+                                  textFieldType: AppTextFieldType.number,
+                                ),
+                                Gap(AppConstant.verticalGap20 * 1.5),
+                                SizedBox(
+                                  width: double.infinity,
+                                  child: PrimaryButton(
+                                    onPressed: _onLogin,
+                                    title: context.l10n.login,
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
-
-                        Gap(AppConstant.verticalGap12),
-                        SizedBox(
-                          width: double.infinity,
-                          child: PrimaryButton(
-                            onPressed: () =>
-                                context.pushRoute(const SignupRoute()),
-                            title: "Register / Sign Up",
-                            backgroundColor: theme.secondary,
-                            borderColor: theme.primary,
-                            titleColor: theme.onPrimary,
-                            loadingColor: theme.onPrimary,
-                          ),
+                        Gap(AppConstant.verticalGap20),
+                        
+                        // Signup Toggle
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            AppText.bodyMedium(
+                              "Don't have an account?",
+                              color: theme.onSurface.withOpacity(0.7),
+                            ),
+                            TextButton(
+                              onPressed: () => context.pushRoute(const SignupRoute()),
+                              child: AppText.bodyLarge(
+                                "Sign Up",
+                                style: TextStyle(
+                                  color: theme.primary,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
-                        Gap(AppConstant.verticalGap12),
                       ],
                     ),
                   ),
@@ -190,7 +215,7 @@ class _LogInPortraitViewState extends State<LogInPortraitView> {
               ),
             ),
           ),
-        ),
+        ],
       ),
     );
   }

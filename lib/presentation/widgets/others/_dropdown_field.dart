@@ -81,7 +81,7 @@ class _DropdownFieldState<T> extends State<DropdownField<T>> {
                 widget.focusedBorderColor ?? context.colors.primary,
               ),
               filled: true,
-              fillColor: context.colors.onPrimary,
+              fillColor: context.colors.surface,
               hintText: widget.hintText,
             ),
             items: widget.items

@@ -100,7 +100,7 @@ class _AppTextFieldState extends State<AppTextField> {
           widget.titleStyle ??
           Theme.of(
             context,
-          ).textTheme.bodyMedium?.copyWith(color: context.colors.onBackground),
+          ).textTheme.bodyMedium?.copyWith(color: context.colors.surface),
       obscureText: widget.textFieldType == AppTextFieldType.password
           ? _obscureText
           : widget.isObscure,
@@ -115,9 +115,7 @@ class _AppTextFieldState extends State<AppTextField> {
         filled: widget.fillColor == null ? false : true,
         hintStyle:
             widget.hintStyle ??
-            context.textStyle.titleLarge.copyWith(
-              color: context.colors.disabled,
-            ),
+            context.textStyle.bodySmall.copyWith(color: context.colors.surface),
         labelText: widget.label,
         labelStyle: Theme.of(
           context,
@@ -125,7 +123,7 @@ class _AppTextFieldState extends State<AppTextField> {
         isDense: true,
         contentPadding: EdgeInsets.symmetric(
           horizontal: AppConstant.horizontalGap16,
-          vertical: AppConstant.verticalGap16,
+          vertical: AppConstant.verticalGap12,
         ),
         border: InputBorder.none,
         enabledBorder: inputBorder(),
@@ -253,7 +251,7 @@ class _AppTextFieldState extends State<AppTextField> {
         child: Icon(
           icon,
           size: 20,
-          color: widget.prefixIconColor ?? context.colors.onSurface,
+          color: widget.prefixIconColor ?? context.colors.surface,
         ),
       ),
     );

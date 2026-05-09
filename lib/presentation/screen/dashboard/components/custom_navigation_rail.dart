@@ -1,6 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:tsl_flutter_template/core/constants/app_constant.dart';
 import 'package:tsl_flutter_template/gen/assets.gen.dart';
 import 'package:tsl_flutter_template/presentation/theme/base/theme_extension.dart';
 import 'navigation_rail_item.dart';
@@ -24,31 +25,62 @@ class _CustomNavigationRailState extends State<CustomNavigationRail> {
 
   @override
   Widget build(BuildContext context) {
-    return ColoredBox(
-      color: context.colors.surface,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Expanded(
-            child: NavigationRailItem(
-              title: "Home",
-              group: group,
-              onTap: () => widget.onTap(0),
-              isSelected: widget.currentIndex == 0,
-              image: Assets.images.exploreIcon,
-            ),
+    final theme = context.colors;
+    
+    return Container(
+      width: 80,
+      decoration: BoxDecoration(
+        color: theme.surface,
+        border: Border(
+          right: BorderSide(color: theme.border.withOpacity(0.5)),
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: theme.shadow.withOpacity(0.05),
+            blurRadius: 10,
+            offset: const Offset(2, 0),
           ),
-          Expanded(
-            child: NavigationRailItem(
-              title: "Widgets",
-              group: group,
-              onTap: () => widget.onTap(1),
-              isSelected: widget.currentIndex == 1,
-              image: Assets.images.settingsIcon,
-            ),
-          ),
-          Gap(MediaQuery.paddingOf(context).bottom),
         ],
+      ),
+      child: SafeArea(
+        child: Column(
+          children: [
+            Gap(AppConstant.verticalGap20),
+            // Logo or Brand Icon
+            Container(
+              height: 48,
+              width: 48,
+              decoration: BoxDecoration(
+                color: theme.primary,
+                borderRadius: BorderRadius.circular(AppConstant.borderRadius12),
+              ),
+              child: const Icon(Icons.bolt_rounded, color: Colors.white),
+            ),
+            Gap(AppConstant.verticalGap20 * 2),
+            Expanded(
+              child: Column(
+                children: [
+                  NavigationRailItem(
+                    title: "Home",
+                    group: group,
+                    onTap: () => widget.onTap(0),
+                    isSelected: widget.currentIndex == 0,
+                    image: Assets.images.exploreIcon,
+                  ),
+                  Gap(AppConstant.verticalGap16),
+                  NavigationRailItem(
+                    title: "Widgets",
+                    group: group,
+                    onTap: () => widget.onTap(1),
+                    isSelected: widget.currentIndex == 1,
+                    image: Assets.images.settingsIcon,
+                  ),
+                ],
+              ),
+            ),
+            Gap(AppConstant.verticalGap20),
+          ],
+        ),
       ),
     );
   }
