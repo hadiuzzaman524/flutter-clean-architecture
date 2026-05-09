@@ -13,6 +13,7 @@ import 'package:dio/dio.dart' as _i361;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 
+import '../../data/data_source/auth/auth_remote_data_source.dart' as _i573;
 import '../../data/data_source/user/user_remote_data_source.dart' as _i875;
 import '../../data/repository_impl/auth/auth_repository_impl.dart' as _i747;
 import '../../data/repository_impl/user/user_repository_impl.dart' as _i339;
@@ -64,6 +65,11 @@ extension GetItInjectableX on _i174.GetIt {
       () => networkModule.unAuthenticatedProdDio,
       instanceName: 'unauthenticated',
       registerFor: {_production},
+    );
+    gh.singleton<_i573.AuthRemoteDataSource>(
+      () => _i573.AuthRemoteDataSource(
+        gh<_i361.Dio>(instanceName: 'unauthenticated'),
+      ),
     );
     gh.singleton<_i875.UserRemoteDataSource>(
       () => _i875.UserRemoteDataSource(
