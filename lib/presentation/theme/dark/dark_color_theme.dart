@@ -22,6 +22,9 @@ class DarkColorTheme extends BaseColorTheme {
         unselectedLabelStyle: const TextStyle(fontWeight: FontWeight.w400),
         type: BottomNavigationBarType.fixed,
       ),
+      textTheme: GoogleFonts.robotoTextTheme(
+        ThemeData(brightness: Brightness.dark).textTheme,
+      ),
     );
   }
 
