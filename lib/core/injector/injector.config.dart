@@ -20,10 +20,8 @@ import '../../data/repository_impl/user/user_repository_impl.dart' as _i339;
 import '../../domain/repository/auth/auth_repository.dart' as _i912;
 import '../../domain/repository/user/user_repository.dart' as _i183;
 import '../../domain/use_cases/auth/login_use_case.dart' as _i40;
-import '../../domain/use_cases/auth/signup_use_case.dart' as _i86;
 import '../../domain/use_cases/user/get_user_list_use_case.dart' as _i596;
 import '../../presentation/screen/auth/login/cubit/login_cubit.dart' as _i549;
-import '../../presentation/screen/auth/sign_up/cubit/signup_cubit.dart' as _i21;
 import '../../presentation/screen/home/cubits/user_cubit.dart' as _i164;
 import 'module.dart' as _i946;
 
@@ -58,9 +56,6 @@ extension GetItInjectableX on _i174.GetIt {
     gh.singleton<_i40.LoginUseCase>(
       () => _i40.LoginUseCase(gh<_i912.AuthRepository>()),
     );
-    gh.singleton<_i86.SignupUseCase>(
-      () => _i86.SignupUseCase(gh<_i912.AuthRepository>()),
-    );
     gh.singleton<_i361.Dio>(
       () => networkModule.unAuthenticatedProdDio,
       instanceName: 'unauthenticated',
@@ -84,9 +79,6 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i549.LoginCubit>(
       () => _i549.LoginCubit(gh<_i40.LoginUseCase>()),
-    );
-    gh.factory<_i21.SignupCubit>(
-      () => _i21.SignupCubit(gh<_i86.SignupUseCase>()),
     );
     gh.factory<_i164.UserCubit>(
       () => _i164.UserCubit(gh<_i596.GetUserListUseCase>()),

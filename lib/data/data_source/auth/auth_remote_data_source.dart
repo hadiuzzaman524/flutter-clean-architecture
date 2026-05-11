@@ -15,7 +15,4 @@ abstract class AuthRemoteDataSource {
 
   @POST('/login')
   Future<String> login(@Body() LoginEntity inputModel);
-
-  @POST('/signup')
-  Future<String> signup(@Body() SignupEntity inputModel);
 }

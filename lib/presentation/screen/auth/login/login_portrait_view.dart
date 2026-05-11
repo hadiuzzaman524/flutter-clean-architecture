@@ -200,27 +200,6 @@ class _LogInPortraitViewState extends State<LogInPortraitView> {
                             ),
                           ),
                         ),
-                        Gap(AppConstant.verticalGap20),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            AppText.bodyMedium(
-                              "Don't have an account?",
-                              color: theme.onSurface.withAlpha(179),
-                            ),
-                            TextButton(
-                              onPressed: () =>
-                                  context.pushRoute(const SignupRoute()),
-                              child: AppText.bodyLarge(
-                                "Sign Up",
-                                style: TextStyle(
-                                  color: theme.primary,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
                       ],
                     ),
                   ),
