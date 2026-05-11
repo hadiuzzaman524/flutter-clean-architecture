@@ -98,9 +98,9 @@ class _AppTextFieldState extends State<AppTextField> {
       focusNode: widget.focusNode,
       style:
           widget.titleStyle ??
-          Theme.of(
-            context,
-          ).textTheme.bodyMedium?.copyWith(color: context.colors.onBackground),
+          context.textStyle.bodyMedium.copyWith(
+            color: context.colors.onBackground,
+          ),
       obscureText: widget.textFieldType == AppTextFieldType.password
           ? _obscureText
           : widget.isObscure,
@@ -115,7 +115,7 @@ class _AppTextFieldState extends State<AppTextField> {
         filled: widget.fillColor == null ? false : true,
         hintStyle:
             widget.hintStyle ??
-            context.textStyle.titleLarge.copyWith(
+            context.textStyle.bodyMedium.copyWith(
               color: context.colors.disabled,
             ),
         labelText: widget.label,
@@ -125,7 +125,7 @@ class _AppTextFieldState extends State<AppTextField> {
         isDense: true,
         contentPadding: EdgeInsets.symmetric(
           horizontal: AppConstant.horizontalGap16,
-          vertical: AppConstant.verticalGap16,
+          vertical: AppConstant.verticalGap12,
         ),
         border: InputBorder.none,
         enabledBorder: inputBorder(),
@@ -253,7 +253,7 @@ class _AppTextFieldState extends State<AppTextField> {
         child: Icon(
           icon,
           size: 20,
-          color: widget.prefixIconColor ?? context.colors.onSurface,
+          color: widget.prefixIconColor ?? context.colors.disabled,
         ),
       ),
     );
@@ -269,7 +269,7 @@ class _AppTextFieldState extends State<AppTextField> {
             _obscureText
                 ? Icons.visibility_outlined
                 : Icons.visibility_off_outlined,
-            color: widget.suffixIconColor ?? context.colors.onSurface,
+            color: widget.suffixIconColor ?? context.colors.disabled,
             size: widget.suffixIconSize ?? 20,
           ),
         ),
@@ -292,7 +292,7 @@ class _AppTextFieldState extends State<AppTextField> {
           child: Center(
             child: IconTheme(
               data: IconThemeData(
-                color: widget.prefixIconColor ?? context.colors.onSurface,
+                color: widget.prefixIconColor ?? context.colors.disabled,
                 size: widget.prefixIconSize ?? AppConstant.iconSize,
               ),
               child: icon,
@@ -310,7 +310,7 @@ class _AppTextFieldState extends State<AppTextField> {
       child: Center(
         child: IconTheme(
           data: IconThemeData(
-            color: widget.suffixIconColor ?? context.colors.onSurface,
+            color: widget.suffixIconColor ?? context.colors.disabled,
             size: widget.suffixIconSize ?? AppConstant.iconSize,
           ),
           child: icon,

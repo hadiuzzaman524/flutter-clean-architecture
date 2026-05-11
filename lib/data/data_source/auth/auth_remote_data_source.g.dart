@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'user_remote_data_source.dart';
+part of 'auth_remote_data_source.dart';
 
 // dart format off
 
@@ -10,8 +10,8 @@ part of 'user_remote_data_source.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers,unused_element,unnecessary_string_interpolations,unused_element_parameter,avoid_unused_constructor_parameters,unreachable_from_main,avoid_redundant_argument_values
 
-class _UserRemoteDataSource implements UserRemoteDataSource {
-  _UserRemoteDataSource(this._dio, {this.baseUrl, this.errorLogger});
+class _AuthRemoteDataSource implements AuthRemoteDataSource {
+  _AuthRemoteDataSource(this._dio, {this.baseUrl, this.errorLogger});
 
   final Dio _dio;
 
@@ -20,30 +20,25 @@ class _UserRemoteDataSource implements UserRemoteDataSource {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<List<UserResponseModel>> getUserList() async {
+  Future<String> login(LoginEntity inputModel) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<List<UserResponseModel>>(
-      Options(method: 'GET', headers: _headers, extra: _extra)
+    final _data = inputModel;
+    final _options = _setStreamType<String>(
+      Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            '/users',
+            '/login',
             queryParameters: queryParameters,
             data: _data,
           )
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
-    final _result = await _dio.fetch<List<dynamic>>(_options);
-    late List<UserResponseModel> _value;
+    final _result = await _dio.fetch<String>(_options);
+    late String _value;
     try {
-      _value = _result.data!
-          .map(
-            (dynamic i) =>
-                UserResponseModel.fromJson(i as Map<String, dynamic>),
-          )
-          .toList();
+      _value = _result.data!;
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options, response: _result);
       rethrow;

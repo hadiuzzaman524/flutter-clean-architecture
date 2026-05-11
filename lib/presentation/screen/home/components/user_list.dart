@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gap/gap.dart';
 import 'package:tsl_flutter_template/core/constants/app_constant.dart';
 import 'package:tsl_flutter_template/core/error/error_localization.dart';
 import 'package:tsl_flutter_template/core/error/response_error.dart';
@@ -14,50 +15,120 @@ class UserList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = context.colors;
+
     return BlocBuilder<UserCubit, UserState>(
       builder: (ctx, state) {
         final userList = state.userList;
         return switch (state.status) {
           Loading() => const Center(child: CircularProgressIndicator()),
           Success() => ListView.separated(
-            itemBuilder: (ctx, index) {
-              return ListTile(
-                leading: CircleAvatar(
-                  backgroundColor: context.colors.primary,
-                  radius: 35,
-                  child: Icon(
-                    Icons.person_4_outlined,
-                    color: context.colors.onPrimary,
+              padding: EdgeInsets.all(AppConstant.horizontalGap16),
+              itemBuilder: (ctx, index) {
+                final user = userList[index];
+                return Container(
+                  padding: EdgeInsets.all(AppConstant.horizontalGap16),
+                  decoration: BoxDecoration(
+                    color: theme.surface,
+                    borderRadius: BorderRadius.circular(AppConstant.borderRadius16),
+                    border: Border.all(color: theme.border.withAlpha(128)),
+                    boxShadow: [
+                      BoxShadow(
+                        color: theme.shadow.withAlpha(8),
+                        blurRadius: 10,
+                        offset: const Offset(0, 4),
+                      ),
+                    ],
                   ),
-                ),
-                title: AppText.titleLarge(userList[index].name),
-                subtitle: Column(
-                  spacing: 4,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    AppText.titleSmall(userList[index].email),
-                    AppText.titleSmall(userList[index].address),
-                    AppText.titleSmall(userList[index].city),
-                  ],
-                ),
-              );
-            },
-            separatorBuilder: (ctx, index) =>
-                Divider(color: context.colors.border),
-            itemCount: userList.length,
-          ),
+                  child: Row(
+                    children: [
+                      Container(
+                        height: 60,
+                        width: 60,
+                        decoration: BoxDecoration(
+                          color: theme.primary.withAlpha(26),
+                          shape: BoxShape.circle,
+                        ),
+                        child: Icon(
+                          Icons.person_outline_rounded,
+                          color: theme.primary,
+                          size: 30,
+                        ),
+                      ),
+                      Gap(AppConstant.horizontalGap16),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            AppText.titleLarge(
+                              user.name,
+                              style: context.textStyle.titleLarge.copyWith(
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Gap(AppConstant.verticalGap4),
+                            Row(
+                              children: [
+                                Icon(Icons.email_outlined, size: 14, color: theme.onSurface.withAlpha(128)),
+                                Gap(AppConstant.horizontalGap4),
+                                Expanded(
+                                  child: AppText.bodySmall(
+                                    user.email,
+                                    color: theme.onSurface.withAlpha(153),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Gap(AppConstant.verticalGap4),
+                            Row(
+                              children: [
+                                Icon(Icons.location_on_outlined, size: 14, color: theme.onSurface.withAlpha(128)),
+                                Gap(AppConstant.horizontalGap4),
+                                Expanded(
+                                  child: AppText.bodySmall(
+                                    "${user.city}, ${user.address}",
+                                    color: theme.onSurface.withAlpha(153),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                      Icon(
+                        Icons.arrow_forward_ios_rounded,
+                        size: 16,
+                        color: theme.onSurface.withAlpha(77),
+                      ),
+                    ],
+                  ),
+                );
+              },
+              separatorBuilder: (ctx, index) => Gap(AppConstant.verticalGap12),
+              itemCount: userList.length,
+            ),
           Failure(:final ResponseError responseError) => Center(
-            child: Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: AppConstant.horizontalGap8,
-                vertical: AppConstant.verticalGap8,
-              ),
-              child: AppText.bodyLarge(
-                context.errorLocalization.responseError(responseError),
-                textAlign: TextAlign.center,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.error_outline_rounded, size: 64, color: theme.error.withAlpha(128)),
+                  Gap(AppConstant.verticalGap16),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: AppConstant.horizontalGap20),
+                    child: AppText.bodyLarge(
+                      context.errorLocalization.responseError(responseError),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                  Gap(AppConstant.verticalGap16),
+                  TextButton.icon(
+                    onPressed: () => context.read<UserCubit>().getUserList(),
+                    icon: const Icon(Icons.refresh_rounded),
+                    label: const Text("Retry"),
+                  ),
+                ],
               ),
             ),
-          ),
           _ => const SizedBox.shrink(),
         };
       },

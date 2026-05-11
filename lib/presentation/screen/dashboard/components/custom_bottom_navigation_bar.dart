@@ -1,6 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:tsl_flutter_template/core/constants/app_constant.dart';
 import 'package:tsl_flutter_template/gen/assets.gen.dart';
 import 'package:tsl_flutter_template/presentation/screen/dashboard/components/bottom_nav_item.dart';
 import 'package:tsl_flutter_template/presentation/theme/base/theme_extension.dart';
@@ -25,12 +26,31 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
 
   @override
   Widget build(BuildContext context) {
-    return ColoredBox(
-      color: context.colors.surface,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Row(
+    final theme = context.colors;
+    
+    return Container(
+      decoration: BoxDecoration(
+        color: theme.surface,
+        boxShadow: [
+          BoxShadow(
+            color: theme.shadow.withAlpha(20),
+            blurRadius: 20,
+            offset: const Offset(0, -5),
+          ),
+        ],
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(AppConstant.borderRadius20),
+          topRight: Radius.circular(AppConstant.borderRadius20),
+        ),
+      ),
+      child: SafeArea(
+        top: false,
+        child: Padding(
+          padding: EdgeInsets.symmetric(
+            horizontal: AppConstant.horizontalGap16,
+            vertical: AppConstant.verticalGap8,
+          ),
+          child: Row(
             children: [
               Expanded(
                 child: BottomNavItem(
@@ -52,8 +72,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
               ),
             ],
           ),
-          Gap(MediaQuery.paddingOf(context).bottom),
-        ],
+        ),
       ),
     );
   }

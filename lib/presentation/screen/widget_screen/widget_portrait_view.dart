@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:tsl_flutter_template/core/constants/app_constant.dart';
 import 'package:tsl_flutter_template/core/helper/app_snack_bar_helper.dart';
 import 'package:tsl_flutter_template/presentation/theme/base/theme_extension.dart';
 import 'package:tsl_flutter_template/presentation/theme/text/app_text.dart';
@@ -24,41 +25,44 @@ class _WidgetsPortraitViewState extends State<WidgetsPortraitView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: "Widgets Screen"),
+      appBar: const CustomAppBar(title: "Widgets Screen"),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(12.0),
+          padding: EdgeInsets.all(AppConstant.horizontalGap12),
           child: Column(
             children: [
               AppTextField(
                 hint: "Add Email",
                 label: "Email",
                 textFieldType: AppTextFieldType.email,
+                fillColor: context.colors.surface,
               ),
-              Gap(8),
-              AppTextField(
+              Gap(AppConstant.verticalGap8),
+               AppTextField(
                 hint: "Add Password",
                 label: "Password",
                 textFieldType: AppTextFieldType.password,
+                fillColor: context.colors.surface,
               ),
-              Gap(8),
-              AppTextField(
+              Gap(AppConstant.verticalGap8),
+               AppTextField(
                 hint: "Search",
                 label: "Search",
                 textFieldType: AppTextFieldType.search,
+                fillColor: context.colors.surface,
               ),
-              Gap(8),
+              Gap(AppConstant.verticalGap8),
               AppTextField(
                 hint: "Text",
                 label: "Text",
                 fillColor: context.colors.surface,
               ),
-              Gap(8),
+              Gap(AppConstant.verticalGap8),
               InputDateTimePicker(
                 hintText: 'Date Picker',
                 fillColor: context.colors.surface,
               ),
-              Gap(8),
+              Gap(AppConstant.verticalGap8),
               PrimaryButton(
                 onPressed: () async {
                   bool shouldUpdate = await AppUpdateDialog.show(
@@ -70,16 +74,17 @@ class _WidgetsPortraitViewState extends State<WidgetsPortraitView> {
                   );
 
                   if (shouldUpdate) {
-                    // // Handle update action
-                    AppSnackBarHelper.show(
-                      context,
-                      message: "Update initiated",
-                    );
+                    if (context.mounted) {
+                      AppSnackBarHelper.show(
+                        context,
+                        message: "Update initiated",
+                      );
+                    }
                   }
                 },
                 title: "Show Dialog",
               ),
-              Gap(8),
+              Gap(AppConstant.verticalGap8),
               DropdownField<String>(
                 value: selectedCategory,
                 items: const [
@@ -90,38 +95,40 @@ class _WidgetsPortraitViewState extends State<WidgetsPortraitView> {
                   "Sports",
                 ],
                 hintText: "Choose category",
-                borderRadius: 8,
+                borderRadius: AppConstant.borderRadius8,
                 buildTitle: (value) => value,
                 onChanged: (value) {
                   setState(() => selectedCategory = value);
                 },
               ),
-              Gap(8),
+              Gap(AppConstant.verticalGap8),
               PrimaryButton(onPressed: () {}, title: "Button Example"),
-              Gap(8),
+              Gap(AppConstant.verticalGap8),
               PrimaryButton(
                 onPressed: () {
                   CustomBottomModalSheet.open(
                     context,
                     Container(
-                      padding: const EdgeInsets.all(16),
+                      padding: EdgeInsets.all(AppConstant.horizontalGap16),
                       height: 250,
                       decoration: BoxDecoration(
                         color: Colors.white,
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: BorderRadius.circular(
+                          AppConstant.borderRadius20,
+                        ),
                       ),
                       child: const Center(
                         child: Text("Hello from Bottom Sheet!"),
                       ),
                     ),
-                    borderRadius: 20,
+                    borderRadius: AppConstant.borderRadius20,
                   );
                 },
                 title: "Open Bottom Sheet",
               ),
-              Gap(8),
-              CustomCheckbox(title: Text("Check Box")),
-              Gap(8),
+              Gap(AppConstant.verticalGap8),
+              const CustomCheckbox(title: Text("Check Box")),
+              Gap(AppConstant.verticalGap8),
               RadioGroup<String>(
                 groupValue: selectedValue,
                 onChanged: (value) {

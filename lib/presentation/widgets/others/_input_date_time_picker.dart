@@ -140,24 +140,22 @@ class _InputDateTimePickerState extends State<InputDateTimePicker> {
           },
       style:
           widget.titleStyle ??
-          Theme.of(context).textTheme.bodyMedium?.copyWith(
-            color: widget.enabled
-                ? context.colors.onSurface
-                : context.colors.error,
+          context.textStyle.bodyMedium.copyWith(
+            color: context.colors.onBackground,
           ),
       decoration: InputDecoration(
         hintText: widget.hintText,
         hintStyle:
             widget.hintStyle ??
-            Theme.of(
-              context,
-            ).textTheme.bodyMedium?.copyWith(color: context.colors.onSurface),
+            context.textStyle.bodyMedium.copyWith(
+              color: context.colors.disabled,
+            ),
         fillColor: widget.fillColor,
         filled: widget.fillColor == null ? false : true,
         isDense: true,
         contentPadding: EdgeInsets.symmetric(
           horizontal: AppConstant.horizontalGap16,
-          vertical: AppConstant.verticalGap16,
+          vertical: AppConstant.verticalGap12,
         ),
         border: InputBorder.none,
         enabledBorder: inputBorder(),
@@ -193,8 +191,8 @@ class _InputDateTimePickerState extends State<InputDateTimePicker> {
       Icons.calendar_month,
       size: widget.suffixIconSize ?? AppConstant.iconSize,
       color: widget.enabled
-          ? widget.suffixIconColor ?? context.colors.onSurface
-          : context.colors.onSurface,
+          ? widget.suffixIconColor ?? context.colors.disabled
+          : context.colors.disabled,
     );
   }
 
