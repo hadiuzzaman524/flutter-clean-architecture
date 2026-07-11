@@ -1,12 +1,5 @@
 # Flutter Clean Architecture Template
 
-<p float="left">
-     <img src="https://github.com/hadiuzzaman524/flutter-clean-architecture/assets/52348628/d728b6a2-d99c-4f93-beaa-f54ba51cde40" width="170">
-     <img src="https://github.com/hadiuzzaman524/flutter-clean-architecture/assets/52348628/f3893d44-5fda-43fd-af94-672442416c34" width="170">
-     <img src="https://github.com/hadiuzzaman524/flutter-clean-architecture/assets/52348628/aed56d75-7357-401f-9834-8d11ae2a69a4" width="170">
-    <img src="https://github.com/hadiuzzaman524/flutter-clean-architecture/assets/52348628/c7ba3e8f-6c56-4340-824e-b09f01da82f1" width="170">
-</p>
-
 ## What is Clean Architecture?
 
 [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html), conceptualized by Robert C. Martin, offers a structured approach to organizing applications by breaking them down into modules, each serving a distinct purpose. Its core principle revolves around dividing an application into three primary layers:
