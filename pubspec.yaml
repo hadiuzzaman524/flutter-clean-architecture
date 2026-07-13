@@ -23,7 +23,7 @@ dependencies:
   freezed: ^3.2.5
   json_annotation: ^4.11.0
   logger: ^2.7.0
-  flutter_secure_storage: ^10.1.0
+  flutter_secure_storage: ^10.3.1
   mocktail: ^1.0.5
   dio: ^5.9.2
   retrofit: ^4.9.2
