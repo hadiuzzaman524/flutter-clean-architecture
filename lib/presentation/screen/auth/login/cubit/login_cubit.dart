@@ -12,11 +12,11 @@ part 'login_state.dart';
 
 @injectable
 class LoginCubit extends Cubit<LoginState> {
-  LoginCubit(this._loginUseCase) : super(const LoginState());
+  LoginCubit(this._loginUseCase, this._logger) : super(const LoginState());
 
   final LoginUseCase _loginUseCase;
 
-  final Logger _logger = Logger();
+  final Logger _logger;
 
   Future<void> login(LoginEntity input) async {
     emit(state.copyWith(loginStatus: BaseStatus.loading()));

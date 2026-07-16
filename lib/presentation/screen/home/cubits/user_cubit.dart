@@ -1,5 +1,4 @@
 import 'package:bloc/bloc.dart';
-import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:logger/logger.dart';
 import 'package:tsl_flutter_template/core/error/response_error.dart';
@@ -9,26 +8,24 @@ import 'package:tsl_flutter_template/presentation/screen/home/cubits/user_state.
 
 @injectable
 class UserCubit extends Cubit<UserState> {
-  UserCubit(this._getUserListUseCase) : super(const UserState());
+  UserCubit(this._getUserListUseCase, this._logger) : super(const UserState());
 
   final GetUserListUseCase _getUserListUseCase;
-  final logger = Logger();
+  final Logger _logger;
 
   Future<void> getUserList() async {
     try {
-      emit(state.copyWith(status: const BaseStatus<UserState>.loading()));
+      emit(state.copyWith(status: const BaseStatus.loading()));
       final userList = await _getUserListUseCase.execute();
       emit(
         state.copyWith(
           userList: userList,
-          status: const BaseStatus<UserState>.success(),
+          status: const BaseStatus.success(),
         ),
       );
-    } on DioException catch (e) {
-      logger.e(e);
-      emit(
-        state.copyWith(status: BaseStatus.failure(e.error as ResponseError)),
-      );
+    } catch (e) {
+      _logger.e(e);
+      emit(state.copyWith(status: BaseStatus.failure(ResponseError.from(e))));
     }
   }
 }

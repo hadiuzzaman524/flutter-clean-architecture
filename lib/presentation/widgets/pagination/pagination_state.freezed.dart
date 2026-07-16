@@ -49,7 +49,7 @@ $Res call({
 });
 
 
-$BaseStatusCopyWith<dynamic, $Res> get status;
+$BaseStatusCopyWith<$Res> get status;
 
 }
 /// @nodoc
@@ -74,9 +74,9 @@ as BaseStatus,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$BaseStatusCopyWith<dynamic, $Res> get status {
+$BaseStatusCopyWith<$Res> get status {
   
-  return $BaseStatusCopyWith<dynamic, $Res>(_self.status, (value) {
+  return $BaseStatusCopyWith<$Res>(_self.status, (value) {
     return _then(_self.copyWith(status: value));
   });
 }
@@ -252,7 +252,7 @@ $Res call({
 });
 
 
-@override $BaseStatusCopyWith<dynamic, $Res> get status;
+@override $BaseStatusCopyWith<$Res> get status;
 
 }
 /// @nodoc
@@ -278,9 +278,9 @@ as BaseStatus,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$BaseStatusCopyWith<dynamic, $Res> get status {
+$BaseStatusCopyWith<$Res> get status {
   
-  return $BaseStatusCopyWith<dynamic, $Res>(_self.status, (value) {
+  return $BaseStatusCopyWith<$Res>(_self.status, (value) {
     return _then(_self.copyWith(status: value));
   });
 }

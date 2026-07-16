@@ -2,7 +2,8 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:tsl_flutter_template/core/constants/app_constant.dart';
-import 'package:tsl_flutter_template/core/helper/secure_storage_helper.dart';
+import 'package:tsl_flutter_template/core/helper/secure_storage_service.dart';
+import 'package:tsl_flutter_template/core/injector/injector.dart';
 import 'package:tsl_flutter_template/presentation/route/app_router.gr.dart';
 import 'package:tsl_flutter_template/presentation/theme/base/theme_extension.dart';
 import 'package:tsl_flutter_template/presentation/theme/text/app_text.dart';
@@ -55,9 +56,9 @@ class _SplashPortraitViewState extends State<SplashPortraitView>
   Future<void> _navigate() async {
     await Future.delayed(const Duration(seconds: 3));
 
-    if (!mounted) return;
-    final hasToken = await SecureStorageHelper.hasAccessToken();
+    final hasToken = await injector<SecureStorageService>().hasAccessToken();
 
+    if (!mounted) return;
     if (hasToken) {
       context.replaceRoute(const HomeRoute());
     } else {

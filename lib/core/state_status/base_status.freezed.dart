@@ -12,7 +12,7 @@ part of 'base_status.dart';
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
-mixin _$BaseStatus<T> {
+mixin _$BaseStatus {
 
 
 
@@ -20,7 +20,7 @@ mixin _$BaseStatus<T> {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is BaseStatus<T>);
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is BaseStatus);
 }
 
 
@@ -29,20 +29,20 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'BaseStatus<$T>()';
+  return 'BaseStatus()';
 }
 
 
 }
 
 /// @nodoc
-class $BaseStatusCopyWith<T,$Res>  {
-$BaseStatusCopyWith(BaseStatus<T> _, $Res Function(BaseStatus<T>) __);
+class $BaseStatusCopyWith<$Res>  {
+$BaseStatusCopyWith(BaseStatus _, $Res Function(BaseStatus) __);
 }
 
 
 /// Adds pattern-matching-related methods to [BaseStatus].
-extension BaseStatusPatterns<T> on BaseStatus<T> {
+extension BaseStatusPatterns on BaseStatus {
 /// A variant of `map` that fallback to returning `orElse`.
 ///
 /// It is equivalent to doing:
@@ -55,7 +55,7 @@ extension BaseStatusPatterns<T> on BaseStatus<T> {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( Initial<T> value)?  initial,TResult Function( Loading<T> value)?  loading,TResult Function( Success<T> value)?  success,TResult Function( Valid<T> value)?  valid,TResult Function( Invalid<T> value)?  invalid,TResult Function( ButtonClicked<T> value)?  buttonClicked,TResult Function( Failure<T> value)?  failure,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( Initial value)?  initial,TResult Function( Loading value)?  loading,TResult Function( Success value)?  success,TResult Function( Valid value)?  valid,TResult Function( Invalid value)?  invalid,TResult Function( ButtonClicked value)?  buttonClicked,TResult Function( Failure value)?  failure,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
 case Initial() when initial != null:
@@ -83,7 +83,7 @@ return failure(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( Initial<T> value)  initial,required TResult Function( Loading<T> value)  loading,required TResult Function( Success<T> value)  success,required TResult Function( Valid<T> value)  valid,required TResult Function( Invalid<T> value)  invalid,required TResult Function( ButtonClicked<T> value)  buttonClicked,required TResult Function( Failure<T> value)  failure,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( Initial value)  initial,required TResult Function( Loading value)  loading,required TResult Function( Success value)  success,required TResult Function( Valid value)  valid,required TResult Function( Invalid value)  invalid,required TResult Function( ButtonClicked value)  buttonClicked,required TResult Function( Failure value)  failure,}){
 final _that = this;
 switch (_that) {
 case Initial():
@@ -93,10 +93,7 @@ return success(_that);case Valid():
 return valid(_that);case Invalid():
 return invalid(_that);case ButtonClicked():
 return buttonClicked(_that);case Failure():
-return failure(_that);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return failure(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
 ///
@@ -110,7 +107,7 @@ return failure(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( Initial<T> value)?  initial,TResult? Function( Loading<T> value)?  loading,TResult? Function( Success<T> value)?  success,TResult? Function( Valid<T> value)?  valid,TResult? Function( Invalid<T> value)?  invalid,TResult? Function( ButtonClicked<T> value)?  buttonClicked,TResult? Function( Failure<T> value)?  failure,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( Initial value)?  initial,TResult? Function( Loading value)?  loading,TResult? Function( Success value)?  success,TResult? Function( Valid value)?  valid,TResult? Function( Invalid value)?  invalid,TResult? Function( ButtonClicked value)?  buttonClicked,TResult? Function( Failure value)?  failure,}){
 final _that = this;
 switch (_that) {
 case Initial() when initial != null:
@@ -173,10 +170,7 @@ return success();case Valid():
 return valid();case Invalid():
 return invalid();case ButtonClicked():
 return buttonClicked();case Failure():
-return failure(_that.responseError);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return failure(_that.responseError);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -210,7 +204,7 @@ return failure(_that.responseError);case _:
 /// @nodoc
 
 
-class Initial<T> extends BaseStatus<T> {
+class Initial extends BaseStatus {
   const Initial(): super._();
   
 
@@ -221,7 +215,7 @@ class Initial<T> extends BaseStatus<T> {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Initial<T>);
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Initial);
 }
 
 
@@ -230,7 +224,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'BaseStatus<$T>.initial()';
+  return 'BaseStatus.initial()';
 }
 
 
@@ -242,7 +236,7 @@ String toString() {
 /// @nodoc
 
 
-class Loading<T> extends BaseStatus<T> {
+class Loading extends BaseStatus {
   const Loading(): super._();
   
 
@@ -253,7 +247,7 @@ class Loading<T> extends BaseStatus<T> {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Loading<T>);
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Loading);
 }
 
 
@@ -262,7 +256,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'BaseStatus<$T>.loading()';
+  return 'BaseStatus.loading()';
 }
 
 
@@ -274,7 +268,7 @@ String toString() {
 /// @nodoc
 
 
-class Success<T> extends BaseStatus<T> {
+class Success extends BaseStatus {
   const Success(): super._();
   
 
@@ -285,7 +279,7 @@ class Success<T> extends BaseStatus<T> {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Success<T>);
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Success);
 }
 
 
@@ -294,7 +288,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'BaseStatus<$T>.success()';
+  return 'BaseStatus.success()';
 }
 
 
@@ -306,7 +300,7 @@ String toString() {
 /// @nodoc
 
 
-class Valid<T> extends BaseStatus<T> {
+class Valid extends BaseStatus {
   const Valid(): super._();
   
 
@@ -317,7 +311,7 @@ class Valid<T> extends BaseStatus<T> {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Valid<T>);
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Valid);
 }
 
 
@@ -326,7 +320,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'BaseStatus<$T>.valid()';
+  return 'BaseStatus.valid()';
 }
 
 
@@ -338,7 +332,7 @@ String toString() {
 /// @nodoc
 
 
-class Invalid<T> extends BaseStatus<T> {
+class Invalid extends BaseStatus {
   const Invalid(): super._();
   
 
@@ -349,7 +343,7 @@ class Invalid<T> extends BaseStatus<T> {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Invalid<T>);
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Invalid);
 }
 
 
@@ -358,7 +352,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'BaseStatus<$T>.invalid()';
+  return 'BaseStatus.invalid()';
 }
 
 
@@ -370,7 +364,7 @@ String toString() {
 /// @nodoc
 
 
-class ButtonClicked<T> extends BaseStatus<T> {
+class ButtonClicked extends BaseStatus {
   const ButtonClicked(): super._();
   
 
@@ -381,7 +375,7 @@ class ButtonClicked<T> extends BaseStatus<T> {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ButtonClicked<T>);
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ButtonClicked);
 }
 
 
@@ -390,7 +384,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'BaseStatus<$T>.buttonClicked()';
+  return 'BaseStatus.buttonClicked()';
 }
 
 
@@ -402,7 +396,7 @@ String toString() {
 /// @nodoc
 
 
-class Failure<T> extends BaseStatus<T> {
+class Failure extends BaseStatus {
   const Failure(this.responseError): super._();
   
 
@@ -412,13 +406,13 @@ class Failure<T> extends BaseStatus<T> {
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$FailureCopyWith<T, Failure<T>> get copyWith => _$FailureCopyWithImpl<T, Failure<T>>(this, _$identity);
+$FailureCopyWith<Failure> get copyWith => _$FailureCopyWithImpl<Failure>(this, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Failure<T>&&(identical(other.responseError, responseError) || other.responseError == responseError));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Failure&&(identical(other.responseError, responseError) || other.responseError == responseError));
 }
 
 
@@ -427,15 +421,15 @@ int get hashCode => Object.hash(runtimeType,responseError);
 
 @override
 String toString() {
-  return 'BaseStatus<$T>.failure(responseError: $responseError)';
+  return 'BaseStatus.failure(responseError: $responseError)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $FailureCopyWith<T,$Res> implements $BaseStatusCopyWith<T, $Res> {
-  factory $FailureCopyWith(Failure<T> value, $Res Function(Failure<T>) _then) = _$FailureCopyWithImpl;
+abstract mixin class $FailureCopyWith<$Res> implements $BaseStatusCopyWith<$Res> {
+  factory $FailureCopyWith(Failure value, $Res Function(Failure) _then) = _$FailureCopyWithImpl;
 @useResult
 $Res call({
  ResponseError responseError
@@ -446,17 +440,17 @@ $ResponseErrorCopyWith<$Res> get responseError;
 
 }
 /// @nodoc
-class _$FailureCopyWithImpl<T,$Res>
-    implements $FailureCopyWith<T, $Res> {
+class _$FailureCopyWithImpl<$Res>
+    implements $FailureCopyWith<$Res> {
   _$FailureCopyWithImpl(this._self, this._then);
 
-  final Failure<T> _self;
-  final $Res Function(Failure<T>) _then;
+  final Failure _self;
+  final $Res Function(Failure) _then;
 
 /// Create a copy of BaseStatus
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') $Res call({Object? responseError = null,}) {
-  return _then(Failure<T>(
+  return _then(Failure(
 null == responseError ? _self.responseError : responseError // ignore: cast_nullable_to_non_nullable
 as ResponseError,
   ));

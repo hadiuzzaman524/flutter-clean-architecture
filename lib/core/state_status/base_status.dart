@@ -4,34 +4,34 @@ import 'package:tsl_flutter_template/core/error/response_error.dart';
 part 'base_status.freezed.dart';
 
 @freezed
-abstract class BaseStatus<T> with _$BaseStatus<T> {
+sealed class BaseStatus with _$BaseStatus {
   const BaseStatus._();
 
-  const factory BaseStatus.initial() = Initial<T>;
+  const factory BaseStatus.initial() = Initial;
 
-  const factory BaseStatus.loading() = Loading<T>;
+  const factory BaseStatus.loading() = Loading;
 
-  const factory BaseStatus.success() = Success<T>;
+  const factory BaseStatus.success() = Success;
 
-  const factory BaseStatus.valid() = Valid<T>;
+  const factory BaseStatus.valid() = Valid;
 
-  const factory BaseStatus.invalid() = Invalid<T>;
+  const factory BaseStatus.invalid() = Invalid;
 
-  const factory BaseStatus.buttonClicked() = ButtonClicked<T>;
+  const factory BaseStatus.buttonClicked() = ButtonClicked;
 
-  const factory BaseStatus.failure(ResponseError responseError) = Failure<T>;
+  const factory BaseStatus.failure(ResponseError responseError) = Failure;
 
-  bool get initial => this is Initial<T>;
+  bool get initial => this is Initial;
 
-  bool get isLoading => this is Loading<T>;
+  bool get isLoading => this is Loading;
 
-  bool get isSuccess => this is Success<T>;
+  bool get isSuccess => this is Success;
 
-  bool get isFailure => this is Failure<T>;
+  bool get isFailure => this is Failure;
 
-  bool get isValid => this is Valid<T>;
+  bool get isValid => this is Valid;
 
-  bool get isInvalid => this is Invalid<T>;
+  bool get isInvalid => this is Invalid;
 
-  bool get isButtonClicked => this is ButtonClicked<T>;
+  bool get isButtonClicked => this is ButtonClicked;
 }

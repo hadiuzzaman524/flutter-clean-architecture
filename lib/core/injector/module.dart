@@ -1,5 +1,8 @@
 import 'package:dio/dio.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:injectable/injectable.dart';
+import 'package:logger/logger.dart';
+import 'package:tsl_flutter_template/core/env/app_environment.dart';
 import 'package:tsl_flutter_template/core/env/env.dart';
 import 'package:tsl_flutter_template/data/data_source/base/backend_error_interceptor.dart';
 import 'package:tsl_flutter_template/domain/enum/dio_client_type.dart';
@@ -17,17 +20,17 @@ abstract class NetworkModule {
     return dio;
   }
 
-  @Environment("production")
+  @Environment(AppEnvironment.production)
   @Named(DioClientType.unauthenticated)
   @singleton
   Dio get unAuthenticatedProdDio => _createBaseDio(baseURL);
 
-  @Environment("development")
+  @Environment(AppEnvironment.development)
   @Named(DioClientType.unauthenticated)
   @singleton
   Dio get unAuthenticatedDevDio => _createBaseDio(baseURL);
 
-  @Environment("staging")
+  @Environment(AppEnvironment.staging)
   @Named(DioClientType.unauthenticated)
   @singleton
   Dio get unAuthenticatedStgDio => _createBaseDio(baseURL);
@@ -35,4 +38,17 @@ abstract class NetworkModule {
   @Named(DioClientType.authenticated)
   @singleton
   Dio get authenticatedDio => _createBaseDio(baseURL);
+}
+
+@module
+abstract class StorageModule {
+  @lazySingleton
+  FlutterSecureStorage get secureStorage =>
+      const FlutterSecureStorage(aOptions: AndroidOptions());
+}
+
+@module
+abstract class LoggerModule {
+  @lazySingleton
+  Logger get logger => Logger();
 }

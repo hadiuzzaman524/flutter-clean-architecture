@@ -1,23 +1,26 @@
 import 'package:injectable/injectable.dart';
-import 'package:tsl_flutter_template/data/data_source/user/user_remote_data_source.dart';
+import 'package:tsl_flutter_template/data/data_source/base/factory/data_source_factory.dart';
+import 'package:tsl_flutter_template/data/data_source/user/user_data_source.dart';
 import 'package:tsl_flutter_template/data/remapper/user_response_to_entity.dart';
 import 'package:tsl_flutter_template/domain/entity/base/base_entity.dart';
 import 'package:tsl_flutter_template/domain/repository/user/user_repository.dart';
 
 @Singleton(as: UserRepository)
 class UserRepositoryImpl extends UserRepository {
-  UserRepositoryImpl(this._remoteDataSource);
+  UserRepositoryImpl(DataSourceFactory factory)
+    : _userDataSource = factory.createUserDataSource();
 
-  final UserRemoteDataSource _remoteDataSource;
+  final UserDataSource _userDataSource;
 
   @override
   Future<List<UserEntity>> getUserList() async {
-    final userList = await _remoteDataSource.getUserList();
-    return userList.toUserEntities();
+    final response = await _userDataSource.getUserList();
+    return response.toUserEntities();
   }
 
   @override
   Future<UserEntity> getUserById({required String userId}) async {
-    throw UnimplementedError('Not Implemented');
+    final response = await _userDataSource.getUserById(userId: userId);
+    return response.toUserEntity();
   }
 }

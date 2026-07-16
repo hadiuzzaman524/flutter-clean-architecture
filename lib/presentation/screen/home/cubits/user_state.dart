@@ -8,6 +8,6 @@ part 'user_state.freezed.dart';
 sealed class UserState with _$UserState {
   const factory UserState({
     @Default([]) List<UserEntity> userList,
-    @Default(BaseStatus<UserState>.initial()) BaseStatus<UserState> status,
+    @Default(BaseStatus.initial()) BaseStatus status,
   }) = _UserState;
 }
