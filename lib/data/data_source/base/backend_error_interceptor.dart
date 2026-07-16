@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:logger/logger.dart';
-import 'package:tsl_flutter_template/core/error/response_error.dart';
+import 'package:flutter_template/core/error/response_error.dart';
 import 'backend_error.dart';
 
 class BackendErrorInterceptor extends Interceptor {

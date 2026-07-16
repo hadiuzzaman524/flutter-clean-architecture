@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:tsl_flutter_template/presentation/theme/base/base_color_theme.dart';
-import 'package:tsl_flutter_template/presentation/theme/base/base_text_theme.dart';
-import 'package:tsl_flutter_template/presentation/theme/dark/en_dark_mode.dart';
-import 'package:tsl_flutter_template/presentation/theme/light/en_light_mode.dart';
+import 'package:flutter_template/presentation/theme/base/base_color_theme.dart';
+import 'package:flutter_template/presentation/theme/base/base_text_theme.dart';
+import 'package:flutter_template/presentation/theme/dark/en_dark_mode.dart';
+import 'package:flutter_template/presentation/theme/light/en_light_mode.dart';
 
 import '../base/base_theme_info.dart';
 

@@ -49,7 +49,7 @@ $Res call({
 });
 
 
-$BaseStatusCopyWith<dynamic, $Res> get loginStatus;$LoginEntityCopyWith<$Res>? get loginEntity;
+$BaseStatusCopyWith<$Res> get loginStatus;$LoginEntityCopyWith<$Res>? get loginEntity;
 
 }
 /// @nodoc
@@ -73,9 +73,9 @@ as LoginEntity?,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$BaseStatusCopyWith<dynamic, $Res> get loginStatus {
+$BaseStatusCopyWith<$Res> get loginStatus {
   
-  return $BaseStatusCopyWith<dynamic, $Res>(_self.loginStatus, (value) {
+  return $BaseStatusCopyWith<$Res>(_self.loginStatus, (value) {
     return _then(_self.copyWith(loginStatus: value));
   });
 }/// Create a copy of LoginState
@@ -262,7 +262,7 @@ $Res call({
 });
 
 
-@override $BaseStatusCopyWith<dynamic, $Res> get loginStatus;@override $LoginEntityCopyWith<$Res>? get loginEntity;
+@override $BaseStatusCopyWith<$Res> get loginStatus;@override $LoginEntityCopyWith<$Res>? get loginEntity;
 
 }
 /// @nodoc
@@ -287,9 +287,9 @@ as LoginEntity?,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$BaseStatusCopyWith<dynamic, $Res> get loginStatus {
+$BaseStatusCopyWith<$Res> get loginStatus {
   
-  return $BaseStatusCopyWith<dynamic, $Res>(_self.loginStatus, (value) {
+  return $BaseStatusCopyWith<$Res>(_self.loginStatus, (value) {
     return _then(_self.copyWith(loginStatus: value));
   });
 }/// Create a copy of LoginState

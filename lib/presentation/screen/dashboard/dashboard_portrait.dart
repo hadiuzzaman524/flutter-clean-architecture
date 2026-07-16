@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:tsl_flutter_template/presentation/screen/dashboard/components/custom_bottom_navigation_bar.dart';
+import 'package:flutter_template/presentation/screen/dashboard/components/custom_bottom_navigation_bar.dart';
 
 class DashboardPortrait extends StatelessWidget {
   final Widget child;

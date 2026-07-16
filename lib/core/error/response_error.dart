@@ -52,6 +52,11 @@ sealed class ResponseError with _$ResponseError implements Exception {
       }
 
       if (object is DioException) {
+        // The interceptor may have already mapped the failure into a
+        // ResponseError and attached it to `error`; prefer that.
+        if (object.error is ResponseError) {
+          return object.error! as ResponseError;
+        }
         if (object.error is SocketException) {
           return const ResponseError.noInternetConnection();
         }
@@ -80,7 +85,7 @@ sealed class ResponseError with _$ResponseError implements Exception {
   }
 
   static ResponseError _parseResponseError(DioException exception) {
-    switch (exception.response!.statusCode) {
+    switch (exception.response?.statusCode) {
       case 400:
         return const ResponseError.badResponse();
       case 401:
@@ -98,9 +103,7 @@ sealed class ResponseError with _$ResponseError implements Exception {
       case 502:
         return const ResponseError.badGetWay();
       default:
-        throw Exception(
-          'Unknown Status Code: ${exception.response!.statusCode}',
-        );
+        return const ResponseError.unExcepted();
     }
   }
 

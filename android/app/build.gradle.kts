@@ -14,7 +14,7 @@ if (keystorePropertiesFile.exists()) {
 }
 
 android {
-    namespace = "com.example.verygoodcore.tsl_flutter_template"
+    namespace = "com.hadi.me"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -29,7 +29,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId = "com.example.verygoodcore.tsl_flutter_template"
+        applicationId = "com.hadi.me"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = flutter.minSdkVersion
@@ -60,17 +60,17 @@ android {
         create("production") {
             dimension = "default"
             applicationIdSuffix = ""
-            manifestPlaceholders["appName"] = "Tsl Flutter Template"
+            manifestPlaceholders["appName"] = "Flutter Template"
         }
         create("staging") {
             dimension = "default"
             applicationIdSuffix = ".stg"
-            manifestPlaceholders["appName"] = "[STG] Tsl Flutter Template"
+            manifestPlaceholders["appName"] = "[STG] Flutter Template"
         }
         create("development") {
             dimension = "default"
             applicationIdSuffix = ".dev"
-            manifestPlaceholders["appName"] = "[DEV] Tsl Flutter Template"
+            manifestPlaceholders["appName"] = "[DEV] Flutter Template"
         }
     }
 

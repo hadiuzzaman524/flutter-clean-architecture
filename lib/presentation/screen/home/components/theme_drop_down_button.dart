@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tsl_flutter_template/presentation/theme/cubit/app_theme_cubit.dart';
-import 'package:tsl_flutter_template/presentation/theme/text/app_text.dart';
+import 'package:flutter_template/presentation/theme/cubit/app_theme_cubit.dart';
+import 'package:flutter_template/presentation/theme/text/app_text.dart';
 
 class ThemeDropDownButton extends StatelessWidget {
   const ThemeDropDownButton({super.key});

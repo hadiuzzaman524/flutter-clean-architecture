@@ -198,7 +198,99 @@ chmod +x ./setup.sh
 
 ---
 
-## 6. Git Branch & Commit Conventions
+## 6. Testing
+
+Unit tests live under `test/`, mirroring the `lib/` layer structure so each
+layer is verified in isolation by mocking the layer beneath it — exactly what
+the Clean Architecture boundaries are designed to enable.
+
+```
+test/
+├── core/error/            # ResponseError mapping & hardening
+├── data/repository_impl/  # repositories (mocked DataSourceFactory + data sources)
+├── domain/use_cases/      # use cases (mocked repositories)
+└── presentation/          # cubits (mocked use cases)
+```
+
+The suite uses [`flutter_test`](https://docs.flutter.dev/testing) +
+[`mocktail`](https://pub.dev/packages/mocktail). No real network, storage, or DI
+container is touched — every collaborator is mocked.
+
+### Run the tests
+
+```bash
+# All tests
+flutter test
+
+# A single file
+flutter test test/presentation/user_cubit_test.dart
+
+# By name
+flutter test --plain-name "maps response models to domain entities"
+
+# With coverage (writes coverage/lcov.info)
+flutter test --coverage
+```
+
+To turn coverage into a browsable HTML report (requires `lcov`):
+
+```bash
+genhtml coverage/lcov.info -o coverage/html && open coverage/html/index.html
+```
+
+### How to write a test
+
+**1. Mock the dependency below the unit under test:**
+
+```dart
+class MockUserRepository extends Mock implements UserRepository {}
+```
+
+**2. Use case / repository — stub and verify delegation & mapping:**
+
+```dart
+test('getUserList maps response models to domain entities', () async {
+  when(() => dataSource.getUserList()).thenAnswer((_) async => response);
+
+  final result = await repository.getUserList();
+
+  expect(result.first.name, 'John');
+  verify(() => factory.createUserDataSource()).called(1);
+});
+```
+
+**3. Cubit — assert the emitted state sequence (stream expectations):**
+
+```dart
+test('emits loading then success', () async {
+  when(() => useCase.execute()).thenAnswer((_) async => users);
+  final cubit = UserCubit(useCase, logger);
+
+  expectLater(
+    cubit.stream,
+    emitsInOrder([
+      predicate<UserState>((s) => s.status.isLoading),
+      predicate<UserState>((s) => s.status.isSuccess),
+    ]),
+  );
+
+  await cubit.getUserList();
+  await cubit.close();
+});
+```
+
+> When using argument matchers like `any()` with a custom type, register a
+> fallback once in `setUpAll`:
+> ```dart
+> registerFallbackValue(const LoginEntity(email: '', pin: ''));
+> ```
+
+> **Tip:** run the mock flavor (`development`) to exercise flows end-to-end
+> without a backend — the `DataSourceFactory` swaps in mock data sources.
+
+---
+
+## 7. Git Branch & Commit Conventions
 
 ### Branch Naming
 
@@ -232,7 +324,7 @@ fix: correct padding on lunch card
 
 ---
 
-## 7. Localization (L10n)
+## 8. Localization (L10n)
 
 To add new text for localization, run the provided script:
 
@@ -249,7 +341,7 @@ context.l10n.text
 
 ---
 
-## 8. Create a New Feature (Clean Architecture)
+## 9. Create a New Feature (Clean Architecture)
 
 ```bash
 ./create_feature.sh feature_name

@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:tsl_flutter_template/core/state_status/base_status.dart';
-import 'package:tsl_flutter_template/presentation/widgets/pagination/pagination_list.dart';
+import 'package:flutter_template/core/state_status/base_status.dart';
+import 'package:flutter_template/presentation/widgets/pagination/pagination_list.dart';
 
 part 'pagination_state.freezed.dart';
 

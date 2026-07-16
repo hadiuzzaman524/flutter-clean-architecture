@@ -1,9 +1,9 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:tsl_flutter_template/core/constants/app_constant.dart';
-import 'package:tsl_flutter_template/gen/assets.gen.dart';
-import 'package:tsl_flutter_template/presentation/theme/base/theme_extension.dart';
+import 'package:flutter_template/core/constants/app_constant.dart';
+import 'package:flutter_template/gen/assets.gen.dart';
+import 'package:flutter_template/presentation/theme/base/theme_extension.dart';
 import 'navigation_rail_item.dart';
 
 class CustomNavigationRail extends StatefulWidget {

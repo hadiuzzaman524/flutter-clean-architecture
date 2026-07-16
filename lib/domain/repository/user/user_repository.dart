@@ -1,4 +1,4 @@
-import 'package:tsl_flutter_template/domain/entity/base/base_entity.dart';
+import 'package:flutter_template/domain/entity/base/base_entity.dart';
 
 abstract class UserRepository {
   Future<List<UserEntity>> getUserList();

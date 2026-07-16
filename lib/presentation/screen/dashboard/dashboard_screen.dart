@@ -1,9 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:tsl_flutter_template/presentation/route/app_router.gr.dart';
-import 'package:tsl_flutter_template/presentation/screen/dashboard/dashboard_landscape.dart';
-import 'package:tsl_flutter_template/presentation/screen/dashboard/dashboard_portrait.dart';
-import 'package:tsl_flutter_template/presentation/widgets/widgets.dart';
+import 'package:flutter_template/presentation/route/app_router.gr.dart';
+import 'package:flutter_template/presentation/screen/dashboard/dashboard_landscape.dart';
+import 'package:flutter_template/presentation/screen/dashboard/dashboard_portrait.dart';
+import 'package:flutter_template/presentation/widgets/widgets.dart';
 
 @RoutePage()
 class DashboardScreen extends StatelessWidget {

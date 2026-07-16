@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tsl_flutter_template/presentation/theme/base/app_colors.dart';
-import 'package:tsl_flutter_template/presentation/theme/base/app_text_theme.dart';
+import 'package:flutter_template/presentation/theme/base/app_colors.dart';
+import 'package:flutter_template/presentation/theme/base/app_text_theme.dart';
 
 extension ThemeContext on BuildContext {
   ThemeData get appThemeData => Theme.of(this);
