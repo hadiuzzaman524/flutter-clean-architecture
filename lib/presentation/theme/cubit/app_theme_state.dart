@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:tsl_flutter_template/presentation/theme/base/theme_entity.dart';
+import 'package:flutter_template/presentation/theme/base/theme_entity.dart';
 part 'app_theme_state.freezed.dart';
 
 @freezed

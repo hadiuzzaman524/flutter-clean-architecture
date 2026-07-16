@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:tsl_flutter_template/core/constants/app_constant.dart';
-import 'package:tsl_flutter_template/core/helper/app_snack_bar_helper.dart';
-import 'package:tsl_flutter_template/presentation/theme/base/theme_extension.dart';
-import 'package:tsl_flutter_template/presentation/theme/text/app_text.dart';
-import 'package:tsl_flutter_template/presentation/widgets/app_bar/widgets.dart';
-import 'package:tsl_flutter_template/presentation/widgets/buttons/_primary_button.dart';
-import 'package:tsl_flutter_template/presentation/widgets/custom_bottom_modal_sheet/bottom_sheet.dart';
-import 'package:tsl_flutter_template/presentation/widgets/dialog/dialog.dart';
-import 'package:tsl_flutter_template/presentation/widgets/input_widget/widgets.dart';
-import 'package:tsl_flutter_template/presentation/widgets/others/widgets.dart';
+import 'package:flutter_template/core/constants/app_constant.dart';
+import 'package:flutter_template/core/helper/app_snack_bar_helper.dart';
+import 'package:flutter_template/presentation/theme/base/theme_extension.dart';
+import 'package:flutter_template/presentation/theme/text/app_text.dart';
+import 'package:flutter_template/presentation/widgets/app_bar/widgets.dart';
+import 'package:flutter_template/presentation/widgets/buttons/_primary_button.dart';
+import 'package:flutter_template/presentation/widgets/custom_bottom_modal_sheet/bottom_sheet.dart';
+import 'package:flutter_template/presentation/widgets/dialog/dialog.dart';
+import 'package:flutter_template/presentation/widgets/input_widget/widgets.dart';
+import 'package:flutter_template/presentation/widgets/others/widgets.dart';
 
 class WidgetsPortraitView extends StatefulWidget {
   const WidgetsPortraitView({super.key});

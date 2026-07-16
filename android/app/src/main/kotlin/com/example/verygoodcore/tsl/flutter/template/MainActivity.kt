@@ -1,4 +1,4 @@
-package com.example.verygoodcore.tsl_flutter_template
+package com.hadi.me
 
 import io.flutter.embedding.android.FlutterActivity
 

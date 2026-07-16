@@ -2,16 +2,16 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
-import 'package:tsl_flutter_template/core/constants/app_constant.dart';
-import 'package:tsl_flutter_template/core/error/error_localization.dart';
-import 'package:tsl_flutter_template/core/state_status/base_status.dart';
-import 'package:tsl_flutter_template/domain/entity/base/base_entity.dart';
-import 'package:tsl_flutter_template/l10n/l10n.dart';
-import 'package:tsl_flutter_template/presentation/route/app_router.gr.dart';
-import 'package:tsl_flutter_template/presentation/theme/base/theme_extension.dart';
-import 'package:tsl_flutter_template/presentation/theme/text/app_text.dart';
-import 'package:tsl_flutter_template/presentation/widgets/buttons/_primary_button.dart';
-import 'package:tsl_flutter_template/presentation/widgets/input_widget/widgets.dart';
+import 'package:flutter_template/core/constants/app_constant.dart';
+import 'package:flutter_template/core/error/error_localization.dart';
+import 'package:flutter_template/core/state_status/base_status.dart';
+import 'package:flutter_template/domain/entity/base/base_entity.dart';
+import 'package:flutter_template/l10n/l10n.dart';
+import 'package:flutter_template/presentation/route/app_router.gr.dart';
+import 'package:flutter_template/presentation/theme/base/theme_extension.dart';
+import 'package:flutter_template/presentation/theme/text/app_text.dart';
+import 'package:flutter_template/presentation/widgets/buttons/_primary_button.dart';
+import 'package:flutter_template/presentation/widgets/input_widget/widgets.dart';
 
 import 'cubit/login_cubit.dart';
 

@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
-import 'package:tsl_flutter_template/core/constants/app_constant.dart';
-import 'package:tsl_flutter_template/presentation/theme/base/theme_extension.dart';
-import 'package:tsl_flutter_template/presentation/theme/text/app_text.dart';
+import 'package:flutter_template/core/constants/app_constant.dart';
+import 'package:flutter_template/presentation/theme/base/theme_extension.dart';
+import 'package:flutter_template/presentation/theme/text/app_text.dart';
 
 class BottomNavItem extends StatelessWidget {
   const BottomNavItem({

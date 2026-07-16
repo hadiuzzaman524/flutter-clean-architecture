@@ -1,4 +1,4 @@
-import 'package:tsl_flutter_template/data/models/response_model/base/base_response.dart';
+import 'package:flutter_template/data/models/response_model/base/base_response.dart';
 
 abstract class UserDataSource {
   Future<List<UserResponseModel>> getUserList();

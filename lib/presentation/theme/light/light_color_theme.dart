@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:tsl_flutter_template/presentation/theme/base/app_colors.dart';
-import 'package:tsl_flutter_template/presentation/theme/base/base_color_theme.dart';
+import 'package:flutter_template/presentation/theme/base/app_colors.dart';
+import 'package:flutter_template/presentation/theme/base/base_color_theme.dart';
 
 class LightColorTheme extends BaseColorTheme {
   @override

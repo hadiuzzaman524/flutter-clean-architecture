@@ -2,10 +2,10 @@ import 'package:dio/dio.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:injectable/injectable.dart';
 import 'package:logger/logger.dart';
-import 'package:tsl_flutter_template/core/env/app_environment.dart';
-import 'package:tsl_flutter_template/core/env/env.dart';
-import 'package:tsl_flutter_template/data/data_source/base/backend_error_interceptor.dart';
-import 'package:tsl_flutter_template/domain/enum/dio_client_type.dart';
+import 'package:flutter_template/core/env/app_environment.dart';
+import 'package:flutter_template/core/env/env.dart';
+import 'package:flutter_template/data/data_source/base/backend_error_interceptor.dart';
+import 'package:flutter_template/domain/enum/dio_client_type.dart';
 
 @module
 abstract class NetworkModule {

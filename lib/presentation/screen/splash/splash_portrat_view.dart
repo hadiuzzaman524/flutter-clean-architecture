@@ -1,12 +1,12 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:tsl_flutter_template/core/constants/app_constant.dart';
-import 'package:tsl_flutter_template/core/helper/secure_storage_service.dart';
-import 'package:tsl_flutter_template/core/injector/injector.dart';
-import 'package:tsl_flutter_template/presentation/route/app_router.gr.dart';
-import 'package:tsl_flutter_template/presentation/theme/base/theme_extension.dart';
-import 'package:tsl_flutter_template/presentation/theme/text/app_text.dart';
+import 'package:flutter_template/core/constants/app_constant.dart';
+import 'package:flutter_template/core/helper/secure_storage_service.dart';
+import 'package:flutter_template/core/injector/injector.dart';
+import 'package:flutter_template/presentation/route/app_router.gr.dart';
+import 'package:flutter_template/presentation/theme/base/theme_extension.dart';
+import 'package:flutter_template/presentation/theme/text/app_text.dart';
 
 class SplashPortraitView extends StatefulWidget {
   const SplashPortraitView({super.key});
@@ -135,7 +135,7 @@ class _SplashPortraitViewState extends State<SplashPortraitView>
                     ),
                     Gap(AppConstant.verticalGap20),
                     AppText.displayLargeBold(
-                      "TSL Template",
+                      "Flutter Template",
                       color: Colors.white,
                     ),
                     Gap(AppConstant.verticalGap8),

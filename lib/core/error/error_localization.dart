@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
-import 'package:tsl_flutter_template/core/error/response_error.dart';
-import 'package:tsl_flutter_template/l10n/l10n.dart';
+import 'package:flutter_template/core/error/response_error.dart';
+import 'package:flutter_template/l10n/l10n.dart';
 
 class ErrorLocalization {
   const ErrorLocalization._(this.context);

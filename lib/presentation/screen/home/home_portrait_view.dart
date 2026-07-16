@@ -1,14 +1,14 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:tsl_flutter_template/core/constants/app_constant.dart';
-import 'package:tsl_flutter_template/core/helper/secure_storage_service.dart';
-import 'package:tsl_flutter_template/core/injector/injector.dart';
-import 'package:tsl_flutter_template/l10n/l10n.dart';
-import 'package:tsl_flutter_template/presentation/route/app_router.gr.dart';
-import 'package:tsl_flutter_template/presentation/screen/home/components/theme_drop_down_button.dart';
-import 'package:tsl_flutter_template/presentation/screen/home/components/user_list.dart';
-import 'package:tsl_flutter_template/presentation/theme/base/theme_extension.dart';
-import 'package:tsl_flutter_template/presentation/theme/text/app_text.dart';
+import 'package:flutter_template/core/constants/app_constant.dart';
+import 'package:flutter_template/core/helper/secure_storage_service.dart';
+import 'package:flutter_template/core/injector/injector.dart';
+import 'package:flutter_template/l10n/l10n.dart';
+import 'package:flutter_template/presentation/route/app_router.gr.dart';
+import 'package:flutter_template/presentation/screen/home/components/theme_drop_down_button.dart';
+import 'package:flutter_template/presentation/screen/home/components/user_list.dart';
+import 'package:flutter_template/presentation/theme/base/theme_extension.dart';
+import 'package:flutter_template/presentation/theme/text/app_text.dart';
 
 class HomePortraitView extends StatelessWidget {
   const HomePortraitView({super.key});

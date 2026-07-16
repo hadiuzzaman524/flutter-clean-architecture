@@ -1,6 +1,6 @@
 import 'package:injectable/injectable.dart';
-import 'package:tsl_flutter_template/data/data_source/user/user_data_source.dart';
-import 'package:tsl_flutter_template/data/models/response_model/base/base_response.dart';
+import 'package:flutter_template/data/data_source/user/user_data_source.dart';
+import 'package:flutter_template/data/models/response_model/base/base_response.dart';
 
 @LazySingleton()
 class UserMockDataSource implements UserDataSource {

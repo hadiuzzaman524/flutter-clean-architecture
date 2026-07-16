@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:tsl_flutter_template/core/error/response_error.dart';
+import 'package:flutter_template/core/error/response_error.dart';
 
 part 'base_status.freezed.dart';
 

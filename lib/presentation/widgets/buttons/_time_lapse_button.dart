@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tsl_flutter_template/core/cubit/device_status/device_status_cubit.dart';
+import 'package:flutter_template/core/cubit/device_status/device_status_cubit.dart';
 
 class TimeLapseButton extends StatefulWidget {
   final ButtonStyle? style;

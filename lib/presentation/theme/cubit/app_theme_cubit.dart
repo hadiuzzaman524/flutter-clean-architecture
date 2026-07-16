@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:tsl_flutter_template/presentation/theme/base/theme_entity.dart';
+import 'package:flutter_template/presentation/theme/base/theme_entity.dart';
 import 'app_theme_state.dart';
 
 class AppThemeCubit extends Cubit<AppThemeState> {

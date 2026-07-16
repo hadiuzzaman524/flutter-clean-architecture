@@ -11,17 +11,17 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i7;
 import 'package:flutter/material.dart' as _i8;
-import 'package:tsl_flutter_template/presentation/screen/auth/login/login_screen.dart'
+import 'package:flutter_template/presentation/screen/auth/login/login_screen.dart'
     as _i3;
-import 'package:tsl_flutter_template/presentation/screen/dashboard/dashboard_screen.dart'
+import 'package:flutter_template/presentation/screen/dashboard/dashboard_screen.dart'
     as _i1;
-import 'package:tsl_flutter_template/presentation/screen/home/home_screen.dart'
+import 'package:flutter_template/presentation/screen/home/home_screen.dart'
     as _i2;
-import 'package:tsl_flutter_template/presentation/screen/splash/splash_screen.dart'
+import 'package:flutter_template/presentation/screen/splash/splash_screen.dart'
     as _i4;
-import 'package:tsl_flutter_template/presentation/screen/widget_screen/widget_screen.dart'
+import 'package:flutter_template/presentation/screen/widget_screen/widget_screen.dart'
     as _i6;
-import 'package:tsl_flutter_template/presentation/widgets/others/widgets.dart'
+import 'package:flutter_template/presentation/widgets/others/widgets.dart'
     as _i5;
 
 /// generated route for

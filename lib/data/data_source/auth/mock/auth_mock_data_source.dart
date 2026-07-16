@@ -1,6 +1,6 @@
 import 'package:injectable/injectable.dart';
-import 'package:tsl_flutter_template/data/data_source/auth/auth_data_source.dart';
-import 'package:tsl_flutter_template/data/models/request_model/base/base_request.dart';
+import 'package:flutter_template/data/data_source/auth/auth_data_source.dart';
+import 'package:flutter_template/data/models/request_model/base/base_request.dart';
 
 @LazySingleton()
 class AuthMockDataSource implements AuthDataSource {

@@ -1,8 +1,8 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tsl_flutter_template/core/injector/injector.dart';
-import 'package:tsl_flutter_template/presentation/widgets/widgets.dart';
+import 'package:flutter_template/core/injector/injector.dart';
+import 'package:flutter_template/presentation/widgets/widgets.dart';
 
 import 'cubit/login_cubit.dart';
 import 'login_portrait_view.dart';

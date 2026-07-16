@@ -1,9 +1,9 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tsl_flutter_template/core/injector/injector.dart';
-import 'package:tsl_flutter_template/presentation/screen/home/cubits/user_cubit.dart';
-import 'package:tsl_flutter_template/presentation/screen/home/home_landscape_view.dart';
+import 'package:flutter_template/core/injector/injector.dart';
+import 'package:flutter_template/presentation/screen/home/cubits/user_cubit.dart';
+import 'package:flutter_template/presentation/screen/home/home_landscape_view.dart';
 
 import '../../widgets/widgets.dart';
 import 'home_portrait_view.dart';

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
-import 'package:tsl_flutter_template/core/constants/app_constant.dart';
-import 'package:tsl_flutter_template/core/error/error_localization.dart';
-import 'package:tsl_flutter_template/core/error/response_error.dart';
-import 'package:tsl_flutter_template/core/state_status/base_status.dart';
-import 'package:tsl_flutter_template/presentation/screen/home/cubits/user_cubit.dart';
-import 'package:tsl_flutter_template/presentation/screen/home/cubits/user_state.dart';
-import 'package:tsl_flutter_template/presentation/theme/base/theme_extension.dart';
-import 'package:tsl_flutter_template/presentation/theme/text/app_text.dart';
+import 'package:flutter_template/core/constants/app_constant.dart';
+import 'package:flutter_template/core/error/error_localization.dart';
+import 'package:flutter_template/core/error/response_error.dart';
+import 'package:flutter_template/core/state_status/base_status.dart';
+import 'package:flutter_template/presentation/screen/home/cubits/user_cubit.dart';
+import 'package:flutter_template/presentation/screen/home/cubits/user_state.dart';
+import 'package:flutter_template/presentation/theme/base/theme_extension.dart';
+import 'package:flutter_template/presentation/theme/text/app_text.dart';
 
 class UserList extends StatelessWidget {
   const UserList({super.key});

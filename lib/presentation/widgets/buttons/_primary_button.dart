@@ -1,10 +1,10 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:tsl_flutter_template/core/constants/app_constant.dart';
-import 'package:tsl_flutter_template/presentation/theme/base/theme_extension.dart';
-import 'package:tsl_flutter_template/presentation/theme/text/app_text.dart';
-import 'package:tsl_flutter_template/presentation/widgets/buttons/_time_lapse_button.dart';
+import 'package:flutter_template/core/constants/app_constant.dart';
+import 'package:flutter_template/presentation/theme/base/theme_extension.dart';
+import 'package:flutter_template/presentation/theme/text/app_text.dart';
+import 'package:flutter_template/presentation/widgets/buttons/_time_lapse_button.dart';
 
 class PrimaryButton extends StatefulWidget {
   const PrimaryButton({

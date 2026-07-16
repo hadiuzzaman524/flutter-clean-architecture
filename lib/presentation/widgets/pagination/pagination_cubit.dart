@@ -1,10 +1,10 @@
 import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tsl_flutter_template/core/error/response_error.dart';
-import 'package:tsl_flutter_template/core/state_status/base_status.dart';
-import 'package:tsl_flutter_template/presentation/widgets/pagination/pagination_list.dart';
-import 'package:tsl_flutter_template/presentation/widgets/pagination/pagination_state.dart';
+import 'package:flutter_template/core/error/response_error.dart';
+import 'package:flutter_template/core/state_status/base_status.dart';
+import 'package:flutter_template/presentation/widgets/pagination/pagination_list.dart';
+import 'package:flutter_template/presentation/widgets/pagination/pagination_state.dart';
 
 abstract class PaginationCubit<T, P> extends Cubit<PaginationState<T, P>> {
   PaginationCubit(this.initialParams)

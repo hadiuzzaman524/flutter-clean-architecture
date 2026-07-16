@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:tsl_flutter_template/core/constants/app_constant.dart';
-import 'package:tsl_flutter_template/presentation/theme/base/app_text_theme.dart';
-import 'package:tsl_flutter_template/presentation/theme/base/base_text_theme.dart';
+import 'package:flutter_template/core/constants/app_constant.dart';
+import 'package:flutter_template/presentation/theme/base/app_text_theme.dart';
+import 'package:flutter_template/presentation/theme/base/base_text_theme.dart';
 
 class LandscapeTextStyle extends BaseTextTheme {
   LandscapeTextStyle({required this.textColor});
