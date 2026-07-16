@@ -34,8 +34,8 @@ import '../../presentation/screen/home/cubits/user_cubit.dart' as _i164;
 import '../helper/secure_storage_service.dart' as _i693;
 import 'module.dart' as _i946;
 
-const String _staging = 'staging';
 const String _development = 'development';
+const String _staging = 'staging';
 const String _production = 'production';
 
 extension GetItInjectableX on _i174.GetIt {
@@ -57,6 +57,13 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i63.AuthMockDataSource>(() => _i63.AuthMockDataSource());
     gh.lazySingleton<_i759.UserMockDataSource>(
       () => _i759.UserMockDataSource(),
+    );
+    gh.singleton<_i718.DataSourceFactory>(
+      () => dataSourceProvider.mockFactory(
+        gh<_i759.UserMockDataSource>(),
+        gh<_i63.AuthMockDataSource>(),
+      ),
+      registerFor: {_development},
     );
     gh.lazySingleton<_i693.SecureStorageService>(
       () => _i693.SecureStorageService(gh<_i558.FlutterSecureStorage>()),
@@ -91,13 +98,6 @@ extension GetItInjectableX on _i174.GetIt {
       ),
     );
     gh.singleton<_i718.DataSourceFactory>(
-      () => dataSourceProvider.mockFactory(
-        gh<_i759.UserMockDataSource>(),
-        gh<_i63.AuthMockDataSource>(),
-      ),
-      registerFor: {_development},
-    );
-    gh.singleton<_i718.DataSourceFactory>(
       () => dataSourceProvider.remoteFactory(
         gh<_i118.UserRemoteDataSource>(),
         gh<_i976.AuthRemoteDataSource>(),
@@ -119,11 +119,11 @@ extension GetItInjectableX on _i174.GetIt {
     gh.singleton<_i596.GetUserListUseCase>(
       () => _i596.GetUserListUseCase(gh<_i183.UserRepository>()),
     );
-    gh.factory<_i164.UserCubit>(
-      () => _i164.UserCubit(gh<_i596.GetUserListUseCase>(), gh<_i974.Logger>()),
-    );
     gh.factory<_i549.LoginCubit>(
       () => _i549.LoginCubit(gh<_i40.LoginUseCase>(), gh<_i974.Logger>()),
+    );
+    gh.factory<_i164.UserCubit>(
+      () => _i164.UserCubit(gh<_i596.GetUserListUseCase>(), gh<_i974.Logger>()),
     );
     return this;
   }

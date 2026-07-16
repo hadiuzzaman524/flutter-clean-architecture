@@ -14,10 +14,10 @@ class AuthRepositoryImpl extends AuthRepository {
 
   @override
   Future<void> login({required LoginEntity inputModel}) async {
-    final token = await _factory.createAuthDataSource().login(
-      inputModel.toRequestModel(),
-    );
-
-    await _secureStorage.setAccessToken(token);
+    ///TODO: Bypass login (remove this)
+    /*  await _factory.createAuthDataSource().login(
+        inputModel.toRequestModel(),
+      );*/
+    await _secureStorage.setAccessToken("token");
   }
 }
