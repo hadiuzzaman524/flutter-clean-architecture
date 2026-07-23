@@ -182,23 +182,23 @@ class _AppTextFieldState extends State<AppTextField> {
             // Email validation
             if (widget.textFieldType == AppTextFieldType.email) {
               if (value == null || value.isEmpty) {
-                return 'Email is required';
+                return context.l10n.emailRequired;
               }
               final emailRegex = RegExp(
                 r'^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$',
               );
               if (!emailRegex.hasMatch(value)) {
-                return 'Please enter a valid email address';
+                return context.l10n.invalidEmail;
               }
             }
 
             // Password validation (optional - customize as needed)
             if (widget.textFieldType == AppTextFieldType.password) {
               if (value == null || value.isEmpty) {
-                return 'Password is required';
+                return context.l10n.passwordRequired;
               }
               if (value.length < 6) {
-                return 'Password must be at least 6 characters';
+                return context.l10n.passwordMinLength;
               }
             }
 

@@ -66,15 +66,16 @@ class WebViewScreenState extends State<WebViewScreen> {
   }
 
   Future<void> _launchExternalURL(Uri url) async {
+    final errorMessage = context.l10n.webViewCouldNotOpen;
     try {
       final canLaunch = await canLaunchUrl(url);
       if (canLaunch) {
         await launchUrl(url);
       } else {
-        _showErrorSnackBar('Could not launch $url');
+        _showErrorSnackBar(errorMessage);
       }
-    } catch (e) {
-      _showErrorSnackBar('Failed to launch URL: ${e.toString()}');
+    } catch (_) {
+      _showErrorSnackBar(errorMessage);
     }
   }
 
@@ -130,7 +131,7 @@ class WebViewScreenState extends State<WebViewScreen> {
         children: [
           Icon(Icons.error_outline, size: 64, color: context.colors.error),
           Gap(AppConstant.verticalGap12),
-          AppText.headlineMedium("Failed To Load Page"),
+          AppText.headlineMedium(context.l10n.webViewLoadError),
         ],
       ),
     );

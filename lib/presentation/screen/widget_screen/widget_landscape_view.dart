@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:flutter_template/core/helper/app_snack_bar_helper.dart';
+import 'package:flutter_template/l10n/l10n.dart';
 import 'package:flutter_template/presentation/theme/base/theme_extension.dart';
 import 'package:flutter_template/presentation/theme/text/app_text.dart';
 import 'package:flutter_template/presentation/widgets/app_bar/widgets.dart';
@@ -23,47 +24,50 @@ class _WidgetsLandscapeViewState extends State<WidgetsLandscapeView> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
     return Scaffold(
-      appBar: CustomAppBar(title: "Component Gallery"),
+      appBar: CustomAppBar(title: l10n.galleryTitle),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(12.0),
           child: Column(
             children: [
-              AppTextField(hint: "Text Field", label: "Label"),
+              AppTextField(
+                hint: l10n.textFieldLabel,
+                label: l10n.fieldLabelGeneric,
+              ),
               Gap(8),
-              InputDateTimePicker(hintText: 'Date Picker'),
+              InputDateTimePicker(hintText: l10n.datePickerHint),
               Gap(8),
               PrimaryButton(
                 onPressed: () async {
                   bool shouldUpdate = await AppUpdateDialog.show(
                     context,
                     force: false,
-                    title: "App Update Available",
-                    description:
-                        "A new version of the app is available. Please update to get the latest features and bug fixes.",
+                    title: l10n.updateDialogTitle,
+                    description: l10n.updateDialogDescription,
                   );
 
                   if (shouldUpdate && context.mounted) {
                     AppSnackBarHelper.show(
                       context,
-                      message: "Update initiated",
+                      message: l10n.updateInitiated,
                     );
                   }
                 },
-                title: "Show Soft Update Dialog",
+                title: l10n.showSoftUpdateDialog,
               ),
               Gap(8),
               DropdownField<String>(
                 value: selectedCategory,
-                items: const [
-                  "Electronics",
-                  "Clothing",
-                  "Books",
-                  "Food",
-                  "Sports",
+                items: [
+                  l10n.categoryElectronics,
+                  l10n.categoryClothing,
+                  l10n.categoryBooks,
+                  l10n.categoryFood,
+                  l10n.categorySports,
                 ],
-                hintText: "Choose category",
+                hintText: l10n.chooseCategory,
                 borderRadius: 8,
                 buildTitle: (value) => value,
                 onChanged: (value) {
@@ -71,7 +75,7 @@ class _WidgetsLandscapeViewState extends State<WidgetsLandscapeView> {
                 },
               ),
               Gap(8),
-              PrimaryButton(onPressed: () {}, title: "Button Example"),
+              PrimaryButton(onPressed: () {}, title: l10n.buttonExample),
               Gap(8),
               PrimaryButton(
                 onPressed: () {
@@ -85,18 +89,16 @@ class _WidgetsLandscapeViewState extends State<WidgetsLandscapeView> {
                         borderRadius: BorderRadius.circular(20),
                       ),
                       child: Center(
-                        child: AppText.titleMedium(
-                          "Hello from the bottom sheet!",
-                        ),
+                        child: AppText.titleMedium(l10n.bottomSheetGreeting),
                       ),
                     ),
                     borderRadius: 20,
                   );
                 },
-                title: "Open Bottom Sheet",
+                title: l10n.openBottomSheet,
               ),
               Gap(8),
-              CustomCheckbox(title: Text("Check Box")),
+              CustomCheckbox(title: Text(l10n.checkbox)),
               Gap(8),
               RadioGroup<String>(
                 groupValue: selectedValue,
@@ -108,14 +110,14 @@ class _WidgetsLandscapeViewState extends State<WidgetsLandscapeView> {
                   children: [
                     RadioListTile<String>(
                       value: "male",
-                      title: AppText.titleMedium("Male"),
+                      title: AppText.titleMedium(l10n.genderMale),
                       activeColor: context.colors.primary,
                       contentPadding: EdgeInsets.zero,
                       visualDensity: VisualDensity.compact,
                     ),
                     RadioListTile<String>(
                       value: "female",
-                      title: AppText.titleMedium("Female"),
+                      title: AppText.titleMedium(l10n.genderFemale),
                       activeColor: context.colors.primary,
                       contentPadding: EdgeInsets.zero,
                       visualDensity: VisualDensity.compact,

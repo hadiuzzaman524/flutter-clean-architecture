@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_template/l10n/l10n.dart';
 
 /// One layer in the Clean Architecture diagram (outermost first).
 class ArchitectureLayer {
@@ -10,6 +11,8 @@ class ArchitectureLayer {
   });
 
   final String title;
+
+  /// Source path — a code identifier, kept literal (not localized).
   final String path;
   final String description;
 
@@ -30,7 +33,8 @@ class ArchitecturePattern {
   final IconData icon;
   final String name;
 
-  /// The concrete class / widget in the repo (shown as a monospace chip).
+  /// The concrete class / widget in the repo — a code identifier, kept
+  /// literal (shown as a monospace chip, never translated).
   final String className;
   final String description;
   final String demonstratedIn;
@@ -45,157 +49,138 @@ class PatternCategory {
 }
 
 /// The layers, ordered from outermost (Presentation) to innermost (Data impl).
-const List<ArchitectureLayer> architectureLayers = [
+List<ArchitectureLayer> architectureLayers(AppLocalizations l10n) => [
   ArchitectureLayer(
-    title: 'Presentation',
+    title: l10n.archLayerPresentationTitle,
     path: 'lib/presentation',
-    description: 'BLoC / Cubit, screens, theme tokens and reusable widgets.',
-    connector: 'depends on',
+    description: l10n.archLayerPresentationDesc,
+    connector: l10n.archConnectorDependsOn,
   ),
   ArchitectureLayer(
-    title: 'Domain',
+    title: l10n.archLayerDomainTitle,
     path: 'lib/domain',
-    description: 'Entities, use-cases and repository interfaces. Pure Dart, '
-        'no Flutter.',
-    connector: 'implemented by',
+    description: l10n.archLayerDomainDesc,
+    connector: l10n.archConnectorImplementedBy,
   ),
   ArchitectureLayer(
-    title: 'Data',
+    title: l10n.archLayerDataTitle,
     path: 'lib/data',
-    description: 'Repository implementations, data sources (mock + remote) '
-        'and DTO remappers.',
+    description: l10n.archLayerDataDesc,
     connector: '',
   ),
 ];
 
 /// Every design pattern this template demonstrates, grouped GoF-style and
 /// each tied to the real class / widget that implements it.
-const List<PatternCategory> architectureCategories = [
+List<PatternCategory> architectureCategories(AppLocalizations l10n) => [
   PatternCategory(
-    title: 'Creational',
+    title: l10n.archCatCreational,
     patterns: [
       ArchitecturePattern(
         icon: Icons.copy_all_outlined,
-        name: 'Singleton',
+        name: l10n.patternSingletonName,
         className: 'EnLightMode · get_it',
-        description: 'One shared instance for the whole app — get_it returns '
-            'the same object, and theme modes cache themselves behind a '
-            'factory constructor.',
-        demonstratedIn: 'theme switching & the DI graph',
+        description: l10n.patternSingletonDesc,
+        demonstratedIn: l10n.patternSingletonSeen,
       ),
       ArchitecturePattern(
         icon: Icons.precision_manufacturing_outlined,
-        name: 'Factory Method',
+        name: l10n.patternFactoryName,
         className: 'AppText.titleLarge()',
-        description: 'Named factory constructors build the right configured '
-            'object without exposing the constructor — the whole typed text '
-            'scale is factory methods.',
-        demonstratedIn: 'every AppText.* in the UI',
+        description: l10n.patternFactoryDesc,
+        demonstratedIn: l10n.patternFactorySeen,
       ),
       ArchitecturePattern(
         icon: Icons.account_tree_outlined,
-        name: 'Abstract Factory',
+        name: l10n.patternAbstractFactoryName,
         className: 'DataSourceFactory',
-        description: 'Creates whole families of related data sources (user + '
-            'auth). The flavor picks Mock vs Remote at DI time, so dev runs '
-            'offline.',
-        demonstratedIn: 'the Home user directory',
+        description: l10n.patternAbstractFactoryDesc,
+        demonstratedIn: l10n.patternAbstractFactorySeen,
       ),
       ArchitecturePattern(
         icon: Icons.content_copy_outlined,
-        name: 'Prototype',
+        name: l10n.patternPrototypeName,
         className: 'AppColors.copyWith()',
-        description: 'Clone-and-modify: copyWith / lerp produce a new object '
-            'from an existing one — how themes interpolate and entities update '
-            'immutably.',
-        demonstratedIn: 'theme transitions & state updates',
+        description: l10n.patternPrototypeDesc,
+        demonstratedIn: l10n.patternPrototypeSeen,
       ),
     ],
   ),
   PatternCategory(
-    title: 'Structural',
+    title: l10n.archCatStructural,
     patterns: [
       ArchitecturePattern(
         icon: Icons.swap_horiz_outlined,
-        name: 'Adapter',
+        name: l10n.patternAdapterName,
         className: 'UserResponseMapper',
-        description: 'Adapts the API’s UserResponseModel shape into the domain '
-            'UserEntity the app expects, keeping the two independent.',
-        demonstratedIn: 'the user-list mapping',
+        description: l10n.patternAdapterDesc,
+        demonstratedIn: l10n.patternAdapterSeen,
       ),
       ArchitecturePattern(
         icon: Icons.alt_route_outlined,
-        name: 'Bridge',
+        name: l10n.patternBridgeName,
         className: 'BaseThemeInfo',
-        description: 'Separates the theme abstraction from its colour and text '
-            'implementations, so each can vary independently.',
-        demonstratedIn: 'the light / dark theme system',
+        description: l10n.patternBridgeDesc,
+        demonstratedIn: l10n.patternBridgeSeen,
       ),
       ArchitecturePattern(
         icon: Icons.dashboard_customize_outlined,
-        name: 'Facade',
+        name: l10n.patternFacadeName,
         className: 'SecureStorageService',
-        description: 'A small, task-focused API over the sprawling '
-            'FlutterSecureStorage — callers just get / set the access token.',
-        demonstratedIn: 'login & session checks',
+        description: l10n.patternFacadeDesc,
+        demonstratedIn: l10n.patternFacadeSeen,
       ),
       ArchitecturePattern(
         icon: Icons.shield_outlined,
-        name: 'Proxy',
+        name: l10n.patternProxyName,
         className: 'UserSubscriptionProxyRepositoryImpl',
-        description: 'Stands in for the real repository and enforces access — '
-            'throws SubscriptionRequiredException until the user subscribes.',
-        demonstratedIn: 'the premium gate',
+        description: l10n.patternProxyDesc,
+        demonstratedIn: l10n.patternProxySeen,
       ),
       ArchitecturePattern(
         icon: Icons.layers_outlined,
-        name: 'Decorator',
+        name: l10n.patternDecoratorName,
         className: 'UserCacheRepositoryImpl',
-        description: 'Wraps the remote repository and adds cache-first '
-            'behaviour without changing its interface.',
-        demonstratedIn: 'cached user loading',
+        description: l10n.patternDecoratorDesc,
+        demonstratedIn: l10n.patternDecoratorSeen,
       ),
     ],
   ),
   PatternCategory(
-    title: 'Behavioral',
+    title: l10n.archCatBehavioral,
     patterns: [
       ArchitecturePattern(
         icon: Icons.bolt_outlined,
-        name: 'Observer (BLoC)',
+        name: l10n.patternObserverName,
         className: 'UserCubit · BaseStatus',
-        description: 'The UI subscribes to a stream of immutable states; the '
-            'Cubit emits, BlocBuilder rebuilds. State in, UI out.',
-        demonstratedIn: 'loading / success / error states',
+        description: l10n.patternObserverDesc,
+        demonstratedIn: l10n.patternObserverSeen,
       ),
       ArchitecturePattern(
         icon: Icons.link_outlined,
-        name: 'Chain of Responsibility',
+        name: l10n.patternChainName,
         className: 'BackendErrorInterceptor',
-        description: 'A Dio interceptor in the request/response chain that '
-            'translates raw backend errors into typed ResponseErrors.',
-        demonstratedIn: 'every network error message',
+        description: l10n.patternChainDesc,
+        demonstratedIn: l10n.patternChainSeen,
       ),
     ],
   ),
   PatternCategory(
-    title: 'Architectural',
+    title: l10n.archCatArchitectural,
     patterns: [
       ArchitecturePattern(
         icon: Icons.hub_outlined,
-        name: 'Dependency Injection',
+        name: l10n.patternDiName,
         className: 'injectable + get_it',
-        description: 'Classes declare their dependencies; the container wires '
-            'the graph and gates registrations per environment.',
-        demonstratedIn: 'core/injector — app-wide',
+        description: l10n.patternDiDesc,
+        demonstratedIn: l10n.patternDiSeen,
       ),
       ArchitecturePattern(
         icon: Icons.inventory_2_outlined,
-        name: 'Repository',
+        name: l10n.patternRepositoryName,
         className: 'UserRepository',
-        description: 'A domain-owned interface hiding data origins — the UI '
-            'never knows if data is mocked, cached, remote or gated.',
-        demonstratedIn: 'all user-data access',
+        description: l10n.patternRepositoryDesc,
+        demonstratedIn: l10n.patternRepositorySeen,
       ),
     ],
   ),

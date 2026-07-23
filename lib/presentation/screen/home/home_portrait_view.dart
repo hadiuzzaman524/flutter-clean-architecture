@@ -25,7 +25,7 @@ class HomePortraitView extends StatelessWidget {
       backgroundColor: theme.background,
       appBar: AppBar(
         title: AppText.titleLarge(
-          'Flutter Template',
+          context.l10n.appName,
           style: context.textStyle.titleLarge.copyWith(
             fontWeight: FontWeight.bold,
             color: theme.primary,
@@ -39,9 +39,12 @@ class HomePortraitView extends StatelessWidget {
             builder: (context, state) {
               return Badge(
                 isLabelVisible: state.isSubscribed,
-                label: const Text(
-                  'PRO',
-                  style: TextStyle(fontSize: 8, fontWeight: FontWeight.bold),
+                label: Text(
+                  context.l10n.pro,
+                  style: const TextStyle(
+                    fontSize: 8,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 backgroundColor: theme.premium,
                 offset: const Offset(-4, 4),
@@ -55,8 +58,9 @@ class HomePortraitView extends StatelessWidget {
                         : Icons.star_outline_rounded,
                     color: state.isSubscribed ? theme.premium : theme.onSurface,
                   ),
-                  tooltip:
-                      state.isSubscribed ? 'Subscription Active' : 'Subscribe',
+                  tooltip: state.isSubscribed
+                      ? context.l10n.subscriptionActive
+                      : context.l10n.subscribe,
                 ),
               );
             },

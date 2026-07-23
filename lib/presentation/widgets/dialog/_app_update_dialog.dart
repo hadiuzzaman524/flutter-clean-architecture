@@ -126,7 +126,7 @@ class _DialogPage extends StatelessWidget {
                           ),
                         ),
                         child: Text(
-                          'Later',
+                          context.l10n.updateLater,
                           style: Theme.of(context).textTheme.bodyLarge
                               ?.copyWith(color: Theme.of(context).primaryColor),
                         ),
@@ -144,7 +144,7 @@ class _DialogPage extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(vertical: 16),
                       ),
                       child: Text(
-                        'Update Now',
+                        context.l10n.updateNow,
                         style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,

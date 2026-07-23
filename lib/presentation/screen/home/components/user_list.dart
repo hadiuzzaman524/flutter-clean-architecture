@@ -5,6 +5,7 @@ import 'package:flutter_template/core/constants/app_constant.dart';
 import 'package:flutter_template/core/error/error_localization.dart';
 import 'package:flutter_template/core/error/response_error.dart';
 import 'package:flutter_template/core/state_status/base_status.dart';
+import 'package:flutter_template/l10n/l10n.dart';
 import 'package:flutter_template/presentation/screen/home/components/subscribe_dialog.dart';
 import 'package:flutter_template/presentation/screen/home/cubits/user_cubit.dart';
 import 'package:flutter_template/presentation/screen/home/cubits/user_state.dart';
@@ -54,13 +55,13 @@ class UserList extends StatelessWidget {
                   ),
                   Gap(AppConstant.verticalGap16),
                   AppText.titleLarge(
-                    'Premium Feature',
+                    context.l10n.premiumFeatureTitle,
                     textAlign: TextAlign.center,
                     fontWeight: FontWeight.bold,
                   ),
                   Gap(AppConstant.verticalGap8),
                   AppText.bodyMedium(
-                    'Subscribe to unlock the full user list.',
+                    context.l10n.premiumFeatureSubtitle,
                     textAlign: TextAlign.center,
                     color: theme.onSurface.withAlpha(153),
                   ),
@@ -68,7 +69,7 @@ class UserList extends StatelessWidget {
                   FilledButton.icon(
                     onPressed: () => SubscribeDialog.show(context),
                     icon: const Icon(Icons.star_rounded),
-                    label: const Text('Subscribe'),
+                    label: Text(context.l10n.subscribe),
                   ),
                 ],
               ),
@@ -186,7 +187,7 @@ class UserList extends StatelessWidget {
                   TextButton.icon(
                     onPressed: () => context.read<UserCubit>().getUserList(),
                     icon: const Icon(Icons.refresh_rounded),
-                    label: const Text("Retry"),
+                    label: Text(context.l10n.retry),
                   ),
                 ],
               ),

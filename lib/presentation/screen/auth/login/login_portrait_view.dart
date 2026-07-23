@@ -120,7 +120,7 @@ class _LogInPortraitViewState extends State<LogInPortraitView> {
                         ),
                         Gap(AppConstant.verticalGap20),
                         AppText.displayMedium(
-                          "Welcome Back",
+                          context.l10n.loginWelcomeTitle,
                           style: context.textStyle.displaySmall.copyWith(
                             fontWeight: FontWeight.bold,
                             color: theme.onBackground,
@@ -128,7 +128,7 @@ class _LogInPortraitViewState extends State<LogInPortraitView> {
                         ),
                         Gap(AppConstant.verticalGap8),
                         AppText.bodyMedium(
-                          "Login to your account to continue",
+                          context.l10n.loginSubtitle,
                           style: context.textStyle.bodyMedium.copyWith(
                             color: theme.onSurface.withAlpha(153),
                           ),
@@ -168,7 +168,7 @@ class _LogInPortraitViewState extends State<LogInPortraitView> {
                                 Gap(AppConstant.verticalGap8),
                                 AppTextField(
                                   controller: emailController,
-                                  hint: "Enter your email",
+                                  hint: context.l10n.loginEmailHint,
                                   textFieldType: AppTextFieldType.email,
                                   fillColor: context.colors.background,
                                 ),
@@ -182,7 +182,7 @@ class _LogInPortraitViewState extends State<LogInPortraitView> {
                                 Gap(AppConstant.verticalGap8),
                                 AppTextField(
                                   controller: pinController,
-                                  hint: "Enter your PIN",
+                                  hint: context.l10n.loginPinHint,
                                   textFieldType: AppTextFieldType.number,
                                   fillColor: context.colors.background,
                                 ),
@@ -210,7 +210,7 @@ class _LogInPortraitViewState extends State<LogInPortraitView> {
                                         ),
                                       ),
                                       child: AppText.labelSmall(
-                                        'DEMO',
+                                        context.l10n.demoBadge,
                                         color: theme.primary,
                                         fontWeight: FontWeight.w700,
                                       ),
@@ -218,7 +218,7 @@ class _LogInPortraitViewState extends State<LogInPortraitView> {
                                     Gap(AppConstant.horizontalGap8),
                                     Flexible(
                                       child: AppText.bodySmall(
-                                        'Prefilled test@gmail.com / 1234',
+                                        context.l10n.loginDemoCredentials,
                                         color: theme.onSurface.withAlpha(140),
                                       ),
                                     ),

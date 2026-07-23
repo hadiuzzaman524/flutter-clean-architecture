@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_template/core/constants/app_constant.dart';
+import 'package:flutter_template/l10n/l10n.dart';
 import 'package:flutter_template/presentation/screen/home/cubits/user_cubit.dart';
 import 'package:flutter_template/presentation/theme/base/theme_extension.dart';
 import 'package:flutter_template/presentation/theme/text/app_text.dart';
@@ -43,9 +44,12 @@ class _SubscribeDialogState extends State<SubscribeDialog> {
         color: theme.premium,
         size: 40,
       ),
-      title: AppText.titleLarge('Unlock Premium', textAlign: TextAlign.center),
+      title: AppText.titleLarge(
+        context.l10n.unlockPremiumTitle,
+        textAlign: TextAlign.center,
+      ),
       content: AppText.bodyMedium(
-        'Subscribe to view the full user list.',
+        context.l10n.unlockPremiumSubtitle,
         textAlign: TextAlign.center,
         color: theme.onSurface.withAlpha(178),
       ),
@@ -53,7 +57,7 @@ class _SubscribeDialogState extends State<SubscribeDialog> {
       actions: [
         TextButton(
           onPressed: _isSubscribing ? null : () => Navigator.of(context).pop(),
-          child: const Text('Cancel'),
+          child: Text(context.l10n.cancel),
         ),
         SizedBox(width: AppConstant.horizontalGap8),
         FilledButton(
@@ -64,7 +68,7 @@ class _SubscribeDialogState extends State<SubscribeDialog> {
                   width: 16,
                   child: CircularProgressIndicator(strokeWidth: 2),
                 )
-              : const Text('Subscribe'),
+              : Text(context.l10n.subscribe),
         ),
       ],
     );

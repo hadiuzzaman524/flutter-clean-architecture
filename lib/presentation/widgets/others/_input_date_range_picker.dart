@@ -113,7 +113,7 @@ class _InputDateRangePickerState extends State<InputDateRangePicker> {
         validator:
             widget.validator ??
             (v) {
-              if (v == null || v.isEmpty) return "Field Empty";
+              if (v == null || v.isEmpty) return context.l10n.fieldEmpty;
               return null;
             },
         decoration: InputDecoration(

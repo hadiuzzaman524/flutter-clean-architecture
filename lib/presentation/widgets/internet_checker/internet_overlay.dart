@@ -4,6 +4,7 @@ import 'package:gap/gap.dart';
 import 'package:logger/logger.dart';
 import 'package:flutter_template/core/constants/app_constant.dart';
 import 'package:flutter_template/core/cubit/device_status/device_status_cubit.dart';
+import 'package:flutter_template/l10n/l10n.dart';
 import 'package:flutter_template/presentation/theme/base/theme_extension.dart';
 import 'package:flutter_template/presentation/theme/text/app_text.dart';
 
@@ -52,7 +53,7 @@ class InternetOverlay extends StatelessWidget {
                                 size: AppConstant.horizontalGap20,
                               ),
                               Gap(AppConstant.horizontalGap12),
-                              AppText.labelLarge("No Internet Connection !"),
+                              AppText.labelLarge(context.l10n.noInternetConnection),
                             ],
                           ),
                         ),

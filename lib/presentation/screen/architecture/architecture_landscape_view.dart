@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:flutter_template/core/constants/app_constant.dart';
+import 'package:flutter_template/l10n/l10n.dart';
 import 'package:flutter_template/presentation/screen/architecture/architecture_content.dart';
 import 'package:flutter_template/presentation/screen/architecture/architecture_portrait_view.dart';
 import 'package:flutter_template/presentation/screen/architecture/components/pattern_card.dart';
@@ -14,10 +15,11 @@ class ArchitectureLandscapeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = context.colors;
+    final l10n = context.l10n;
 
     return Scaffold(
       backgroundColor: theme.background,
-      appBar: const CustomAppBar(title: "Architecture"),
+      appBar: CustomAppBar(title: l10n.navArchitecture),
       body: Padding(
         padding: EdgeInsets.all(AppConstant.horizontalGap16),
         child: Row(
@@ -41,11 +43,11 @@ class ArchitectureLandscapeView extends StatelessWidget {
               child: ListView(
                 children: [
                   AppText.titleMedium(
-                    'Design patterns',
+                    l10n.archPatternsTitle,
                     fontWeight: FontWeight.w700,
                   ),
                   Gap(AppConstant.verticalGap12),
-                  for (final category in architectureCategories) ...[
+                  for (final category in architectureCategories(l10n)) ...[
                     PatternCategoryHeader(
                       title: category.title,
                       count: category.patterns.length,

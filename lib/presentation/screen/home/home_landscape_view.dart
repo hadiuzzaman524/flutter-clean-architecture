@@ -22,7 +22,7 @@ class HomeLandscapeView extends StatelessWidget {
       backgroundColor: theme.background,
       appBar: AppBar(
         title: AppText.titleLarge(
-          'Flutter Template',
+          context.l10n.appName,
           style: context.textStyle.titleLarge.copyWith(
             fontWeight: FontWeight.bold,
             color: theme.primary,
@@ -76,12 +76,12 @@ class HomeLandscapeView extends StatelessWidget {
                 ),
                 Gap(AppConstant.verticalGap16),
                 AppText.titleMedium(
-                  'User Directory',
+                  context.l10n.userDirectoryTitle,
                   fontWeight: FontWeight.w700,
                 ),
                 Gap(AppConstant.verticalGap4),
                 AppText.bodySmall(
-                  'Browse the team roster served through the repository layer.',
+                  context.l10n.userDirectorySubtitle,
                   color: theme.onSurface.withAlpha(150),
                   maxLines: 3,
                 ),
@@ -96,7 +96,7 @@ class HomeLandscapeView extends StatelessWidget {
                     Gap(AppConstant.horizontalGap8),
                     Expanded(
                       child: AppText.bodySmall(
-                        'Premium unlocks the full list',
+                        context.l10n.premiumUnlockHint,
                         color: theme.onSurface.withAlpha(150),
                       ),
                     ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:flutter_template/core/constants/app_constant.dart';
+import 'package:flutter_template/l10n/l10n.dart';
 import 'package:flutter_template/presentation/theme/base/theme_extension.dart';
 import 'package:flutter_template/presentation/theme/text/app_text.dart';
 
@@ -141,7 +142,7 @@ class PatternCard extends StatelessWidget {
               Gap(AppConstant.horizontalGap4),
               Expanded(
                 child: AppText.bodySmall(
-                  'Seen in: $demonstratedIn',
+                  '${context.l10n.archSeenInLabel} $demonstratedIn',
                   color: theme.onSurface.withAlpha(120),
                 ),
               ),

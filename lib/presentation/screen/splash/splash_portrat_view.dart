@@ -4,6 +4,7 @@ import 'package:gap/gap.dart';
 import 'package:flutter_template/core/constants/app_constant.dart';
 import 'package:flutter_template/core/helper/secure_storage_service.dart';
 import 'package:flutter_template/core/injector/injector.dart';
+import 'package:flutter_template/l10n/l10n.dart';
 import 'package:flutter_template/presentation/route/app_router.gr.dart';
 import 'package:flutter_template/presentation/theme/base/theme_extension.dart';
 import 'package:flutter_template/presentation/theme/text/app_text.dart';
@@ -136,12 +137,12 @@ class _SplashPortraitViewState extends State<SplashPortraitView>
                     ),
                     Gap(AppConstant.verticalGap20),
                     AppText.displayLargeBold(
-                      "Flutter Template",
+                      context.l10n.appName,
                       color: Colors.white,
                     ),
                     Gap(AppConstant.verticalGap8),
                     AppText.bodyMedium(
-                      "A production-grade Clean Architecture starter",
+                      context.l10n.splashTagline,
                       textAlign: TextAlign.center,
                       color: Colors.white.withAlpha(204),
                     ),
@@ -166,7 +167,7 @@ class _SplashPortraitViewState extends State<SplashPortraitView>
               child: FadeTransition(
                 opacity: _fadeAnimation,
                 child: AppText.labelMedium(
-                  "Version 1.0.0",
+                  context.l10n.splashVersion,
                   color: Colors.white.withAlpha(128),
                 ),
               ),

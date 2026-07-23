@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:flutter_template/core/constants/app_constant.dart';
 import 'package:flutter_template/core/helper/app_snack_bar_helper.dart';
+import 'package:flutter_template/l10n/l10n.dart';
 import 'package:flutter_template/presentation/theme/base/theme_extension.dart';
 import 'package:flutter_template/presentation/theme/text/app_text.dart';
 import 'package:flutter_template/presentation/widgets/app_bar/widgets.dart';
@@ -24,8 +25,9 @@ class _WidgetsPortraitViewState extends State<WidgetsPortraitView> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
     return Scaffold(
-      appBar: const CustomAppBar(title: "Component Gallery"),
+      appBar: CustomAppBar(title: l10n.galleryTitle),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.all(AppConstant.horizontalGap16),
@@ -33,48 +35,47 @@ class _WidgetsPortraitViewState extends State<WidgetsPortraitView> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               AppText.bodySmall(
-                'The template’s reusable widgets, grouped by role — all driven '
-                'by the shared theme tokens.',
+                l10n.gallerySubtitle,
                 color: context.colors.onSurface.withAlpha(150),
                 maxLines: 3,
               ),
               Gap(AppConstant.verticalGap16),
 
-              const _SectionLabel("Inputs"),
+              _SectionLabel(l10n.sectionInputs),
               _Block(
                 children: [
                   AppTextField(
-                    hint: "Add Email",
-                    label: "Email",
+                    hint: l10n.fieldEmailHint,
+                    label: l10n.email,
                     textFieldType: AppTextFieldType.email,
                     fillColor: context.colors.background,
                   ),
                   AppTextField(
-                    hint: "Add Password",
-                    label: "Password",
+                    hint: l10n.fieldPasswordHint,
+                    label: l10n.passwordLabel,
                     textFieldType: AppTextFieldType.password,
                     fillColor: context.colors.background,
                   ),
                   AppTextField(
-                    hint: "Search",
-                    label: "Search",
+                    hint: l10n.searchLabel,
+                    label: l10n.searchLabel,
                     textFieldType: AppTextFieldType.search,
                     fillColor: context.colors.background,
                   ),
                   InputDateTimePicker(
-                    hintText: 'Date Picker',
+                    hintText: l10n.datePickerHint,
                     fillColor: context.colors.background,
                   ),
                   DropdownField<String>(
                     value: selectedCategory,
-                    items: const [
-                      "Electronics",
-                      "Clothing",
-                      "Books",
-                      "Food",
-                      "Sports",
+                    items: [
+                      l10n.categoryElectronics,
+                      l10n.categoryClothing,
+                      l10n.categoryBooks,
+                      l10n.categoryFood,
+                      l10n.categorySports,
                     ],
-                    hintText: "Choose category",
+                    hintText: l10n.chooseCategory,
                     borderRadius: AppConstant.borderRadius8,
                     buildTitle: (value) => value,
                     onChanged: (value) {
@@ -84,10 +85,10 @@ class _WidgetsPortraitViewState extends State<WidgetsPortraitView> {
                 ],
               ),
 
-              const _SectionLabel("Selection"),
+              _SectionLabel(l10n.sectionSelection),
               _Block(
                 children: [
-                  const CustomCheckbox(title: Text("Enable notifications")),
+                  CustomCheckbox(title: Text(l10n.enableNotifications)),
                   RadioGroup<String>(
                     groupValue: selectedValue,
                     onChanged: (value) {
@@ -98,14 +99,14 @@ class _WidgetsPortraitViewState extends State<WidgetsPortraitView> {
                       children: [
                         RadioListTile<String>(
                           value: "male",
-                          title: AppText.titleMedium("Male"),
+                          title: AppText.titleMedium(l10n.genderMale),
                           activeColor: context.colors.primary,
                           contentPadding: EdgeInsets.zero,
                           visualDensity: VisualDensity.compact,
                         ),
                         RadioListTile<String>(
                           value: "female",
-                          title: AppText.titleMedium("Female"),
+                          title: AppText.titleMedium(l10n.genderFemale),
                           activeColor: context.colors.primary,
                           contentPadding: EdgeInsets.zero,
                           visualDensity: VisualDensity.compact,
@@ -116,7 +117,7 @@ class _WidgetsPortraitViewState extends State<WidgetsPortraitView> {
                 ],
               ),
 
-              const _SectionLabel("Overlays & actions"),
+              _SectionLabel(l10n.sectionOverlays),
               _Block(
                 children: [
                   PrimaryButton(
@@ -124,22 +125,20 @@ class _WidgetsPortraitViewState extends State<WidgetsPortraitView> {
                       bool shouldUpdate = await AppUpdateDialog.show(
                         context,
                         force: false,
-                        title: "App Update Available",
-                        description:
-                            "A new version of the app is available. Please "
-                            "update to get the latest features and bug fixes.",
+                        title: l10n.updateDialogTitle,
+                        description: l10n.updateDialogDescription,
                       );
 
                       if (shouldUpdate) {
                         if (context.mounted) {
                           AppSnackBarHelper.show(
                             context,
-                            message: "Update initiated",
+                            message: l10n.updateInitiated,
                           );
                         }
                       }
                     },
-                    title: "Show Dialog",
+                    title: l10n.showDialogButton,
                   ),
                   PrimaryButton(
                     onPressed: () {
@@ -155,15 +154,13 @@ class _WidgetsPortraitViewState extends State<WidgetsPortraitView> {
                             ),
                           ),
                           child: Center(
-                            child: AppText.titleMedium(
-                              "Hello from the bottom sheet!",
-                            ),
+                            child: AppText.titleMedium(l10n.bottomSheetGreeting),
                           ),
                         ),
                         borderRadius: AppConstant.borderRadius20,
                       );
                     },
-                    title: "Open Bottom Sheet",
+                    title: l10n.openBottomSheet,
                   ),
                 ],
               ),
