@@ -5,6 +5,7 @@ import 'package:flutter_template/data/remapper/user_response_to_entity.dart';
 import 'package:flutter_template/domain/entity/base/base_entity.dart';
 import 'package:flutter_template/domain/repository/user/user_repository.dart';
 
+@Named('remote')
 @Singleton(as: UserRepository)
 class UserRepositoryImpl extends UserRepository {
   UserRepositoryImpl(DataSourceFactory factory)

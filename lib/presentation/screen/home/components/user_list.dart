@@ -5,6 +5,7 @@ import 'package:flutter_template/core/constants/app_constant.dart';
 import 'package:flutter_template/core/error/error_localization.dart';
 import 'package:flutter_template/core/error/response_error.dart';
 import 'package:flutter_template/core/state_status/base_status.dart';
+import 'package:flutter_template/presentation/screen/home/components/subscribe_dialog.dart';
 import 'package:flutter_template/presentation/screen/home/cubits/user_cubit.dart';
 import 'package:flutter_template/presentation/screen/home/cubits/user_state.dart';
 import 'package:flutter_template/presentation/theme/base/theme_extension.dart';
@@ -19,6 +20,44 @@ class UserList extends StatelessWidget {
 
     return BlocBuilder<UserCubit, UserState>(
       builder: (ctx, state) {
+        if (state.isSubscriptionRequired) {
+          return Center(
+            child: Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: AppConstant.horizontalGap20,
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.workspace_premium_rounded,
+                    size: 64,
+                    color: Colors.amber.withAlpha(178),
+                  ),
+                  Gap(AppConstant.verticalGap16),
+                  AppText.titleLarge(
+                    'Premium Feature',
+                    textAlign: TextAlign.center,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  Gap(AppConstant.verticalGap8),
+                  AppText.bodyMedium(
+                    'Subscribe to unlock the full user list.',
+                    textAlign: TextAlign.center,
+                    color: theme.onSurface.withAlpha(153),
+                  ),
+                  Gap(AppConstant.verticalGap16),
+                  FilledButton.icon(
+                    onPressed: () => SubscribeDialog.show(context),
+                    icon: const Icon(Icons.star_rounded),
+                    label: const Text('Subscribe'),
+                  ),
+                ],
+              ),
+            ),
+          );
+        }
+
         final userList = state.userList;
         return switch (state.status) {
           Loading() => const Center(child: CircularProgressIndicator()),
