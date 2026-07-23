@@ -21,7 +21,14 @@ class ArchitecturePortraitView extends StatelessWidget {
       backgroundColor: theme.background,
       appBar: CustomAppBar(title: l10n.navArchitecture),
       body: ListView(
-        padding: EdgeInsets.all(AppConstant.horizontalGap16),
+        padding: EdgeInsets.fromLTRB(
+          AppConstant.horizontalGap16,
+          AppConstant.horizontalGap16,
+          AppConstant.horizontalGap16,
+          // Clear the extended-body bottom navigation bar so the last card
+          // stays fully visible above it.
+          MediaQuery.of(context).padding.bottom + 90,
+        ),
         children: [
           const ArchitectureIntro(),
           Gap(AppConstant.verticalGap16),

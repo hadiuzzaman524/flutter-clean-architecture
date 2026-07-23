@@ -30,7 +30,14 @@ class _WidgetsPortraitViewState extends State<WidgetsPortraitView> {
       appBar: CustomAppBar(title: l10n.galleryTitle),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(AppConstant.horizontalGap16),
+          padding: EdgeInsets.fromLTRB(
+            AppConstant.horizontalGap16,
+            AppConstant.horizontalGap16,
+            AppConstant.horizontalGap16,
+            // Clear the extended-body bottom navigation bar so the last item
+            // stays fully visible above it.
+            MediaQuery.of(context).padding.bottom + 90,
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

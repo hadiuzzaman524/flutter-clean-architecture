@@ -81,7 +81,14 @@ class UserList extends StatelessWidget {
         return switch (state.status) {
           Loading() => const Center(child: CircularProgressIndicator()),
           Success() => ListView.separated(
-              padding: EdgeInsets.all(AppConstant.horizontalGap16),
+              padding: EdgeInsets.fromLTRB(
+                AppConstant.horizontalGap16,
+                AppConstant.horizontalGap16,
+                AppConstant.horizontalGap16,
+                // Clear the extended-body bottom navigation bar so the last
+                // card stays fully visible above it.
+                MediaQuery.of(context).padding.bottom + 90,
+              ),
               itemBuilder: (ctx, index) {
                 final user = userList[index];
                 return Container(
