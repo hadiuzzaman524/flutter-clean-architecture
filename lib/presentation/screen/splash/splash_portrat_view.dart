@@ -36,10 +36,10 @@ class _SplashPortraitViewState extends State<SplashPortraitView>
       ),
     );
 
-    _scaleAnimation = Tween<double>(begin: 0.8, end: 1.0).animate(
+    _scaleAnimation = Tween<double>(begin: 0.85, end: 1.0).animate(
       CurvedAnimation(
         parent: _controller,
-        curve: const Interval(0.0, 0.6, curve: Curves.bounceIn),
+        curve: const Interval(0.0, 0.7, curve: Curves.easeOutBack),
       ),
     );
 
@@ -54,7 +54,8 @@ class _SplashPortraitViewState extends State<SplashPortraitView>
   }
 
   Future<void> _navigate() async {
-    await Future.delayed(const Duration(seconds: 3));
+    // Hold briefly after the entrance animation, then route.
+    await Future<void>.delayed(const Duration(milliseconds: 1800));
 
     final hasToken = await injector<SecureStorageService>().hasAccessToken();
 
@@ -76,9 +77,9 @@ class _SplashPortraitViewState extends State<SplashPortraitView>
         decoration: BoxDecoration(
           color: theme.primary,
           gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [theme.primary, theme.primary.withBlue(100)],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [theme.primary, theme.secondary],
           ),
         ),
         child: Stack(
@@ -110,11 +111,11 @@ class _SplashPortraitViewState extends State<SplashPortraitView>
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
-                      height: 120,
-                      width: 120,
+                      height: 116,
+                      width: 116,
                       decoration: BoxDecoration(
                         color: Colors.white.withAlpha(38),
-                        shape: BoxShape.circle,
+                        borderRadius: BorderRadius.circular(32),
                         border: Border.all(
                           color: Colors.white.withAlpha(51),
                           width: 2,
@@ -122,14 +123,14 @@ class _SplashPortraitViewState extends State<SplashPortraitView>
                         boxShadow: [
                           BoxShadow(
                             color: Colors.black.withAlpha(26),
-                            blurRadius: 20,
-                            offset: const Offset(0, 10),
+                            blurRadius: 24,
+                            offset: const Offset(0, 12),
                           ),
                         ],
                       ),
                       child: const Icon(
                         Icons.rocket_launch_rounded,
-                        size: 60,
+                        size: 56,
                         color: Colors.white,
                       ),
                     ),
@@ -140,7 +141,8 @@ class _SplashPortraitViewState extends State<SplashPortraitView>
                     ),
                     Gap(AppConstant.verticalGap8),
                     AppText.bodyMedium(
-                      "Elevating your mobile experience",
+                      "A production-grade Clean Architecture starter",
+                      textAlign: TextAlign.center,
                       color: Colors.white.withAlpha(204),
                     ),
                     Gap(AppConstant.verticalGap20 * 3),

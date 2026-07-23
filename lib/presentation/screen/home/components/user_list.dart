@@ -14,6 +14,14 @@ import 'package:flutter_template/presentation/theme/text/app_text.dart';
 class UserList extends StatelessWidget {
   const UserList({super.key});
 
+  /// Up to two uppercase initials from a display name (e.g. "Ada Rivera" → "AR").
+  String _initials(String name) {
+    final parts = name.trim().split(RegExp(r'\s+')).where((p) => p.isNotEmpty);
+    if (parts.isEmpty) return '?';
+    final letters = parts.take(2).map((p) => p[0].toUpperCase()).join();
+    return letters;
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = context.colors;
@@ -29,10 +37,20 @@ class UserList extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(
-                    Icons.workspace_premium_rounded,
-                    size: 64,
-                    color: Colors.amber.withAlpha(178),
+                  Container(
+                    height: 96,
+                    width: 96,
+                    decoration: BoxDecoration(
+                      color: theme.premium.withAlpha(30),
+                      borderRadius: BorderRadius.circular(
+                        AppConstant.borderRadius20,
+                      ),
+                    ),
+                    child: Icon(
+                      Icons.workspace_premium_rounded,
+                      size: 48,
+                      color: theme.premium,
+                    ),
                   ),
                   Gap(AppConstant.verticalGap16),
                   AppText.titleLarge(
@@ -68,30 +86,35 @@ class UserList extends StatelessWidget {
                 return Container(
                   padding: EdgeInsets.all(AppConstant.horizontalGap16),
                   decoration: BoxDecoration(
-                    color: theme.surface,
+                    color: theme.surfaceElevated,
                     borderRadius: BorderRadius.circular(AppConstant.borderRadius16),
-                    border: Border.all(color: theme.border.withAlpha(128)),
+                    border: Border.all(color: theme.border),
                     boxShadow: [
                       BoxShadow(
-                        color: theme.shadow.withAlpha(8),
-                        blurRadius: 10,
-                        offset: const Offset(0, 4),
+                        color: theme.shadow.withAlpha(20),
+                        blurRadius: 14,
+                        offset: const Offset(0, 6),
                       ),
                     ],
                   ),
                   child: Row(
                     children: [
                       Container(
-                        height: 60,
-                        width: 60,
+                        height: 52,
+                        width: 52,
+                        alignment: Alignment.center,
                         decoration: BoxDecoration(
-                          color: theme.primary.withAlpha(26),
+                          gradient: LinearGradient(
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                            colors: [theme.primary, theme.secondary],
+                          ),
                           shape: BoxShape.circle,
                         ),
-                        child: Icon(
-                          Icons.person_outline_rounded,
-                          color: theme.primary,
-                          size: 30,
+                        child: AppText.titleMedium(
+                          _initials(user.name),
+                          color: theme.onPrimary,
+                          fontWeight: FontWeight.w700,
                         ),
                       ),
                       Gap(AppConstant.horizontalGap16),

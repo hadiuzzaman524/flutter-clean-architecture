@@ -43,9 +43,11 @@ class DarkColorTheme extends BaseColorTheme {
     success: success,
     warning: warning,
     info: info,
+    premium: premium,
     border: border,
     shadow: shadow,
     disabled: disabled,
+    surfaceElevated: surfaceElevated,
   );
 
   // === Brand Colors ===
@@ -58,11 +60,11 @@ class DarkColorTheme extends BaseColorTheme {
   Color get onSecondary => const Color(0xFF1A1A1A);
 
   // === Background & Surfaces ===
-  Color get background => const Color(0xFF0E0E0F);
+  Color get background => const Color(0xFF0D0D14);
 
   Color get onBackground => const Color(0xFFEAEAEA);
 
-  Color get surface => const Color(0xFF1A1A1A);
+  Color get surface => const Color(0xFF17171F);
 
   Color get onSurface => const Color(0xFFE6E6E6);
 
@@ -77,11 +79,17 @@ class DarkColorTheme extends BaseColorTheme {
 
   Color get info => const Color(0xFF64B5F6);
 
+  /// Premium / "PRO" accent (replaces hardcoded Colors.amber).
+  Color get premium => const Color(0xFFFFCA55);
+
   // === Neutrals ===
-  Color get border => const Color(0xFF2E2E2E);
+  Color get border => const Color(0xFF2A2A3A);
 
   Color get shadow => const Color(0x99000000); // 60% opacity
   Color get disabled => const Color(0xFF5A5A5A);
+
+  /// One step above [surface] for layered cards / sheets (surfaces[2]).
+  Color get surfaceElevated => surfaces[2]!;
 
   // === Supporting Colors ===
   Color get scaffoldBackgroundColor => background;
@@ -90,9 +98,9 @@ class DarkColorTheme extends BaseColorTheme {
 
   // === Surface Variants ===
   final Map<int, Color> surfaces = const {
-    1: Color(0xFF1A1A1A), // base surface
-    2: Color(0xFF232325), // elevated
-    3: Color(0xFF2C2C2E), // higher elevation
-    4: Color(0xFF363638), // variant
+    1: Color(0xFF17171F), // base surface
+    2: Color(0xFF20202C), // elevated
+    3: Color(0xFF2A2A38), // higher elevation
+    4: Color(0xFF363648), // variant
   };
 }

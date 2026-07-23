@@ -16,9 +16,11 @@ class AppColors extends ThemeExtension<AppColors> {
     required this.success,
     required this.warning,
     required this.info,
+    required this.premium,
     required this.border,
     required this.shadow,
     required this.disabled,
+    required this.surfaceElevated,
   });
   // Core brand and base
   final Color primary;
@@ -36,11 +38,15 @@ class AppColors extends ThemeExtension<AppColors> {
   final Color success;
   final Color warning;
   final Color info;
+  final Color premium;
 
   // Utility
   final Color border;
   final Color shadow;
   final Color disabled;
+
+  /// A surface one step above [surface] for layered cards / sheets.
+  final Color surfaceElevated;
 
   ColorScheme getColorScheme(Brightness brightness) => ColorScheme(
     brightness: brightness,
@@ -82,9 +88,11 @@ class AppColors extends ThemeExtension<AppColors> {
     Color? success,
     Color? warning,
     Color? info,
+    Color? premium,
     Color? border,
     Color? shadow,
     Color? disabled,
+    Color? surfaceElevated,
   }) {
     return AppColors(
       primary: primary ?? this.primary,
@@ -100,9 +108,11 @@ class AppColors extends ThemeExtension<AppColors> {
       success: success ?? this.success,
       warning: warning ?? this.warning,
       info: info ?? this.info,
+      premium: premium ?? this.premium,
       border: border ?? this.border,
       shadow: shadow ?? this.shadow,
       disabled: disabled ?? this.disabled,
+      surfaceElevated: surfaceElevated ?? this.surfaceElevated,
     );
   }
 
@@ -126,9 +136,11 @@ class AppColors extends ThemeExtension<AppColors> {
       success: Color.lerp(success, other.success, t)!,
       warning: Color.lerp(warning, other.warning, t)!,
       info: Color.lerp(info, other.info, t)!,
+      premium: Color.lerp(premium, other.premium, t)!,
       border: Color.lerp(border, other.border, t)!,
       shadow: Color.lerp(shadow, other.shadow, t)!,
       disabled: Color.lerp(disabled, other.disabled, t)!,
+      surfaceElevated: Color.lerp(surfaceElevated, other.surfaceElevated, t)!,
     );
   }
 }

@@ -38,9 +38,9 @@ class _SubscribeDialogState extends State<SubscribeDialog> {
     final theme = context.colors;
 
     return AlertDialog(
-      icon: const Icon(
+      icon: Icon(
         Icons.workspace_premium_rounded,
-        color: Colors.amber,
+        color: theme.premium,
         size: 40,
       ),
       title: AppText.titleLarge('Unlock Premium', textAlign: TextAlign.center),

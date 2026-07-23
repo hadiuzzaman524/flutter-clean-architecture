@@ -43,9 +43,11 @@ class LightColorTheme extends BaseColorTheme {
     success: success,
     warning: warning,
     info: info,
+    premium: premium,
     border: border,
     shadow: shadow,
     disabled: disabled,
+    surfaceElevated: surfaceElevated,
   );
 
   // Brand Colors
@@ -77,9 +79,15 @@ class LightColorTheme extends BaseColorTheme {
 
   Color get info => const Color(0xFF007AFF);
 
+  /// Premium / "PRO" accent (replaces hardcoded Colors.amber).
+  Color get premium => const Color(0xFFE0A800);
+
   // Neutrals
-  Color get border => const Color(0xFFE4E4E7);
+  Color get border => const Color(0xFFE9E9F1);
 
   Color get shadow => const Color(0x10000000); // 6% opacity
   Color get disabled => const Color(0xFFBDBDBD);
+
+  /// One step above [surface] for layered cards / sheets.
+  Color get surfaceElevated => const Color(0xFFFFFFFF);
 }

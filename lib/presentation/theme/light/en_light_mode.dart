@@ -19,9 +19,8 @@ class EnLightMode extends BaseThemeInfo {
     final baseTextTheme = getBaseTextTheme(orientation: orientation);
 
     return theme.copyWith(
-      textTheme: GoogleFonts.notoSansSaurashtraTextTheme(
-        baseTextTheme.appTextStyle
-            .getTextTheme(),
+      textTheme: GoogleFonts.plusJakartaSansTextTheme(
+        baseTextTheme.appTextStyle.getTextTheme(),
       ),
       extensions: [
         ...theme.extensions.values.cast<ThemeExtension>(),

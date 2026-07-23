@@ -12,7 +12,7 @@ class DashboardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AutoTabsRouter(
-      routes: const [HomeRoute(), WidgetsRoute()],
+      routes: const [HomeRoute(), WidgetsRoute(), ArchitectureRoute()],
       builder: (context, child) {
         return _ResponsiveDashboard(child: child);
       },

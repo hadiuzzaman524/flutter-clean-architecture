@@ -24,7 +24,7 @@ class _WidgetsLandscapeViewState extends State<WidgetsLandscapeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: "Widgets Screen"),
+      appBar: CustomAppBar(title: "Component Gallery"),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(12.0),
@@ -44,8 +44,7 @@ class _WidgetsLandscapeViewState extends State<WidgetsLandscapeView> {
                         "A new version of the app is available. Please update to get the latest features and bug fixes.",
                   );
 
-                  if (shouldUpdate) {
-                    // Handle update action
+                  if (shouldUpdate && context.mounted) {
                     AppSnackBarHelper.show(
                       context,
                       message: "Update initiated",
@@ -82,11 +81,13 @@ class _WidgetsLandscapeViewState extends State<WidgetsLandscapeView> {
                       padding: const EdgeInsets.all(16),
                       height: 250,
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: context.colors.surface,
                         borderRadius: BorderRadius.circular(20),
                       ),
-                      child: const Center(
-                        child: Text("Hello from Bottom Sheet!"),
+                      child: Center(
+                        child: AppText.titleMedium(
+                          "Hello from the bottom sheet!",
+                        ),
                       ),
                     ),
                     borderRadius: 20,

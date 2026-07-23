@@ -333,14 +333,14 @@ class _AppTextFieldState extends State<AppTextField> {
     return OutlineInputBorder(
       borderRadius: BorderRadius.circular(widget.radius),
       borderSide: BorderSide(
-        color: isActive
-            ? widget.activeBorderColor ?? Colors.transparent
-            : isError
+        color: isError
             ? context.colors.error
+            : isActive
+            ? widget.activeBorderColor ?? context.colors.primary
             : isDisabled
-            ? context.colors.onSurface
-            : Colors.transparent,
-        width: isActive || (isActive && isError) ? 1.6 : 1.2,
+            ? context.colors.border
+            : context.colors.border,
+        width: isActive ? 1.6 : 1.2,
         style: BorderStyle.solid,
       ),
     );

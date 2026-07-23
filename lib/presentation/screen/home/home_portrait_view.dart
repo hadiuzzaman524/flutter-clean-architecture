@@ -43,7 +43,7 @@ class HomePortraitView extends StatelessWidget {
                   'PRO',
                   style: TextStyle(fontSize: 8, fontWeight: FontWeight.bold),
                 ),
-                backgroundColor: Colors.amber,
+                backgroundColor: theme.premium,
                 offset: const Offset(-4, 4),
                 child: IconButton(
                   onPressed: () => state.isSubscribed
@@ -53,7 +53,7 @@ class HomePortraitView extends StatelessWidget {
                     state.isSubscribed
                         ? Icons.star_rounded
                         : Icons.star_outline_rounded,
-                    color: state.isSubscribed ? Colors.amber : theme.onSurface,
+                    color: state.isSubscribed ? theme.premium : theme.onSurface,
                   ),
                   tooltip:
                       state.isSubscribed ? 'Subscription Active' : 'Subscribe',

@@ -20,7 +20,7 @@ class EnDarkMode extends BaseThemeInfo {
     final baseTextTheme = getBaseTextTheme(orientation: orientation);
 
     return theme.copyWith(
-      textTheme: GoogleFonts.notoSansSaurashtraTextTheme(
+      textTheme: GoogleFonts.plusJakartaSansTextTheme(
         baseTextTheme.appTextStyle.getTextTheme(),
       ),
       extensions: [

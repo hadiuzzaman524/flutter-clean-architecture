@@ -50,14 +50,58 @@ class HomeLandscapeView extends StatelessWidget {
       body: Row(
         children: [
           Container(
-            width: 200,
-            color: theme.surface.withAlpha(128),
+            width: 220,
+            color: theme.surface,
+            padding: EdgeInsets.all(AppConstant.horizontalGap20),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Gap(AppConstant.verticalGap20),
-                const Icon(Icons.analytics_outlined, size: 48),
                 Gap(AppConstant.verticalGap12),
-                AppText.titleMedium("Dashboard Overview"),
+                Container(
+                  height: 44,
+                  width: 44,
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [theme.primary, theme.secondary],
+                    ),
+                    borderRadius: BorderRadius.circular(
+                      AppConstant.borderRadius12,
+                    ),
+                  ),
+                  child: const Icon(
+                    Icons.rocket_launch_rounded,
+                    color: Colors.white,
+                    size: 24,
+                  ),
+                ),
+                Gap(AppConstant.verticalGap16),
+                AppText.titleMedium(
+                  'User Directory',
+                  fontWeight: FontWeight.w700,
+                ),
+                Gap(AppConstant.verticalGap4),
+                AppText.bodySmall(
+                  'Browse the team roster served through the repository layer.',
+                  color: theme.onSurface.withAlpha(150),
+                  maxLines: 3,
+                ),
+                const Spacer(),
+                Row(
+                  children: [
+                    Icon(
+                      Icons.workspace_premium_rounded,
+                      size: 16,
+                      color: theme.premium,
+                    ),
+                    Gap(AppConstant.horizontalGap8),
+                    Expanded(
+                      child: AppText.bodySmall(
+                        'Premium unlocks the full list',
+                        color: theme.onSurface.withAlpha(150),
+                      ),
+                    ),
+                  ],
+                ),
               ],
             ),
           ),

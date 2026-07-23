@@ -141,18 +141,16 @@ class _LogInPortraitViewState extends State<LogInPortraitView> {
                             AppConstant.horizontalGap20 + 4,
                           ),
                           decoration: BoxDecoration(
-                            color: theme.disabled,
+                            color: theme.surfaceElevated,
                             borderRadius: BorderRadius.circular(
                               AppConstant.borderRadius20,
                             ),
-                            border: Border.all(
-                              color: theme.border.withAlpha(128),
-                            ),
+                            border: Border.all(color: theme.border),
                             boxShadow: [
                               BoxShadow(
-                                color: theme.shadow.withAlpha(13),
-                                blurRadius: 20,
-                                offset: const Offset(0, 10),
+                                color: theme.shadow.withAlpha(40),
+                                blurRadius: 24,
+                                offset: const Offset(0, 12),
                               ),
                             ],
                           ),
@@ -172,7 +170,7 @@ class _LogInPortraitViewState extends State<LogInPortraitView> {
                                   controller: emailController,
                                   hint: "Enter your email",
                                   textFieldType: AppTextFieldType.email,
-                                  fillColor: context.colors.surface,
+                                  fillColor: context.colors.background,
                                 ),
                                 Gap(AppConstant.verticalGap20),
                                 AppText.labelLarge(
@@ -186,7 +184,7 @@ class _LogInPortraitViewState extends State<LogInPortraitView> {
                                   controller: pinController,
                                   hint: "Enter your PIN",
                                   textFieldType: AppTextFieldType.number,
-                                  fillColor: context.colors.surface,
+                                  fillColor: context.colors.background,
                                 ),
                                 Gap(AppConstant.verticalGap20 * 1.5),
                                 SizedBox(
@@ -195,6 +193,36 @@ class _LogInPortraitViewState extends State<LogInPortraitView> {
                                     onPressed: _onLogin,
                                     title: context.l10n.login,
                                   ),
+                                ),
+                                Gap(AppConstant.verticalGap12),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      padding: EdgeInsets.symmetric(
+                                        horizontal: AppConstant.horizontalGap8,
+                                        vertical: AppConstant.verticalGap4,
+                                      ),
+                                      decoration: BoxDecoration(
+                                        color: theme.primary.withAlpha(23),
+                                        borderRadius: BorderRadius.circular(
+                                          AppConstant.borderRadius8,
+                                        ),
+                                      ),
+                                      child: AppText.labelSmall(
+                                        'DEMO',
+                                        color: theme.primary,
+                                        fontWeight: FontWeight.w700,
+                                      ),
+                                    ),
+                                    Gap(AppConstant.horizontalGap8),
+                                    Flexible(
+                                      child: AppText.bodySmall(
+                                        'Prefilled test@gmail.com / 1234',
+                                        color: theme.onSurface.withAlpha(140),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ],
                             ),
