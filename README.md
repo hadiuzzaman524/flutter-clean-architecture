@@ -4,8 +4,7 @@
 
 `UserRepository` is resolved by DI (`get_it` + `injectable`) into a different chain per flavor — the cubit and use case never know which chain they got. Development skips the subscription check entirely; staging/production gate every call behind it. Both chains funnel through the same cache-first repository, and the cache is filled from either mock data (development) or the real API (staging/production).
 
-
----
+<img src="https://raw.githubusercontent.com/hadiuzzaman524/flutter-clean-architecture/develop/assets/images/Feature%20Access%20by%20Flavor-selection.png" alt="Feature Access by Flavor" width="800" />
 
 ## What is Clean Architecture?
 
