@@ -19,10 +19,12 @@ abstract class Env {
   }
 
   Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
+    WidgetsFlutterBinding.ensureInitialized();
+
     FlutterError.onError = (details) {
       log(details.exceptionAsString(), stackTrace: details.stack);
     };
-    configureDependencies(name);
+    await configureDependencies(name);
 
     Bloc.observer = const AppBlocObserver();
 

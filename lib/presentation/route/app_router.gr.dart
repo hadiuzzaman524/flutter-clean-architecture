@@ -9,93 +9,129 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i7;
-import 'package:flutter/material.dart' as _i8;
-import 'package:flutter_template/presentation/screen/auth/login/login_screen.dart'
-    as _i3;
-import 'package:flutter_template/presentation/screen/dashboard/dashboard_screen.dart'
+import 'package:auto_route/auto_route.dart' as _i9;
+import 'package:flutter/material.dart' as _i10;
+import 'package:flutter_template/presentation/screen/architecture/architecture_screen.dart'
     as _i1;
-import 'package:flutter_template/presentation/screen/home/home_screen.dart'
-    as _i2;
-import 'package:flutter_template/presentation/screen/splash/splash_screen.dart'
+import 'package:flutter_template/presentation/screen/auth/login/login_screen.dart'
     as _i4;
-import 'package:flutter_template/presentation/screen/widget_screen/widget_screen.dart'
-    as _i6;
-import 'package:flutter_template/presentation/widgets/others/widgets.dart'
+import 'package:flutter_template/presentation/screen/dashboard/dashboard_screen.dart'
+    as _i2;
+import 'package:flutter_template/presentation/screen/home/home_screen.dart'
+    as _i3;
+import 'package:flutter_template/presentation/screen/settings/settings_screen.dart'
     as _i5;
+import 'package:flutter_template/presentation/screen/splash/splash_screen.dart'
+    as _i6;
+import 'package:flutter_template/presentation/screen/widget_screen/widget_screen.dart'
+    as _i8;
+import 'package:flutter_template/presentation/widgets/others/widgets.dart'
+    as _i7;
 
 /// generated route for
-/// [_i1.DashboardScreen]
-class DashboardRoute extends _i7.PageRouteInfo<void> {
-  const DashboardRoute({List<_i7.PageRouteInfo>? children})
+/// [_i1.ArchitectureScreen]
+class ArchitectureRoute extends _i9.PageRouteInfo<void> {
+  const ArchitectureRoute({List<_i9.PageRouteInfo>? children})
+    : super(ArchitectureRoute.name, initialChildren: children);
+
+  static const String name = 'ArchitectureRoute';
+
+  static _i9.PageInfo page = _i9.PageInfo(
+    name,
+    builder: (data) {
+      return const _i1.ArchitectureScreen();
+    },
+  );
+}
+
+/// generated route for
+/// [_i2.DashboardScreen]
+class DashboardRoute extends _i9.PageRouteInfo<void> {
+  const DashboardRoute({List<_i9.PageRouteInfo>? children})
     : super(DashboardRoute.name, initialChildren: children);
 
   static const String name = 'DashboardRoute';
 
-  static _i7.PageInfo page = _i7.PageInfo(
+  static _i9.PageInfo page = _i9.PageInfo(
     name,
     builder: (data) {
-      return const _i1.DashboardScreen();
+      return const _i2.DashboardScreen();
     },
   );
 }
 
 /// generated route for
-/// [_i2.HomeScreen]
-class HomeRoute extends _i7.PageRouteInfo<void> {
-  const HomeRoute({List<_i7.PageRouteInfo>? children})
+/// [_i3.HomeScreen]
+class HomeRoute extends _i9.PageRouteInfo<void> {
+  const HomeRoute({List<_i9.PageRouteInfo>? children})
     : super(HomeRoute.name, initialChildren: children);
 
   static const String name = 'HomeRoute';
 
-  static _i7.PageInfo page = _i7.PageInfo(
+  static _i9.PageInfo page = _i9.PageInfo(
     name,
     builder: (data) {
-      return const _i2.HomeScreen();
+      return const _i3.HomeScreen();
     },
   );
 }
 
 /// generated route for
-/// [_i3.LogInScreen]
-class LogInRoute extends _i7.PageRouteInfo<void> {
-  const LogInRoute({List<_i7.PageRouteInfo>? children})
+/// [_i4.LogInScreen]
+class LogInRoute extends _i9.PageRouteInfo<void> {
+  const LogInRoute({List<_i9.PageRouteInfo>? children})
     : super(LogInRoute.name, initialChildren: children);
 
   static const String name = 'LogInRoute';
 
-  static _i7.PageInfo page = _i7.PageInfo(
+  static _i9.PageInfo page = _i9.PageInfo(
     name,
     builder: (data) {
-      return const _i3.LogInScreen();
+      return const _i4.LogInScreen();
     },
   );
 }
 
 /// generated route for
-/// [_i4.SplashScreen]
-class SplashRoute extends _i7.PageRouteInfo<void> {
-  const SplashRoute({List<_i7.PageRouteInfo>? children})
+/// [_i5.SettingsScreen]
+class SettingsRoute extends _i9.PageRouteInfo<void> {
+  const SettingsRoute({List<_i9.PageRouteInfo>? children})
+    : super(SettingsRoute.name, initialChildren: children);
+
+  static const String name = 'SettingsRoute';
+
+  static _i9.PageInfo page = _i9.PageInfo(
+    name,
+    builder: (data) {
+      return const _i5.SettingsScreen();
+    },
+  );
+}
+
+/// generated route for
+/// [_i6.SplashScreen]
+class SplashRoute extends _i9.PageRouteInfo<void> {
+  const SplashRoute({List<_i9.PageRouteInfo>? children})
     : super(SplashRoute.name, initialChildren: children);
 
   static const String name = 'SplashRoute';
 
-  static _i7.PageInfo page = _i7.PageInfo(
+  static _i9.PageInfo page = _i9.PageInfo(
     name,
     builder: (data) {
-      return const _i4.SplashScreen();
+      return const _i6.SplashScreen();
     },
   );
 }
 
 /// generated route for
-/// [_i5.WebViewScreen]
-class WebViewRoute extends _i7.PageRouteInfo<WebViewRouteArgs> {
+/// [_i7.WebViewScreen]
+class WebViewRoute extends _i9.PageRouteInfo<WebViewRouteArgs> {
   WebViewRoute({
     required String url,
     required String appbarTitle,
-    _i8.Key? key,
-    List<_i7.PageRouteInfo>? children,
+    _i10.Key? key,
+    List<_i9.PageRouteInfo>? children,
   }) : super(
          WebViewRoute.name,
          args: WebViewRouteArgs(url: url, appbarTitle: appbarTitle, key: key),
@@ -104,11 +140,11 @@ class WebViewRoute extends _i7.PageRouteInfo<WebViewRouteArgs> {
 
   static const String name = 'WebViewRoute';
 
-  static _i7.PageInfo page = _i7.PageInfo(
+  static _i9.PageInfo page = _i9.PageInfo(
     name,
     builder: (data) {
       final args = data.argsAs<WebViewRouteArgs>();
-      return _i5.WebViewScreen(
+      return _i7.WebViewScreen(
         url: args.url,
         appbarTitle: args.appbarTitle,
         key: args.key,
@@ -128,7 +164,7 @@ class WebViewRouteArgs {
 
   final String appbarTitle;
 
-  final _i8.Key? key;
+  final _i10.Key? key;
 
   @override
   String toString() {
@@ -149,17 +185,17 @@ class WebViewRouteArgs {
 }
 
 /// generated route for
-/// [_i6.WidgetsScreen]
-class WidgetsRoute extends _i7.PageRouteInfo<void> {
-  const WidgetsRoute({List<_i7.PageRouteInfo>? children})
+/// [_i8.WidgetsScreen]
+class WidgetsRoute extends _i9.PageRouteInfo<void> {
+  const WidgetsRoute({List<_i9.PageRouteInfo>? children})
     : super(WidgetsRoute.name, initialChildren: children);
 
   static const String name = 'WidgetsRoute';
 
-  static _i7.PageInfo page = _i7.PageInfo(
+  static _i9.PageInfo page = _i9.PageInfo(
     name,
     builder: (data) {
-      return const _i6.WidgetsScreen();
+      return const _i8.WidgetsScreen();
     },
   );
 }

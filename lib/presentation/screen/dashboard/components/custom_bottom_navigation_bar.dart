@@ -1,7 +1,8 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:flutter_template/core/constants/app_constant.dart';
-import 'package:flutter_template/gen/assets.gen.dart';
+import 'package:flutter_template/l10n/l10n.dart';
 import 'package:flutter_template/presentation/screen/dashboard/components/bottom_nav_item.dart';
 import 'package:flutter_template/presentation/theme/base/theme_extension.dart';
 
@@ -53,20 +54,41 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
             children: [
               Expanded(
                 child: BottomNavItem(
-                  title: "Home",
+                  title: context.l10n.navHome,
                   group: group,
                   onTap: () => widget.onTap(0),
                   isSelected: widget.currentIndex == 0,
-                  image: Assets.images.exploreIcon,
+                  icon: Icons.home_rounded,
                 ),
               ),
+              Gap(AppConstant.horizontalGap8),
               Expanded(
                 child: BottomNavItem(
-                  title: "Widgets",
+                  title: context.l10n.navWidgets,
                   group: group,
                   onTap: () => widget.onTap(1),
                   isSelected: widget.currentIndex == 1,
-                  image: Assets.images.settingsIcon,
+                  icon: Icons.widgets_rounded,
+                ),
+              ),
+              Gap(AppConstant.horizontalGap8),
+              Expanded(
+                child: BottomNavItem(
+                  title: context.l10n.navArchitecture,
+                  group: group,
+                  onTap: () => widget.onTap(2),
+                  isSelected: widget.currentIndex == 2,
+                  icon: Icons.account_tree_rounded,
+                ),
+              ),
+              Gap(AppConstant.horizontalGap8),
+              Expanded(
+                child: BottomNavItem(
+                  title: context.l10n.navSettings,
+                  group: group,
+                  onTap: () => widget.onTap(3),
+                  isSelected: widget.currentIndex == 3,
+                  icon: Icons.settings_rounded,
                 ),
               ),
             ],

@@ -14,7 +14,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$UserState {
 
- List<UserEntity> get userList; BaseStatus get status;
+ List<UserEntity> get userList; BaseStatus get status; bool get isSubscribed; bool get isSubscriptionRequired;
 /// Create a copy of UserState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -25,16 +25,16 @@ $UserStateCopyWith<UserState> get copyWith => _$UserStateCopyWithImpl<UserState>
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UserState&&const DeepCollectionEquality().equals(other.userList, userList)&&(identical(other.status, status) || other.status == status));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UserState&&const DeepCollectionEquality().equals(other.userList, userList)&&(identical(other.status, status) || other.status == status)&&(identical(other.isSubscribed, isSubscribed) || other.isSubscribed == isSubscribed)&&(identical(other.isSubscriptionRequired, isSubscriptionRequired) || other.isSubscriptionRequired == isSubscriptionRequired));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(userList),status);
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(userList),status,isSubscribed,isSubscriptionRequired);
 
 @override
 String toString() {
-  return 'UserState(userList: $userList, status: $status)';
+  return 'UserState(userList: $userList, status: $status, isSubscribed: $isSubscribed, isSubscriptionRequired: $isSubscriptionRequired)';
 }
 
 
@@ -45,7 +45,7 @@ abstract mixin class $UserStateCopyWith<$Res>  {
   factory $UserStateCopyWith(UserState value, $Res Function(UserState) _then) = _$UserStateCopyWithImpl;
 @useResult
 $Res call({
- List<UserEntity> userList, BaseStatus status
+ List<UserEntity> userList, BaseStatus status, bool isSubscribed, bool isSubscriptionRequired
 });
 
 
@@ -62,11 +62,13 @@ class _$UserStateCopyWithImpl<$Res>
 
 /// Create a copy of UserState
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? userList = null,Object? status = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? userList = null,Object? status = null,Object? isSubscribed = null,Object? isSubscriptionRequired = null,}) {
   return _then(_self.copyWith(
 userList: null == userList ? _self.userList : userList // ignore: cast_nullable_to_non_nullable
 as List<UserEntity>,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
-as BaseStatus,
+as BaseStatus,isSubscribed: null == isSubscribed ? _self.isSubscribed : isSubscribed // ignore: cast_nullable_to_non_nullable
+as bool,isSubscriptionRequired: null == isSubscriptionRequired ? _self.isSubscriptionRequired : isSubscriptionRequired // ignore: cast_nullable_to_non_nullable
+as bool,
   ));
 }
 /// Create a copy of UserState
@@ -157,10 +159,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<UserEntity> userList,  BaseStatus status)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<UserEntity> userList,  BaseStatus status,  bool isSubscribed,  bool isSubscriptionRequired)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _UserState() when $default != null:
-return $default(_that.userList,_that.status);case _:
+return $default(_that.userList,_that.status,_that.isSubscribed,_that.isSubscriptionRequired);case _:
   return orElse();
 
 }
@@ -178,10 +180,10 @@ return $default(_that.userList,_that.status);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<UserEntity> userList,  BaseStatus status)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<UserEntity> userList,  BaseStatus status,  bool isSubscribed,  bool isSubscriptionRequired)  $default,) {final _that = this;
 switch (_that) {
 case _UserState():
-return $default(_that.userList,_that.status);}
+return $default(_that.userList,_that.status,_that.isSubscribed,_that.isSubscriptionRequired);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -195,10 +197,10 @@ return $default(_that.userList,_that.status);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<UserEntity> userList,  BaseStatus status)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<UserEntity> userList,  BaseStatus status,  bool isSubscribed,  bool isSubscriptionRequired)?  $default,) {final _that = this;
 switch (_that) {
 case _UserState() when $default != null:
-return $default(_that.userList,_that.status);case _:
+return $default(_that.userList,_that.status,_that.isSubscribed,_that.isSubscriptionRequired);case _:
   return null;
 
 }
@@ -210,7 +212,7 @@ return $default(_that.userList,_that.status);case _:
 
 
 class _UserState implements UserState {
-  const _UserState({final  List<UserEntity> userList = const [], this.status = const BaseStatus.initial()}): _userList = userList;
+  const _UserState({final  List<UserEntity> userList = const [], this.status = const BaseStatus.initial(), this.isSubscribed = false, this.isSubscriptionRequired = false}): _userList = userList;
   
 
  final  List<UserEntity> _userList;
@@ -221,6 +223,8 @@ class _UserState implements UserState {
 }
 
 @override@JsonKey() final  BaseStatus status;
+@override@JsonKey() final  bool isSubscribed;
+@override@JsonKey() final  bool isSubscriptionRequired;
 
 /// Create a copy of UserState
 /// with the given fields replaced by the non-null parameter values.
@@ -232,16 +236,16 @@ _$UserStateCopyWith<_UserState> get copyWith => __$UserStateCopyWithImpl<_UserSt
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UserState&&const DeepCollectionEquality().equals(other._userList, _userList)&&(identical(other.status, status) || other.status == status));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UserState&&const DeepCollectionEquality().equals(other._userList, _userList)&&(identical(other.status, status) || other.status == status)&&(identical(other.isSubscribed, isSubscribed) || other.isSubscribed == isSubscribed)&&(identical(other.isSubscriptionRequired, isSubscriptionRequired) || other.isSubscriptionRequired == isSubscriptionRequired));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_userList),status);
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_userList),status,isSubscribed,isSubscriptionRequired);
 
 @override
 String toString() {
-  return 'UserState(userList: $userList, status: $status)';
+  return 'UserState(userList: $userList, status: $status, isSubscribed: $isSubscribed, isSubscriptionRequired: $isSubscriptionRequired)';
 }
 
 
@@ -252,7 +256,7 @@ abstract mixin class _$UserStateCopyWith<$Res> implements $UserStateCopyWith<$Re
   factory _$UserStateCopyWith(_UserState value, $Res Function(_UserState) _then) = __$UserStateCopyWithImpl;
 @override @useResult
 $Res call({
- List<UserEntity> userList, BaseStatus status
+ List<UserEntity> userList, BaseStatus status, bool isSubscribed, bool isSubscriptionRequired
 });
 
 
@@ -269,11 +273,13 @@ class __$UserStateCopyWithImpl<$Res>
 
 /// Create a copy of UserState
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? userList = null,Object? status = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? userList = null,Object? status = null,Object? isSubscribed = null,Object? isSubscriptionRequired = null,}) {
   return _then(_UserState(
 userList: null == userList ? _self._userList : userList // ignore: cast_nullable_to_non_nullable
 as List<UserEntity>,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
-as BaseStatus,
+as BaseStatus,isSubscribed: null == isSubscribed ? _self.isSubscribed : isSubscribed // ignore: cast_nullable_to_non_nullable
+as bool,isSubscriptionRequired: null == isSubscriptionRequired ? _self.isSubscriptionRequired : isSubscriptionRequired // ignore: cast_nullable_to_non_nullable
+as bool,
   ));
 }
 

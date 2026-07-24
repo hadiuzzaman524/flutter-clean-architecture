@@ -120,7 +120,7 @@ class _LogInPortraitViewState extends State<LogInPortraitView> {
                         ),
                         Gap(AppConstant.verticalGap20),
                         AppText.displayMedium(
-                          "Welcome Back",
+                          context.l10n.loginWelcomeTitle,
                           style: context.textStyle.displaySmall.copyWith(
                             fontWeight: FontWeight.bold,
                             color: theme.onBackground,
@@ -128,7 +128,7 @@ class _LogInPortraitViewState extends State<LogInPortraitView> {
                         ),
                         Gap(AppConstant.verticalGap8),
                         AppText.bodyMedium(
-                          "Login to your account to continue",
+                          context.l10n.loginSubtitle,
                           style: context.textStyle.bodyMedium.copyWith(
                             color: theme.onSurface.withAlpha(153),
                           ),
@@ -141,18 +141,16 @@ class _LogInPortraitViewState extends State<LogInPortraitView> {
                             AppConstant.horizontalGap20 + 4,
                           ),
                           decoration: BoxDecoration(
-                            color: theme.disabled,
+                            color: theme.surfaceElevated,
                             borderRadius: BorderRadius.circular(
                               AppConstant.borderRadius20,
                             ),
-                            border: Border.all(
-                              color: theme.border.withAlpha(128),
-                            ),
+                            border: Border.all(color: theme.border),
                             boxShadow: [
                               BoxShadow(
-                                color: theme.shadow.withAlpha(13),
-                                blurRadius: 20,
-                                offset: const Offset(0, 10),
+                                color: theme.shadow.withAlpha(40),
+                                blurRadius: 24,
+                                offset: const Offset(0, 12),
                               ),
                             ],
                           ),
@@ -170,9 +168,9 @@ class _LogInPortraitViewState extends State<LogInPortraitView> {
                                 Gap(AppConstant.verticalGap8),
                                 AppTextField(
                                   controller: emailController,
-                                  hint: "Enter your email",
+                                  hint: context.l10n.loginEmailHint,
                                   textFieldType: AppTextFieldType.email,
-                                  fillColor: context.colors.surface,
+                                  fillColor: context.colors.background,
                                 ),
                                 Gap(AppConstant.verticalGap20),
                                 AppText.labelLarge(
@@ -184,9 +182,9 @@ class _LogInPortraitViewState extends State<LogInPortraitView> {
                                 Gap(AppConstant.verticalGap8),
                                 AppTextField(
                                   controller: pinController,
-                                  hint: "Enter your PIN",
+                                  hint: context.l10n.loginPinHint,
                                   textFieldType: AppTextFieldType.number,
-                                  fillColor: context.colors.surface,
+                                  fillColor: context.colors.background,
                                 ),
                                 Gap(AppConstant.verticalGap20 * 1.5),
                                 SizedBox(
@@ -195,6 +193,36 @@ class _LogInPortraitViewState extends State<LogInPortraitView> {
                                     onPressed: _onLogin,
                                     title: context.l10n.login,
                                   ),
+                                ),
+                                Gap(AppConstant.verticalGap12),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      padding: EdgeInsets.symmetric(
+                                        horizontal: AppConstant.horizontalGap8,
+                                        vertical: AppConstant.verticalGap4,
+                                      ),
+                                      decoration: BoxDecoration(
+                                        color: theme.primary.withAlpha(23),
+                                        borderRadius: BorderRadius.circular(
+                                          AppConstant.borderRadius8,
+                                        ),
+                                      ),
+                                      child: AppText.labelSmall(
+                                        context.l10n.demoBadge,
+                                        color: theme.primary,
+                                        fontWeight: FontWeight.w700,
+                                      ),
+                                    ),
+                                    Gap(AppConstant.horizontalGap8),
+                                    Flexible(
+                                      child: AppText.bodySmall(
+                                        context.l10n.loginDemoCredentials,
+                                        color: theme.onSurface.withAlpha(140),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ],
                             ),

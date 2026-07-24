@@ -103,7 +103,7 @@ class _PrimaryButtonState extends State<PrimaryButton> {
           ),
           fixedSize: widget.size ?? const Size.fromHeight(48),
           backgroundColor: widget.backgroundColor ?? context.colors.primary,
-          foregroundColor: widget.foregroundColor ?? context.colors.secondary,
+          foregroundColor: widget.foregroundColor ?? context.colors.onPrimary,
           elevation: widget.elevation,
           splashFactory: InkRipple.splashFactory,
         ),
@@ -116,7 +116,7 @@ class _PrimaryButtonState extends State<PrimaryButton> {
                   width: AppConstant.horizontalGap20,
                   child: CircularProgressIndicator.adaptive(
                     backgroundColor:
-                        widget.loadingColor ?? context.colors.secondary,
+                        widget.loadingColor ?? context.colors.onPrimary,
                   ),
                 )
               : widget.child ??

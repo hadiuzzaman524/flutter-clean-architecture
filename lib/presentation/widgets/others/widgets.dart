@@ -7,6 +7,7 @@ import 'package:intl/intl.dart';
 import 'package:flutter_template/core/constants/app_constant.dart';
 import 'package:flutter_template/core/extensions/date_time_extension.dart';
 import 'package:flutter_template/core/helper/app_snack_bar_helper.dart';
+import 'package:flutter_template/l10n/l10n.dart';
 import 'package:flutter_template/presentation/theme/base/theme_extension.dart';
 import 'package:flutter_template/presentation/theme/text/app_text.dart';
 import 'package:flutter_template/presentation/widgets/animation/widgets.dart';

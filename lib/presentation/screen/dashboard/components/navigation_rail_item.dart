@@ -12,49 +12,64 @@ class NavigationRailItem extends StatelessWidget {
     required this.title,
     required this.onTap,
     required this.isSelected,
-    required this.image,
     required this.group,
-  });
+    this.image,
+    this.icon,
+  }) : assert(
+         image != null || icon != null,
+         'Provide either an SVG [image] or an [icon].',
+       );
 
   final String title;
   final VoidCallback onTap;
   final bool isSelected;
-  final String image;
+
+  /// SVG asset path. Mutually exclusive with [icon].
+  final String? image;
+
+  /// Material icon. Mutually exclusive with [image].
+  final IconData? icon;
   final AutoSizeGroup group;
 
   @override
   Widget build(BuildContext context) {
+    final theme = context.colors;
+    final color = isSelected ? theme.primary : theme.disabled;
+
     return Material(
       color: Colors.transparent,
       child: InkWell(
         onTap: onTap,
-        child: SizedBox(
-          width: 68,
-          child: Row(
+        borderRadius: BorderRadius.circular(AppConstant.borderRadius16),
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 220),
+          curve: Curves.easeOut,
+          width: 60,
+          padding: EdgeInsets.symmetric(vertical: AppConstant.verticalGap8),
+          decoration: BoxDecoration(
+            color: isSelected
+                ? theme.primary.withAlpha(23)
+                : Colors.transparent,
+            borderRadius: BorderRadius.circular(AppConstant.borderRadius16),
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
-              Expanded(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    SvgPicture.asset(
-                      image,
-                      colorFilter: ColorFilter.mode(
-                        isSelected
-                            ? context.colors.onSurface
-                            : context.colors.disabled,
-                        BlendMode.srcIn,
-                      ),
-                    ),
-                    Gap(AppConstant.verticalGap4),
-                    AppText.bodySmall(
-                      title,
-                      color: isSelected
-                          ? context.colors.onSurface
-                          : context.colors.disabled,
-                    ),
-                    Gap(AppConstant.verticalGap4),
-                  ],
-                ),
+              if (image != null)
+                SvgPicture.asset(
+                  image!,
+                  height: 24,
+                  width: 24,
+                  colorFilter: ColorFilter.mode(color, BlendMode.srcIn),
+                )
+              else
+                Icon(icon, size: 24, color: color),
+              Gap(AppConstant.verticalGap4),
+              AppText.bodySmall(
+                title,
+                color: color,
+                textAlign: TextAlign.center,
+                fontWeight: isSelected ? FontWeight.w700 : FontWeight.w500,
               ),
             ],
           ),

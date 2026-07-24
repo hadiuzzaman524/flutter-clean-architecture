@@ -9,5 +9,7 @@ sealed class UserState with _$UserState {
   const factory UserState({
     @Default([]) List<UserEntity> userList,
     @Default(BaseStatus.initial()) BaseStatus status,
+    @Default(false) bool isSubscribed,
+    @Default(false) bool isSubscriptionRequired,
   }) = _UserState;
 }

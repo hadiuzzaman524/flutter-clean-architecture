@@ -1,5 +1,12 @@
 # Flutter Clean Architecture Template
 
+## Application Flow
+
+`UserRepository` is resolved by DI (`get_it` + `injectable`) into a different chain per flavor — the cubit and use case never know which chain they got. Development skips the subscription check entirely; staging/production gate every call behind it. Both chains funnel through the same cache-first repository, and the cache is filled from either mock data (development) or the real API (staging/production).
+
+
+---
+
 ## What is Clean Architecture?
 
 [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html), conceptualized by Robert C. Martin, offers a structured approach to organizing applications by breaking them down into modules, each serving a distinct purpose. Its core principle revolves around dividing an application into three primary layers:

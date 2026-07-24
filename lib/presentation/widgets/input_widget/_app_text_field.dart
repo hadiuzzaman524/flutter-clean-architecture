@@ -182,23 +182,23 @@ class _AppTextFieldState extends State<AppTextField> {
             // Email validation
             if (widget.textFieldType == AppTextFieldType.email) {
               if (value == null || value.isEmpty) {
-                return 'Email is required';
+                return context.l10n.emailRequired;
               }
               final emailRegex = RegExp(
                 r'^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$',
               );
               if (!emailRegex.hasMatch(value)) {
-                return 'Please enter a valid email address';
+                return context.l10n.invalidEmail;
               }
             }
 
             // Password validation (optional - customize as needed)
             if (widget.textFieldType == AppTextFieldType.password) {
               if (value == null || value.isEmpty) {
-                return 'Password is required';
+                return context.l10n.passwordRequired;
               }
               if (value.length < 6) {
-                return 'Password must be at least 6 characters';
+                return context.l10n.passwordMinLength;
               }
             }
 
@@ -333,14 +333,14 @@ class _AppTextFieldState extends State<AppTextField> {
     return OutlineInputBorder(
       borderRadius: BorderRadius.circular(widget.radius),
       borderSide: BorderSide(
-        color: isActive
-            ? widget.activeBorderColor ?? Colors.transparent
-            : isError
+        color: isError
             ? context.colors.error
+            : isActive
+            ? widget.activeBorderColor ?? context.colors.primary
             : isDisabled
-            ? context.colors.onSurface
-            : Colors.transparent,
-        width: isActive || (isActive && isError) ? 1.6 : 1.2,
+            ? context.colors.border
+            : context.colors.border,
+        width: isActive ? 1.6 : 1.2,
         style: BorderStyle.solid,
       ),
     );

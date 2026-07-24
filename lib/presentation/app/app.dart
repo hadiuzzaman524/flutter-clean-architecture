@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_template/l10n/l10n.dart';
+import 'package:flutter_template/presentation/locale/cubit/app_locale_cubit.dart';
+import 'package:flutter_template/presentation/locale/cubit/app_locale_state.dart';
 import 'package:flutter_template/presentation/route/app_router.dart';
 import 'package:flutter_template/presentation/theme/base/theme_entity.dart';
 import 'package:flutter_template/presentation/theme/cubit/app_theme_cubit.dart';
@@ -33,21 +35,33 @@ class _AppState extends State<App> {
         BlocProvider(
           create: (ctx) => AppThemeCubit(themeEntities: availableThemes),
         ),
+        BlocProvider(
+          create: (ctx) => AppLocaleCubit(
+            supportedLocales: AppLocalizations.supportedLocales,
+          ),
+        ),
       ],
       child: ScreenUtilInit(
         designSize: Screen.screenSize(context),
         minTextAdapt: true,
         splitScreenMode: true,
         child: BlocBuilder<AppThemeCubit, AppThemeState>(
-          builder: (context, state) {
-            return MaterialApp.router(
-              routerDelegate: _appRouter.delegate(),
-              routeInformationParser: _appRouter.defaultRouteParser(),
-              theme: state.currentTheme.theme.getAppTheme(
-                orientation: MediaQuery.of(context).orientation,
-              ),
-              localizationsDelegates: AppLocalizations.localizationsDelegates,
-              supportedLocales: AppLocalizations.supportedLocales,
+          builder: (context, themeState) {
+            return BlocBuilder<AppLocaleCubit, AppLocaleState>(
+              builder: (context, localeState) {
+                return MaterialApp.router(
+                  debugShowCheckedModeBanner: false,
+                  routerDelegate: _appRouter.delegate(),
+                  routeInformationParser: _appRouter.defaultRouteParser(),
+                  theme: themeState.currentTheme.theme.getAppTheme(
+                    orientation: MediaQuery.of(context).orientation,
+                  ),
+                  locale: localeState.currentLocale,
+                  localizationsDelegates:
+                      AppLocalizations.localizationsDelegates,
+                  supportedLocales: AppLocalizations.supportedLocales,
+                );
+              },
             );
           },
         ),

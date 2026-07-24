@@ -9,5 +9,5 @@ final GetIt injector = GetIt.instance;
   preferRelativeImports: true,
   asExtension: true,
 )
-void configureDependencies(String environment) =>
+Future<void> configureDependencies(String environment) =>
     injector.init(environment: environment);
