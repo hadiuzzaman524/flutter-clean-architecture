@@ -1,13 +1,9 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gap/gap.dart';
 import 'package:flutter_template/core/constants/app_constant.dart';
-import 'package:flutter_template/core/helper/secure_storage_service.dart';
-import 'package:flutter_template/core/injector/injector.dart';
 import 'package:flutter_template/l10n/l10n.dart';
-import 'package:flutter_template/presentation/route/app_router.gr.dart';
 import 'package:flutter_template/presentation/screen/home/components/subscribe_dialog.dart';
-import 'package:flutter_template/presentation/screen/home/components/theme_drop_down_button.dart';
 import 'package:flutter_template/presentation/screen/home/components/user_list.dart';
 import 'package:flutter_template/presentation/screen/home/cubits/user_cubit.dart';
 import 'package:flutter_template/presentation/screen/home/cubits/user_state.dart';
@@ -65,20 +61,7 @@ class HomePortraitView extends StatelessWidget {
               );
             },
           ),
-          const ThemeDropDownButton(),
-          Padding(
-            padding: EdgeInsets.only(right: AppConstant.horizontalGap8),
-            child: IconButton(
-              onPressed: () async {
-                await injector<SecureStorageService>().clearAccessToken();
-                if (context.mounted) {
-                  context.router.replace(const LogInRoute());
-                }
-              },
-              icon: Icon(Icons.logout_rounded, color: theme.error),
-              tooltip: context.l10n.logout,
-            ),
-          ),
+          Gap(AppConstant.horizontalGap8),
         ],
       ),
       body: const UserList(),

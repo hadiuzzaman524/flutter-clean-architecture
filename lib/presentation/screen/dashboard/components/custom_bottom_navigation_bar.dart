@@ -81,6 +81,16 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
                   icon: Icons.account_tree_rounded,
                 ),
               ),
+              Gap(AppConstant.horizontalGap8),
+              Expanded(
+                child: BottomNavItem(
+                  title: context.l10n.navSettings,
+                  group: group,
+                  onTap: () => widget.onTap(3),
+                  isSelected: widget.currentIndex == 3,
+                  icon: Icons.settings_rounded,
+                ),
+              ),
             ],
           ),
         ),

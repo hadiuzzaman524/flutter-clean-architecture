@@ -57,6 +57,13 @@
   "navHome": "Inicio",
   "navWidgets": "Widgets",
   "navArchitecture": "Arquitectura",
+  "navSettings": "Ajustes",
+
+  "settingsTitle": "Ajustes",
+  "settingsAppearance": "Apariencia",
+  "settingsTheme": "Tema",
+  "settingsAccount": "Cuenta",
+  "logoutSubtitle": "Cierra la sesión de tu cuenta",
 
   "themeSystem": "Sistema",
   "themeLight": "Modo claro",

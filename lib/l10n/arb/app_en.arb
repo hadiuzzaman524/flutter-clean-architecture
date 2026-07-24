@@ -57,6 +57,13 @@
   "navHome": "Home",
   "navWidgets": "Widgets",
   "navArchitecture": "Architecture",
+  "navSettings": "Settings",
+
+  "settingsTitle": "Settings",
+  "settingsAppearance": "Appearance",
+  "settingsTheme": "Theme",
+  "settingsAccount": "Account",
+  "logoutSubtitle": "Sign out of your account",
 
   "themeSystem": "System",
   "themeLight": "Light Mode",
