@@ -7,6 +7,7 @@ import 'package:flutter_template/core/injector/injector.dart';
 import 'package:flutter_template/l10n/l10n.dart';
 import 'package:flutter_template/presentation/route/app_router.gr.dart';
 import 'package:flutter_template/presentation/screen/home/components/theme_drop_down_button.dart';
+import 'package:flutter_template/presentation/screen/settings/components/language_drop_down_button.dart';
 import 'package:flutter_template/presentation/theme/base/theme_extension.dart';
 import 'package:flutter_template/presentation/theme/text/app_text.dart';
 import 'package:flutter_template/presentation/widgets/app_bar/widgets.dart';
@@ -39,6 +40,11 @@ class SettingsPortraitView extends StatelessWidget {
                 icon: Icons.palette_outlined,
                 title: l10n.settingsTheme,
                 trailing: const ThemeDropDownButton(),
+              ),
+              _SettingsTile(
+                icon: Icons.language_outlined,
+                title: l10n.settingsLanguage,
+                trailing: const LanguageDropDownButton(),
               ),
             ],
           ),

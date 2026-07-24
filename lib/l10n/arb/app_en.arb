@@ -62,12 +62,17 @@
   "settingsTitle": "Settings",
   "settingsAppearance": "Appearance",
   "settingsTheme": "Theme",
+  "settingsLanguage": "Language",
   "settingsAccount": "Account",
   "logoutSubtitle": "Sign out of your account",
 
   "themeSystem": "System",
   "themeLight": "Light Mode",
   "themeDark": "Dark Mode",
+
+  "languageSystem": "System",
+  "languageEnglish": "English",
+  "languageSpanish": "Spanish",
 
   "galleryTitle": "Component Gallery",
   "gallerySubtitle": "The template’s reusable widgets, grouped by role — all driven by the shared theme tokens.",

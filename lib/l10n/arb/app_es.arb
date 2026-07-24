@@ -62,12 +62,17 @@
   "settingsTitle": "Ajustes",
   "settingsAppearance": "Apariencia",
   "settingsTheme": "Tema",
+  "settingsLanguage": "Idioma",
   "settingsAccount": "Cuenta",
   "logoutSubtitle": "Cierra la sesión de tu cuenta",
 
   "themeSystem": "Sistema",
   "themeLight": "Modo claro",
   "themeDark": "Modo oscuro",
+
+  "languageSystem": "Sistema",
+  "languageEnglish": "Inglés",
+  "languageSpanish": "Español",
 
   "galleryTitle": "Galería de componentes",
   "gallerySubtitle": "Los widgets reutilizables de la plantilla, agrupados por función y guiados por los tokens del tema.",
