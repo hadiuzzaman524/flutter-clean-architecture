@@ -35,7 +35,7 @@ dependencies:
   flutter_screenutil: ^5.9.3
   connectivity_plus: ^7.1.1
   flutter_gen: ^5.14.1
-  webview_flutter: ^4.13.1
+  webview_flutter: ^4.14.1
   url_launcher: ^6.3.2
 
 
