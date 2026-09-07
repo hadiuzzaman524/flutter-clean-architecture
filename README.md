@@ -355,5 +355,31 @@ context.l10n.text
 
 This command automatically generates all required files for a new feature, following Clean
 Architecture principles, including the **domain**, **data**, and **presentation** layers.
+It also wires the new data source into the flavor-based Abstract Factory, so the
+`development` flavor gets the mock and `staging`/`production` get the Retrofit client,
+adds the route to `app_router.dart`, then runs `build_runner` and `flutter analyze`.
+
+Not every feature needs all three layers. Pass options to scaffold a subset:
+
+| Command | What you get |
+| --- | --- |
+| `./create_feature.sh order` | Full stack: entity, repository, use case, response model, remapper, mock + remote data sources, factory wiring, cubit, screen |
+| `./create_feature.sh order --no-data-source` | Domain + data + UI, but **no** data source and no factory changes — the repository impl returns in-memory sample data (marked with a TODO) so DI still resolves |
+| `./create_feature.sh profile --ui-only` | Presentation only: screen, portrait/landscape views, cubit + state, route |
+| `./create_feature.sh about --ui-only --no-cubit` | Static screen only, like `SettingsScreen` |
+| `./create_feature.sh order --layers=domain,data` | No UI |
+| `./create_feature.sh order --skip-build` | Skip `pub get` / `build_runner` / `analyze` (useful when scaffolding several features in a row) |
+
+Run `./create_feature.sh --help` for the full list.
+
+Every mode ships working sample data so the screen is alive as soon as it is generated:
+loading spinner → ~2s delay → list of items. The delay lives in a single `_delay`
+constant per generated file (`ManMockDataSource`, the in-memory `ManRepositoryImpl`, or
+the `--ui-only` cubit) — change or delete it when you plug in real work.
+
+> Picking `--layers=domain,presentation` leaves the repository without an
+> implementation, so `injector<GetOrderListUseCase>()` throws at runtime until you add
+> one. The script warns when you do this; use `--no-data-source` if you want a feature
+> that runs immediately without an API.
 
 ---
